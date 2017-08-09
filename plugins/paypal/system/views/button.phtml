@@ -1,0 +1,95 @@
+<form id="paypal_button" class="payment-button" action="<?php echo $this->endPoint; ?>" target="_blank" method="post">
+    <fieldset>
+        <legend><?php echo $this->translator->translate('Pay with PayPal');?></legend>
+        <input type="hidden" name="cmd" value="_cart"/>
+        <input type="hidden" name="upload" value="1"/>
+        <input type="hidden" name="business" value="<?php echo $this->email; ?>">
+        <input type="hidden" name="lc" value="US" />
+        <input type="hidden" name="custom" value="<?php echo $this->cartId; ?>" />
+        <div id="paypal-cart">
+        <?php $roughPrice = 0;?>
+        <?php if( isset ($this->productList) ) : ?>
+            <?php $counter = 0; foreach($this->productList as $key => $product): ?>
+                <?php $counter++ ;?>
+                <?php $roughPrice += round($product['price'], 2)*$product['qty'];?>
+                <input type="hidden" name="item_name_<?php echo $counter;?>" value="<?php echo htmlentities($product['name']) ;?>" />
+                <input type="hidden" name="item_number_<?php echo $counter;?>" value="<?php echo $product['id']; ?>" />
+                <input type="hidden" name="quantity_<?php echo $counter;?>" value="<?php echo $product['qty'] ;?>" />
+                <input type="hidden" name="amount_<?php echo $counter;?>" value="<?php echo round($product['price'], 2) ;?>" />
+                <?php if (isset($this->freebies[$product['id']])) : ?>
+                    <?php foreach ($this->freebies[$product['id']] as $freebie) :?>
+                        <?php $counter++ ;?>
+                        <input type="hidden" name="item_name_<?php echo $counter;?>" value="<?php echo htmlentities($freebie['name']) ;?>" />
+                        <input type="hidden" name="item_number_<?php echo $counter;?>" value="<?php echo $freebie['itemId']; ?>" />
+                        <input type="hidden" name="quantity_<?php echo $counter;?>" value="<?php echo $freebie['count'] ;?>" />
+                        <input type="hidden" name="amount_<?php echo $counter;?>" value="<?php echo $freebie['price'] ;?>" />
+                     <?php endforeach; ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        </div>
+        <input type="hidden" name="shipping_1" class="payment-gateway-shipping" value="<?php echo $this->shipping; ?>" />
+        <input type="hidden" name="tax_cart" class="payment-gateway-total-tax" value="<?php echo ($this->totalTax) ? $this->totalAmount+$this->discount-$roughPrice-$this->shipping : '0'; ?>" />
+        <input type="hidden" name="currency_code" value="<?php echo $this->currency; ?>">
+        <?php if(!empty($this->discount)):?>
+            <input type="hidden" name="discount_amount_cart" value="<?php echo $this->discount;?>"/>
+        <?php endif;?>
+        <input type="hidden" name="button_subtype" value="products" />
+        <input type="hidden" name="notify_url" value="<?php echo $this->websiteUrl; ?>plugin/paypal/run/ipn" />
+        <input type="hidden" name="return" value="<?php echo $this->websiteUrl.'plugin/paypal/run/successIpn/';?>" />
+        <input type="hidden" name="rm"  value="2">
+        <input type="hidden" name="cancel_return" value="<?php echo $this->websiteUrl; ?>" />
+        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynow_LG.gif:NonHostedGuest" />
+        <?php if(isset($this->customButton)):?>
+            <button id="paypalSubmit"><?php echo $this->customLabel;?></button>
+        <?php else:?>
+            <input type="image" id="paypalSubmit" src="<?php echo $this->websiteUrl; ?>plugins/paypal/web/images/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal" />
+        <?php endif;?>
+        <?php if ($this->allowShipping) : ?>
+            <input type="hidden" name="no_shipping" value="2"/>
+            <input type="hidden" name="first_name" value="<?php echo $this->firstName;?>"/>
+            <input type="hidden" name="last_name" value="<?php echo $this->lastName;?>"/>
+            <input type="hidden" name="address1" value="<?php echo $this->address1;?>"/>
+            <input type="hidden" name="address2" value="<?php echo $this->addres2;?>"/>
+            <input type="hidden" name="email" value="<?php echo $this->shippingEmail;?>"/>
+            <input type="hidden" name="city" value="<?php echo $this->city;?>"/>
+            <input type="hidden" name="state" value="<?php echo $this->state;?>"/>
+            <input type="hidden" name="zip" value="<?php echo $this->zip;?>"/>
+            <input type="hidden" name="country" value="<?php echo $this->country;?>"/>
+        <?php endif ; ?>
+        <p class="seo-tip">
+            <?php echo $this->translator->translate('Pay with your bank account, credit card or PayPal balance without sharing your financial information');?>.
+        </p>
+    </fieldset>
+</form>
+
+<script type="text/javascript">
+$(function(){
+    $("#paypalSubmit").click(function(dd){
+        dd.preventDefault();
+        $.ajax({
+            type     : "POST",
+            url      : '<?php echo $this->websiteUrl."plugin/paypal/run/getButtonShippingData";?>',
+            dataType : "json",
+            async    : false,
+            data     : {
+                amount:'<?php echo $this->totalAmount;?>'
+            },
+            success  : function(response){
+                if(response.error==1){
+                    if (typeof response.responseText != 'undefined') {
+                        smoke.alert('<?php echo $this->translate('Your cart content was changed');?>', {'classname': 'errors'});
+                        window.setTimeout(function () {
+                            window.location = response.responseText.redirect;
+                        }, 2000);
+                    } else {
+                        window.location = '<?php echo $this->websiteUrl;?>plugin/shopping/run/thankyou/';
+                    }
+                }else{
+                    $('#paypalSubmit').closest("form").submit();
+                }
+            }
+        });
+    });
+});
+</script>

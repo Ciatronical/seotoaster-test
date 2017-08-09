@@ -1,0 +1,45 @@
+<form action="javascript:;" method="post" data-name="clicktocall" id="clicktocall-widget-form" class="wmc-block">
+    <p>
+        <?php echo $this->formLabel('ctc-title', $this->translate('Label'), array('class' => 'grid_5 alpha')); ?>
+        <?php echo $this->formText('ctc-title', 'Please enter your phone number', array('id' => 'ctc-title', 'class' => 'grid_7 alpha omega small')); ?>
+    </p>
+    <p class="mt5px">
+        <?php echo $this->formLabel('ctc-button', $this->translate('Button name'), array('class' => 'grid_5 alpha')); ?>
+        <?php echo $this->formText('ctc-button', 'Connect me!', array('id' => 'ctc-button', 'class' => 'grid_7 alpha omega small', 'required' => 'required' )); ?>
+    </p>
+    <p class="mt5px">
+        <label class="grid_5 alpha" for="use-img"><?php echo $this->translate("Use image") ?></label>
+        <input class="grid_7 alpha omega small" type="checkbox" name="use-img" id="use-img" value="1">
+    </p>
+    <p class="mt5px img-url" style="display:none" >
+        <?php echo $this->formLabel('ctc-img', $this->translate('Image url'), array('class' => 'grid_5 alpha')); ?>
+        <?php echo $this->formText('ctc-img', '', array('id' => 'ctc-img', 'class' => 'grid_7 alpha omega small')); ?>
+    </p>
+    <?php echo $this->formSubmit('applyWidgetClickToCall', 'Apply', array('class' => 'btn block small mt5px')); ?>
+</form>
+<script type="text/javascript">
+    $(function() {
+        $(document).on('click', '#use-img', function() {
+            if ($('#use-img').is(':checked')) {
+                $('p.img-url').show();
+            } else {
+                $('p.img-url').hide();
+            }
+        })
+        // Generation widget from form options
+        $(document).on('click', '#applyWidgetClickToCall', function() {
+            var img = '';
+            if ($('#use-img').is(':checked')) {
+                img =  ':' + $('input[name=ctc-img]').val();
+            }
+            var error      = false,
+            widgetForm = $('#clicktocall-widget-form'),
+            widgetHtml = '{$clicktocall:call:'
+                + $('#ctc-title').val().replace(/:/g,"")
+                + ':' + $('#ctc-button').val().replace(/:/g,"")
+                + img
+            + '}';
+            tinymce.activeEditor.execCommand('mceInsertContent', false, widgetHtml);
+        });
+    });
+</script>

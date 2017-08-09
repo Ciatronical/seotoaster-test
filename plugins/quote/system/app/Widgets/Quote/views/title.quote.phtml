@@ -1,0 +1,5 @@
+<?php if($this->editAllowed): ?>
+	<?php echo $this->formText('quoteTitle', $this->title, array('id' => 'quote-title')); ?>
+<?php else: ?>
+	<?php echo $this->title; ?>
+<?php endif; ?>

@@ -1,0 +1,85 @@
+<?php $collapseTitle = $this->translate('collapse'); ?>
+<div class="seotoaster container refreshOnClose">
+    <?php echo $this->partial(
+        'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+        array(
+            'headerText' => 'Organize pages',
+            'innerHeaderHtml' => '<div class="organize-links"><a id="collapse-global" class="ticon-arrow-up" href="javascript:;">'.$this->translate('collapse all').'</a> | <a id="expand-global" class="ticon-arrow-down" href="javascript:;">'.$this->translate('expand all').'</a></div>',
+            'helpSection' => $this->helpSection
+        )
+    ); ?>
+    <div id="sortable-main" class="content-footer scroll">
+		<?php if(isset($this->tree) && is_array($this->tree) && !empty($this->tree)): ?>
+            <?php  foreach($this->tree as $key => $treeData): ?>
+                <div class="category-data" data-menu="<?php echo Application_Model_Models_Page::IN_MAINMENU; ?>" id="<?php echo $treeData['category']->getId(); ?>">
+					<div class="catmove">
+                        <input class="check-all" type="checkbox" title="Check all"/>&nbsp;
+                        <a href="javascript:;" class="collapse-all ticon-arrow-up" title="<?php echo $collapseTitle; ?>"></a>
+                        <?php echo $this->toasterLink('backend_page', 'page', $treeData['category']->getNavName(), 'id/' . $treeData['category']->getId(), false, array('width' => '960', 'height' => '560'), false); ?>
+                    </div>
+					<ul class="organise list-bordered">
+						<?php if(isset($treeData['pages']) && is_array($treeData['pages'])): ?>
+                            <?php foreach ($treeData['pages'] as $page): ?>
+								<li id="<?php echo $page->getId(); ?>" class="move">
+                                    <i class="ticon-move icon16 fl-right ml2"></i>
+                                    <input type="checkbox" name="remove[]" class="page-remove" />&nbsp;
+                                    <?php echo $this->toasterLink('backend_page', 'page', $page->getNavName(), 'id/' . $page->getId(), false, array('width' => '960', 'height' => '560'), false); ?>
+								</li>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+					</ul>
+				</div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+        <!-- static menu -->
+
+		<div class="category-data nosort" data-menu="<?php echo Application_Model_Models_Page::IN_STATICMENU; ?>" id="<?php echo Application_Model_Models_Page::IDCATEGORY_DEFAULT; ?>">
+            <div class="catmove">
+                <input class="check-all" type="checkbox" title="Check all"/>&nbsp;
+                <span title="<?php echo $this->translate('Static menu'); ?>"><?php echo $this->translate('Static menu'); ?></span>
+                <a href="javascript:;" class="collapse-all ticon-arrow-up" title="collapse all"></a>
+            </div>
+			<ul class="organise list-bordered">
+				<?php if(isset($this->staticMenu)): ?>
+                    <?php foreach ($this->staticMenu as $page): ?>
+                        <li id="<?php echo $page->getId(); ?>" class="move">
+                            <i class="ticon-move icon16 fl-right ml2"></i>
+							<input type="checkbox" name="remove[]" class="page-remove" />&nbsp;
+                            <?php echo $this->toasterLink('backend_page', 'page', $page->getNavName(), 'id/' . $page->getId(), false, array('width' => '960', 'height' => '560'), false); ?>
+						</li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+			</ul>
+		</div>
+		<!-- end static menu -->
+
+		<!-- no menu -->
+		<div class="category-data nosort" data-menu="<?php echo Application_Model_Models_Page::IN_NOMENU; ?>" id="<?php echo Application_Model_Models_Page::IDCATEGORY_DEFAULT; ?>">
+            <div class="catmove">
+                <input class="check-all" type="checkbox" title="Check all"/>&nbsp;
+                <span title="<?php echo $this->translate('No menu');?>"><?php echo $this->translate('No menu');?></span>
+                <a href="javascript:;" class="collapse-all ticon-arrow-up" title="collapse all"></a>
+            </div>
+			<ul class="organise list-bordered">
+				<?php if(isset($this->noMenu)): ?>
+                    <?php foreach ($this->noMenu as $page): ?>
+							<li id="<?php echo $page->getId(); ?>" class="move">
+								<div class="ticon-move icon16 fl-right"></div>
+							<input type="checkbox" name="remove[]" class="page-remove" />&nbsp;
+                            <?php echo $this->toasterLink('backend_page', 'page', $page->getNavName(), 'id/' . $page->getId(), false, array('width' => '960', 'height' => '560'), false); ?>
+						</li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+			</ul>
+		</div>
+		<!-- end no menu -->
+        <input type="hidden" class="secureToken" name="secureToken" value="<?php echo $this->secureToken;?>" />
+	</div>
+	<div class="grid_12 footer">
+		<a href="javascript:;" id="mass-del" class="delete-selected btn link error">[ <?php echo $this->translate('Delete selected');?> ]</a>
+        <?php echo $this->partial('admin' . DIRECTORY_SEPARATOR . '_saveandclose.phtml'); ?>
+	</div>
+</div>
+<?php $this->headScript()
+           ->appendFile($this->websiteUrl . 'system/js/internal/organize.min.js'); ?>

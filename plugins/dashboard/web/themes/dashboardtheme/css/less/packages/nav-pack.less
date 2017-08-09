@@ -1,0 +1,151 @@
+// Table of Content
+//==================================================
+//	Main Menu
+//	Static\Flat Menu
+//  List pages by tags and Related pages
+//	List Pages & List Categories
+//	Style for all navigation items in sidebar
+//	SiteMap
+//  RSS feed
+//	News List
+//	Search Result
+//	Breadcrumbs
+//==================================================
+
+// Nav lists style
+//==================================================
+.main_menu, .listpages, .listcategories, .featureditem, .featureapage, .search-results, .relatedpages, .listxrss, .related-products{
+    .inline-block-wrap(top, li);
+
+    &+.generator-links:before{
+        .clearfix();
+    }
+}
+
+// Main Menu
+//==================================================
+.activate-menu-main(@activate) when (@activate = true){
+    @import "../widgets/nav-menu_main";
+}
+.activate-menu-main(@widget-menu-main);
+
+// Static\Flat Menu
+//==================================================
+.activate-menu-static(@activate) when (@activate = true){
+    @import "../widgets/nav-menu_static";
+}
+.activate-menu-static(@widget-menu-static);
+
+// List pages by tags and Related pages
+//==================================================
+.activate-FA-FP-RP(@activate) when (@activate = true){
+    @import "../widgets/nav-list_pages_by_tags-related_pages";
+}
+.activate-FA-FP-RP(@widget-FA-FP-RP);
+
+// List Pages & List Categories
+//==================================================
+.activate-LP-LC(@activate) when (@activate = true){
+    @import "../widgets/nav-list_pages-list_categories";
+}
+.activate-LP-LC(@widget-LP-LC);
+
+// Style for all navigation items in sidebar
+//==================================================
+.activate-FA-FP-RP-LP-LC-sidebar(@activate) when (@activate = true){
+    .sidebar{
+
+        .listpages, .listcategories, .featureditem, .featureapage, .relatedpages{ }
+
+        .listpages li, .listcategories li, .featureditem li, .featureapage, .relatedpages li{
+            &{
+                width  : 100%;
+                margin : 0 0 2em;
+
+                .page-teaser-image{
+                    width  : 100%;
+                    float  : none;
+                    margin : 0 0 0.5em;
+
+                    img{ }
+                }
+                .page-title{ }
+
+                span, p{
+                    font-size   : @font-size-small;
+                    line-height : 1.25;
+                }
+            }
+
+            &:hover{
+                a{ }
+
+                .page-teaser-image{
+                    img{ }
+                }
+
+                .page-title{ }
+
+                span{ }
+            }
+        }
+    }
+}
+.activate-FA-FP-RP-LP-LC-sidebar(@widget-FA-FP-RP-LP-LC-sidebar);
+
+// SiteMap
+//==================================================
+.activate-sitemap(@activate) when (@activate = true){
+    @import "../widgets/nav-sitemap";
+}
+.activate-sitemap(@widget-sitemap);
+
+// RSS feed
+//==================================================
+.activate-rss(@activate) when (@activate = true){
+    @import "../widgets/nav-rss";
+}
+.activate-rss(@widget-rss);
+
+// News List
+//==================================================
+.activate-news-list(@activate) when (@activate = true){
+    @import "../widgets/nav-news_list";
+}
+.activate-news-list(@widget-news-list);
+
+// Search Results
+//==================================================
+.activate-search(@activate) when (@activate = true){
+    @import "../widgets/nav-search";
+}
+.activate-search(@widget-search);
+
+// Breadcrumbs
+//==================================================
+.activate-breadcrumbs(@activate) when (@activate = true){
+    @import "../widgets/nav-breadcrumbs";
+}
+.activate-breadcrumbs(@widget-breadcrumbs);
+
+// Directupload
+//==================================================
+.activate-directupload(@activate) when (@activate = true){
+    @import "../widgets/directupload";
+}
+.activate-directupload(@widget-directupload);
+
+// Mobile Menu styles
+//==================================================
+.activate-mobile-menu() when (@responsive = true){
+    @import '../mobile/mobile-menu';
+}
+.activate-mobile-menu();
+
+// Dashboard Menu
+//==================================================
+@import "../widgets/nav-dashboard-menu";
+
+// Toaster stats Menu
+//==================================================
+@import "../widgets/nav-toasterstats";

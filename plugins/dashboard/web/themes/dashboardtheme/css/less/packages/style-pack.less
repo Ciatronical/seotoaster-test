@@ -1,0 +1,41 @@
+// Table of Content
+//==================================================
+//	Basic Styles
+//  Form Styles
+//  Gallery Styles
+//  Image Rotator / Slider Styles
+//	Modules Styles
+//  Animate (This line is commented out)
+//==================================================
+
+// Basic Styles
+//==================================================
+@import "../elements/basic";
+
+// Form Styles
+//==================================================
+.activate-form(@activate) when (@activate = true){
+    @import "../widgets/form";
+}
+.activate-form(@widget-form);
+
+// Gallery Styles
+//==================================================
+.activate-gallery(@activate) when (@activate = true){
+    @import "../widgets/gallery";
+}
+.activate-gallery(@widget-gallery);
+
+// Image Rotator / Slider Styles
+//==================================================
+.activate-slider(@activate) when (@activate = true){
+    @import "../modules/slider";
+}
+.activate-slider(@widget-slider);
+
+//Style for responsive
+//==================================================
+.activate-responsive-style(@activate) when (@activate = true){
+    @import "../mobile/mqueries";
+}
+.activate-responsive-style(@responsive);

@@ -1,0 +1,83 @@
+.ui-tabs{
+    position : relative; // position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed")
+    .clearfix();
+
+    &.ui-widget-content{
+        border : none;
+    }
+
+    &.ui-tabs-collapsible .ui-tabs-active a{
+        cursor : pointer;
+    }
+
+    .ui-tabs-nav{
+        background : @tabs-nav-bg;
+        margin     : 0 0 -1px 0;
+        padding    : 0;
+        overflow   : hidden;
+        position   : relative;
+        z-index    : 10;
+
+        .vertical&{
+            float : left;
+            width : 25%;
+
+            li{
+                float   : none;
+                display : block;
+                margin  : 3px 0 0 0;
+            }
+
+            .ui-tabs-panel{
+                clear : none;
+            }
+        }
+
+        // Style li
+        li{
+            float       : left;
+            margin      : 0 1px 0 0;
+            padding     : 0;
+            background  : @tabs-nav-li-bg;
+            white-space : nowrap;
+            list-style  : none;
+            line-height : normal;
+            border      : 1px solid @gray-light;
+
+            &:hover{
+                background : @tabs-nav-li-bg-hover;
+
+                a{
+                    color : @tabs-nav-li-color-hover;
+                }
+            }
+
+            &.ui-tabs-active, &.ui-tabs-loading, &.ui-state-disabled{
+                background          : @tabs-nav-li-bg-active;
+                border-bottom-color : @tabs-container-bg;
+
+                a{
+                    cursor : text;
+                    color  : @tabs-nav-li-color-active;
+                }
+            }
+        }
+
+        // Style a in li
+        .ui-tabs-anchor{
+            display         : block;
+            padding         : @padding-large-vertical @padding-large-horizontal;
+            text-decoration : none;
+            color           : @tabs-nav-li-color;
+        }
+    }
+
+    .ui-tabs-panel{
+        display    : block;
+        border     : 1px solid @gray-light;
+        overflow   : hidden;
+        background : @tabs-container-bg;
+        padding    : @padding-base-vertical @padding-base-horizontal;
+        position   : relative;
+    }
+}

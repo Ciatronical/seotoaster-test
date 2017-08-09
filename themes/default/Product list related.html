@@ -1,0 +1,14 @@
+<div class="product-item related">
+    <a href="{$product:url}" class="product-image">
+        <img src="{$product:photourl:medium}" alt="{$product:name}" />
+    </a>
+    <div>
+        {$product:freeshipping:Free}
+        {onsale:{$product:id}}
+        <p class="product-new-price">{$product:price:original}</p>
+        {/onsale} 
+        <a class="product-title" href="{$product:url}">{$product:name}</a>
+        <p class="product-price" itemprop="price">{$product:price}</p>
+        {$store:addtocart:{$product:id}}
+    </div>
+</div>

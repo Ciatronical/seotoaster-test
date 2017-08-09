@@ -1,0 +1,61 @@
+<div class="seotoaster container" id="preferences">
+    <?php echo $this->partial(
+        'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+        array(
+            'headerText'      => $this->translate('Preferences'),
+            'helpSection' => $this->helpSection,
+            'hashMap' => $this->hashMap
+        )
+    ); ?>
+    <div id="newslog-preferences" class="content grid_12 form">
+        <fieldset class="mb15px">
+            <legend class="h2 mb5px"><?php echo $this->translate('News folder'); ?></legend>
+
+            <form class="_fajax" action="<?php echo $this->escape($this->url()) . '/opt/folder/'; ?>" method="<?php echo $this->form->getMethod(); ?>">
+                <label><?php echo $this->translate('Leave empty if %s is a blog', $this->domain); ?></label>
+                <?php echo $this->form->getElement('folder'); ?>
+                <input type="hidden" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo Tools_System_Tools::initSecureToken(Newslog::NEWS_PREFERENCES_SECURE_TOKEN);?>" />
+                <?php echo $this->form->getElement('saveConfig'); ?>
+            </form>
+
+        </fieldset>
+
+        <fieldset class="mb15px">
+            <legend class="h2 mb5px"><?php echo $this->translate('Authors'); ?></legend>
+
+            <form class="_fajax" action="<?php echo $this->escape($this->url()) . '/opt/authors/'; ?>" method="<?php echo $this->authorsForm->getMethod(); ?>">
+                <label><?php echo $this->translate('Default Google+ profile'); ?></label>
+                <?php echo $this->authorsForm->getElement('gplusProfile'); ?>
+                <input type="hidden" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo Tools_System_Tools::initSecureToken(Newslog::NEWS_PREFERENCES_SECURE_TOKEN);?>" />
+                <?php echo $this->authorsForm->getElement('saveProfile'); ?>
+            </form>
+
+        </fieldset>
+
+        <fieldset id="ping-services-section">
+            <legend class="h2 mb5px"><?php echo $this->translate('Ping services'); ?></legend>
+            <?php echo $this->formText('pingUrl', '', array('id' => 'ping-url', 'placeholder' => 'Add new ping service url', 'class' => 'grid_8 alpha omega')); ?>
+            <?php echo $this->formSubmit('addService', 'Add service', array('id' => 'add-service', 'class' => 'btn ticon-plus grid_4 alpha omega mt0px')); ?>
+            <div class="cl-both"></div>
+            <table id="ping-services-list" class="table-striped table-scroll mt10px">
+                <thead>
+                    <tr>
+                        <th class="grid_7 alpha omega"><?php echo $this->translate('Service url'); ?></th>
+                        <th class="grid_4 alpha omega pl0 pr0"><?php echo $this->translate('Service status'); ?></th>
+                        <th class="grid_1 alpha omega">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody class="h200px"><td><span class="spinner"></span></td></tbody>
+            </table>
+            <input type="hidden" class="secureTokenServices" name="secureToken" value="<?php echo Tools_System_Tools::initSecureToken(Api_Newslog_Services::NEWS_SERVICES_SECURE_TOKEN);?>" />
+        </fieldset>
+    </div>
+</div>
+
+<?php
+    $this->headScript()
+        ->appendFile($this->websiteUrl . 'plugins/newslog/web/js/libs/require/require.min.js',
+            null,
+            array('data-main' => $this->websiteUrl . 'plugins/newslog/web/js/ping.js')
+        );
+?>

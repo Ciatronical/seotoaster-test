@@ -1,0 +1,17 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        sendEmails();
+        function sendEmails(){
+            $.ajax({
+                url:'<?php echo $this->websiteUrl;?>plugin/cartstatusemail/run/sendCartStatusEmails/',
+                type:"POST",
+                dataType:"json"
+            }).done(function(response) {
+                 if(response.error == '0'){
+                     sendEmails();
+                 }
+
+            });
+        }
+    });
+</script>

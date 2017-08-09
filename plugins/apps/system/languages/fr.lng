@@ -1,0 +1,13 @@
+<?php return array(
+	'Connect your CMS with 3rd party APPS' => 'Interconnecter votre CMS aux applications tierces',
+    'The service is not available.' => 'Le service n\'est pas disponible.',
+    'This service is temporarily not available.' => 'Le service n\'est pas disponible temporellement.',
+    'Please specify a valid phone number with the format + country code number.' => 'Spécifiez s\'il vous plaît le numéro de téléphone valide + le code du pays.',
+    'Sending call request...' => 'En train d\'envoyer la requête d\'appel.',
+    'Please open an account. You can find more information' => 'Ovrez le compte, s\'il vous plaît. Vous pouvez trouver plus d\'information.',
+    'here' => 'ici',
+    'Connecting... Please wait.' => 'En cours de connexion.... Attendez s\'il vous plaît',
+    'Please setup call settings in your account' => 'Installez les paramètres de configuration d\'appels dans votre compte',
+    'Sorry, cannot connect' => 'désolé, la connexion est impossible'
+);
+?>

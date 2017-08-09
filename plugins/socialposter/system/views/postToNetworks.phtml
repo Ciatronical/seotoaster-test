@@ -1,0 +1,85 @@
+<?php
+$this->headScript()
+    ->appendFile($this->websiteUrl . 'plugins/socialposter/web/js/post.min.js');
+?>
+<?php $this->headStyle()->captureStart() ?>
+.social-list label{
+    border: 2px solid #eee;
+    padding: 10px 5px;
+}
+.social-list label:hover{
+    border-color: #31b0d5;
+}
+<?php $this->headStyle()->captureEnd() ?>
+<div class="seotoaster container">
+    <?php
+        echo $this->partial(
+            'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+            array(
+                'headerText'      => (!$this->registrationHeaderMessage) ? $this->translate('Post to social networks') : $this->registrationHeaderMessage,
+                'helpSection'     => $this->helpSection,
+                'hashMap'         => $this->hashMap
+            )
+        );
+    ?>
+    <div class="poster content-footer form grid_12">
+    <?php if($this->registrationHeaderMessage) : ?>
+        <div class="grid_12 pt40px text-center">
+            <p class="mt50px mb20px fs16"><?php echo $this->translate('You need to register your website with SEO Samba to use this feature')?>.</p>
+            <a class="mb15px" href="https://mojo.seosamba.com/register.html" target="_blank"><?php echo $this->translate('Get your FREE SEO Samba account now');?>.</a>
+        </div>
+    <?php else :?>
+        <legend class="h3 p5px m0px"><?php echo $this->translate('Select networks you want post to:'); ?></legend>
+        <div class="clearfix social-list mb30px">
+            <!--Facebook-->
+            <label class="grid_4 alpha labeled facebook pointer social-networks">
+                <input type="checkbox" class="poster_network" name="network" value="facebook">
+                <?php if(isset($this->socialNetworkStatuses) && $this->socialNetworkStatuses['facebook']['expired'] === false):?>
+                    <span class="ticon-facebook3 icon18 social-icon"></span>
+                <?php else:?>
+                    <span class="ticon-facebook3 icon18 social-icon expired"></span>
+                <?php endif;?>
+                Facebook
+            </label>
+            <!--Twitter-->
+            <label class="grid_4 alpha omega labeled twitter pointer social-networks">
+                <input type="checkbox" class="poster_network" name="network" value="twitter">
+                <?php if(isset($this->socialNetworkStatuses) && $this->socialNetworkStatuses['twitter']['expired'] === false):?>
+                    <span class="ticon-twitter3 icon18 social-icon"></span>
+                <?php else:?>
+                    <span class="ticon-twitter3 icon18 social-icon expired"></span>
+                <?php endif;?>
+                Twitter
+            </label>
+            <!--LinkedIn-->
+            <label class="grid_4 omega labeled linkedin pointer social-networks">
+                <input type="checkbox" class="poster_network" name="network" value="linkedin">
+                <?php if(isset($this->socialNetworkStatuses) && $this->socialNetworkStatuses['linkedin']['expired'] === false):?>
+                    <span class="ticon-linkedin3 icon18 social-icon"></span>
+                <?php else:?>
+                    <span class="ticon-linkedin3 icon18 social-icon expired"></span>
+                <?php endif;?>
+                LinkedIn
+            </label>
+        </div>
+        <p>
+            <label><?php echo $this->translate('Your post title'); ?></label>
+            <input class="poster_title" type="text" value="<?php echo ($this->pageData) ? $this->pageData['h1'] : ''; ?>">
+        </p>
+        <p>
+            <label><?php echo $this->translate('Your post link'); ?></label>
+            <input class="poster_link" type="text" value="<?php echo ($this->pageData) ? ($this->websiteUrl . $this->pageData['url']) : ''; ?>">
+        </p>
+        <p>
+            <label><?php echo $this->translate('Your post short description'); ?></label>
+            <textarea rows="10" id="poster_message" name="poster_message"><?php echo ($this->pageData) ?  $this->pageData['teaserText'] : ''; ?></textarea>
+        </p>
+        <input type="hidden" id="mojoWebsiteId" value="<?php echo $this->mojoWebsiteId;?>">
+        <input class="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" type="hidden" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo $this->secureToken;?>" />
+    </div>
+	<div class="grid_12 footer">
+		<button class="btn poster_send" type="submit" value="<?php echo $this->translate('Post to networks');?>"><?php echo $this->translate('Post to networks');?></button>
+    </div>
+</div>
+<input id="website_url" type="hidden" value="<?php echo $this->websiteUrl;?>">
+<?php endif;?>

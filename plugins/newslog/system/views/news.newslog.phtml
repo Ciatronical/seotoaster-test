@@ -1,0 +1,197 @@
+<?php
+if(!isset($this->organize)){
+    $draftOrLive = $this->toasterDraftorlive(array('published' => true, 'publishAt' => ''));
+    $broadcast = $this->formCheckbox('broadcast', '') . '&nbsp;' . $this->translate('Broadcast');
+    $edit = '<span class="fl-right mr5"><a href="#new" class="head-link create-post">' . $this->translate('Create new post')
+          . '</a> | <a href="#manage" class="head-link show-posts">' . $this->translate('Manage posts') . '</a></span>';
+    $createdAt = '<label style="vertical-align: top; margin-left: 5px;">'.$this->translate('Created at').':</label><input type="text" style="width:100px; margin-left: 10px;" name="createdAt" id="created-at" value="" placeholder="Created at">';
+    $headerContent = $draftOrLive . '&nbsp;' .$createdAt. '&nbsp;'. $edit;
+}else{
+    $headerContent = $this->translate('Organize news');
+}
+
+
+?>
+
+<!-- pager template -->
+<script id="pager-template" type="text/template">
+    <% if(totalPages){ %>
+        <div class="grid_8">
+            <% if(firstPage != currentPage){ %>
+                <a href="#manage" class="page" data-page="first">First</a>
+            <% } %>
+            <% if(currentPage > firstPage){ %>
+                <a href="#manage" class="page" data-page="prev">Previous</a>
+            <% } %>
+            <% if(currentPage - 3 > firstPage){ %>
+                <span>...</span>
+            <% } %>
+            <% for(p = currentPage - 3; p <= currentPage + 3; p ++) { %>
+                <% if(p < firstPage || p > lastPage)
+                    continue %>
+                <% if(currentPage == p){ %>
+                    <span class="page selected"><%= p + 1 %></span>
+                <% }
+                else{ %>
+                    <a href="#manage" class="page" data-page="<%= p %>"><%= p + 1 %></a>
+                <% } %>
+            <% } %>
+            <% if(currentPage + 3 < lastPage){ %>
+                <span>...</span>
+            <% } %>
+            <% if(currentPage < totalPages){ %>
+                <a href="#manage" class="page" data-page="next">Next</a>
+            <% } %>
+            <% if(lastPage != currentPage){ %>
+                <a href="#manage" class="page" data-page="last">Last</a>
+            <% } %>
+        </div>
+    <% } %>
+    <div class="grid_4" style="text-align: right;">Total <%= totalRecords %> news found</div>
+</script>
+<!-- /pager template -->
+
+<!-- Tags template -->
+<script id="tagTemplate" type="text/x-jquery-tmpl">
+	<a href="javascript:;" class="fl-right ticon-close error" title="<?php echo $this->translate( 'Delete' ); ?>"></a>
+	<label class="wrap block text-overflow m0px">
+		<input type="checkbox" name="tag[]" value="${id}">
+		<span class="tag-name">${name}</span>
+	</label>
+</script>
+<!-- /Tags template -->
+
+<!-- News item template -->
+<script id="newsItemTemplate" type="text/x-jquery-tmpl">
+    <a href="javascript:;" data-news-id="${id}" class="news-item-delete actions icon12 ticon-close error"><?php echo $this->translate('Delete'); ?></a>
+	<div class="news-item-img">
+		{{if !JSON.parse(metaData).image}}
+			<img src="<?php echo $this->websiteUrl; ?>system/images/noimage.png" alt="${title}"/>
+		{{else}}
+			<img src="<?php echo $this->websiteUrl; ?>previews/${JSON.parse(metaData).image}" alt="${title}"/>
+		{{/if}}
+	</div>
+	<a class="news-item-title" href="javascript:;" data-nid="${id}" data-url="<?php echo $this->websiteUrl; ?>plugin/newslog/run/news/#edit/${id}"title="${title}">${title}</a>
+	<span class="news-item-additional">${  $.datepicker.formatDate('M dd , yy', new Date(Date.parse(createdAt.replace(/\-/g, '/')))) }</span>
+</script>
+<!-- /News item template -->
+
+<div class="seotoaster container" id="new-post">
+    <?php echo $this->partial(
+        'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+        array(
+            'innerHeaderHtml' => $headerContent,
+            'helpSection' => $this->helpSection,
+            'hashMap' => $this->hashMap
+        )
+    ); ?>
+<?php if(!isset($this->organize)):?>
+    <div class="content-footer wrap">
+        <!-- Manage posts screen -->
+        <div id="manage-posts-container" class="show-right grid_5 alpha omega">
+            <div class="header">
+                <div class="closebutton">
+                    <a class="hide-block ticon-chevron-right" href="#" title="<?php echo $this->translate( 'Close' ); ?>"></a>
+                </div>
+                <?php echo $this->translate( 'Manage news posts' ); ?>
+            </div>
+            <ul id="manage-posts" class="content scroll pr2 pl2 list-unstyled column_4 full-width"></ul>
+        </div>
+        <!-- General new page info -->
+        <form id="<?php echo $this->newPostForm->getId(); ?>" class="grid_6" action="<?php echo $this->newPostForm->getAction(); ?>" method="<?php echo $this->newPostForm->getMethod(); ?>">
+            <fieldset class="grid_12 alpha omega">
+                <legend class="h2 mb0px"><?php echo $this->translate( 'News page information' ); ?></legend>
+                <?php echo $this->newPostForm->h1; ?>
+                <?php echo $this->newPostForm->title; ?>
+                <?php echo $this->newPostForm->navName; ?>
+                <?php echo $this->newPostForm->url; ?>
+                <?php echo $this->newPostForm->teaserText; ?>
+                <?php echo $this->newPostForm->metaKeywords; ?>
+            </fieldset>
+            <input type="hidden" class="secureTokenNews" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo Tools_System_Tools::initSecureToken(Api_Newslog_News::NEWS_SECURE_TOKEN);?>" />
+        </form>
+        <!-- /General news page info -->
+
+        <!-- Other news page info -->
+        <div class="grid_6 form">
+            <fieldset class="grid_12 alpha omega">
+                <legend class="h2"><?php echo $this->translate( 'Settings' ); ?></legend>
+                <div id="page-preview" class="grid_4 ml0 page-preview">
+                    <img id="page-preview-image" src="<?php echo $this->websiteUrl . '/system/images/noimage.png'; ?>" width="135" alt="<?php echo $this->translate( 'Page preview image' ); ?>"/>
+                    <span class="ticon-folder-upload hidden">Choose you image</span>
+                    <?php
+                    $uploader = $this->toasterUploader( array(
+                        'id' => 'page-teaser-uploader', 'caller' => 'pagePreview', 'noMultiupload' => true, 'caption' => $this->translate( 'Upload image' )
+                    ) );
+                    echo $uploader;
+                    ?>
+                </div>
+                <div class="grid_8 alpha omega ml-grid">
+                    <select style="height:30px" id="templatelist"></select>
+                    <?php echo $this->formHidden('currentTemplateId', isset($template) ? $template['name'] : null); ?>
+                </div>
+                <div class="grid_8 alpha omega ml-grid">
+                    <label class="grid_6 alpha">
+                        <input type="checkbox" name="event" id="event" value="1">
+                        <?php echo $this->translate('It\'s an Event'); ?>
+                    </label>
+                    <input class="grid_6 omega" hidden type="text" name="event-date" id="event-date" value=""
+                           placeholder=<?php echo $this->translate('Date'); ?>>
+                    <input class="grid_12 omega alpha mt10px" hidden type="text" name="event-location" id="event-location"
+                           value="<?php echo $this->newPostForm->eventLocation; ?>"
+                           placeholder=<?php echo $this->translate('Location'); ?>>
+                </div>
+            </fieldset>
+
+            <!-- Templates list -->
+            <fieldset class="grid_12 alpha omega mt20px">
+                <legend class="h2 grid_12 alpha omega"><?php echo $this->translate( 'News tags' ); ?> <?php echo $this->formText( 'newsTag', '', array( 'placeholder' => 'Add a new Tag', 'id' => 'news-tag', 'class' => 'grid_6 alpha omega fl-right fs14 small' ) ); ?></legend>
+                <div id="confirm-msg" class="hidden"><?php echo $this->translate( 'You are about to remove a tag %tag%? Are you sure?' ); ?></div>
+                <ul id="news-tags" class="list-tags grid_12 alpha omega column_3 full-width">
+                    <li class="column-none inherit block mt20px text-center"><img src="../../../../system/images/ajax-loader-small.gif" alt=""/></li>
+                </ul>
+                <input type="hidden" class="secureTokenTags" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo Tools_System_Tools::initSecureToken(Api_Newslog_Tags::NEWS_TAGS_SECURE_TOKEN);?>" />
+            </fieldset>
+            <!-- /Templates list -->
+        </div>
+        <!-- /Other new page info -->
+    </div>
+
+    <!-- Create post button -->
+    <div class="grid_12 footer">
+        <?php echo $this->formButton( 'createNewPost', 'Save news post', array( 'id' => 'save-btn', 'class' => 'btn ticon-save', 'type' => 'submit' ) ); ?>
+    </div>
+<!-- /Create post button -->
+<?php else:?>
+<!-- Manage posts screen -->
+    <div id="manage-posts-container" class="edit-organize-news">
+         <ul id="manage-posts" class="content scroll pr2 pl2 list-unstyled column_8 full-width"></ul>
+    </div>
+<!-- /Manage posts screen -->
+<?php endif;?>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $.post($('#website_url').val() + 'backend/backend_theme/gettemplatesbytype/', {templates: 'type_news,type_news_list'}).done( function (response, textStatus) {
+            templateList = '<option value=""><?php echo $this->translate( 'Select template' ); ?></option>';
+            if(response.error === 1 || $.isEmptyObject(response.responseText)) {
+                templateList = '<h4 class="message warning text-normal mb0px"><strong><?php echo $this->translate('Warning!');?> </strong><?php echo htmlentities($this->translate('You don\'t have any news template.'), ENT_QUOTES, "UTF-8");?> [ <a href="<?php echo $this->websiteUrl;?>backend/backend_theme/template/"><?php echo $this->translate('Create one now.');?></a> ]</h4>';
+                $('#templatelist').parent().html(templateList);
+            } else {
+                $.each(response.responseText, function(index, value) {
+                    templateList += '<option value="'+ value.name.toLowerCase() + '">'+ value.name + '</option>'
+                });
+                $('#templatelist').html(templateList);
+            }
+        });
+    })
+</script>
+<?php
+$this->headScript()
+    ->appendFile($this->websiteUrl . 'system/js/external/jquery/plugins/tmpl/jquery.tmpl.min.js')
+    ->appendFile($this->websiteUrl . 'plugins/newslog/web/js/libs/require/require.min.js',
+        null,
+        array('data-main' => $this->websiteUrl . 'plugins/newslog/web/js/news.js')
+    );
+?>

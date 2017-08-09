@@ -1,0 +1,235 @@
+<?php $formId = uniqid('flatrate_i'); ?>
+<header><?php echo $this->translate('Flat rate by order details'); ?></header>
+<form id="<?php echo $formId; ?>" class="flat-rating-shipping-form" action="<?php echo $this->url(); ?>"
+      enctype="application/x-www-form-urlencoded" method="POST">
+    <fieldset class="background">
+        <p class="grid_6 alpha labeled icon right">
+            <?php echo $this->form->getElement('titleFlatRate')->setAttrib(
+                'class',
+                'grid_8 alpha omega fl-right'
+            )->renderViewHelper(); ?>
+            <i class="tooltip info ticon-info-sign icon16"
+               title="<?php echo $this->translate('e.g., Delivery by our courier (3-5 buis. days)'); ?>"></i>
+            <?php echo $this->form->getElement('titleFlatRate')->addDecorator(
+                'Label',
+                array('class' => 'grid_4 alpha omega')
+            )->renderLabel(); ?>
+        </p>
+
+        <p class="grid_6 omega labeled mt0px">
+            <label class="grid_3 alpha omega fl-right"><span class="amount-limit-value-label"></span>/<span
+                    class="currency-value"><?php echo $this->shoppingConfig['currency']; ?></span></label>
+            <?php echo $this->form->getElement('unitsFlatRate')->setAttrib(
+                'class',
+                'grid_6 alpha omega fl-right'
+            )->renderViewHelper(); ?>
+            <?php echo $this->form->getElement('unitsFlatRate')->addDecorator(
+                'Label',
+                array('class' => 'grid_3 alpha omega')
+            )->renderLabel(); ?>
+        </p>
+        <span class="clearfix"></span>
+
+        <div class="grid_12 omega">
+            <label><?php echo $this->translate('Select zones'); ?></label>
+            <?php for ($i = 1; $i < Flatrateshipping::QUANTITY_ZONES_ON_SCREEN + 1; $i++): ?>
+                <select data-zone-select="<?php echo $i; ?>" class='flatrate-zones grid_2 alpha'
+                        name="flatrate-zones-<?php echo $i; ?>">
+                    <?php $savedZone = isset($this->flatrateConfZones['1_' . $i]) ? $this->flatrateConfZones['1_' . $i]['flatrate_zone_id'] : 0; ?>
+                    <option
+                        value="0" <?php if ($savedZone === 0) {
+                        echo 'selected="selected"';
+                    } ?>><?php echo $this->translate(
+                            'select'
+                        ); ?></option>
+                    <option
+                        value="<?php echo Flatrateshipping::SHIPPING_TYPE_NATIONAL; ?>" <?php if ($savedZone === Flatrateshipping::SHIPPING_TYPE_NATIONAL) {
+                        echo 'selected="selected"';
+                    } ?>><?php echo $this->translate(
+                            'national'
+                        ); ?></option>
+                    <option
+                        value="<?php echo Flatrateshipping::SHIPPING_TYPE_INTERNATIONAL; ?>" <?php if ($savedZone === Flatrateshipping::SHIPPING_TYPE_INTERNATIONAL) {
+                        echo 'selected="selected"';
+                    } ?>><?php echo $this->translate(
+                            'international'
+                        ); ?></option>
+                    <option
+                        value="<?php echo Flatrateshipping::SHIPPING_TYPE_ALL; ?>" <?php if ($savedZone === Flatrateshipping::SHIPPING_TYPE_ALL) {
+                        echo 'selected="selected"';
+                    } ?>><?php echo $this->translate(
+                            'all'
+                        ); ?></option>
+                    <?php if (isset($this->zones) && !empty($this->zones)): ?>
+                        <?php foreach ($this->zones as $zone): ?>
+                            <option value="<?php echo $zone->getId(); ?>" <?php echo($savedZone == $zone->getId(
+                            ) ? 'selected="selected"' : ''); ?>><?php echo $zone->getName(); ?> </option>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </select>
+            <?php endfor; ?>
+        </div>
+    </fieldset>
+
+    <div id="config-grid" class="mt15px scroll h200px">
+        <?php if (isset($this->flatrateConf) && !empty($this->flatrateConf)): ?>
+            <?php foreach ($this->flatrateConf as $confRow): ?>
+                <fieldset class="flat-rate-conf-row background mb10px"
+                          data-flat-rate-row="<?php echo $confRow['id']; ?>">
+                    <p class="grid_7 suffix_2">
+                        <select name="amount-type-limit" class="amount-type-limit">
+                            <option
+                                value="<?php echo Flatrateshipping::AMOUNT_TYPE_UP_TO; ?>" <?php echo(isset($confRow['amount_type_limit']) && $confRow['amount_type_limit'] == Flatrateshipping::AMOUNT_TYPE_UP_TO ? 'selected="selected"' : ''); ?>><?php echo $this->translate(
+                                    Flatrateshipping::AMOUNT_TYPE_UP_TO
+                                ); ?></option>
+                            <option
+                                value="<?php echo Flatrateshipping::AMOUNT_TYPE_OVER; ?>"  <?php echo(isset($confRow['amount_type_limit']) && $confRow['amount_type_limit'] == Flatrateshipping::AMOUNT_TYPE_OVER ? 'selected="selected"' : ''); ?>><?php echo $this->translate(
+                                    Flatrateshipping::AMOUNT_TYPE_OVER
+                                ); ?></option>
+                            <option
+                                value="<?php echo Flatrateshipping::AMOUNT_TYPE_EACH_OVER; ?>" <?php echo(isset($confRow['amount_type_limit']) && $confRow['amount_type_limit'] == Flatrateshipping::AMOUNT_TYPE_EACH_OVER ? 'selected="selected"' : ''); ?>><?php echo $this->translate(
+                                    'Each additional weight/currency unit over'
+                                ); ?></option>
+                        </select>
+                    </p>
+                    <p class="grid_3 mt0px labeled">
+                        <input class="amount-limit-value grid_8 alpha omega" type="text" name="amount-limit-value"
+                               value="<?php echo $confRow['amount_limit']; ?>"/>
+                        <label class="amount-limit-value-label grid_4 alpha omega"></label>
+                    </p>
+
+                    <div class="grid_12 omega">
+                        <?php for ($i = 1; $i < Flatrateshipping::QUANTITY_ZONES_ON_SCREEN + 1; $i++): ?>
+                            <?php $amountValue = isset($this->flatrateConfZones[$confRow['id'] . '_' . $i]) ? $this->flatrateConfZones[$confRow['id'] . '_' . $i]['amount_zone'] : 0; ?>
+                            <input class="grid_2 alpha amount-zone-value" type="text"
+                                   data-amount-zone="<?php echo $i; ?>" name="amount-zone-value"
+                                   value="<?php echo $amountValue; ?>"/>
+                        <?php endfor; ?>
+                    </div>
+                </fieldset>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+        <span class="add-more-flat-config btn block success ticon-plus"><?php echo $this->translate(
+                'Add more flat config'
+            ); ?></span>
+        <input class="flatrate-secure-token" type="hidden" name="secureToken" value="<?php echo $this->secureToken;?>" />
+    </div>
+
+</form>
+<div class="grid_12 clear"></div>
+
+<script type="text/javascript">
+    $(function () {
+        showTooltip('.tooltip', 'info', 'top');
+        $("#submit").unbind('click.flatrate');
+        $('.flat-rating-shipping-form').on('change', '#unitsFlatRate', function (e) {
+            switch ($(this).val()) {
+                case 'amount':
+                    $('.amount-limit-value-label').text('<?php echo $this->shoppingConfig['currency'];?>');
+                    break;
+                case 'weight':
+                    $('.amount-limit-value-label').text('<?php echo $this->shoppingConfig['weightUnit'];?>');
+                    break;
+            }
+        });
+        $('#unitsFlatRate').trigger('change');
+        var activeFlatRateTab = $('#shippers').tabs("option", "active");
+        $('#shipping-config').find("div[aria-labelledby=" + 'ui-id-' + (activeFlatRateTab + 1) + "]").css({'overflow': 'hidden'});
+
+        $.each($('.flatrate-zones'), function () {
+            var zoneSelectedId = $(this).data('zone-select');
+            var selectedZoneOption = $(this).find('option:selected').val();
+            var zoneElement = $('.flatrate-zones:not([data-zone-select="' + zoneSelectedId + '"])');
+            zoneElement.find('option[value="' + selectedZoneOption + '"]').prop('disabled', true);
+            zoneElement.find('option[value="0"]').prop('disabled', false);
+        });
+
+
+        $('.add-more-flat-config').on('click', function (e) {
+            var lastFlatRateRow = $('.flat-rate-conf-row').last();
+            var numberOfRow = lastFlatRateRow.data('flat-rate-row');
+            var rowDiv = '<fieldset class="flat-rate-conf-row background mb10px" data-flat-rate-row="' + (numberOfRow + 1) + '">' + lastFlatRateRow.html() + '</fieldset>';
+            lastFlatRateRow.after(rowDiv);
+            $('.flat-rate-conf-row').last().find('input[type=text]').val(0);
+        });
+
+        var previous = '';
+
+        $('.flatrate-zones').on('focus',function () {
+            previous = this.value;
+        }).change(function () {
+                var selectId = $(this).data('zone-select');
+                var selectedZone = $(this).find('option:selected').val();
+                var selectElements = $('.flatrate-zones:not([data-zone-select="' + selectId + '"])');
+                selectElements.find('option[value="' + selectedZone + '"]').prop('disabled', true);
+                selectElements.find('option[value="0"]').prop('disabled', false);
+                selectElements.find('option[value="' + previous + '"]').prop('disabled', false);
+            });
+
+        $("#submit").on('click.flatrate', function (e) {
+            var tabIndex = $('#shippers').tabs("option", "active");
+            var indexOfPluginTab = tabIndex + 1;
+            if ($('#ui-id-' + indexOfPluginTab + '').data('plugin') == 'flatrateshipping') {
+                e.stopImmediatePropagation();
+                e.preventDefault();
+
+                var configRows = $('.flat-rate-conf-row');
+                var configData = [];
+                var configRowId = 0;
+                var amountZoneObject = [];
+                var zoneSelectId = 0;
+                var zoneId = 0;
+                var zoneAmount = 0;
+                var amountTypeLimit = '';
+                var overRestriction = 0;
+
+                $.each(configRows, function () {
+                    configRowId = $(this).data('flat-rate-row');
+                    amountZoneObject = $(this).find('.amount-zone-value');
+                    var zoneWithAmount = [];
+                    $.each(amountZoneObject, function () {
+                        zoneSelectId = $(this).data('amount-zone');
+                        zoneId = $('select[name="flatrate-zones-' + zoneSelectId + '"] option:selected').val();
+                        zoneAmount = $(this).val();
+                        zoneWithAmount[zoneSelectId] = {zoneAmount: zoneAmount, zoneId: zoneId};
+
+                    });
+                    amountTypeLimit = $(this).find('.amount-type-limit option:selected').val();
+                    if (amountTypeLimit == 'over' || amountTypeLimit == 'eachover') {
+                        overRestriction += 1;
+                    }
+                    configData.push({configRowId: configRowId, amountType: $(this).find('.amount-type-limit option:selected').val(),
+                        amountLimit: $(this).find('.amount-limit-value').val(), zoneWithAmount: zoneWithAmount});
+                });
+                if (overRestriction > 1) {
+                    smoke.alert('<?php echo $this->translate('You can setup only one over option')?>', {'classname': 'errors'});
+                    return false;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: '<?php echo $this->websiteUrl;?>plugin/flatrateshipping/run/config',
+                    dataType: "json",
+                    data: {
+                        configData: configData,
+                        title: $('#titleFlatRate').val(),
+                        units: $('#unitsFlatRate option:selected').val(),
+                        secureToken: $('.flatrate-secure-token').val()
+                    }
+                }).done(function (response) {
+                        if (response.done) {
+                            $('#shippers').tabs('load', tabIndex);
+                            smoke.signal('<?php echo $this->translate('Saved')?>');
+                        }
+
+                    });
+                return false;
+            }
+        });
+
+        var eventList = $._data($("#submit")[0], "events");
+        eventList.click.unshift(eventList.click.pop());
+
+    });
+</script>

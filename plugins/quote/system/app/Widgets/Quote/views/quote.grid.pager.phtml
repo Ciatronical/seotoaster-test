@@ -1,0 +1,42 @@
+<!-- paginator template -->
+<script type="text/template" id="quote-grid-pager">
+    <div>
+        <% if (firstPage != currentPage) { %>
+        <a href="#" class="page" data-page="first"> <?php echo $this->translate('First');?></a>
+        <% } %>
+
+        <% if (currentPage > firstPage) { %>
+        <a href="#" class="page" data-page="prev"> <?php echo $this->translate('Previous');?></a>
+        <% } %>
+
+        <% if (currentPage - 3 > firstPage) { %>
+        <span>...</span>
+        <% } %>
+
+        <% for (p=currentPage-3; p<=currentPage+3; p++) { %>
+        <% if (p < firstPage || p > lastPage) continue %>
+        <% if (currentPage == p) { %>
+            <span class="page selected"><%= p+1 %></span>
+            <% } else { %>
+            <a href="#" class="page" data-page="<%= p %>"><%= p+1 %></a>
+            <% } %>
+        <% } %>
+
+        <% if (currentPage + 3 < lastPage) { %>
+        <span>...</span>
+        <% } %>
+
+        <% if (currentPage < totalPages) { %>
+        <a href="#" class="page" data-page="next"> <?php echo $this->translate('Next');?></a>
+        <% } %>
+
+        <% if (lastPage != currentPage) { %>
+        <a href="#" class="page" data-page="last"> <?php echo $this->translate('Last');?></a>
+        <% } %>
+    </div>
+
+    <div>
+        <?php echo $this->translate('Total ');?> <%= totalRecords %> <?php echo $this->translate('quotes found');?>
+    </div>
+</script>
+<!-- /paginator template -->

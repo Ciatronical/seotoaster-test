@@ -1,0 +1,14 @@
+<a id="clean-dashboard" href="<?php echo $this->websiteUrl;?>plugin/dashboard/run/cleanDashboard/">Clean dashboard</a>
+<script type="text/javascript">
+
+    $(function(){
+        $('#clean-dashboard').on('click', function(e){
+            e.preventDefault();
+            $.post('<?php echo $this->websiteUrl;?>'+'plugin/dashboard/run/cleanDashboard/', function(){
+                location.reload();
+            }, 'json');
+        });
+    });
+
+</script>
+

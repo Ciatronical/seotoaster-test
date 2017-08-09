@@ -1,0 +1,17 @@
+<div class="product-item list">
+    <a href="{$product:url}" class="product-image grid_4 t-grid_2 alpha">
+        <img src="{$product:photourl:medium}" alt="{$product:name}" />
+        {$product:freeshipping:Free shipping}
+    </a>
+    <div class="grid_5 t-grid_3 omega">
+        <a class="product-title" href="{$product:url}">{$product:name}</a>
+        <p class="product-description">{$product:description:short}</p>
+    </div>
+    <div class="grid_3 t-grid_1 omega text-center b-prices">
+        <p class="product-{onsale:{$product:id}}new-{/onsale}price" itemprop="price">{$product:price}</p>
+        {onsale:{$product:id}}
+            <p class="product-price">{$product:price:original}</p>
+        {/onsale}
+        {$store:addtocart:{$product:id}}
+    </div>
+</div>

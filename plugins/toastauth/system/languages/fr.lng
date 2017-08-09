@@ -1,0 +1,14 @@
+<?php return array(
+            'Videolink Config' => 'Videolink Config',
+            'Paste your link here' => 'Collez votre lien ici',
+            'Width for video' => 'Largeur de la vidéo',
+            'Close' => 'Fermer',
+            'Height for video' => 'Hauteur de la vidéo',
+            'Save' => 'Sauvegarder',
+            'Save link' => 'Sauvegarder lien',
+            'Videolink' => 'Videolink',
+            'Paste your video link here' => 'Copiez l\'adresse de votre video ici',
+            'Paste your ' => 'Copiez l\'adresse de votre ',
+            'video'      => 'video',
+            'link here'  => 'ici'
+);?>

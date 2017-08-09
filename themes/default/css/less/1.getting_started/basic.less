@@ -1,0 +1,111 @@
+// Table of Content
+//==================================================
+// Page Style
+// Header Style
+// Logo style
+// Nav style
+// Content Style
+// SideBar Style
+// Footer Style
+//==================================================
+
+//	PAGE Style
+//==================================================
+html{ }
+body{
+    background : @body-bg;
+    color      : @text-color;
+}
+#container{ }
+
+//	HEADER Style
+//==================================================
+header{
+    background : @header-bg;
+    color      : @header-color;
+
+    // -- LOGO Style
+    .logo{
+        margin-top    : 10px;
+        margin-bottom : 10px;
+        font-weight   : normal;
+        &.h1{
+            margin-top    : 10px;
+        }
+
+        a{ }
+        img{
+            margin       : 0 10px 0 0;
+            max-height   : 60px;
+            .box-shadow(none);
+        }
+    }
+
+    // -- NAV in HEADER Style
+    nav{ }
+}
+.brand-box{
+    background-color : @nav-bg;
+    border-bottom    : 4px solid darken(@primary-bg, 7%);
+}
+
+// -- NAV Style
+nav{ }
+
+//	CONTENT Style
+//==================================================
+#content{
+    //background : @content-bg;
+    color      : @content-color;
+}
+
+// -- 404 Page Style
+.page404{
+    padding : 1em 0 3em;
+    color   : @gray-dark;
+
+    .first{
+        text-align   : center;
+        font-size    : 17em;
+        line-height  : 1;
+        border-right : 1px solid @gray-light;
+    }
+}
+.slogan-box{
+    font-size : @font-size-large;
+}
+//	SIDEBAR Style
+//==================================================
+aside{
+    .aside-box{
+        margin-bottom : 30px;
+    }
+}
+
+#left{
+    .aside-box{
+    }
+}
+
+#right{
+    .aside-box{
+    }
+}
+
+footer{
+    padding    : @padding-larger-vertical * 2 0;
+    //background : @footer-bg;
+    color      : @footer-color;
+    font-size  : @font-size-small;
+    border-top : 4px solid @brand-primary;
+
+    p{ }
+
+    .footer-box{ }
+}
+
+//	Button to scroll top
+//==================================================
+#go-top{
+    .button-color(#fff; fade(#000, 50%); fade(#000, 50%); @primary-color; @primary-bg; @primary-bg);
+}

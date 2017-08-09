@@ -1,0 +1,209 @@
+a:2:{s:4:"tags";a:37:{i:0;s:8:"pageid_1";i:1;s:14:"slogan_3_pid_1";i:2;s:14:"slogan_1_pid_1";i:3;s:11:"top_3_pid_1";i:4;s:12:"tab1_3_pid_1";i:5;s:12:"tab2_3_pid_1";i:6;s:12:"tab3_3_pid_1";i:7;s:12:"tab2_1_pid_1";i:8;s:12:"tab3_1_pid_1";i:9;s:16:"content1_3_pid_1";i:10;s:17:"content21_1_pid_1";i:11;s:17:"content22_1_pid_1";i:12;s:17:"content23_1_pid_1";i:13;s:14:"right1_3_pid_1";i:14;s:14:"right1_1_pid_1";i:15;s:14:"right2_3_pid_1";i:16;s:14:"right2_1_pid_1";i:17;s:14:"right3_3_pid_1";i:18;s:14:"right3_1_pid_1";i:19;s:11:"fa_homepage";i:20;s:8:"pageTags";i:21;s:8:"pageid_3";i:22;s:8:"pageid_4";i:23;s:9:"pageid_27";i:24;s:20:"prodbrand_Santa Cruz";i:25;s:8:"prodid_1";i:26;s:8:"prodid_2";i:27;s:8:"prodid_3";i:28;s:8:"prodid_5";i:29;s:15:"productlistgrid";i:30;s:9:"prodtag_4";i:31;s:9:"prodid_16";i:32;s:9:"prodid_17";i:33;s:9:"prodid_18";i:34;s:9:"prodid_19";i:35;s:18:"productlistdefault";i:36;s:15:"Widgets_Gal_Gal";}s:4:"data";a:29:{s:23:"widgets_page_page_title";s:4:"Home";s:26:"widgets_meta_meta_keywords";s:0:"";s:29:"widgets_meta_meta_description";s:0:"";s:27:"widgets_website_website_url";s:17:"http://localhost/";s:20:"widgets_page_page_h1";s:4:"Home";s:28:"widgets_header_header_slogan";s:346:"<a class="tpopup generator-links" data-pwidth="600" data-pheight="140" title="Click to edit header content" href="javascript:;" data-url="http://localhost/backend/backend_content/add/containerType/3/containerName/slogan/pageId/1"><img width="26" height="26" src="http://localhost/system/images/editadd-header.png" alt="edit header content" /></a>";s:30:"widgets_content_content_slogan";s:331:"<p> </p>
+<p> </p><a class="tpopup generator-links" data-pwidth="960" data-pheight="560" title="Click to edit  content" href="javascript:;" data-url="http://localhost/backend/backend_content/edit/id/25/containerType/1"><img width="26" height="26" src="http://localhost/system/images/editadd-content.png" alt="edit  content" /></a>";s:25:"widgets_header_header_top";s:369:"Beautifully hand-crafted San Francisco bycicles<a class="tpopup generator-links" data-pwidth="600" data-pheight="140" title="Click to edit header content" href="javascript:;" data-url="http://localhost/backend/backend_content/edit/id/3/containerType/3"><img width="26" height="26" src="http://localhost/system/images/editadd-header.png" alt="edit header content" /></a>";s:26:"widgets_header_header_tab1";s:346:"Biking in San Francisco<a class="tpopup generator-links" data-pwidth="600" data-pheight="140" title="Click to edit header content" href="javascript:;" data-url="http://localhost/backend/backend_content/edit/id/31/containerType/3"><img width="26" height="26" src="http://localhost/system/images/editadd-header.png" alt="edit header content" /></a>";s:26:"widgets_header_header_tab2";s:335:"Best Sellers<a class="tpopup generator-links" data-pwidth="600" data-pheight="140" title="Click to edit header content" href="javascript:;" data-url="http://localhost/backend/backend_content/edit/id/32/containerType/3"><img width="26" height="26" src="http://localhost/system/images/editadd-header.png" alt="edit header content" /></a>";s:26:"widgets_header_header_tab3";s:335:"New Products<a class="tpopup generator-links" data-pwidth="600" data-pheight="140" title="Click to edit header content" href="javascript:;" data-url="http://localhost/backend/backend_content/edit/id/33/containerType/3"><img width="26" height="26" src="http://localhost/system/images/editadd-header.png" alt="edit header content" /></a>";s:28:"widgets_content_content_tab2";s:394:"<div class="product-list">{$productlist:product list grid:brands-Santa Cruz}</div><a class="tpopup generator-links" data-pwidth="960" data-pheight="560" title="Click to edit  content" href="javascript:;" data-url="http://localhost/backend/backend_content/edit/id/34/containerType/1"><img width="26" height="26" src="http://localhost/system/images/editadd-content.png" alt="edit  content" /></a>";s:28:"widgets_content_content_tab3";s:403:"<div class="product-list">{$productlist:product list default:tagnames-Triatlon Bikes}</div><a class="tpopup generator-links" data-pwidth="960" data-pheight="560" title="Click to edit  content" href="javascript:;" data-url="http://localhost/backend/backend_content/edit/id/60/containerType/1"><img width="26" height="26" src="http://localhost/system/images/editadd-content.png" alt="edit  content" /></a>";s:30:"widgets_header_header_content1";s:348:"<a class="tpopup generator-links" data-pwidth="600" data-pheight="140" title="Click to edit header content" href="javascript:;" data-url="http://localhost/backend/backend_content/add/containerType/3/containerName/content1/pageId/1"><img width="26" height="26" src="http://localhost/system/images/editadd-header.png" alt="edit header content" /></a>";s:33:"widgets_content_content_content21";s:398:"<ul class="news-list list-unstyled">{$newslist:News list:tags:Bicycle:asc:2:pgr}</ul><a class="tpopup generator-links" data-pwidth="960" data-pheight="560" title="Click to edit  content" href="javascript:;" data-url="http://localhost/backend/backend_content/edit/id/224/containerType/1"><img width="26" height="26" src="http://localhost/system/images/editadd-content.png" alt="edit  content" /></a>";s:33:"widgets_content_content_content22";s:338:"<a class="tpopup generator-links" data-pwidth="960" data-pheight="560" title="Click to edit  content" href="javascript:;" data-url="http://localhost/backend/backend_content/add/containerType/1/containerName/content22/pageId/1"><img width="26" height="26" src="http://localhost/system/images/editadd-content.png" alt="edit  content" /></a>";s:33:"widgets_content_content_content23";s:338:"<a class="tpopup generator-links" data-pwidth="960" data-pheight="560" title="Click to edit  content" href="javascript:;" data-url="http://localhost/backend/backend_content/add/containerType/1/containerName/content23/pageId/1"><img width="26" height="26" src="http://localhost/system/images/editadd-content.png" alt="edit  content" /></a>";s:28:"widgets_header_header_right1";s:335:"Ask the pros<a class="tpopup generator-links" data-pwidth="600" data-pheight="140" title="Click to edit header content" href="javascript:;" data-url="http://localhost/backend/backend_content/edit/id/42/containerType/3"><img width="26" height="26" src="http://localhost/system/images/editadd-header.png" alt="edit header content" /></a>";s:30:"widgets_content_content_right1";s:351:"<div>{$gal:Champions:250:94x94:0}</div><a class="tpopup generator-links" data-pwidth="960" data-pheight="560" title="Click to edit  content" href="javascript:;" data-url="http://localhost/backend/backend_content/edit/id/41/containerType/1"><img width="26" height="26" src="http://localhost/system/images/editadd-content.png" alt="edit  content" /></a>";s:28:"widgets_header_header_right2";s:357:"San Francisco bicycle as a passion<a class="tpopup generator-links" data-pwidth="600" data-pheight="140" title="Click to edit header content" href="javascript:;" data-url="http://localhost/backend/backend_content/edit/id/56/containerType/3"><img width="26" height="26" src="http://localhost/system/images/editadd-header.png" alt="edit header content" /></a>";s:30:"widgets_content_content_right2";s:930:"<p>We design and sell urban bikes, along with accessories to make riding more enjoyable, practical, and chic. Our European-inspired bikes ride like butter. They come in single-speed and multi-speeds in all sizes. You can dress in casual or business attire, and wear pumps, tennis shoes, or flip flops - just about anything - while riding our bikes. And we have baskets, bags and other gear to go along with them. These bikes will make you feel like a kid again, and this is every bit as important as anything else. You can read about us in numerous national press publications or hear from our customers directly.</p><a class="tpopup generator-links" data-pwidth="960" data-pheight="560" title="Click to edit  content" href="javascript:;" data-url="http://localhost/backend/backend_content/edit/id/187/containerType/1"><img width="26" height="26" src="http://localhost/system/images/editadd-content.png" alt="edit  content" /></a>";s:28:"widgets_header_header_right3";s:346:"<a class="tpopup generator-links" data-pwidth="600" data-pheight="140" title="Click to edit header content" href="javascript:;" data-url="http://localhost/backend/backend_content/add/containerType/3/containerName/right3/pageId/1"><img width="26" height="26" src="http://localhost/system/images/editadd-header.png" alt="edit header content" /></a>";s:30:"widgets_content_content_right3";s:335:"<a class="tpopup generator-links" data-pwidth="960" data-pheight="560" title="Click to edit  content" href="javascript:;" data-url="http://localhost/backend/backend_content/add/containerType/1/containerName/right3/pageId/1"><img width="26" height="26" src="http://localhost/system/images/editadd-content.png" alt="edit  content" /></a>";s:23:"widgets_news_news_title";s:63:"News widget error: Page passed to the widget is not a news page";s:24:"widgets_news_news_teaser";s:63:"News widget error: Page passed to the widget is not a news page";s:49:"widgets_featured_featured_area_homepage_3_250_img";s:3100:"    <!-- probably for we have to change resource passing to the isAllowed. Not it is not obivious why we are checking RESOURCE_PLUGINS -->
+            <a class="tpopup" title="Edit order" data-url="http://localhost/backend/backend_featured/order/id/1" data-pheight="560" data-pwidth="480" href="javascript:;">Edit order - <em>homepage</em></a>
+        <ul class="featureditem homepage ">
+                            <li>
+                
+                                                                        
+                                                        <a class="page-teaser-image" href="http://localhost/road-bikes-store-san-francisco-california.html" ><img alt="Road Bikes in San Francisco" src="http://localhost/previews/road-bikes-store-san-francisco-california.jpg" /></a>
+                                <a href="http://localhost/road-bikes-store-san-francisco-california.html" title="Road Bikes in San Francisco"  class="page-title">Road Bikes</a>
+	                            <span>designed for speed and competition in road cycling. They have a light frame and components with minimal accessories, low driving, to provide a powerful and aerodynamic fit, narrow high-pressure tires for minimal rolling resistance and multiple gears....</span>
+                            </li>
+                                    <li>
+                
+                                                                        
+                                                        <a class="page-teaser-image" href="http://localhost/mountain-bikes-store-san-francisco-california.html" ><img alt="Mountain Bikes in San Francisco" src="http://localhost/previews/mountain-bikes-store-san-francisco-california.jpg" /></a>
+                                <a href="http://localhost/mountain-bikes-store-san-francisco-california.html" title="Mountain Bikes in San Francisco"  class="page-title">Mountain Bikes</a>
+	                            <span>designed for off-road riding, and include other types of off-road bikes, such as cross-country (for example, "CS"), downhill, freeride. All mountain bikes have a very strong frame and wheels, wide tires with high tread, and reinforced wheel to help r...</span>
+                            </li>
+                                    <li>
+                
+                                                                        
+                                                        <a class="page-teaser-image" href="http://localhost/downhill-bikes-store-san-francisco-california.html" ><img alt="Downhill Bikes in San Francisco" src="http://localhost/previews/downhill-bikes-store-san-francisco-california.jpg" /></a>
+                                <a href="http://localhost/downhill-bikes-store-san-francisco-california.html" title="Downhill Bikes in San Francisco"  class="page-title">Downhill Bikes</a>
+	                            <span>Downhill mountain biking (DH) is a time trial event held on a steep, rough terrain that often features jumps, rock gardens and other obstacles</span>
+                            </li>
+                    </ul>
+";s:67:"widgets_productlist_productlist_product list grid_brands-Santa Cruz";s:5037:"<div class="product-list">
+	<!--pid="1"--><div class="product-item grid">
+    <a href="http://localhost/santa-cruz-santa-cruz-tallboy-lt-carbon-1.html" class="product-image grid_4 alpha">
+        <img src="http://localhost/media/Mountain-bikes/medium/Santa%20Cruz%20Tallboy%20LT%20Carbon.jpg" alt="Santa Cruz Tallboy LT Carbon test" />
+        <span class="product-free-shipping">Free shipping</span>
+    </a>
+    <div class="grid_5 omega">
+        <a class="product-title" href="http://localhost/santa-cruz-santa-cruz-tallboy-lt-carbon-1.html">Santa Cruz Tallboy LT Carbon test</a>
+        <p class="product-description">The Santa Cruz Tallboy LT Carbon XTR AM 29er Full Suspension Mountain Bike 2013 offers all the same features as the Tallboy LT but with an added touch of carbon fibre.</p>
+    </div>
+    <div class="grid_3 omega text-center b-prices">
+        {onsale:1}
+            <p class="product-old-price">$3,300.00</p>
+        {/onsale}
+        <p class="product-{onsale:1}new-{/onsale}price" itemprop="price">$3,100.00</p>
+        <a class="tcart-add" href="javascript:;"  data-pid="1">Add to cart</a>
+    </div>
+</div><!--pid="2"--><div class="product-item grid">
+    <a href="http://localhost/santa-cruz-santa-cruz-superlight-xt-xc-2.html" class="product-image grid_4 alpha">
+        <img src="http://localhost/media/Mountain-bikes/medium/Santa%20Cruz%20Superlight%20XT%20XC.jpg" alt="Santa Cruz Superlight XT XC" />
+        
+    </a>
+    <div class="grid_5 omega">
+        <a class="product-title" href="http://localhost/santa-cruz-santa-cruz-superlight-xt-xc-2.html">Santa Cruz Superlight XT XC</a>
+        <p class="product-description">The Santa Cruz Superlight XT XC Full Suspension Mountain Bike 2013 was created with performance and value aspects in mind. The Superlight was built to offer a winning blend of nimble geometry, confidence inspiring handling, and elegantly simple yet effective suspension, to make one of the most sought-after bikes on the market</p>
+    </div>
+    <div class="grid_3 omega text-center b-prices">
+        {onsale:2}
+            <p class="product-old-price"></p>
+        {/onsale}
+        <p class="product-{onsale:2}new-{/onsale}price" itemprop="price">$3,150.75</p>
+        <a class="tcart-add" href="javascript:;"  data-pid="2">Add to cart</a>
+    </div>
+</div><!--pid="3"--><div class="product-item grid">
+    <a href="http://localhost/santa-cruz-santa-cruz-superlight-29er-xt-xc-3.html" class="product-image grid_4 alpha">
+        <img src="http://localhost/media/Mountain-bikes/medium/Santa%20Cruz%20Superlight%2029er%20XT%20XC.jpg" alt="Santa Cruz Superlight 29er XT XC" />
+        <span class="product-free-shipping">Free shipping</span>
+    </a>
+    <div class="grid_5 omega">
+        <a class="product-title" href="http://localhost/santa-cruz-santa-cruz-superlight-29er-xt-xc-3.html">Santa Cruz Superlight 29er XT XC</a>
+        <p class="product-description">The Santa Cruz Superlight 29er XT XC Full Suspension Mountain Bike 2013 combines the proven value and performance of the legendary Superlight with the smooth rolling stability of bigger 29" wheels. Santa Cruz have made a 29er that's super light, made from custom hydroformed aluminium tubing, a reliable, efficient, responsive single pivot suspension design that offers 100mm of travel, terrain eating 29" wheels and kickass value for money.</p>
+    </div>
+    <div class="grid_3 omega text-center b-prices">
+        {onsale:3}
+            <p class="product-old-price"></p>
+        {/onsale}
+        <p class="product-{onsale:3}new-{/onsale}price" itemprop="price"></p>
+        <a class="tcart-add go-to-product" href="santa-cruz-santa-cruz-superlight-29er-xt-xc-3.html">Go to product</a>
+    </div>
+</div><!--pid="5"--><div class="product-item grid">
+    <a href="http://localhost/santa-cruz-santa-cruz-highball-r-xc-29er-5.html" class="product-image grid_4 alpha">
+        <img src="http://localhost/media/Mountain-bikes/medium/Santa%20Cruz%20Highball%20R%20XC%2029er.jpg" alt="Santa Cruz Highball R XC 29er" />
+        
+    </a>
+    <div class="grid_5 omega">
+        <a class="product-title" href="http://localhost/santa-cruz-santa-cruz-highball-r-xc-29er-5.html">Santa Cruz Highball R XC 29er</a>
+        <p class="product-description">The Santa Cruz Highball R XC 29er Hardtail Mountain Bike 2013 takes all the swift, light elements from the 29" wheeled Carbon Highball, and crafts them together in an aluminium frame. This bike has a number of other features too, a couple of the most notable being versatility and value. The proprietary aluminum tubing allows for a strong, respectably light frame, and features the same responsive geometry as our carbon race bike.</p>
+    </div>
+    <div class="grid_3 omega text-center b-prices">
+        {onsale:5}
+            <p class="product-old-price"></p>
+        {/onsale}
+        <p class="product-{onsale:5}new-{/onsale}price" itemprop="price">$2,500.64</p>
+        <a class="tcart-add" href="javascript:;"  data-pid="5">Add to cart</a>
+    </div>
+</div>	</div>
+";s:76:"widgets_productlist_productlist_product list default_tagnames-Triatlon Bikes";s:3871:"<div class="product-list">
+	<!--pid="16"--><div class="product-item list">
+    <a href="http://localhost/orca-orbea-ordu-m-ltd-16.html" class="product-image grid_4 t-grid_2 alpha">
+        <img src="http://localhost/media/Orbea/medium/b130ttcc-a1-side-ordumltd-14m.jpg" alt="Orbea Ordu M-ltd" />
+        
+    </a>
+    <div class="grid_5 t-grid_3 omega">
+        <a class="product-title" href="http://localhost/orca-orbea-ordu-m-ltd-16.html">Orbea Ordu M-ltd</a>
+        <p class="product-description">The Ordu is the bike of choice for the Euskaltel-Euskadi pros, and it’s the bike that Andrew Starykowicz uses to punish his triathlon rivals. In fact, it’s the bike he used to set the current world records for Ironman and Ironman 70.3 bike splits.</p>
+    </div>
+    <div class="grid_3 t-grid_1 omega text-center b-prices">
+        <p class="product-{onsale:16}new-{/onsale}price" itemprop="price">$15,000.30</p>
+        {onsale:16}
+            <p class="product-price"></p>
+        {/onsale}
+        <a class="tcart-add" href="javascript:;"  data-pid="16">Add to cart</a>
+    </div>
+</div><!--pid="17"--><div class="product-item list">
+    <a href="http://localhost/orca-orbea-ordu-m30-17.html" class="product-image grid_4 t-grid_2 alpha">
+        <img src="http://localhost/media/Orbea/medium/b127ttcc-a2-side-ordum30-14m.jpg" alt="Orbea Ordu M30" />
+        
+    </a>
+    <div class="grid_5 t-grid_3 omega">
+        <a class="product-title" href="http://localhost/orca-orbea-ordu-m30-17.html">Orbea Ordu M30</a>
+        <p class="product-description">Sometimes brutal simplicity is what you need for success. </p>
+    </div>
+    <div class="grid_3 t-grid_1 omega text-center b-prices">
+        <p class="product-{onsale:17}new-{/onsale}price" itemprop="price">$6,099.00</p>
+        {onsale:17}
+            <p class="product-price"></p>
+        {/onsale}
+        <a class="tcart-add" href="javascript:;"  data-pid="17">Add to cart</a>
+    </div>
+</div><!--pid="18"--><div class="product-item list">
+    <a href="http://localhost/canyon-canyon-speedmax-cf-18.html" class="product-image grid_4 t-grid_2 alpha">
+        <img src="http://localhost/media/Canyon/medium/speedmax-cf-tria-1.png" alt="Canyon Speedmax CF" />
+        
+    </a>
+    <div class="grid_5 t-grid_3 omega">
+        <a class="product-title" href="http://localhost/canyon-canyon-speedmax-cf-18.html">Canyon Speedmax CF</a>
+        <p class="product-description">100% triathlon: The special triathlon stem is significantly higher than the time trial version, and spacers can be used to raise it up to 38 mm. </p>
+    </div>
+    <div class="grid_3 t-grid_1 omega text-center b-prices">
+        <p class="product-{onsale:18}new-{/onsale}price" itemprop="price">$5,899.00</p>
+        {onsale:18}
+            <p class="product-price"></p>
+        {/onsale}
+        <a class="tcart-add" href="javascript:;"  data-pid="18">Add to cart</a>
+    </div>
+</div><!--pid="19"--><div class="product-item list">
+    <a href="http://localhost/canyon-canyon-speedmax-al-19.html" class="product-image grid_4 t-grid_2 alpha">
+        <img src="http://localhost/media/Canyon/medium/speedmax-al-01-perspective.png" alt="Canyon Speedmax AL" />
+        
+    </a>
+    <div class="grid_5 t-grid_3 omega">
+        <a class="product-title" href="http://localhost/canyon-canyon-speedmax-al-19.html">Canyon Speedmax AL</a>
+        <p class="product-description">This year you can pound your fastest races times into the tarmac with the aluminium model – for less than EUR 1500.</p>
+    </div>
+    <div class="grid_3 t-grid_1 omega text-center b-prices">
+        <p class="product-{onsale:19}new-{/onsale}price" itemprop="price">$2,499.00</p>
+        {onsale:19}
+            <p class="product-price"></p>
+        {/onsale}
+        <a class="tcart-add" href="javascript:;"  data-pid="19">Add to cart</a>
+    </div>
+</div>	</div>
+";s:37:"widgets_gal_gal_Champions_250_94x94_0";s:3393:"    <ul class="img_gallery">
+                                <li class="gallery_image">
+                                <a class="gall" href="http://localhost/media/Champions/original/david-archard.jpg"
+                   data-fancybox-group="Champions"
+                   title="david&nbsp;archard">
+                                        <img src="http://localhost/media/Champions/crop/94-94/david-archard.jpg"
+                         alt="david&nbsp;archard"
+                         width="94" height="94"/>
+                </a>                                            </li>
+                                <li class="gallery_image">
+                                <a class="gall" href="http://localhost/media/Champions/original/jacob-niebergall.jpg"
+                   data-fancybox-group="Champions"
+                   title="jacob&nbsp;niebergall">
+                                        <img src="http://localhost/media/Champions/crop/94-94/jacob-niebergall.jpg"
+                         alt="jacob&nbsp;niebergall"
+                         width="94" height="94"/>
+                </a>                                            </li>
+                                <li class="gallery_image">
+                                <a class="gall" href="http://localhost/media/Champions/original/james-bringman.jpg"
+                   data-fancybox-group="Champions"
+                   title="james&nbsp;bringman">
+                                        <img src="http://localhost/media/Champions/crop/94-94/james-bringman.jpg"
+                         alt="james&nbsp;bringman"
+                         width="94" height="94"/>
+                </a>                                            </li>
+                                <li class="gallery_image">
+                                <a class="gall" href="http://localhost/media/Champions/original/kai-mcmurtry.jpg"
+                   data-fancybox-group="Champions"
+                   title="kai&nbsp;mcmurtry">
+                                        <img src="http://localhost/media/Champions/crop/94-94/kai-mcmurtry.jpg"
+                         alt="kai&nbsp;mcmurtry"
+                         width="94" height="94"/>
+                </a>                                            </li>
+                                <li class="gallery_image">
+                                <a class="gall" href="http://localhost/media/Champions/original/kelly-koehler.jpg"
+                   data-fancybox-group="Champions"
+                   title="kelly&nbsp;koehler">
+                                        <img src="http://localhost/media/Champions/crop/94-94/kelly-koehler.jpg"
+                         alt="kelly&nbsp;koehler"
+                         width="94" height="94"/>
+                </a>                                            </li>
+                                <li class="gallery_image">
+                                <a class="gall" href="http://localhost/media/Champions/original/tucker-adelman.jpg"
+                   data-fancybox-group="Champions"
+                   title="tucker&nbsp;adelman">
+                                        <img src="http://localhost/media/Champions/crop/94-94/tucker-adelman.jpg"
+                         alt="tucker&nbsp;adelman"
+                         width="94" height="94"/>
+                </a>                                            </li>
+            </ul>
+";}}

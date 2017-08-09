@@ -1,0 +1,214 @@
+<?php if ($this->pickupForm && $this->shippingForm) :?>
+<p class="checkout-button" style="<?php if ($this->shippingForm->isErrors() || $this->pickupForm->isErrors()) { echo "display: none"; } ?>">
+    <?php if($this->defaultPickup):?>
+        <?php $pickupLabel =  $this->translate('Free pickup'); ?>
+    <?php else:?>
+        <?php $pickupLabel =  $this->translate('Pickup'); ?>
+    <?php endif;?>
+    <a href="" data-targetid="#checkout-pickup-form" data-role="button" title="<?php echo $pickupLabel ?>" id="pickup-action"><?php echo $pickupLabel ?></a>
+    <span class="disc"><?php echo $this->translate('OR');?></span>
+    <a href="" data-targetid="#checkout-shipping-form" data-role="button" title="<?php echo $this->translate('Calculate shipping'); ?>" id="shipping-action"><?php echo $this->translate('Calculate shipping'); ?></a>
+</p>
+<?php endif; ?>
+
+<?php if ($this->pickupForm && $this->defaultPickup) : ?>
+<div id="checkout-pickup-form" style="<?php if ($this->shippingForm && !$this->pickupForm->isErrors()): ?>display: none;<?php endif; ?>">
+	<div class="checkout-pickup-default">
+	    <h3 class="checkout-forms-header">
+		    <?php echo $this->pickupForm->getLegend(); ?>
+		    <?php if ($this->shippingForm):?>
+		    <a href="#back" class="back-button">&laquo;&nbsp<?php echo $this->translate('back'); ?></a>
+		    <?php endif;?>
+	    </h3>
+        <form id="<?php echo $this->pickupForm->getAttrib('id');?>"
+              class="<?php echo $this->pickupForm->getAttrib('class');?>"
+              method="<?php echo $this->pickupForm->getAttrib('method');?>"
+              action="<?php echo $this->pickupForm->getAttrib('action');?>"
+              enctype="<?php echo Zend_Form::ENCTYPE_URLENCODED;?>">
+            <?php echo $this->pickupForm->firstname;?>
+            <?php echo $this->pickupForm->lastname;?>
+            <?php echo $this->pickupForm->phone;?>
+            <p>
+                <label for="<?php echo $this->pickupForm->mobile->getAttrib('id');?>"><?php echo $this->translate('Mobile');?></label>
+                <span class="block wrap">
+                    <?php echo $this->pickupForm->mobilecountrycode;?>
+                    <?php echo $this->pickupForm->mobile;?>
+                </span>
+            </p>
+            <?php echo $this->pickupForm->email;?>
+            <?php echo $this->pickupForm->step;?>
+            <?php echo $this->pickupForm->submitpickup;?>
+        </form>
+	</div>
+	<div class="checkout-pickup-default">
+	    <h3 class="checkout-forms-header"><?php echo $this->translate('Pickup location'); ?></h3>
+		<div>
+		    <span class="company"><?php echo $this->shoppingConfig['company'];?></span><br />
+			<span class="phone"><?php echo $this->translate('Phone').': '.$this->shoppingConfig['phone'];?></span><br />
+		    <span class="street-address"><?php echo $this->shoppingConfig['address1'].' '. $this->shoppingConfig['address2'];?></span>
+	        <br/>
+	        <span class="locality"><?php echo $this->shoppingConfig['city'].($this->shoppingConfig['city']&&($this->shoppingConfig['state'] || $this->shoppingConfig['zip'])?',':'');?></span>
+	        <span class="region"><?php $state = Tools_Geo::getStateById($this->shoppingConfig['state']); echo $state['state']; ?></span>
+	        <span class="postal-code"><?php echo $this->shoppingConfig['zip'];?></span>
+	        <br />
+	        <span><?php echo $this->shoppingConfig['country'];?></span>
+			<br />
+		</div>
+	</div>
+    <img class="pickup-location-map" src="<?php echo Tools_Geo::generateStaticGmaps($this->shoppingConfig, 640, 320); ?>" alt="<?php echo $this->translate('Pickup location'); ?>">
+</div>
+<?php elseif($this->pickupForm && !$this->defaultPickup):?>
+    <div id="checkout-pickup-form" style="<?php if ($this->shippingForm && !$this->pickupForm->isErrors()): ?>display: none;<?php endif; ?>">
+        <div id="initial-pickup-info">
+            <a href="#back" class="back-button">&laquo;&nbsp<?php echo $this->translate('back'); ?></a>
+            <?php if(!empty($this->pickupLocationConfig['searchEnabled'])):?>
+                <p><label><?php echo $this->translate('Enter location');?></label>
+                <input type="text" name="user-location" id="user-info-location" placeholder="<?php echo $this->translate('e.g. city; street and city; zip code...');?>"/></p>
+                <input id="user-info-pickup" type="button" value="Search" />
+            <?php else:?>
+                <?php if(!empty($this->locationList)):?>
+                    <select name="location-list-pickup" id="location-list-pickup">
+                        <option value="-1"><?php echo $this->translate('Select pickup location');?></option>
+                        <?php foreach($this->locationList as $pickupLocation):?>
+                            <option value="<?php echo $pickupLocation['id'];?>"><?php echo $pickupLocation['city'];?> (<?php echo $pickupLocation['country'];?>)</option>
+                        <?php endforeach;?>
+                    </select>
+                <?php else:?>
+                    <?php echo $this->translate('There are no pickup locations');?>
+                <?php endif;?>
+            <?php endif;?>
+        </div>
+        <div id="pickup-with-price-result" class="hide">
+            <h3 class="checkout-forms-header">
+                <?php echo $this->pickupForm->getLegend(); ?>
+            </h3>
+            <form id="<?php echo $this->pickupForm->getAttrib('id');?>"
+                  class="<?php echo $this->pickupForm->getAttrib('class');?>"
+                  method="<?php echo $this->pickupForm->getAttrib('method');?>"
+                  action="<?php echo $this->pickupForm->getAttrib('action');?>"
+                  enctype="<?php echo Zend_Form::ENCTYPE_URLENCODED;?>">
+                <?php echo $this->pickupForm->firstname;?>
+                <?php echo $this->pickupForm->lastname;?>
+                <?php echo $this->pickupForm->phone;?>
+                <?php echo $this->pickupForm->pickupLocationId;?>
+                <p>
+                    <label for="mobile"><?php echo $this->translate('Mobile');?></label>
+                    <span class="block wrap">
+                        <?php echo $this->pickupForm->mobilecountrycode;?>
+                        <?php echo $this->pickupForm->mobile;?>
+                    </span>
+                </p>
+                <?php echo $this->pickupForm->email;?>
+                <?php echo $this->pickupForm->step;?>
+                <?php echo $this->pickupForm->submitpickup;?>
+            </form>
+        </div>
+
+        <?php if ($this->shippingForm):?>
+             <div id="pickup-address-result" class="hide">
+            <h3 class="checkout-forms-header"><?php echo $this->translate('Pickup location');?>
+                <?php $websiteUrlCheckout = $this->websiteUrl;?>
+                <?php if(isset($this->checkoutPage)):?>
+                 <?php $websiteUrlCheckout = $this->websiteUrl.$this->checkoutPage->getUrl();?>
+                <?php endif;?>
+                <a href="<?php echo $websiteUrlCheckout;?>" class="checkout-edit" title="<?php echo $this->translate('Edit location');?>"><?php echo '[&nbsp;'.$this->translate('edit').'&nbsp;]';?></a>
+            </h3>
+        <?php endif;?>
+        <div id="pickup-result"></div>
+        </div>
+        <div id="pickup-map-locations" class="hidden" style="width:100%; padding: 0px;">
+
+            <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+            <ul id="pickup-location-grid"></ul>
+            <div class="pickup-locations" id="pickup-locations" style="width:100%; height:600px"></div>
+        </div>
+    </div>
+<?php endif; ?>
+
+<?php if ($this->shippingForm) : ?>
+<div id="checkout-shipping-form" style="<?php if ($this->pickupForm && !$this->shippingForm->isErrors()): ?>display: none;<?php endif; ?>">
+    <h3 class="checkout-forms-header">
+	    <?php echo $this->shippingForm->getLegend(); ?>
+	    <?php if ($this->pickupForm) : ?>
+	    <a href="#back" class="back-button">&laquo;&nbsp<?php echo $this->translate('back'); ?></a>
+	    <?php endif; ?>
+    </h3>
+    <?php if($this->pickAddress):?>
+        <div id="shipping-address-list" class="shipping-address-list clearfix">
+            <?php $addressList = $this->customer->getAddresses(); ?>
+            <?php $countryList = Tools_Geo::getCountries(true);?>
+            <?php if (!empty($addressList)): ?>
+                <?php $key = 0;?>
+                <?php foreach ($addressList as $shippingAddress): ?>
+                    <?php if($shippingAddress['address_type'] === 'shipping' && !in_array($shippingAddress['id'], $this->pickupLocationAddresses)):?>
+                        <?php $key = $key+1;?>
+                        <?php if($key<4):?>
+                            <div class="adr-shipping">
+                        <?php else : ?>
+                            <div class="adr-shipping" style="display:none">
+                        <?php endif; ?>
+                        <span class="street-address"><?php echo $shippingAddress['address1'].' '. $shippingAddress['address2'];?></span>
+                        <br/>
+                        <span class="locality">
+                            <?php echo $shippingAddress['city'].($shippingAddress['city']&&($shippingAddress['state'] || $shippingAddress['zip'])?',':'');?>
+                        </span>
+                        <span class="region"><?php $state = Tools_Geo::getStateById($shippingAddress['state']); echo $state['state']; ?></span>
+                        <span class="postal-code"><?php echo $shippingAddress['zip'];?></span>
+                        <br />
+                        <?php if (isset($countryList[$shippingAddress['country']])) :?>
+                            <span><?php echo $countryList[$shippingAddress['country']];?></span>
+                        <?php endif;?>
+                        <span class="email clearfix"> <?php echo $shippingAddress['email'];?></span>
+                        <a href="<?php echo $this->websiteUrl .$this->checkOutPageUrl.'?step='.Cart::STEP_SHIPPING_OPTIONS.'&shippingAddress='.$shippingAddress['id'];?>" class="use-shipping-address">
+                            <?php echo $this->translate('Ship to this address');?>
+                        </a>
+                        </div>
+                    <?php endif;?>
+                <?php endforeach; ?>
+                <?php if($key>3):?>
+                    <a href="javascript:;" class="shipping-address-more">
+                        <?php echo $this->translate('Show more');?>
+                    </a>
+                <?php endif;?>
+            <?php endif;?>
+        </div>
+    <?php endif;?>
+            <form id="<?php echo $this->shippingForm->getAttrib('id');?>"
+                  class="<?php echo $this->shippingForm->getAttrib('class');?>"
+                  method="<?php echo $this->shippingForm->getAttrib('method');?>"
+                  action="<?php echo $this->shippingForm->getAttrib('action');?>"
+                  enctype="<?php echo Zend_Form::ENCTYPE_URLENCODED;?>">
+                <fieldset id="fieldset-<?php echo $this->shippingForm->getDisplayGroup('lcol')->getId();?>"
+                          class="<?php echo $this->shippingForm->getDisplayGroup('lcol')->getAttrib('class');?>">
+                    <?php echo $this->shippingForm->firstname;?>
+                    <?php echo $this->shippingForm->lastname;?>
+                    <?php echo $this->shippingForm->company;?>
+                    <?php echo $this->shippingForm->email;?>
+                    <?php echo $this->shippingForm->phone;?>
+                    <p>
+                        <label for="mobile" class="<?php echo $this->shippingForm->mobile->getAttrib('class');?>"><?php echo $this->translate('Mobile');?></label>
+                        <span class="block wrap">
+                            <?php echo $this->shippingForm->mobilecountrycode;?>
+                            <?php echo $this->shippingForm->mobile;?>
+                        </span>
+                    </p>
+                    <?php echo $this->shippingForm->notes;?>
+                </fieldset>
+                <fieldset id="fieldset-<?php echo $this->shippingForm->getDisplayGroup('rcol')->getId();?>"
+                          class="<?php echo $this->shippingForm->getDisplayGroup('rcol')->getAttrib('class');?>">
+                    <?php echo $this->shippingForm->address1;?>
+                    <?php echo $this->shippingForm->address2;?>
+                    <?php echo $this->shippingForm->city;?>
+                    <?php echo $this->shippingForm->zip;?>
+                    <?php echo $this->shippingForm->country;?>
+                    <?php echo $this->shippingForm->state;?>
+                    <?php echo (isset($this->shippingForm->shippingToc)) ? $this->shippingForm->shippingToc : '';?>
+                </fieldset>
+                <?php echo $this->shippingForm->step;?>
+                <?php echo $this->shippingForm->checkout;?>
+            </form>
+</div>
+<?php endif; ?>
+    <style>
+        #pickup-locations img{max-width: none;}
+    </style>

@@ -1,0 +1,33 @@
+.static_menu{
+    .inline-block;
+    overflow   : hidden;
+    //margin-top : 20px;
+
+    li{
+        float : left;
+        //padding     : 0  @padding-small-horizontal 0 0;
+
+        &:before{
+            content : "/";
+            padding : 0 @padding-small-horizontal;
+        }
+
+        &:first-child:before{
+            content : none;
+        }
+
+        & + li{
+            //border-left : 1px solid @gray;
+        }
+
+        a{
+            color: inherit;
+
+            &.current, &:hover{
+                color: @link-color-hover;
+            }
+            span{ }
+        }
+    }
+}
+

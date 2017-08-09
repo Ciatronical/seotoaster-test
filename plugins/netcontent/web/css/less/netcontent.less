@@ -1,0 +1,89 @@
+@import "../../../../../system/css/less/base/variables";
+@import (reference) "../../../../../system/css/less/elements/basic";
+
+.edit-widget{
+    color     : #736D6D;
+    cursor    : pointer;
+    font-size : 10px;
+}
+.p2p-check{
+    display : none;
+}
+.seotoaster{
+
+    .netcontent-widget-list{
+        margin   : 0 0 5px;
+        padding  : 0;
+        overflow : auto;
+        height   : 380px;
+
+        li{
+            list-style       : none;
+            padding          : @padding-base-vertical 25px @padding-base-vertical @padding-base-horizontal;
+            font-size        : @font-size-small;
+            cursor           : pointer;
+            color            : @accordion-header-color;
+            background-color : @accordion-header-bg;
+            margin           : 2px 0;
+            position         : relative;
+
+            &:hover{
+                background-color : @accordion-header-bg-hover;
+                color            : @accordion-header-color-hover;
+            }
+        }
+
+        .widget-help{
+            position : absolute;
+            top      : 0;
+            bottom   : 0;
+            right    : 3px;
+            margin   : auto;
+        }
+
+        .widget-list-item-empty{
+            color            : #AAA;
+            background-color : #F3F3F3;
+        }
+    }
+
+    #list-of-widgets{
+
+        .connectImage{
+            width  : 100%;
+            height : 100%;
+        }
+    }
+}
+
+#widgetSync{
+
+    &:hover{
+    }
+}
+
+#p2p-content{
+    vertical-align : text-bottom;
+}
+
+#netcontent-hint-block{
+    display    : none;
+    position   : fixed;
+    left       : @grid-margin-width / 2;
+    top        : @header-height + @content-margin-top;
+    right      : round(percentage((4 / @grid-columns)) + @grid-margin-width / 2, 3);
+    bottom     : @button-height-base + @content-margin-top + @content-margin-bottom;
+    z-index    : 1000;
+    background : #fff;
+    padding    : @padding-base-vertical @padding-base-horizontal;
+    overflow   : auto;
+    border     : 1px solid #ccc;
+    .box-sizing();
+
+    .mce-fullscreen &{
+        left   : 0;
+        top    : @header-height;
+        bottom : 0;
+        right  : round(percentage((4 / @grid-columns)) - @grid-margin-width / 2, 3);
+    }
+}

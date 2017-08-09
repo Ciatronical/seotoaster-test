@@ -1,0 +1,19 @@
+<?php
+    $this->headLink()
+        ->prependStylesheet($this->websiteUrl . 'system/css/seotoaster.css')
+        ->prependStylesheet($this->websiteUrl . 'system/css/seotoaster-ui.css')
+        ->prependStylesheet($this->websiteUrl . 'system/css/reset.css');
+    echo $this->headLink();
+?>
+<div class="container seotoaster">
+
+    <div class="header shadow">
+        <div class="closebutton">
+            <span class="close ticon-close" onclick="window.parent.jQuery('.__tpopup').dialog('close');" title="<?php echo $this->translate('Close'); ?>"></span>
+        </div>
+        SEO Samba® <?php echo $this->translate('web site and products terms and conditions of use'); ?>
+	</div>
+	<div class="content scroll pl2 pr2">
+		<?php echo $this->terms; ?>
+    </div>
+</div>

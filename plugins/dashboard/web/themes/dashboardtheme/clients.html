@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>{$page:title}</title>
+        <meta name="keywords" content="{$meta:keywords}" />
+        <meta name="description" content="{$meta:description}" />
+
+        <!-- Mobile Specific Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes"> <!-- open in full-screen, hide URL bar (for IOS)-->
+
+        <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Open+Sans:400,600,700" rel="stylesheet" type="text/css">
+
+        <!-- Favicons -->
+        <link rel="icon" href="images/favicon.ico">
+        <!--[if IE]><link rel="shortcut icon" href="images/favicon.ico"><![endif]-->
+        <link rel="apple-touch-icon" href="images/apple-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+
+        <link href="{website:url}plugins/dashboard/web/themes/{theme:name}/css/reset-dashboard.css" rel="stylesheet" media="screen">
+        <link href="{website:url}plugins/dashboard/web/themes/{theme:name}/css/content.css" rel="stylesheet" media="screen">
+        <link href="{website:url}plugins/dashboard/web/themes/{theme:name}/css/nav-dashboard.css" rel="stylesheet" media="screen">
+        <link href="{website:url}plugins/dashboard/web/themes/{theme:name}/css/style-dashboard.css" rel="stylesheet" media="screen">
+        <!-- Additional css -->
+        <link href="{website:url}plugins/dashboard/web/themes/{theme:name}/css/skeleton-ui.css" rel="stylesheet" media="screen">
+
+        <!-- HTML5shiv and selectivizr.js IE support of HTML5 elements and CSS3 pseudo-classes, attribute selectors -->
+        <!--[if lt IE 9]><script src="js/system/ie-pack.js"></script><![endif]-->
+
+    </head>
+
+    <body class="seotoaster-dash">
+
+        <!-- HEADER -->
+        <header>
+            {dashboardmenu}
+                index
+                quotes
+                sales
+                clients
+                orders
+                products
+            {/dashboardmenu}
+        </header>
+
+        <main id="content">
+            {$store:clients}
+        </main>
+
+        <!-- SCRIPTS ZONE -->
+        <script type="text/javascript">
+            $(function(e) {
+            });
+        </script>
+        <script src="{website:url}plugins/dashboard/web/themes/{theme:name}/js/scripts.min.js"></script>
+        <script src="{website:url}plugins/dashboard/web/themes/{theme:name}/js/system/skeleton.min.js"></script>
+
+    </body>
+</html>

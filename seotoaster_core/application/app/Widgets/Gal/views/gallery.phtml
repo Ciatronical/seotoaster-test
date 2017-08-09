@@ -1,0 +1,26 @@
+<?php if (isset($this->images) && is_array($this->images) && !empty($this->images)): ?>
+    <ul class="img_gallery">
+        <?php foreach ($this->images as $image): ?>
+            <?php $size = getimagesize($this->galFolderPath . $image['name']); ?>
+            <li class="gallery_image">
+                <?php if (!isset($this->block)): ?>
+                <a class="gall" href="<?php echo $this->original . $image['name']; ?>"
+                   data-fancybox-group="<?php echo $this->folder; ?>"
+                   title="<?php echo Tools_System_Tools::makeSpace(Tools_System_Tools::cutExtension($image['name'])); ?>">
+                    <?php endif; ?>
+                    <img src="<?php echo $image['path']; ?>"
+                         alt="<?php echo Tools_System_Tools::makeSpace(Tools_System_Tools::cutExtension($image['name'])); ?>"
+                         width="<?php echo $size[0]; ?>" height="<?php echo $size[1]; ?>"/>
+                <?php if (!isset($this->block)): ?></a><?php endif;?>
+                <?php if ($this->useCaption): ?>
+                    <p class="image_caption"><?php echo Tools_System_Tools::makeSpace(Tools_System_Tools::cutExtension($image['name'])); ?></p>
+                <?php endif; ?>
+                <?php if (!empty($this->withContainer)):?>
+                    <div class="gallery_image_description">
+                        {$content:gallContent-<?php echo md5($this->folder . $image['name']);?>}
+                    </div>
+                <?php endif;?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>

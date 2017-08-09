@@ -1,0 +1,189 @@
+<link rel="stylesheet" href="<?php echo $this->websiteUrl.'plugins/shopping/web/css/store.css' ; ?>"/>
+<link rel="stylesheet" href="<?php echo $this->websiteUrl.'system/css/reset-widgets.css' ; ?>"/>
+
+<?php
+$this->jQuery()->addJavascriptFile($this->websiteUrl.'system/js/external/jquery/plugins/lazyload/jquery.lazyload.min.js');
+$this->headScript()->appendFile($this->websiteUrl . 'system/js/external/waypoints/waypoints.min.js');
+?>
+
+<input type="hidden" name="system-language" value="<?php echo Tools_Misc::getJsTranslationLanguage();?>"/>
+<div id="status-cart-email">
+
+
+<?php
+    $firstPageCaption = $this->translate('First');
+    $lastPageCaption = $this->translate('Last');
+?>
+    <form id="add-edit-status-cart">
+        <input class="secureToken" type="hidden" name="secureToken" value="<?php echo Tools_System_Tools::initSecureToken(Cartstatusemail::CARTSTATUS_SECURE_TOKEN);?>" />
+        <div class="grid_7 alpha">
+            <label><?php echo $this->translate('Send email');?></label>
+            <p class="labeled grid_4 alpha omega mt0px">
+                <?php echo $this->formText('periodHours', null, array(
+                    'class'          => 'cart-period-hours grid_5 alpha omega',
+                    'placeholder'    => $this->translate('lag time')
+                )); ?>
+                <label class="grid_7 alpha omega"><?php echo $this->translate('hours after');?></label>
+            </p>
+
+            <?php echo $this->formSelect('cartStatus', null, array(
+                'id'            => 'cart-status',
+                'class'         => 'grid_8 omega'
+                ),
+                array('0'=>$this->translate('Choose cart status'),
+                    Models_Model_CartSession::CART_STATUS_NEW => $this->translate('cs_'.Models_Model_CartSession::CART_STATUS_NEW),
+                    Models_Model_CartSession::CART_STATUS_PENDING => $this->translate('cs_'.Models_Model_CartSession::CART_STATUS_PENDING),
+                    Models_Model_CartSession::CART_STATUS_PROCESSING => $this->translate('cs_'.Models_Model_CartSession::CART_STATUS_PROCESSING),
+                    Models_Model_CartSession::CART_STATUS_COMPLETED => $this->translate('cs_'.Models_Model_CartSession::CART_STATUS_COMPLETED),
+                    Models_Model_CartSession::CART_STATUS_SHIPPED => $this->translate('cs_'.Models_Model_CartSession::CART_STATUS_SHIPPED),
+                    Models_Model_CartSession::CART_STATUS_DELIVERED => $this->translate('cs_'.Models_Model_CartSession::CART_STATUS_DELIVERED),
+                    Models_Model_CartSession::CART_STATUS_REFUNDED => $this->translate('cs_'.Models_Model_CartSession::CART_STATUS_REFUNDED),
+                    Tools_Misc::CS_ALIAS_PENDING => $this->translate('cs_'.Tools_Misc::CS_ALIAS_PENDING),
+                    Tools_Misc::CS_ALIAS_PROCESSING => $this->translate('cs_'.Tools_Misc::CS_ALIAS_PROCESSING),
+                    Tools_Misc::CS_ALIAS_LOST_OPPORTUNITY => $this->translate('cs_'.Tools_Misc::CS_ALIAS_LOST_OPPORTUNITY)
+
+                )); ?>
+
+            <?php echo $this->formSelect('productsRulePrepare', null, array('class' => 'grid_10 alpha mt10px'),
+                array('with'=>$this->translate('that includes'), 'without' => $this->translate('regardless of cart content'))); ?>
+
+            <?php echo $this->formSelect('productsRule', null, array('class' => 'grid_2 omega mt10px'),
+                array('all'=>$this->translate('all'), 'any'=>$this->translate('any'))); ?>
+
+            <span class="clearfix"></span>
+            <label class="mt10px"><?php echo $this->translate('Using');?></label>
+            <p class="labeled grid_6 alpha omega mt0px">
+                <?php  if(isset($this->mailTemplates)):?>
+                    <select class="grid_8 alpha omega emailTemplate" name="emailTemplate">
+                        <option value="0"><?php echo $this->translate('Action email default');?></option>
+                        <?php foreach($this->mailTemplates as $mailTemplate):?>
+                            <option value="<?php echo $mailTemplate->getName();?>"><?php echo $mailTemplate->getName();?></option>
+                        <?php endforeach;?>
+                   </select>
+                <?php endif;?>
+                <label class="grid_4 alpha omega"><?php echo $this->translate('as HTML template');?></label>
+            </p>
+
+                <?php echo $this->formText('emailFrom', null, array(
+                        'class'          => 'cart-email-from grid_6 omega',
+                        'placeholder'    => $this->translate('Email from')
+                    )); ?>
+                <?php echo $this->formTextarea('emailMessage', null, array(
+                        'class' => 'cart-email-message mt10px',
+                        'rows'  => 3,
+                        'placeholder'    => $this->translate('Insert your message here OR in your template')
+                    )); ?>
+        </div>
+
+        <div class="grid_5 alpha omega">
+            <div id="checked-product-images" class="scroll list-images column_4 full-width" style="max-height: 180px;"></div>
+            <label class="prodInfoLabel fl-left mt20px">
+                <?php echo $this->translate('of the following products');?>:
+                <a href="javascript:;" data-listtype="related" class="show-list" title="<?php echo $this->translate('Add related'); ?>">[ <?php echo $this->translate('Add products'); ?> ]</a>
+            </label>
+            <input id="blue-btn" class="btn" type="submit" value="<?php echo $this->translate('Create'); ?>"/>
+        </div>
+
+        <input type="hidden" class="productsIds" name="productsIds" value="" />
+        <input type='hidden' id='cartId' name='cartId' value="" />
+    </form>
+    <script id="paginatorTemplate" type="text/template">
+        <div class="paginator <%= cssClass %>" data-collection="<%= collection %>" >
+            <% if (firstPage != currentPage) { %><a href="#" class="page" data-page="first"><?php echo $firstPageCaption;?></a><% } else { %><span><?php echo $firstPageCaption;?></span><% } %>
+
+            <% if (currentPage > firstPage) { %><a href="#" class="page" data-page="prev"><?php echo $this->translate('Previous'); ?></a><% } %>
+
+            <% if (currentPage - 5 > firstPage) { %><span>...</span><% } %>
+
+            <% for (var p=currentPage-5; p<=currentPage+5; p++) { %>
+                <% if (p < firstPage || p > lastPage) continue; %>
+                <% if (currentPage == p) { %>
+                    <span class="page selected"><%= p %></span>
+                <% } else { %>
+                    <a href="#" class="page" data-page="<%= p %>"><%= p %></a>
+                <% } %>
+            <% } %>
+
+            <% if (currentPage + 5 < lastPage) { %><span>...</span><% } %>
+
+            <% if (currentPage < totalPages) { %><a href="#" class="page" data-page="next"><?php echo $this->translate('Next');?></a><% } %>
+
+            <% if (lastPage != currentPage) { %><a href="#" class="page" data-page="last"><?php echo $lastPageCaption;?></a><% } else { %><span><?php echo $lastPageCaption;?></span> <%} %>
+        </div>
+    </script>
+
+    <div id="product-list" class="hide fixed top left body-bg">
+        <div class="header">
+            <div class="closebutton">
+                <a href="javascript:;" id="product-list-back-link" class="close ticon-close"><?php echo $this->translate('back');?></a>
+            </div>
+            <div class="grid_5 alpha">
+                <label class="grid_2 alpha omega" for="product-list-search"><?php echo $this->translate('Search');?></label>
+                <input id="product-list-search" class="grid_10 mt5px" type="text" name="product-list-search" placeholder="by name, sku, mpn or tags">
+            </div>
+        </div>
+        <div id="product-list-holder" class="content-footer scroll pl2 pr2 column_8 full-width" data-emptymsg="<?php echo $this->translate('Nothing Found'); ?>"></div>
+        <div class="footer grid_12">
+            <a id="massaction" class="btn ticon-plus fl-right success" href="javascript:;"><?php echo $this->translate('Add product');?></a>
+            <div class="paginator"><!-- placeholder for paginator --></div>
+        </div>
+    </div>
+
+    <script id="productListingTemplate" type="text/x-jquery-tmpl">
+        <% if (showDelete) { %>
+            <span class="ui-icon ui-icon-closethick" style="position: absolute;right: 0;top: 0; cursor: pointer;">Delete</span>
+        <% } else { %>
+        <a href="<?php echo $this->url(array('id'=>null));?>/id/<%= id %>" data-role="editProduct" data-pid="<%= id %>" title="<?php echo $this->translate('Edit');?> <%= name %>" class="clearfix" style="text-align:center;">
+            <% } %>
+            <span class="brand"><%= brand %></span>
+            <span class="image">
+                <% if (showDelete) { %>
+                    <img class="productImage" src="<?php echo $this->websiteUrl;?><%= photo ? mediaPath + photo.replace('/', '/product/') : '/system/images/noimage.png' %>" alt="<%= name %>" />
+                <% } else { %>
+                <% if (rendered) { %>
+                    <img class="productImage" src="<?php echo $this->websiteUrl;?><%= photo ? mediaPath + photo.replace('/', '/product/') : '/system/images/noimage.png' %>" alt="<%= name %>" />
+                <% } else { %>
+                    <img class="lazy" src="" data-original="<?php echo $this->websiteUrl;?><%= photo ? mediaPath + photo.replace('/', '/product/') : '/system/images/noimage.png' %>" alt="<%= name %>" />
+                <% } %>
+            </span>
+            <% } %>
+            <span class="name"><%= name %></span>
+            <span class="sku"><%= sku %></span>
+            <% if (!showDelete) { %>
+        </a>
+	    <label class="checkbox-del"><input type="checkbox" class="marker" name="marker" data-alt-img="<%= name %>" data-image-url="<?php echo $this->websiteUrl;?><%= photo ? mediaPath + photo.replace('/', '/product/') : '/system/images/noimage.png' %>" value=<%= id %> ></label>
+
+    <% } %>
+    </script>
+
+
+    <div id="related-holder"></div>
+
+    <input type="hidden" name="mediaPath" value="<?php echo $this->websiteConfig['media']; ?>" id="media-path" />
+
+    <span class="text-center fl-right small text-bold"><?php echo $this->translate('Any created event will apply retro-actively to 24 hours old carts');?>.</span>
+
+    <div class="toaster-widget mt15px">
+        <table id="status-cart-email-table" class="table-striped table-hover small mb10px">
+            <thead class="header-inner">
+            <tr>
+                <th><?php echo $this->translate('Cart status');?></th>
+                <th><?php echo $this->translate('Targeted products');?></th>
+                <th><?php echo $this->translate('Lag(in hours)');?></th>
+                <th><?php echo $this->translate('Template');?></th>
+                <th class="text-right"><?php echo $this->translate('Action');?></th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    if (typeof define === 'function' && define.amd) {
+        require([$('#website_url').val() + 'plugins/cartstatusemail/web/js/modules/cartstatus/views/app.js'], function (a) {
+            new a;
+        });
+
+    };
+</script>

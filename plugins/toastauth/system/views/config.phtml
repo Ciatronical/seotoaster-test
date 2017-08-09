@@ -1,0 +1,65 @@
+<div class="seotoaster container">
+    <?php
+    echo $this->partial(
+        'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+        array(
+            'headerText'  => $this->translate('Toastauth Settings'),
+            'helpSection' => $this->helpSection,
+            'hashMap'     => $this->hashMap
+        )
+    );
+    ?>
+    <form name="toastAuthConf" class="pluginform content-auto" method="post"
+          action="<?php echo $this->websiteUrl ?>plugin/toastauth/run/authConfig/">
+        <fieldset class="background grid_12">
+            <?php foreach ($this->providers as $provider) : ?>
+                <p><label style="text-transform: uppercase" class="grid_3 alpha text-bold pointer">
+                        <?php echo $this->translator->translate($provider['name']); ?>:</label>
+                    <label class="checkbox_radio-wrap pointer grid_9 omega"><input type="checkbox"
+                                                                                   name="<?php echo $provider['name'] ?>[status]"
+                                                                                   value="1"
+                            <?php if ($provider['status'] == 1) {
+                                echo " checked";
+                            } ?> class="processed checkbox-upgrade filed-upgrade"><span class="checkbox_radio "></span>
+                    </label>
+                </p>
+                <p><label class="grid_3 alpha"><?php echo $this->translator->translate('client_id'); ?>: </label>
+                    <input class="grid_9 omega" type="text" name="<?php echo $provider['name'] ?>[client_id]"
+                           value="<?php echo $provider['client_id']; ?>">
+                </p>
+                <p><label class="grid_3 alpha"><?php echo $this->translator->translate('client_secret'); ?>: </label>
+                    <input class="grid_9 omega" type="text" name="<?php echo $provider['name'] ?>[client_secret]"
+                           value="<?php echo $provider['client_secret']; ?>">
+                </p>
+            <?php endforeach ?>
+        </fieldset>
+        <input type="hidden" id="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN; ?>"
+               name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN; ?>" value="<?php echo $this->secureToken; ?>"/>
+        <button class="btn saveButton ticon-save mr-grid" type="submit"
+                name="savePaypalSettings"><?php echo $this->translator->translate('Save and Close'); ?></button>
+    </form>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $("form[name='toastAuthConf']").on("submit", function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: '<?php echo $this->websiteUrl;?>plugin/toastauth/run/authConfig/',
+                type: 'POST',
+                dataType: 'json',
+                data: $(this).serialize()
+            }).done(function (response) {
+                if (response.error == 1) {
+                    smoke.alert(response.responseText, {'classname': 'errors'});
+                } else {
+                    smoke.signal('<?php echo $this->translator->translate('Saved');?>');
+                }
+                window.setTimeout(function () {
+                    top.location.reload()
+                }, 2000)
+            }).fail(function () {
+                console.log('error');
+            })
+        });
+    });
+</script>

@@ -1,0 +1,54 @@
+<div id="ctc-form-wrapper">
+    <?php if(isset($this->formImage)) : ?>
+        <img class="grid_5" src ="<?php echo $this->formImage; ?>" >
+    <?php endif ?>
+    <h3><?php echo $this->formTitle; ?></h3>
+    <form class="clickToCallForm" action="<?php echo $this->websiteUrl ?>api/apps/callrequest" method="post">
+        <?php echo $this->formSelect(
+            'countryPhoneCode',
+            Tools_System_Tools::getWebsiteCountryCode(),
+            null, // attributes
+            Tools_System_Tools::getCountryPhoneCodesList(true, $this->countryCodes)
+        );?>
+        <input type="text" name="called" />
+        <input name="clickToCallInit" type="submit" value="<?php echo $this->formBtnName; ?>" />
+    </form>
+</div>
+<?php if(!$this->scriptAdded) :?>
+<script>
+    (function() {
+        $(function () {
+            $('body').on('click', 'input[name="clickToCallInit"]', function () {
+                var formEl = $(this).closest('.clickToCallForm'),
+                    phone = $('input[name="called"]', formEl).val(),
+                    phoneRegex = /^[\d\s-\(\)]{7,17}$/;
+                if(!phoneRegex.test(phone))
+                {
+                    showMessage("<?php echo $this->translate('Please specify a valid phone number.') ?>", 0, 5000);
+                    return false;
+                }
+                var data = {countryPhoneCode: $('#countryPhoneCode', formEl).val(), clientPhoneNumber: phone};
+                showMessage("<?php echo $this->translate('Sending call request...') ?>", 0, 15000);
+                $.ajax(formEl.attr('action'),
+                    {
+                        type: 'POST',
+                        data: data,
+                        dataType: 'json'
+                    }
+                ).done(function (resp) {
+                        $('.smoke-base').hide();
+                        if (!resp) {
+                            showMessage("<?php echo $this->translate('The service is not available.') ?>", false, 15000)
+                        } else {
+                            showMessage(resp.message, !Number(resp.done), 15000)
+                        }
+                    })
+                    .fail(function (jqXHR, textStatus) {
+                        showMessage(jqXHR.responseText, 1);
+                    });
+                return false;
+            });
+        });
+    })();
+</script>
+<?php endif; ?>

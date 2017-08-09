@@ -1,0 +1,123 @@
+<?php $this->headTitle($this->translate('Manage customers')); ?>
+
+<script id="tableRowTemplate" type="text/x-jquery-tmpl">
+    <td class="check-td"><input type="checkbox" name="select[]" value="${id}" title="Click to mark/unmark ${full_name}" {{if checked}}checked="checked"{{/if}} /></td>
+    <td class="full-name text-left"><a href="javascript:;" class="details">${full_name}</a></td>
+    <td class="email"><a href="mailto:${email}">${email}</a></td>
+    <td><input type="text" class="mobile-number" data-uid="${id}" data-attribute="mobile" value="${mobile_phone}" /></td>
+    <td class="group">
+        <?php if(!empty($this->allGroups)):?>
+            <select name="groups">
+                <option value="0"><?php echo $this->translate('select');?></option>
+                <?php foreach($this->allGroups as $group): ?>
+                    <option {{if group_id == <?php echo $group->getId();?>}} selected="selected" {{/if}} value="<?php echo $group->getId();?>"><?php echo $group->getGroupName();?></option>
+                <?php endforeach;?>
+            </select>
+        <?php else:?>
+            <span><?php echo $this->translate('There are no groups yet');?></span>
+        <?php endif;?>
+    </td>
+    <?php if (is_array($this->customerAttributes)): ?>
+        <?php foreach ($this->customerAttributes as $attrName): ?>
+            <td><input type="text" class="customer-attribute" data-uid="${id}" data-attribute="customer_<?php echo $attrName?>" value="${<?php echo $attrName?>}" /></td>
+        <?php endforeach; ?>
+    <?php endif; ?>
+    <td class="date text-center">${reg_date}</td>
+    <td class="total text-center"><span>{{if total_amount}}${total_amount}{{else}}0{{/if}}</span> (${total_orders})</td>
+</script>
+
+<script id="customerDetailsTemplate" type="text/x-jquery-tmpl">
+	<h2 class="fn">${fullName}</h2>
+	<h3><a href="mailto:${email}" class="email">${email}</a></h3>
+	<p>${roleId} since ${regDate}</p>
+
+</script>
+
+<script id="addressTemplate" type="text/x-jquery-tmpl">
+	<div class="adr">
+		<h3><?php echo $this->translate('Default shipping address');?></h3>
+		<span class="street-address">address1 + address2</span>
+		<br/>
+		<span class="locality">city</span>
+		<span class="region">state</span>
+		<span class="postal-code">zip</span>
+	</div>
+</script>
+<input type="hidden" name="system-language" value="<?php echo Tools_Misc::getJsTranslationLanguage();?>"/>
+<?php
+    $this->headScript()
+        ->appendFile($this->websiteUrl . 'system/js/external/jquery/plugins/tmpl/jquery.tmpl.min.js')
+        ->appendFile($this->websiteUrl.'plugins/shopping/web/js/libs/require.min.js', null, array('data-main' => $this->websiteUrl.'plugins/shopping/web/js/modules/store-clients/config'));
+
+	$this->noLayout ? $this->headScript() : '';
+?>
+<?php $this->headLink()->appendStylesheet($this->websiteUrl . 'system/css/reset-widgets.css') ?>
+<div id="clients" class="toaster-widget">
+    <div class="search-line mt20px mb20px clearfix">
+        <input type="text" id="clients-search" class="grid_6 alpha" name="clients-search" placeholder="<?php echo $this->translate('search by name or email');?>"/>
+        <form id="export-users-form" class="fl-right mt5px" action="<?php echo $this->websiteUrl;?>backend/backend_user/export/" method="post">
+            <a href="javascript:;" id="export-users">[&nbsp;<?php echo $this->translate('export as csv file');?>&nbsp;]</a>
+        </form>
+    </div>
+    <table id="clients-table" class="widget table-hover">
+        <thead>
+            <tr class="title-table ws-nowrap">
+	            <th width="30px"><?php echo $this->formCheckbox('clients-check-all', null, array('title' => 'Check/Uncheck All'));?></th>
+	            <th class="sortable" data-sortkey="full_name"><?php echo $this->translate('Full Name');?></th>
+	            <th class="sortable" data-sortkey="email"><?php echo $this->translate('Email');?></th>
+	            <th class="sortable" data-sortkey="mobile_phone"><?php echo $this->translate('Mobile number');?></th>
+                <th class="sortable" data-sortkey="group_id"><?php echo $this->translate('Group Name');?></th>
+                <?php if (is_array($this->customerAttributes)): ?>
+                    <?php foreach ($this->customerAttributes as $attrName): ?>
+                        <th class="customer-attribute" data-custom="<?php echo $this->translate($attrName) ?>"><?php echo $this->translate(mb_convert_case(preg_replace('`_`', ' ', $attrName), MB_CASE_TITLE, 'UTF-8'));?>
+                            <?php if ($this->superAdmin === true): ?>
+                                <span class="ticon-cancel red"></span>
+                            <?php endif ?>
+                        </th>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+	            <th class="sortable text-center" data-sortkey="reg_date"><?php echo $this->translate('Registered');?></th>
+	            <th class="sortable text-center" data-sortkey="total_amount"><?php echo $this->translate('Total Spend (orders)');?></th>
+            </tr>
+        </thead>
+        <tbody id="customer-list">
+            <tr>
+	            <td colspan="<?php echo 7 + count($this->customerAttributes); ?>" class="text-center">
+                    <img src="<?php echo $this->websiteUrl;?>system/images/spinner-small.gif" border="0" alt="loading..." />
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+	            <td colspan="2">
+		            <?php echo $this->translate('with selected do');?>
+
+                    <?php $enabledAppsPlugin = Application_Model_Mappers_PluginMapper::getInstance()->findByName('apps');?>
+                    <select id="mass-action">
+			            <option value="0"><?php echo $this->translate('nothing');?></option>
+                        <option value="assignGroups"><?php echo $this->translate('assign groups');?></option>
+                        <option value="assignPassword"><?php echo $this->translate('assign new password');?></option>
+                        <?php if($enabledAppsPlugin instanceof Application_Model_Models_Plugin):?>
+                            <option value="emailMarketing"><?php echo $this->translate('add to email list');?></option>
+                            <option value="crmMarketing"><?php echo $this->translate('add to crm');?></option>
+                        <?php endif;?>
+			            <option value="deleteSelected"><?php echo $this->translate('delete');?></option>
+		            </select>
+	            </td>
+
+	            <td colspan="<?php echo 5 + count($this->customerAttributes); ?>" class="text-right">
+		            <a href="#" id="clients-previous" class="table-nav mr15px">&#8656;&nbsp;<?php echo $this->translate('previous');?></a>
+		            <a href="#" id="clients-next" class="table-nav"><?php echo $this->translate('next');?>&nbsp;&#8658;</a>
+	            </td>
+            </tr>
+        </tfoot>
+        <input class="clientsSecureToken" type="hidden" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo Tools_System_Tools::initSecureToken(Api_Store_Customers::CUSTOMERS_SECURE_TOKEN);?>" />
+    </table>
+
+	<div id="customer-details">
+		<div class="toolbar mt10px mb30px">
+			<a href="javascript:;" class="link btn-text">[ &#8678; <?php echo $this->translate('back to clients list');?> ]</a>
+		</div>
+		<div id="profile"></div>
+	</div>
+</div>

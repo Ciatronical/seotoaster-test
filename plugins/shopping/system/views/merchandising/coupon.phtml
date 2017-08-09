@@ -1,0 +1,89 @@
+<form id="edit-coupon" class="grid_12 alpha omega background">
+<!--    <p class="blockquote gray-light-bg fs12 mb0px">--><?php //echo $this->translate('Set parameters for promotional coupons from this screen.  These coupons are valid only when this specific product is part of an order.'); ?><!--</p>-->
+
+    <?php echo $this->formHidden('data[products]', isset($this->productId) ? $this->productId : null); ?>
+
+    <div class="grid_2 alpha mt0px">
+    <?php $generalConfig = Models_Mapper_ShoppingConfig::getInstance()->getConfigParams();?>
+        <label><?php echo $this->translate('Discount Tax Rate'); ?></label>
+        <select name="coupon-discount-tax-rate" id="coupon-discount-tax-rate">
+            <option value="0" <?php echo (isset($generalConfig[Shopping::COUPON_DISCOUNT_TAX_RATE]) && $generalConfig[Shopping::COUPON_DISCOUNT_TAX_RATE] === '0') ? 'selected' : '';?>><?php echo $this->translate('Select');?></option>
+            <option value="1" <?php echo (isset($generalConfig[Shopping::COUPON_DISCOUNT_TAX_RATE]) && $generalConfig[Shopping::COUPON_DISCOUNT_TAX_RATE] === '1') ? 'selected' : '';?>><?php echo $this->translate('Default Tax');?></option>
+            <option value="2" <?php echo (isset($generalConfig[Shopping::COUPON_DISCOUNT_TAX_RATE]) && $generalConfig[Shopping::COUPON_DISCOUNT_TAX_RATE] === '2') ? 'selected' : '';?>><?php echo $this->translate('Tax Rate 1');?></option>
+            <option value="3" <?php echo (isset($generalConfig[Shopping::COUPON_DISCOUNT_TAX_RATE]) && $generalConfig[Shopping::COUPON_DISCOUNT_TAX_RATE] === '3') ? 'selected' : '';?>><?php echo $this->translate('Tax Rate 2');?></option>
+        </select>
+    </div>
+
+	<div class="grid_4 alpha mt0px">
+        <label><?php echo $this->translate('Type');?></label>
+		<?php echo $this->formSelect('type', null, array(
+				'data-action'   => 'render',
+				'id'            => 'coupon-type'
+			), Store_Mapper_CouponMapper::getInstance()->getCouponTypes(true) ); ?>
+	</div>
+
+    <div class="grid_2 alpha omega mt0px">
+        <label class="grid_4 alpha"><?php echo $this->translate('Code');?></label>
+        <a id="genCoupon" class="grid_8 alpha omega text-right"><?php echo $this->translate('Generate'); ?> <span class="ticon-refresh"></span></a>
+        <?php echo $this->formText('code', null, array(
+            'data-validator' => array('notempty'),
+            'placeholder'    => $this->translate('Enter coupon code')
+        )); ?>
+    </div>
+
+    <div class="grid_4 omega mt0px">
+		<label class="mb0-5em mt0-5em pointer" for="allowCombination">
+            <?php echo $this->formCheckbox('allowCombination'); ?>
+            <?php echo $this->translate('Allow in combination with other coupons');?>
+        </label>
+		<label class="mb0px pointer" for="scope">
+			<?php echo $this->formCheckbox('scope', 'client', null, array(
+                'checked' => 'client',
+                'unChecked' => ''
+            )); ?>
+            <?php echo $this->translate('One use per client');?>
+		</label>
+    </div>
+
+	<div class="grid_4 alpha cl-both">
+        <label><?php echo $this->translate('From');?></label>
+        <span class="labeled icon left grid_5 alpha omega">
+            <?php echo $this->formText('startDate', date('d-M-Y'), array(
+                'class' => 'datepicker'
+            )); ?>
+            <i class="ticon-calendar icon16"></i>
+        </span>
+        <label class="grid_2 text-center mt5px">- <?php echo $this->translate('to');?> -</label>
+        <span class="labeled icon left grid_5 alpha omega">
+            <?php echo $this->formText('endDate', date('d-M-Y', strtotime('+1 month')), array(
+                'class' => 'datepicker'
+            )); ?>
+            <i class="ticon-calendar icon16"></i>
+        </span>
+	</div>
+
+	<div class="grid_6 alpha omega" id="coupon-action"></div>
+    <input class="secure-token-discount-rate" type="hidden" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo Tools_System_Tools::initSecureToken(Shopping::SHOPPING_SECURE_TOKEN);?>">
+	<button class="btn grid_2 omega mt2-25em ticon-plus" type="submit"/><?php echo $this->translate('Create'); ?></button>
+</form>
+
+<div class="mt15px grid_12 alpha omega">
+    <table id="coupon-table" class="table-striped table-hover small mb10px">
+        <thead class="header-inner">
+        <tr>
+            <th>#</th>
+            <th><?php echo $this->translate('Type');?></th>
+            <th><?php echo $this->translate('Code');?></th>
+            <th><?php echo $this->translate('Start');?></th>
+            <th><?php echo $this->translate('End');?></th>
+            <th><?php echo $this->translate('Combine?');?></th>
+            <th><?php echo $this->translate('One use');?></th>
+            <th><?php echo $this->translate('Target');?></th>
+            <th><?php echo $this->translate('Action');?></th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

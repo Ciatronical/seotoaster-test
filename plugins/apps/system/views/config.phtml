@@ -1,0 +1,311 @@
+<div class="seotoaster container">
+    <?php echo $this->partial(
+        'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+        array(
+            'headerText'  => $this->translate('Connect your CMS with 3rd party APPS'),
+            'helpSection' => $this->helpSection,
+            'hashMap'     => $this->hashMap
+        )
+    ); ?>
+
+<?php if (isset($this->categoryAndServices)): ?>
+    <div id="services-general-info" class="content ui-tabs-vertical">
+        <ul class="service-category grid_3 omega">
+            <?php foreach ($this->categoryAndServices['services'] as $categoryName => $services): ?>
+                <li style="border: 1px solid #eaeaea;"><a href="#service-category-<?php echo $categoryName; ?>" data-category="<?php echo $categoryName; ?>"><?php echo (array_key_exists($categoryName, $this->categoryAlias)) ? $this->categoryAlias[$categoryName] : ''; ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+        <div id="services-info-container" class="grid_9 alpha omega">
+        <?php foreach ($this->categoryAndServices['services'] as $categoryName => $services): ?>
+            <div id="service-category-<?php echo $categoryName; ?>" class="service-category ui-accordion">
+            <?php if (isset($this->categoryInfo) && isset($this->categoryInfo[$categoryName])): ?>
+                <div class="message info mb20px"><?php echo $this->categoryInfo[$categoryName]; ?></div>
+            <?php endif; ?>
+                <?php foreach ($services as $serviceName => $serviceInfo): ?>
+                    <div class="clear"></div>
+                    <div class="service-title ui-accordion-header">
+                    <span class="service-start-configuration">
+                        <?php echo $this->translate($serviceInfo['name']); ?>
+                    </span>
+                    <?php if ($serviceInfo['status'] === true): ?>
+                        <input type="checkbox" class="service-status switcher" data-label-class="fl-right" <?php echo (isset($this->localServices[$serviceName]) && $this->localServices[$serviceName] == '1') ? 'checked' : ''; ?> data-status="<?php echo (isset($this->localServices[$serviceName]) && $this->localServices[$serviceName] == 1) ? 'enable' : 'disable' ; ?>" data-category="<?php echo $categoryName; ?>" data-service="<?php echo $serviceName; ?>">
+                    <?php else: ?>
+                        <a class="toaster-forms-emailservice fl-right" href="<?php echo $serviceInfo['status']; ?>" target="_blank">[ <?php echo $this->translate('Configure'); ?> ]</a>
+                    <?php endif; ?>
+                </div>
+
+                <?php if ($serviceInfo['status'] === true): ?>
+                    <?php if ($categoryName === Apps::SERVICE_TYPE_EMAIL ||  $categoryName === Apps::SERVICE_TYPE_CRM): ?>
+                        <div class="service-form-wrapper" data-service-type="<?php echo $categoryName;?>" data-service-name="<?php echo $serviceName;?>"><?php echo $this->emailFormsView;?></div>
+
+                            <?php if ($categoryName === Apps::SERVICE_TYPE_CRM && isset($this->eccomerceWebsite)): ?>
+                                <a href="javascript:;" data-service-type="<?php echo $serviceName;?>" class="setup-crm-ecommerce"><?php echo $this->translate('Setup crm for ecommerce');?></a>
+                                <div style="overflow-y: auto; max-height: 160px;" id="setup-crm-ecommerce-<?php echo $serviceName;?>" class="service-crm-ecommerce container mt10px" data-service-type="<?php echo $serviceName;?>"></div>
+                            <?php endif;?>
+
+                        <?php if(isset($serviceInfo['params'])) :?>
+                            <?php echo $serviceInfo['params']['registerLink'];?>
+                        <?php endif;?>
+                    <?php endif; ?>
+                        <?php if (isset($serviceInfo['params']) && $categoryName == Apps::SERVICE_TYPE_SMS): ?>
+                        <?php echo $serviceInfo['params']['registerLink']; ?>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
+        </div>
+        <input class="secureToken" type="hidden" name="secureToken" value="<?php echo $this->secureToken;?>" />
+    </div>
+</div>
+<input type="hidden" name="websiteUrl" id="website_url" value="<?php echo $this->websiteUrl; ?>">
+<?php else: ?>
+    <div class="content grid_12">
+        <div class="text-center"><img src="<?php echo $this->websiteUrl ?>plugins/apps/web/images/cloud_apps.png"></div>
+        <p class="message info mt10px text-center larger">
+            <a href="https://mojo.seosamba.com/" title="" target="_blank">
+                <?php echo $this->translate('There are no available service'); ?>
+            </a>
+        </p>
+        <p class="grid_10 prefix_1 suffix_1 fs16 mt0px mb15px alpha omega">
+            <?php echo $this->translate('Cloud APPS is a new way to connect to 3rd party providers easily and make
+            your CMS & Shopping Cart even more powerful'); ?>.
+        </p>
+        <p class="grid_10 prefix_1 suffix_1 fs16 mt0px mb15px alpha omega">
+            <?php echo $this->translate('You can collect emails from forms, or add them from your store dashboard
+            directly to your marketing list provider. You can also send automated
+            customer services SMS, and more'); ?>.
+        </p>
+        <p class="grid_10 prefix_1 suffix_1 fs16 mt0px mb15px alpha omega">
+            <?php echo $this->translate('However, you need a free SEO Samba account to use Cloud APPS. Please open
+            an account from your website ID Card, and insert you security token before
+            coming back to this screen'); ?>.
+        </p>
+    </div>
+<?php endif; ?>
+
+<script type="text/javascript">
+$(function(){
+    checkboxRadioStyle();
+    $("#services-general-info").tabs();
+    <?php if(isset($this->localServices)):?>
+        <?php foreach($this->localServices as $serviceName=>$serviceStatus): ?>
+            <?php if(intval($serviceStatus) === 1):?>
+                <?php $tabId = $this->categoryServicesInfo[$serviceName] ;?>
+                $('#service-category-<?php echo $tabId ?> .toaster-forms-emailservice').show();
+                $('#service-category-<?php echo $tabId ?>').find('.service-start-configuration').addClass('active');
+            <?php endif;?>
+        <?php endforeach;?>
+    <?php endif;?>
+
+    $("input.service-status").change(function(){
+        var status = $(this).data('status');
+        var serviceElement = $(this).closest('.service-category');
+        serviceElement.find('.service-start-configuration').toggleClass('active');
+        if(status=='disable'){
+            $(this).data('status', 'enable');
+            serviceElement.find('.toaster-forms-emailservice').slideDown();
+        }else{
+            $(this).data('status', 'disable');
+            serviceElement.find('.toaster-forms-emailservice').slideUp();
+        }
+        $.post("<?php echo $this->websiteUrl;?>plugin/apps/run/appsConfig/", {status : status, service : $(this).data('service'), category : $(this).data('category'), secureToken: $('.secureToken').val()}, function(response){
+
+        }, "json");
+    });
+
+    $(".toaster-forms").on("change", function(e){
+        var serviceElement = $(this).closest('.service-form-wrapper'),
+            serviceName = serviceElement.data('service-name'),
+            serviceType = serviceElement.data('service-type');
+        if($(this).find('option:selected').val()!='select'){
+            showSpinner();
+            $.post("<?php echo $this->websiteUrl;?>plugin/apps/run/chooseFormList/", {'checkedForm' : $(this).find('option:selected').val(), 'serviceName' : serviceName, 'serviceType':serviceType}, function(response){
+                if(response.error==0){
+                    if(response.responseText.list){
+                        $("#subscribe-list-"+serviceName+"").remove();
+                        var subscribeList = '<div id="subscribe-list-'+serviceName+'" class="grid_9 alpha omega mt10px">';
+                        var listsQuantity = 0;
+                        $.each(response.responseText.list, function(listId, listName){
+                            subscribeList += '<label class="grid_6"><input type="checkbox" name="list" value="'+listId+'"/> '+listName+'</label>';
+                            listsQuantity += 1;
+                        });
+                        serviceElement.find('.selectAllLists, .unselectAllLists').show();
+                        serviceElement.find('form').append(subscribeList);
+                        checkboxRadioStyle();
+                    }
+                    if(response.responseText.localLists){
+                        $.each(response.responseText.localLists, function(listName, listId){
+                            $('input[name=list]:checkbox[value="'+listId+'"]').prop("checked", true);
+                        });
+                    }
+                    if (typeof response.responseText.additionalSelectionList != 'undefined') {
+                        serviceElement.find('.additional-selection-element').remove();
+                        var additionalSelectionDataElem = document.createElement('select');
+                        additionalSelectionDataElem.className = 'additional-selection-element grid_3 mt10px';
+                        $.each(response.responseText.additionalSelectionList, function(listId, listName){
+                            var additionalOptionSelectionDataElem = document.createElement("option");
+                            additionalOptionSelectionDataElem.value = listId;
+                            additionalOptionSelectionDataElem.text = listName;
+                            additionalSelectionDataElem.appendChild(additionalOptionSelectionDataElem);
+                        });
+                        serviceElement.find('form').append(additionalSelectionDataElem);
+                        if (response.responseText.additionalLocalList) {
+                            serviceElement.find('.additional-selection-element').val(response.responseText.additionalLocalList);
+                        }
+                    }
+                    serviceElement.find('[name=saveSystemForm]').show();
+                }else{
+                   showMessage('<?php echo $this->translate('Something went wrong')?>', true, 5000);
+                }
+                hideSpinner();
+            }, "json");
+        }else{
+            serviceElement.find('[name=saveSystemForm]').hide();
+            $("#subscribe-list-"+serviceName+"").remove();
+            serviceElement.find('.additional-selection-element').remove();
+            serviceElement.find('.selectAllLists, .unselectAllLists').hide();
+        }
+
+    });
+
+    $('.selectAllLists').on('click', function(){
+        $(this).closest('.service-category').find('input[name=list]').prop('checked', true);
+    });
+
+    $('.unselectAllLists').on('click', function(){
+        $(this).closest('.service-category').find('input[name=list]').prop('checked', false);
+    });
+
+    $(".toaster-forms-emailservice").on("submit", function(e){
+        showSpinner();
+        e.preventDefault();
+        var formName = $(this).find('option:selected').val(),
+            deleteList = 0,
+            lists = [],
+            additionalSelectionId = $(this).closest('.service-form-wrapper').find('.additional-selection-element').val();
+
+        $(this).find("input:checkbox[name=list]:checked").each(function(){
+            lists.push($(this).val());
+        });
+        if(lists.length==0){
+            deleteList = 1;
+        }
+        var serviceName = $(this).closest('.service-form-wrapper').data('service-name');
+        $.ajax({
+            url      : '<?php echo $this->websiteUrl;?>plugin/apps/run/saveSystemForm/',
+            type     : 'POST',
+            dataType : 'json',
+            data     : {
+                service    : serviceName,
+                lists      : lists,
+                formName   : formName,
+                deleteList : deleteList,
+                secureToken: $('.secureToken').val(),
+                additionalSelectionId: additionalSelectionId
+            }
+        }).done(function(response){
+            hideSpinner();
+            showMessage('<?php echo $this->translate('Saved')?>', false, 5000);
+        });
+    });
+
+    $('.setup-crm-ecommerce').on('click', function(e){
+        e.preventDefault();
+        var serviceName = $(this).data('service-type'),
+            serviceElement = $('#setup-crm-ecommerce-'+serviceName);
+        if (serviceElement.find('.saveEcommerceCrm').length > 0) {
+            serviceElement.empty();
+            return false;
+        }
+        showSpinner();
+        $.ajax({
+            url      : '<?php echo $this->websiteUrl;?>plugin/apps/run/getListCrm/',
+            type     : 'POST',
+            dataType : 'json',
+            data     : {
+                serviceName    : serviceName
+            }
+        }).done(function(response){
+            if(response.error == 0){
+                if(response.responseText.list){
+                    $("#setup-crm-ecommerce-"+serviceName+"").empty();
+                    var subscribeList = '<div class="grid_9 subscribe-list">',
+                        listsQuantity = 0;
+                    $.each(response.responseText.list, function(listId, listName){
+                        subscribeList += '<label class="grid_6"><input type="checkbox" name="listcrm" value="'+listId+'"/> '+listName+'</label>';
+                        listsQuantity += 1;
+                    });
+                    subscribeList += '</div>';
+                    if (typeof response.responseText.additionalSelectionList != 'undefined') {
+                        serviceElement.find('.additional-selection-element-ecommerce').remove();
+                        var additionalSelectionDataElem = $('<select>').addClass('additional-selection-element-ecommerce mt10px');
+                        var additionalSelectionDataElemOptions ='';
+                        $.each(response.responseText.additionalSelectionList, function(listId, listName){
+                            additionalSelectionDataElem.append($("<option>").val(listId).text(listName));
+                        });
+
+                        var selectionWrapper = $('<div>').addClass('grid_3');
+                        selectionWrapper.append(additionalSelectionDataElem);
+                    }
+
+                    subscribeList += '<button class="btn ticon-save grid_12 omega mt20px mb10px saveEcommerceCrm" type="submit" name="saveEcommerceCrm"><?php echo $this->translate('Save');?></button>';
+                    serviceElement.append(subscribeList);
+                    if (typeof response.responseText.additionalSelectionList != 'undefined') {
+                        serviceElement.find('.saveEcommerceCrm').before(selectionWrapper);
+                        if (response.responseText.additionalLocalList) {
+                            serviceElement.find('.additional-selection-element-ecommerce').val(response.responseText.additionalLocalList);
+                        }
+                    }
+                    checkboxRadioStyle();
+                }
+                if(response.responseText.localLists){
+                    $.each(response.responseText.localLists, function(listName, listId){
+                        $('input[name=listcrm]:checkbox[value="'+listId+'"]').prop("checked", true);
+                    });
+                }
+            }else{
+                showMessage('<?php echo $this->translate('Something went wrong')?>');
+            }
+            hideSpinner();
+        });
+    });
+
+    $('#services-general-info').on('click', '.saveEcommerceCrm', function(e) {
+        showSpinner();
+        e.preventDefault();
+        var deleteList = 0,
+            lists = [],
+            additionalSelectValue = $(this).closest('.service-crm-ecommerce').find('.additional-selection-element-ecommerce').val();
+        $(this).closest('.service-crm-ecommerce').find("input:checkbox[name=listcrm]:checked").each(function(){
+            lists.push($(this).val());
+        });
+        if(lists.length==0){
+            deleteList = 1;
+        }
+        var serviceName =$(this).closest('.service-crm-ecommerce').data('service-type');
+        $.ajax({
+            url      : '<?php echo $this->websiteUrl;?>plugin/apps/run/saveCrmEcommerce/',
+            type     : 'POST',
+            dataType : 'json',
+            data     : {
+                service    : serviceName,
+                lists      : lists,
+                deleteList : deleteList,
+                secureToken: $('.secureToken').val(),
+                additionalSelectValue: additionalSelectValue
+
+            }
+        }).done(function(response){
+            hideSpinner();
+            showMessage('<?php echo $this->translate('Saved')?>');
+        });
+    });
+
+});
+</script>
+<style>
+    .toaster-forms-emailservice {
+        max-height: 275px;
+    }
+</style>

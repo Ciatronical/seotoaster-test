@@ -1,0 +1,162 @@
+// Table of Content
+//==================================================
+// Page Style
+// Header Style
+// Logo style
+// Nav style
+// Content Style
+// SideBar Style
+// Footer Style
+//==================================================
+
+//	PAGE Style
+//==================================================
+html{ }
+body{
+    background : @body-bg;
+    color      : @text-color;
+}
+
+#container{ }
+
+//	HEADER Style
+//==================================================
+header{
+    background : @header-bg;
+    color      : @header-color;
+    position   : fixed;
+    top        : 0;
+    left       : 0;
+    right      : 0;
+    z-index    : 100;
+
+    // -- LOGO Style
+    .logo{
+        margin-top    : 0;
+        margin-bottom : 0;
+
+        a{ }
+        img{
+            margin : 0;
+            .box-shadow(none);
+        }
+    }
+
+    // -- NAV in HEADER Style
+    nav{ }
+}
+
+// -- NAV Style
+nav{ }
+
+//	CONTENT Style
+//==================================================
+main{
+    margin-top : @nav-height;
+    padding    : @padding-larger-vertical;
+    .clearfix();
+
+    #left~&{
+        margin-left : 250px;
+
+        @media only screen and (max-width : @responsive-size-tablet){
+            margin-left : 0;
+        }
+    }
+}
+
+#content{
+    background : @content-bg;
+    color      : @content-color;
+}
+
+.pattern{
+    background    : #fff;
+    overflow      : hidden;
+    margin-bottom : 2em;
+    .box-shadow(0px 1px 2px @gray-light);
+
+    h2, h3, h4, .h2, .h3, .h4{
+        background : url("../images/bg/heading.png");
+        padding    : @padding-base-vertical @padding-base-horizontal;
+        margin     : 0;
+    }
+}
+
+table{
+    #paginator{
+        @media only screen and (max-width : @responsive-size-tablet){
+            text-align : center;
+        }
+    }
+}
+
+// -- 404 Page Style
+.page404{
+    padding : 1em 0 3em;
+    color   : @gray-dark;
+
+    .first{
+        text-align   : center;
+        font-size    : 17em;
+        line-height  : 1;
+        border-right : 1px solid @gray-light;
+    }
+}
+
+//	SIDEBAR Style
+//==================================================
+aside{
+    .aside-box{
+        margin-bottom : 30px;
+    }
+}
+
+#left{
+    position     : fixed;
+    top          : @nav-height;
+    left         : 0;
+    bottom       : 0;
+    width        : 250px;
+    border-right : 1px solid @gray;
+    background   : url("../images/bg/aside.png");
+
+    @media only screen and (max-width : @responsive-size-tablet){
+        position : static;
+        width    : 100%;
+    }
+
+    .aside-box{
+    }
+}
+
+#right{
+    .aside-box{
+    }
+}
+
+footer{
+    padding    : @padding-larger-vertical * 2 0;
+    background : @footer-bg;
+    color      : @footer-color;
+    font-size  : @font-size-small;
+
+    p{ }
+
+    .footer-box{ }
+}
+
+.pager{
+    .page{
+        margin : 0 3px;
+    }
+    [data-page="first"], [data-page="last"], span{
+        font-weight : bold;
+    }
+}
+
+//	Button to scroll top
+//==================================================
+#go-top{
+    .button-color(#fff, fade(#000, 50%), fade(#000, 50%), @primary-color, @primary-bg, @primary-bg);
+}

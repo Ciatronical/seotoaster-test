@@ -1,0 +1,48 @@
+.sitemap when (@widget-sitemap = true){
+    zoom : 1;
+
+    > li{
+        padding-left : 1em;
+        font-size : @font-size-large;
+
+        a{
+            .transition(all, 0.25s, ease);
+            position  : relative;
+            left      : 0;
+
+            &.current{ }
+
+            &:hover{
+                left: 10px;
+            }
+        }
+
+        &:before{
+            float       : left;
+            color       : @brand-primary;
+            margin-left : -1em;
+            & when (@flexkit-icons = true){
+                font-family : 'flexkit-icons';
+                content     : '\e0c3';
+            }
+            & when (@flexkit-icons = false){
+                content : '>';
+            }
+        }
+
+        &:hover{
+            &:before{ }
+        }
+    }
+
+    ul{
+        padding-left: 1em;
+
+        li{
+            a{
+                font-size: @font-size-small;
+                &.current{ }
+            }
+        }
+    }
+}

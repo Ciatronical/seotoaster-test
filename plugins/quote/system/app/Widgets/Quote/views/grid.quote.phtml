@@ -1,0 +1,92 @@
+<!-- quote grid row template -->
+<script type="text/template" id="quote-grid-row">
+    <td><input type="checkbox" class="quote-grid-row-checkbox" id="<%= id %>" <% if (this.model.get('checked')) {%>checked="checked"<% }%> /></td>
+    <td><%= id %></td>
+    <td><%= (creatorId == 0) ? ownerName : (customerName === '') ? "<?php echo $this->translate('Not set'); ?>" : customerName %></td>
+    <td><a target="_blank" href="<%= $('#website_url').val() + id %>.html"><%= title %></a></td>
+    <td><%= (ownerName != null) ? ownerName : "<?php echo $this->translate('unknown'); ?>" %></td>
+    <td><%= $.datepicker.formatDate('dd-M-yy', new Date(Date.parse(createdAt.replace(/\-/g, '/')))) %></td>
+    <td>
+        <select name="quoteStatus" class="quote-status" id="<%= id %>">
+            <option value="new" <% if (status == 'new') { %> selected="selected" <% } %>><?php echo $this->translate('Quote New');?></option>
+            <option value="sent" <% if (status == 'sent') { %> selected="selected" <% } %>><?php echo $this->translate('Quote Sent');?></option>
+            <option value="sold" <% if (status == 'sold') { %> selected="selected" <% } %>><?php echo $this->translate('Payment received');?></option>
+            <option value="lost" <% if (status == 'lost') { %> selected="selected" <% } %>><?php echo $this->translate('Lost opportunity');?></option>
+        </select>
+    </td>
+    <td><a target="_blank" href="<%= $('#website_url').val() + id %>.html?mode=preview"><?php echo $this->translate('Preview');?></a></td>
+    <td class="text-center"><a href="javascript:;" class="quote-grid-delete icon18 ticon-cancel red" data-sid="<%= id %>">Delete</a></td>
+</script>
+<!-- /quote grid row template -->
+<input type="hidden" name="system-language" value="<?php echo Tools_Misc::getJsTranslationLanguage();?>"/>
+<!-- paginator template -->
+<?php echo $this->render('quote.grid.pager.phtml'); ?>
+<!-- /paginator template -->
+
+<?php if(Tools_Security_Acl::isAllowed(Tools_Security_Acl::RESOURCE_PLUGINS)): ?>
+    <?php
+        $this->headScript()
+            ->appendFile($this->websiteUrl . 'plugins/shopping/web/js/libs/require.min.js', null, array('data-main' => $this->websiteUrl . 'plugins/quote/web/js/grid.js'));
+        $this->headLink()
+            ->appendStylesheet($this->websiteUrl . 'system/css/reset-widgets.css');
+    ?>
+    <div id="quote-grid">
+        <div id="quote-grid-top" class="quote-grid-block mt20px mb20px clearfix">
+            <?php echo $this->formText('search', '', array('id' => 'quote-grid-search','class' => 'grid_6 alpha', 'placeholder' => $this->translate('search quote by title, by creator, by client email & name'))); ?>
+            <a class="quote-grid-add btn green fl-right ticon-plus" href="javascript:;" title="<?php echo $this->translate('Add new quote');?>"><?php echo $this->translate('Add new quote');?></a>
+        </div>
+        <table id="quote-grid-quotes" class="widget table-hover">
+            <thead>
+                <tr class="ws-nowrap">
+                    <th><input type="checkbox" id="quote-grid-select-all" /></th>
+                    <th data-sort="id" class="sortable"><?php echo $this->translate('Id'); ?></th>
+                    <th data-sort="clients" class="sortable"><?php echo $this->translate('Client'); ?></th>
+                    <th data-sort="title" class="sortable"><?php echo $this->translate('Title'); ?></th>
+                    <th data-sort="ownerName" class="sortable"><?php echo $this->translate('Owner'); ?></th>
+                    <th data-sort="created_at" class="sortable"><?php echo $this->translate('Date'); ?></th>
+                    <th data-sort="status" class="sortable"><?php echo $this->translate('Status'); ?></th>
+                    <th><?php echo $this->translate('Preview'); ?></th>
+                    <th class="text-center"><?php echo $this->translate('Remove'); ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <td class="text-center" colspan="9">
+                    <?php if(isset($this->quotes['total']) && ($this->quotes['total'] > 0)): ?>
+                        <img src="<?php echo $this->websiteUrl;?>system/images/spinner-small.gif" border="0" alt="loading..." />
+                    <?php else: ?>
+                        <?php echo $this->translate('There are no quotes, yet'); ?>.
+                        <a href="javascript:;" class="quote-grid-add"><?php echo $this->translate('Add one now'); ?>?</a>
+                    <?php endif; ?>
+                </td>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+    					<?php echo $this->translate('With selected'); ?>
+                        <?php echo $this->formSelect('withSelected', $this->translate('select an action'), array('id' => 'batch-action'), array(
+                            '0'      => $this->translate('select an action'),
+                            'remove' => $this->translate('Remove'),
+                        )); ?>
+    				</td>
+                    <td class="pager text-right" colspan="7"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+<?php endif; ?>
+
+<?php if(isset($this->quotes['total']) && ($this->quotes['total'] > 0)): ?>
+    <script type="text/javascript">
+        $(function() {
+            $(document).one('grid:loaded', function() {
+                appView.quotes.paginator_ui = _.extend(appView.quotes.paginator_ui, {
+                    perPage: <?php echo Widgets_Quote_Quote::QUOTEGRID_DEFAULTS_PERPAGE; ?>
+                });
+                appView.quotes.init(<?php echo Zend_Json::encode($this->quotes); ?>);
+            });
+        });
+    </script>
+<?php endif; ?>
+<style type="text/css">
+    .sortable {cursor: pointer;}
+</style>

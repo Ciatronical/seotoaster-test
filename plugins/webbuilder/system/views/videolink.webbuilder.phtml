@@ -1,0 +1,27 @@
+<div class="seotoaster container" id="webbuilder-video-link">
+    <?php echo $this->partial(
+        'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+        array(
+            'innerHeaderHtml' => $this->translate('Videolink Config')
+        )
+    ); ?>
+    <form id="videolinkForm" class="_fajax _reload grid_12 content-auto" method="post" name="videolinkForm"
+        action="<?php echo $this->websiteUrl; ?>api/webbuilder/vi/">
+        <p>
+            <label class="grid_5 mt5px"><?php echo $this->translate('Paste your link here');?>:</label>
+            <input class="grid_7" type="text" name="link" value="<?php echo $this->link;?>" />
+        </p>
+        <p>
+            <label class="grid_5 mt5px"><?php echo $this->translate('Width for video (px)');?>: </label>
+            <input class="grid_2" type="text" name="width" maxlength="3" value="<?php echo $this->width;?>" />
+        </p>
+        <p>
+            <label class="grid_5 mt5px"><?php echo $this->translate('Height for video (px)');?>: </label>
+            <input class="grid_2" type="text" name="height" maxlength="3" value="<?php echo $this->height;?>" />
+        </p>
+        <input type="hidden" name="pageId" value="<?php echo $this->pageId; ?>" />
+        <input type="hidden" name="container" value="<?php echo $this->containerName; ?>" />
+        <input type="hidden" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo Tools_System_Tools::initSecureToken(Webbuilder::WB_VIDEOLINK_SECURE_TOKEN);?>" />
+        <button type="submit" class="btn ticon-save"><?php echo $this->translate('Save');?></button>
+    </form>
+</div>

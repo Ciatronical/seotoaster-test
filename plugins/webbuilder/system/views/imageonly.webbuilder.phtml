@@ -1,0 +1,197 @@
+<div class="seotoaster container" id="webbuilder-image-only">
+    <?php echo $this->partial(
+        'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+        array(
+            'innerHeaderHtml' => $this->translate('Add Image')
+        )
+    ); ?>
+    <div id="webbuilder-image-only-inner" class="content">
+    <form class="webbuilder-imageonly-form pluginform grid_12 background" action="javascript:;" method="post">
+
+        <!-- folders with images -->
+        <select id="select-folder">
+            <option value="" selected="selected"><?php echo $this->translate('Select folder');?></option>
+            <?php foreach($this->folders as $folder): ?>
+                <option <?php echo ($this->folder == $folder) ? 'selected="selected"' : ''; ?> value="<?php echo $folder; ?>"><?php echo $folder; ?></option>
+            <?php endforeach; ?>
+        </select>
+
+        <div id="webbuilder-form-image-data" class="<?php echo $this->image ? '' : 'hide'; ?>">
+            <!-- image description field -->
+            <input placeholder="Title:" id="image-description" class="mb15px" type="text" name="imageDescription" value="<?php echo $this->description;?>" />
+
+            <!-- links options -->
+            <label class="fl-left mr-grid"><?php echo $this->translate('Link to');?>: </label>
+            <label class="fl-left ml-grid mr-grid pointer mb10px">
+                <input name="optionLink" checked="checked" class="linked-to" type="radio" data-linkedto="<?php echo Widgets_Imageonly_Imageonly::LINK_OPTION_IMAGE;?>" />
+                <?php echo $this->translate('bigger image');?>
+            </label>
+            <label class="fl-left ml-grid mr-grid pointer mb10px">
+                <input name="optionLink" <?php echo (isset($this->linkedTo) && $this->linkedTo == Widgets_Imageonly_Imageonly::LINK_OPTION_NOTHING) ? 'checked="checked"': ''; ?>  class="linked-to" type="radio" data-linkedto="<?php echo Widgets_Imageonly_Imageonly::LINK_OPTION_NOTHING;?>" />
+                <?php echo $this->translate('nothing');?>
+            </label>
+            <label class="fl-left ml-grid pointer mb10px">
+                <input name="optionLink" <?php echo (isset($this->linkedTo) && $this->linkedTo == Widgets_Imageonly_Imageonly::LINK_OPTION_URL) ? 'checked="checked"': ''; ?> class="linked-to" type="radio" data-linkedto="<?php echo Widgets_Imageonly_Imageonly::LINK_OPTION_URL;?>" />
+                <?php echo $this->translate('custom url');?>
+            </label>
+
+            <!-- External url field. Hidden by default -->
+            <input class="grid_9 alpha cl-both block" id="external-url" type="text" name="externalUrl" value="<?php echo $this->externalUrl; ?>" placeholder="http://" />
+            <label class="pointer grid_3 omega alpha text-right mt0-25em" name="target">
+                <input class="target" type="checkbox" name="target" value="_self" <?php echo $this->target==='_self' ? ' checked ' : ''?>>
+                <?php echo $this->translate('Target: none'); ?>
+            </label>
+        </div>
+    </form>
+
+    <div class="noimage grid_12 <?php echo $this->image ? 'hide' : ''; ?>">
+        <?php echo $this->translate('No image'); ?>
+    </div>
+
+    <!-- image list holder. -->
+    <div id="images-list" class="grid_12 mt10px hide list-images"></div>
+
+    <!-- Image box -->
+    <div id="webbuilder-main-image" class="grid_12 mt10px text-center <?php echo $this->image ? '' : 'hide'; ?>">
+        <img id="preview-image" alt="<?php echo $this->image ? $this->image : ''; ?>"border="0" height="500" width="500" src="<?php echo ($this->image) ? ($this->websiteUrl . 'media/' . $this->folder . '/medium/' . $this->image) : ''; ?>" />
+    </div>
+
+<?php if (isset($this->image)) { ?>
+    <button id="delete" class="delete mt15px fl-left ml-grid btn link error" name="deleteImage">[ <?php echo $this->translate('Remove image');?> ]</button>
+<?php } ?>
+
+    <button id="otherImage" class="mt15px fl-left ml-grid btn link hide" name="otherImage">[ <?php echo $this->translate('Select other image');?> ]</button>
+
+    <!-- Save button -->
+    <button id="save-btn" class="btn save ticon-save fl-right mr-grid mt15px <?php echo $this->image ? '' : 'hide'; ?>" name="saveImage"><?php echo $this->translate('Save and close');?></button>
+</div>
+</div>
+<script type="text/javascript">
+    $(function() {
+
+        // changing image folder
+        $(document).on('change', '#select-folder', function(e) {
+            var folder           = $('#select-folder').val();
+            var imgsContainer    = $('#images-list');
+            var noImageContainer = $('.noimage');
+            $('input[data-linkedto="image"]').click();
+            $('button, #webbuilder-main-image, #webbuilder-form-image-data').hide();
+            if(folder == '') {
+                imgsContainer.empty().hide();
+                noImageContainer.show();
+                return false;
+            }
+
+            $.ajax({
+                type       : 'get',
+                url        : '<?php echo $this->websiteUrl; ?>api/webbuilder/io/',
+                dataType   : 'json',
+                beforeSend : function(){
+                    noImageContainer.hide();
+                    showSpinner();
+                },
+                data       : {
+                    folder : folder
+                }
+            }).done(function(response) {
+                hideSpinner();
+                imgsContainer.empty();
+                var images = response;
+                if(images.length) {
+                    $.each(images, function(key, image) {
+                        imgsContainer.append($('<img />').attr({
+                            src   : '<?php echo $this->websiteUrl; ?>media/' + folder + '/product/' + image,
+                            alt   : image,
+                            title : image,
+                            width : 80,
+                            class : 'webbuilder-io-image'
+                        })).find('>img').wrap("<span></span>");
+                    })
+                }
+                noImageContainer.hide();
+                imgsContainer.show();
+            });
+
+        });
+
+        // selecting an image
+        $(document).on('click', 'img.webbuilder-io-image', function(e) {
+            $('#preview-image').attr({
+                src: $(e.currentTarget).attr('src').replace(/\/product\//, '/medium/'),
+                alt: $(e.currentTarget).attr('alt')
+            });
+            $('#images-list').hide();
+            $('#webbuilder-main-image, #save-btn, #webbuilder-form-image-data, #otherImage').show();
+        }).on('click', '#otherImage', function(e) {
+            $('input[data-linkedto="image"]').click();
+            $('#images-list').show();
+            $('#webbuilder-main-image, #save-btn, #webbuilder-form-image-data, #otherImage').hide();
+        });
+
+        $(document).on('click', '#save-btn', function(e) {
+            var externalUrl = $('#external-url');
+
+            if($('input[data-linkedto="external"]').prop('checked') && externalUrl.val() == '') {
+                externalUrl.addClass('error');
+                showMessage('<?php echo $this->translate('External url field can not be empty!'); ?>', true);
+                return false;
+            }
+
+            var data = {
+                folder      : $('#select-folder').val(),
+                image       : $('#preview-image').attr('alt'),
+                container   : '<?php echo $this->containerName; ?>',
+                description : $('#image-description').val(),
+                pid         : '<?php echo $this->pageId; ?>',
+                linkedto    : $('input.linked-to:checked').data('linkedto'),
+                target      : $('input.target:checked').val(),
+                secureToken   : '<?php echo Tools_System_Tools::initSecureToken(Webbuilder::WB_IMAGEONLY_SECURE_TOKEN);?>'
+            };
+
+            if(externalUrl.val() != '') {
+                $.extend(data, {
+                    externalUrl : externalUrl.val()
+                })
+            }
+            $.ajax({
+                type       : 'post',
+                url        : '<?php echo $this->websiteUrl; ?>api/webbuilder/io/',
+                dataType   : 'json',
+                data       : data,
+                beforeSend : showSpinner()
+            }).done(function() {
+                top.location.reload();
+            }).error( function() {
+                showMessage('<?php echo $this->translate('link must start with') ?> "http://", "https://" <?php echo $this->translate('or') ?> "ftp://"', true)
+            });
+        });
+
+        if($('input[data-linkedto="external"]').prop('checked') == false) {
+            $('#external-url').val('').prop('disabled', true);
+            $('input.target').prop('disabled', true).prop('checked', false);
+        }
+
+        $(document).on('change', 'input[data-linkedto="external"]', function(e) {
+            $('#external-url').prop('disabled', false).focus();
+            $('input.target').prop('disabled', false);
+        }).on('change', 'input[data-linkedto="image"], input[data-linkedto="nothing"]', function(e) {
+            $('#external-url').val('').prop('disabled', true);
+            $('input.target').prop('disabled', true).prop('checked', false);
+        });
+
+        $(document).on('click', '#delete', function(e) {
+            $.ajax({
+                type      : 'delete',
+                url       : '<?php echo $this->websiteUrl; ?>api/webbuilder/io/',
+                dataType  : 'json',
+                data      : JSON.stringify({
+                pid       : <?php echo $this->pageId; ?>,
+                container : '<?php echo $this->containerName; ?>'
+                }),
+                beforeSend: showSpinner()
+            }).done(function() {
+                top.location.reload();
+            });
+        });
+    });
+</script>

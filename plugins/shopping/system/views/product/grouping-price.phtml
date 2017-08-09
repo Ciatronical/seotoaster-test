@@ -1,0 +1,8 @@
+<p class="message info fs18 text-center mt0px mb10px"><?php echo $this->translate('Regular price').' = ';?><span id="group-regular-price"></span></p>
+<div id="editing-grouping-price" class="grid_12 alpha omega form">
+    <input type="hidden" id="group-products-id" name="group-products-id" value=""/>
+    <input type="hidden" id="group-products-price" name="group-products-price" value=""/>
+    <input type="hidden" id="group-products-price-symbol" name="group-products-price-symbol" value="<?php echo Zend_Registry::get('Zend_Currency')->getSymbol();?>"/>
+    <input type="hidden" class="secure-token-group-price" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo Tools_System_Tools::initSecureToken(Api_Store_Groupsprice::GROUPS_PRICE_SECURE_TOKEN);?>">
+</div>
+

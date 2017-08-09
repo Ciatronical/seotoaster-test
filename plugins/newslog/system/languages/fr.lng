@@ -1,0 +1,21 @@
+<?php return array(
+'Jan' => 'Janv',
+'Feb' => 'Févr',
+'Mar' => 'Mars',
+'Apr' => 'Avr',
+'May' => 'Mai',
+'Jun' => 'Juin',
+'Jul' => 'Juill',
+'Aug' => 'Août',
+'Sep' => 'Sept',
+'Oct' => 'Oct',
+'Nov' => 'Nov',
+'Dec' => 'Déc',
+'Sort by...' => 'Trier par...',
+'latest' => 'le dernier',
+'oldest' => 'le plus ancien',
+'Per page (optional)' => 'Par page (optionnel)',
+'Paginate' => 'Paginer',
+'Create an automated news listing' => 'Créer une liste de nouvelles automatisée',
+'You don\'t have news yet'=>'Pour le moment il n\'y a pas de nouvelles'
+);?>

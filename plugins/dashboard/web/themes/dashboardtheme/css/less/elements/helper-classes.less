@@ -1,0 +1,52 @@
+.activate-color() when (@colors = true) and (@alternate-style = true){
+    .primary{
+        color : @primary-bg;
+
+        a&:hover{
+            color : darken(@primary-bg, 15%);
+        }
+    }
+    .activate-color() when (@color-green = true){
+        .green{
+            color : @brand-green;
+
+            a&:hover{
+                color : darken(@brand-green, 15%);
+            }
+        }
+    }
+    .activate-color() when (@color-orange = true){
+        .orange{
+            color : @brand-orange;
+
+            a&:hover{
+                color : darken(@brand-orange, 15%);
+            }
+        }
+    }
+    .activate-color() when (@color-red = true){
+        .red{
+            color : @brand-red;
+
+                a&:hover{
+                    color : darken(@brand-red, 15%);
+                }
+        }
+    }
+    .activate-color() when (@color-blue = true){
+        .blue{
+            color : @brand-blue;
+
+            a&:hover{
+                color : darken(@brand-blue, 15%);
+            }
+        }
+    }
+    .activate-color();
+}
+.activate-color();
+
+.larger{ font-size : @font-size-larger; }
+.large{ font-size : @font-size-large; }
+.small{ font-size : @font-size-small; }
+.mini{ font-size : @font-size-mini; }

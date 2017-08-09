@@ -1,0 +1,69 @@
+blockquote{
+    margin     : 1em 0 2em;
+    padding    : 1em 3em;
+    color      : lighten(@text-color, 10%);
+    font-style : italic;
+    font-size  : @font-size-large;
+    position   : relative;
+
+    &:before, &:after{
+        position    : absolute;
+        color       : @gray-light;
+        font-size   : 2em;
+        .activate-icon-quote() when ( @toaster-icons = true){
+            font-family : 'toaster-icons';
+        }
+        .activate-icon-quote();
+        line-height : 1em;
+    }
+
+    &:after{
+        right  : 0;
+        bottom : -0.25em;
+        .activate-icon-quote() when ( @toaster-icons = false){
+            content : "\201c";
+        }
+        .activate-icon-quote() when ( @toaster-icons = true){
+            content : "\e074";
+            //content : "\e076"; // variant 2
+        }
+        .activate-icon-quote();
+    }
+
+    &:before{
+        left : 0;
+        top  : -0.25em;
+        .activate-icon-quote() when ( @toaster-icons = false){
+            content : "\201e";
+        }
+        .activate-icon-quote() when ( @toaster-icons = true){
+            content : "\e073";
+            //content : "\e075"; // variant 2
+        }
+        .activate-icon-quote();
+    }
+
+    p{
+        margin-bottom : 0;
+
+        &+p{
+            margin-top : 15px;
+        }
+
+    }
+
+    &.noquotes{
+        border-left : 2px solid @gray-light;
+        padding     : .5em 1em;
+
+        &:before, &:after{
+            content : '';
+        }
+
+    }
+    &.onequote{
+        &:after{
+            content : '';
+        }
+    }
+}

@@ -1,0 +1,59 @@
+#toasterstats{
+    margin         : 0;
+    padding        : 0;
+    list-style     : none;
+    text-transform : capitalize;
+
+    .category{
+        margin        : 0;
+        padding       : @padding-small-vertical @padding-base-horizontal;
+        background    : transparent;
+        color         : @text-color;
+        border-top    : 1px solid #fff;
+        border-bottom : 1px solid @gray;
+
+        &:hover{
+            .rgba(#fff, 0.75);
+        }
+
+        .ui-accordion-header-icon{
+            float  : right;
+            margin : 0;
+            .icon-size(24px);
+        }
+    }
+
+    .ui-accordion-content{
+        border  : none;
+        padding : 0;
+        .rgba(#fff, 0.75);
+    }
+
+    .subcategory{
+        margin        : 0;
+        padding       : @padding-small-vertical @padding-small-horizontal;
+        display       : block;
+        border-bottom : 1px solid @gray-lighter;
+        .clearfix();
+
+        &:hover{
+            background : #fff;
+
+            .count{
+                background : @gray-dark;
+            }
+        }
+    }
+
+    .count{
+        float      : right;
+        background : @gray-light;
+        color      : #fff;
+        padding    : 3px;
+        font-size  : @font-size-small;
+        min-width  : 1.75em;
+        min-height : 1.75em;
+        text-align : center;
+        .border-radius(2px);
+    }
+}

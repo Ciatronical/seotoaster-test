@@ -1,0 +1,246 @@
+<?php echo $this->headLink()->appendStylesheet($this->websiteUrl . 'system/js/external/chosen/chosen.css'); ?>
+<div class="form">
+	<!-- news listing selector -->
+    <?php if(!isset($this->newsTemplates) || empty($this->newsTemplates)): ?>
+        <h4 class="message warning text-normal mb10px mt10px"><strong><?php echo $this->translate(
+                    'Warning! '
+                ); ?></strong><?php echo $this->translate(
+                    'You don\'t have any news listing template. '
+                ) . '[ <a href="' . $this->websiteUrl . 'backend/backend_theme/template/">' . $this->translate(
+                    'Create one now.'
+                ) . '</a> ]'; ?></h4>
+    <?php else: ?>
+        <div id="news-template-selector" class="grid_5 alpha omega">
+            <select id="news-templates" class="templates" data-placeholder="<?php echo $this->translate('Select a news listing template...');?>">
+                <option value=""><?php echo $this->translate('Select a news listing template'); ?></option>
+                <?php foreach($this->newsTemplates as $template): ?>
+                    <?php $q = $template->getName(); ?>
+                    <option value="<?php echo $template->getName(); ?>"><?php echo $template->getName(); ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <!-- Filtering -->
+        <div id="news-filters" class="grid_7 omega fl-right mt0px">
+            <select id="ntags" class="nselect chosen-select" name="news-tags" multiple data-placeholder="<?php echo $this->translate('Filter by tags...');?>"></select>
+        </div>
+
+        <!-- Ordering -->
+        <div id="news-order" class="grid_2 alpha">
+            <select id="news-ordering" name="ordering">
+                <option value="asc"><?php echo $this->translate('Sort by...');?></option>
+                <option value="asc"><?php echo $this->translate('oldest'); ?></option>
+                <option value="desc"><?php echo $this->translate('latest'); ?></option>
+            </select>
+        </div>
+        <div class="grid_1 alpha omega">
+            <input id="news-per-page" class="tooltip" name="per_page" title="<?php echo $this->translate('Per page (optional)');?>">
+        </div>
+        <div class="grid_2 alpha omega labeled">
+            <label for="pgr">
+                <input id="pgr" type="checkbox" name="pgr" value="pgr">
+                <?php echo $this->translate('Paginate') ?>
+            </label>
+        </div>
+        <div id="manage-posts" class="grid_12 alpha omega column_2 full-width inline-block mt10px"></div>
+        <a href="javascript:;" id="btn-create-news-list" class="grid_12 alpha omega mt5px btn success"><?php echo $this->translate('Create an automated news listing'); ?></a>
+    <?php endif; ?>
+</div>
+
+<?php
+    echo $this->headScript()->appendFile($this->websiteUrl . 'system/js/external/chosen/chosen.jquery.min.js')
+        ->headScript()->appendFile($this->websiteUrl . 'system/js/external/jquery/plugins/lazyload/jquery.lazyload.min.js')
+        ->headScript()->appendFile($this->websiteUrl . 'system/js/external/waypoints/waypoints.min.js');
+?>
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+        showTooltip('.tooltip', 'info', 'right');
+        var limit = 12;
+	    // uiTab object
+	    var uiTab = {
+		    step: parseInt('<?php echo Newslog::NEWS_DEFAULT_LIMIT; ?>'),
+		    offset: 0,
+            searchTerm: null,
+		    init: function() {
+
+                //init chosen plugin
+                $('.nselect').chosen();
+
+			    //init jqueryui button
+			    $('.ui-tabs-nav-item a').click(this.launch);
+			    $(document)
+			        .on('click', '#btn-create-news-list', this.insertList)
+			    $('.nselect').chosen().change(function() {
+					uiTab.offset    = 0;
+
+                    //cleaning the search params before filtering
+                    self.searchTerm = null;
+                    $('#news-search').val('');
+
+                    uiTab.loadNewsData('news', true);
+			    });
+
+                var self = this;
+                $(document).on('keypress', '#news-search', function(e) {
+                    if(e.keyCode == 13) {
+                        $('.ui-autocomplete').hide();
+                        self.searchTerm = null;
+                        self.loadNewsData('news', {search: $(e.currentTarget).val()}, true);
+                    }
+                })
+
+    	    },
+		    launch: function() {
+			    var children = $(this).find('#news');
+                if(children.length) {
+                    //loading News data
+				    uiTab.loadNewsData('tags');
+				    uiTab.loadNewsData('news')
+			    }
+		    },
+		    insertList: function() {
+			    var shortCode = '{$newslist:';
+                if(!$('#news-templates').size() || !$('#news-templates').val()) {
+                    showMessage('News template is missing. Please select a news listing template', true);
+                    return false;
+                }
+                //listing template
+                shortCode += $('#news-templates').val();
+                //tags filter
+                if ($('#ntags').val()){
+                    shortCode += ':tags:';
+                    var tagnames = [];
+                    $('#ntags option:selected').each(function(){
+                        tagnames.push($(this).text());
+                    });
+                    shortCode += tagnames.join(',');
+                }
+                //tags filter
+                if ($('#nauthors').val()){
+                    shortCode += ':authors:';
+                    var authornames = [];
+                    $('#nauthors option:selected').each(function(){
+                        authornames.push($(this).text());
+                    });
+                    shortCode += tagnames.join(',');
+                }
+                //ordering
+                shortCode += (($('#news-ordering').val() != null) ?  ':' + $('#news-ordering').val() : '');
+                //news pre page
+                shortCode += (($('#news-per-page').val() != '') ? ':' + $('#news-per-page').val() : '');
+                //use pager
+                shortCode += (($('#pgr').is(':checked')) ? ':pgr' : '');
+
+                shortCode += '}';
+                tinymce.activeEditor.execCommand('mceInsertContent', false, shortCode);
+		    },
+		    loadNewsData : function(dataType, filter, force) {
+                showSpinner();
+                //if data type already loaded - return
+                if($('#' + dataType + ' option').length) {
+                    return false;
+                }
+                var utab = this;
+                utab.limit = limit;
+                if((!force || typeof(force) == 'undefined') && !utab.searchTerm) {
+		            params = uiTab.getParams(filter);
+                } else {
+                    if(!utab.searchTerm) {
+                        utab.searchTerm = filter;
+                        params          = filter;
+                    } else {
+                        params = utab.searchTerm;
+                    }
+                    params.offset = utab.offset;
+                    params.limit  = utab.limit;
+                }
+
+                $.getJSON('<?php echo $this->websiteUrl; ?>api/newslog/' + dataType + '/',
+				    params,
+				function(response) {
+                    if(response.length) {
+                        switch(dataType) {
+                            case 'tags':
+	                        	uiTab.parseTags(response, dataType);
+                            break;
+                            case 'news':
+	                            uiTab.parseNews(response, filter);
+								if(response.length >= uiTab.step) {
+		                            $('.news-item:last-child').waypoint(function() {
+										$(this).waypoint('remove');
+			                            uiTab.offset += 12;
+										uiTab.loadNewsData('news', filter)
+									},
+									{
+										context: '#manage-posts',
+										offset : '95%'
+									});
+								}
+                            break;
+                        }
+                        $('.nselect').trigger('chosen:updated');
+                    } else if(typeof filter != 'undefined' && filter) {
+	                    $('#manage-posts').empty();
+                    }
+					hideSpinner();
+                });
+
+            },
+		    getParams: function(filter) {
+			    var data = {};
+			    if(typeof this.offset != 'undefined') {
+				    data.offset = this.offset;
+			    }
+			    if(typeof this.limit != 'undefined') {
+                    data.limit = this.limit;
+                }
+                if(typeof filter != 'undefined' && filter) {
+	                if ($('#ntags').val()) {
+                        data.tags = $('#ntags').val().join(',');
+	                }
+                }
+                data['stc'] = ($('#strict-tags').prop('checked') == false) ? 0 : 1;
+			    return data;
+		    },
+		    parseTags: function(tagsResponse, dataType) {
+               $.each(tagsResponse, function() {
+                   $('#ntags').append(
+                       $('<option></option>').val(this.name).text(this.name)
+                   );
+               });
+		    },
+		    parseNews: function(newsResponse, filter) {
+			    var newsContainer = $('#manage-posts');
+			    var newsItemsHtml = '';
+			    $.each(newsResponse, function() {
+                    var singleNews = $.parseJSON(this.metaData);
+                    singleNews.id = this.id;
+                    singleNews.createdAt = this.createdAt;
+				    var photoUrl = singleNews.image;
+				    if (!/^https?:\/\/.*/.test(photoUrl)){
+				        var srcPart = '<?php echo $this->websiteUrl;?>';
+                        photoUrl = srcPart + 'previews/' + photoUrl;
+                    }
+                    newsItemsHtml += '<div class="newslisting news-item">' +
+                                        '<span class="news-item-img grid_2 alpha"><img class="lazy " src="' + photoUrl + '" alt="' + singleNews.title + '"></span>' +
+                                        '<span class="grid_10 omega">' +
+                                            '<span class="name block text-overflow">' + singleNews.title + '</span>' +
+                                            '<em class="date small gray">' + singleNews.createdAt + '</em>' +
+                                         '</span>' +
+                                     '</div>';
+                });
+			    if (this.offset === 0) {
+				    newsContainer.html(newsItemsHtml).scrollTop(0);
+                } else {
+                    newsContainer.append(newsItemsHtml);
+			    }
+                $('img.lazy').lazyload({
+                    container: newsContainer,
+                    effect: 'fadeIn'
+                });
+                hideSpinner();
+            }
+	    };
+	    // end uiTab
+	    uiTab.init();
+    });
+</script>

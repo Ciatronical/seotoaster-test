@@ -1,0 +1,77 @@
+<div class="seotoaster container">
+    <?php echo $this->partial(
+        'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+        array(
+            'headerText' => $this->translate('PayPal Settings')
+        )
+    ); ?>
+   	<form name="paypalConf" class="pluginform content-auto" method="" action="">
+		<label class="grid_12 text-center text-bold pointer pt5px">
+            <?php echo $this->translator->translate('Use SandBox');?>:
+            <input type="checkbox" name="sandbox" <?php if($this->useSandBox == 1) echo "checked";?> />
+        </label>
+        <fieldset class="background grid_12 mt20px">
+            <p>
+                <label><?php echo $this->translator->translate('E-mail');?>: </label>
+                <input type="text" name="paypalEmail" value="<?php echo $this->email; ?>" />
+            </p>
+            <p>
+                <label><?php echo $this->translator->translate('API Signature');?>: </label>
+                <input type="text" name="apiSignature" value="<?php echo $this->apiSignature; ?>" />
+            </p>
+            <p>
+                <label><?php echo $this->translator->translate('API User');?>: </label>
+                <input type="text" name="paypalUser" value="<?php echo $this->apiUser; ?>" />
+            </p>
+            <p>
+                <label><?php echo $this->translator->translate('API Password');?>: </label>
+                <input type="password" name="paypalPass" placeholder="*************" value="" />
+            </p>
+            <input type="hidden" id="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo $this->secureToken;?>" />
+
+        </fieldset>
+        <p class="grid_8">
+            <a target="_blank" href="https://www.paypal.com/us/webapps/mpp/referral/paypal-payments-standard?partner_id=4E7GQK85JKSBA">Open PayPal Payments Standard account</a><br>
+            <a target="_blank" href="https://www.paypal.com/us/webapps/mpp/referral/paypal-payments-pro?partner_id=4E7GQK85JKSBA">Open PayPal Payments Pro account</a>
+        </p>
+        <button class="btn saveButton ticon-save mr-grid" type="submit" name="savePaypalSettings"><?php echo $this->translator->translate('Save and Close');?></button>
+	</form>
+</div>
+<script>
+$(document).ready(function(){
+    
+    $('.saveButton').on("click", function() {
+        showSpinner();
+       
+       var useSandBox = 0;
+       if($("input[name=sandbox]").prop("checked")){
+           useSandBox = 1;
+       }
+
+        $.ajax({
+            type: "POST",
+            url: '<?php echo $this->websiteUrl; ?>plugin/paypal/run/config/',
+            dataType: "json",
+            data: {
+                email:$("[name=paypalEmail]").val(),
+                apiSignature:$("[name=apiSignature]").val(),
+                user:$("[name=paypalUser]").val(),
+                password:$("[name=paypalPass]").val(),
+                useSandBox: useSandBox,
+                secureToken: $('#secureToken').val()
+            }
+        }).done(function(response) {
+            hideSpinner();
+            if(response.error == 1){
+                smoke.alert(response.responseText,{'classname':'errors'});
+            }else{
+                smoke.signal('<?php echo $this->translator->translate('Saved');?>');
+            }
+        }).fail(function() {
+            hideSpinner();
+            console.log('error');
+        });
+        return false;
+    });
+});
+</script>

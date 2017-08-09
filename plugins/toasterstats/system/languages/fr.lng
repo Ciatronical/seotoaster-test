@@ -1,0 +1,29 @@
+<?php return array(
+    'Payment received' => 'Paiement reçu',
+    'Abandoned carts' => 'Panier abandonné',
+    'Merchant action required -  Customer charged' => 'Action requise par vendeur - Carte débitée',
+    'Items shipped' => 'Livraison en cours',
+    'Items delivered' => 'Livraison effectuée',
+    'Technical processing  - Customer not charged' => 'Processus en cours - Carte non débitée',
+    'Refunded purchase' => 'Achat remboursé',
+    'Canceled' => 'Commande annulée',
+    'Lost opportunity' => 'Opportunité perdu',
+    'New quote' => 'Nouveau devis',
+    'Quote Sent' => 'Devis envoyé',
+    'Nothing found'=>'Recherche infructueuse',
+    'Past' => 'Derniers',
+    'days' => 'jours',
+    'This week' => 'Cette semaine',
+    'This month' => 'Ce mois-ci',
+    'All time' => 'Tous les temps',
+    'order' => 'commande',
+    'Avg' => 'Avg',
+    'Past 7 days' => 'Derniers 7 jours',
+    'Past 30 days' => 'Derniers 30 jours',
+    'Quotes' => 'Devis',
+    'Sales' => 'Ventes',
+    'Date From' => 'Date de début',
+    'Date To' => 'Date de fin'
+
+
+);?>

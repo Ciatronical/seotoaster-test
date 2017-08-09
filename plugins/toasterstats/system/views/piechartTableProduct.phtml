@@ -1,0 +1,76 @@
+<?php
+$this->headScript()->appendFile("http://www.google.com/jsapi" );
+echo $this->headScript();
+?>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart, table"]});
+    google.setOnLoadCallback(drawCoreProduct);
+    if($.removeCookie('p') !== false) {
+        $.removeCookie('p');
+    }
+
+    function drawCoreProduct(type) {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', '<?php echo $this->typeSales;?>');
+        data.addColumn('number', 'amount');
+        data.addRows([
+            <?php foreach($this->dataArray as $name => $value):?>
+
+            ["<?php echo addslashes($name);?>", <?php echo $value;?>],
+            <?php endforeach;?>
+        ]);
+        <?php if($this->typeSales === Toasterstats::TYPE_EMAIL_REMARKETING):?>
+        var formatter = new google.visualization.NumberFormat(
+            {negativeColor: 'red', negativeParens: true});
+        <?php else:?>
+        var formatter = new google.visualization.NumberFormat(
+            {prefix: '<?php echo $this->currencySymbol;?>', negativeColor: 'red', negativeParens: true});
+        formatter.format(data, 0);
+        formatter.format(data, 1);
+        <?php endif;?>
+        <?php if($this->typeSales == 'product' || $this->typeSales == Toasterstats::TYPE_COUPON_SALES || $this->typeSales === Toasterstats::TYPE_EMAIL_REMARKETING):?>
+        var options = {
+            legend:{position:'right'},
+            height:'100%',
+            titleTextStyle: {fontSize:"14"}
+        };
+        <?php endif;?>
+
+        var chartProduct = new google.visualization.PieChart(document.getElementById('visualizationcolumnProductTable'));
+        chartProduct.draw(data, options);
+
+        if(type === 'table') {
+            var tableProduct = new google.visualization.Table(document.getElementById('visualizationcolumnProductTable'));
+            tableProduct.draw(data, {
+                page: 'enable', pageSize: 15, showRowNumber: true, width: '100%', height: '25px;'
+            }, options);
+        }
+        if(type === 'chart') {
+            var chartProduct = new google.visualization.PieChart(document.getElementById('visualizationcolumnProductTable'));
+            chartProduct.draw(data, options);
+        }
+    }
+</script>
+<?php if($this->typeOfGrafic == 'amount'):?>
+    <div id="visualizationcolumnProductTable" style="height:<?php echo $this->height;?>px;"></div>
+    <input type="hidden" class="typeOfGraficAmount<?php echo $this->typeSales;?>" value="<?php echo $this->typeSalesAmount;?>" />
+<?php endif;?>
+
+<div id="viewcorechartproduct" class="btn success fl-left mt5px">Change view</div>
+<script>
+    $('#viewcorechartproduct').on('click', function() {
+        if ($.cookie('p') == 'table') {
+            $.cookie('p', 'chart');
+        }
+        else {
+            $.cookie('p', 'table');
+        }
+        drawCoreProduct($.cookie('p'));
+    });
+</script>
+<div class="exportProduct">
+    <a class="btn ticon-box-add success fl-left mt5px ml-grid" id="exportProduct" title="" href="<?php echo $this->websiteUrl?>plugin/toasterstats/run/period/paramscorechart/<?php echo $this->period;?>/typesales/<?php echo $this->typeSales;?>/">
+        <?php echo $this->translate('Export CSV'); ?>
+    </a>
+</div>

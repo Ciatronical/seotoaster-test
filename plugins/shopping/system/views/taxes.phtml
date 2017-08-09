@@ -1,0 +1,85 @@
+<?php
+$this->headScript()
+    ->appendFile($this->websiteUrl.'system/js/external/jquery/plugins/tmpl/jquery.tmpl.min.js')
+    ->appendFile($this->websiteUrl . 'plugins/shopping/web/js/libs/require.min.js',
+        null,
+        array('data-main' => $this->websiteUrl . 'plugins/shopping/web/js/taxes.js')
+    );
+
+$this->headLink()
+    ->appendStylesheet($this->websiteUrl . 'plugins/shopping/web/css/store.css');
+?>
+
+<script id="ruleTemplate" type="text/template">
+	<% if (!(typeof(id) == 'undefined')) { %>
+        <input type="hidden" name="rule-id" value="<%= id %>" />
+    <% } %>
+    <label class="grid_1 text-center mt5px">
+        <input type="radio" name="default" <% if (isDefault == 1) { %> checked="checked" <% } %> />
+    </label>
+    <div class="grid_4">
+        <select name="zoneId" data-reflection="property">
+            <option value="-1"><?php echo $this->translate('Select zone');?></option>
+        <% _.each(app.zones.toJSON(), function(zone) { %>
+            <option value="<%= zone.id %>" <% if(zone.id == zoneId) { %>selected="selected"<% } %> ><%= zone.name %></option>
+        <% }) %>
+        </select>
+    </div>
+    <div class="grid_2 labeled">
+        <input class="grid_8 alpha omega text-center" type="text" name="rate1" data-reflection="property" value="<%= rate1 %>" placeholder="0"/><span class="label grid_4 alpha omega">%</span>
+    </div>
+    <div class="grid_2 labeled">
+        <input class="grid_8 alpha omega text-center" type="text" name="rate2" data-reflection="property" value="<%= rate2 %>" placeholder="0"/><span class="label grid_4 alpha omega">%</span>
+    </div>
+    <div class="grid_2 labeled">
+        <input class="grid_8 alpha omega text-center" type="text" name="rate3" data-reflection="property" value="<%= rate3 %>" placeholder="0"/><span class="label grid_4 alpha omega">%</span>
+    </div>
+    <div class="grid_1 text-center mt5px">
+        <a href="javascript:;" class="delete-rule ticon-remove icon16 error"></a>
+    </div>
+</script>
+<?php
+$taxesStatus  = '<label>' . $this->formCheckbox('price-inc-tax', null, ($this->priceIncTax ? array('checked' => (bool)$this->priceIncTax) : null)) . '&nbsp;' . $this->translate('Show product price with tax included.') . '</label>';
+?>
+
+<div id="manage-taxes" class="seotoaster container">
+<?php
+    echo $this->partial(
+        'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+        array(
+            'innerHeaderHtml' => $taxesStatus,
+            'helpSection' => $this->helpSection,
+            'hashMap'     => Tools_Misc::$_helpHashMap
+        )
+    );
+?>
+    <div class="content-medium-footer">
+        <div class="header-inner grid_12">
+            <div class="grid_1 alpha omega text-center"><?php echo $this->translate('Default');?></div>
+            <div class="grid_4"><?php echo $this->translate('Zone');?></div>
+            <div class="grid_2 text-center""><?php echo $this->translate('Default Tax');?></div>
+            <div class="grid_2 text-center"><?php echo $this->translate('Tax Rate 1');?></div>
+            <div class="grid_2 suffix_1 text-center""><?php echo $this->translate('Tax Rate 2');?></div>
+        </div>
+
+        <div id="rules" class="grid_12">
+            <!-- container for rules -->
+        </div>
+    </div>
+
+    <div class="footer grid_12">
+        <button id="new-rule-btn" class="btn ticon-plus success"><?php echo $this->translate('Add new');?></button>
+        <button id="save-btn" class="btn ticon-save"><?php echo $this->translate('Save and close');?></button>
+    </div>
+    <input type="hidden" class="secure-token-tax" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo $this->secureToken;?>">
+
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        $(document).one('taxes:loaded', function(){
+            app.zones.reset(<?php echo Zend_Json::encode($this->zones); ?>);
+            app.rulesCollection.reset(<?php echo Zend_Json::encode($this->rules); ?>);
+        })
+    })
+</script>

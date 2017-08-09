@@ -1,0 +1,96 @@
+<form id="ddp-form" enctype="application/x-www-form-urlencoded" action="<?php echo $this->form->getAction()?>" method="post">
+    <?php if($this->quantityWithoutWeightProducts > 0):?>
+        <div class="message error mb20px"><?php echo $this->translate('The toaster has detected');?> <?php echo $this->quantityWithoutWeightProducts;?> <?php echo $this->translate('products without weight.
+           Shippers, including Delivery, require that all products in cart have weights set in order to successfully compute shipping charges and checkout. Please make sure to set a weight for all products in your catalogue.');?>
+        </div>
+    <?php endif;?>
+    <fieldset class="background">
+        <label class="optional">Delivery from: <?php echo $this->storeLocation;?></label>
+
+        <p class="labeled">
+            <?php echo $this->form->getElement('servicename')->setAttrib('class', 'grid_8 alpha omega fl-right')->renderViewHelper();?>
+            <?php echo $this->form->getElement('servicename')->addDecorator('Label', array('class' => 'grid_4 alpha omega'))->renderLabel();?>
+        </p>
+
+        <p class="grid_5 alpha labeled">
+            <?php echo $this->form->getElement('units')->setAttrib('class', 'grid_7 alpha omega fl-right')->renderViewHelper();?>
+            <?php echo $this->form->getElement('units')->addDecorator('Label', array('class' => 'grid_5 alpha omega'))->renderLabel();?>
+        </p>
+
+        <p class="grid_7 omega labeled icon right">
+            <?php echo $this->form->getElement('destination')->setAttrib('class', 'grid_7 alpha omega fl-right')->renderViewHelper();?>
+            <?php echo $this->form->getElement('destination')->addDecorator('Label', array('class' => 'grid_5 alpha omega'))->renderLabel();?>
+            <i class="tooltip info ticon-info-sign icon16" title="<?php echo $this->translate('Distance calculation configuration');?>"></i>
+        </p>
+    </fieldset>
+
+    <fieldset class="background mt20px">
+        <p class="grid_4 alpha labeled">
+            <?php echo $this->form->getElement('diststart1')->setAttrib('class', 'grid_7 alpha omega fl-right')->renderViewHelper();?>
+            <?php echo $this->form->getElement('diststart1')->addDecorator('Label', array('class' => 'grid_5 alpha omega'))->renderLabel();?>
+        </p>
+
+        <p class="grid_4 labeled mt0px">
+            <?php echo $this->form->getElement('distend1')->setAttrib('class', 'grid_7 alpha omega fl-right')->renderViewHelper();?>
+            <?php echo $this->form->getElement('distend1')->addDecorator('Label', array('class' => 'grid_5 alpha omega'))->renderLabel();?>
+        </p>
+
+        <p class="grid_4 omega labeled mt0px">
+            <?php echo $this->form->getElement('price1')->setAttrib('class', 'grid_7 alpha omega fl-right')->renderViewHelper();?>
+            <?php echo $this->form->getElement('price1')->addDecorator('Label', array('class' => 'grid_5 alpha omega'))->renderLabel();?>
+        </p>
+
+        <p class="grid_4 alpha labeled">
+            <?php echo $this->form->getElement('diststart2')->setAttrib('class', 'grid_7 alpha omega fl-right')->renderViewHelper();?>
+            <?php echo $this->form->getElement('diststart2')->addDecorator('Label', array('class' => 'grid_5 alpha omega'))->renderLabel();?>
+        </p>
+
+        <p class="grid_4 labeled">
+            <?php echo $this->form->getElement('distend2')->setAttrib('class', 'grid_7 alpha omega fl-right')->renderViewHelper();?>
+            <?php echo $this->form->getElement('distend2')->addDecorator('Label', array('class' => 'grid_5 alpha omega'))->renderLabel();?>
+        </p>
+
+        <p class="grid_4 omega labeled">
+            <?php echo $this->form->getElement('price2')->setAttrib('class', 'grid_7 alpha omega fl-right')->renderViewHelper();?>
+            <?php echo $this->form->getElement('price2')->addDecorator('Label', array('class' => 'grid_5 alpha omega'))->renderLabel();?>
+        </p>
+
+        <p class="grid_4 alpha labeled">
+            <?php echo $this->form->getElement('diststart3')->setAttrib('class', 'grid_7 alpha omega fl-right')->renderViewHelper();?>
+            <?php echo $this->form->getElement('diststart3')->addDecorator('Label', array('class' => 'grid_5 alpha omega'))->renderLabel();?>
+        </p>
+
+        <p class="grid_4 labeled">
+            <?php echo $this->form->getElement('distend3')->setAttrib('class', 'grid_7 alpha omega fl-right')->renderViewHelper();?>
+            <?php echo $this->form->getElement('distend3')->addDecorator('Label', array('class' => 'grid_5 alpha omega'))->renderLabel();?>
+        </p>
+
+        <p class="grid_4 omega labeled">
+            <?php echo $this->form->getElement('price3')->setAttrib('class', 'grid_7 alpha omega fl-right')->renderViewHelper();?>
+            <?php echo $this->form->getElement('price3')->addDecorator('Label', array('class' => 'grid_5 alpha omega'))->renderLabel();?>
+        </p>
+    </fieldset>
+
+    <fieldset class="background mt20px">
+        <p class="grid_7 alpha labeled">
+            <?php echo $this->form->getElement('specialdistance')->setAttrib('class', 'grid_6 alpha omega fl-right')->renderViewHelper();?>
+            <?php echo $this->form->getElement('specialdistance')->addDecorator('Label', array('class' => 'grid_6 alpha omega'))->renderLabel();?>
+        </p>
+        <p class="grid_5 omega labeled mt0px">
+            <?php echo $this->form->getElement('specialprice')->setAttrib('class', 'grid_4 alpha omega fl-right')->renderViewHelper();?>
+            <label for="specialprice" class="grid_8 alpha omega optional unit-per-distance"><?php echo $this->translate('Price per');?> <?php echo substr_replace($this->form->getElement('units')->getValue(), '', -1);?>:</label>
+        </p>
+    </fieldset>
+    <input type="hidden" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo $this->secureToken;?>" />
+</form>
+
+<script type="text/javascript">
+ $(function(){
+     showTooltip('.tooltip', 'info', 'right');
+     $(document).on('change', '#ddp-form select[name=units]', function(){
+         var units = $("#ddp-form select[name=units] option:selected").val();
+         $('#ddp-form .unit-per-distance').text('Price per '+units.substring(0, units.length-1)+':');
+     });
+ });
+</script>
+

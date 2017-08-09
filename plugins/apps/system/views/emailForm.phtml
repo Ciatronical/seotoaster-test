@@ -1,0 +1,14 @@
+<form class="pluginform toaster-forms-emailservice hide ui-accordion-content" name="toaster-forms" method="" action="">
+    <select class="toaster-forms grid_6 alpha" name="toaster-forms">
+        <option value="select"><?php echo $this->translate('select form');?></option>
+        <?php if(!empty($this->forms)):?>
+            <?php foreach ($this->forms as $form):?>
+                <option value="<?php echo $form->getName();?>"><?php echo $form->getName();?></option>
+            <?php endforeach;?>
+        <?php endif;?>
+    </select>
+    <a class="selectAllLists grid_2 omega hide mt5px text-center" href="javascript:;"><?php echo $this->translate('Select all');?></a>
+    <a class="unselectAllLists grid_2 omega hide mt5px text-center warning" href="javascript:;"><?php echo $this->translate('Unselect all');?></a>
+    <button class="btn hide ticon-save grid_2 omega mt0px" type="submit" name="saveSystemForm"><?php echo $this->translate('Save');?></button>
+</form>
+

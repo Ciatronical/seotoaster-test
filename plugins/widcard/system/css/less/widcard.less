@@ -1,0 +1,142 @@
+@import "../../../../../system/css/less/base/variables";
+// Table of Content
+//==================================================
+//	Typography Styles
+//	Basic Styles
+//	Lists Styles
+//	Form Styles
+//	Buttons Styles
+//	Tables Styles
+//	Modules Styles
+//	Control Panel Styles
+//	Basic Widgets and Plugins
+//==================================================
+
+.social-field(219px, @button-height-base, 3px);
+
+// Style for WebsiteIdCard
+//==================================================
+#idCard{
+
+    [name="organization_description"]{
+        height : 130px;
+    }
+
+    #page-preview{
+    }
+
+    .analyticsRadioBlock{
+        .webAnalyticsCodeRadio{
+
+            &.showIt{
+                display : block;
+            }
+
+            #useWAText{
+                label{
+                    color : #333;
+                }
+            }
+        }
+    }
+
+    #sel_industry, #industry_type{
+        height     : 130px;
+        background : #fff;
+        overflow   : auto;
+
+        li{
+            cursor  : pointer;
+            padding : @padding-small-vertical @padding-small-horizontal;
+        }
+    }
+
+    #industry_type{
+        float : right;
+
+        & + span{
+            width        : 0;
+            height       : 0px;
+            float        : right;
+            border-style : solid;
+            border-width : 67px 14px 67px 0px;
+            border-color : @gray-lighter @body-bg;
+        }
+
+        li{
+
+            span{
+                display : none;
+            }
+
+            &.disabled{
+                color : @gray-light;
+
+                span{
+                    display : block;
+                    color   : @gray-light;;
+                }
+            }
+        }
+    }
+
+    .payway-check{
+        &:checked + .payway-box{
+            border-color : @gray;
+
+            .payway-img{
+                .opacity(1);
+            }
+        }
+    }
+
+    .payway-box{
+        padding    : 5px;
+        margin-top : 2%;
+        overflow   : hidden;
+        .thumbnail-state(0);
+
+        .payway-img{
+            height      : 60px;
+            line-height : 60px;
+            .opacity(0.25);
+            .transition();
+
+            img{
+                max-height : 100%;
+                width      : auto;
+            }
+        }
+
+        .payway-name{
+            background  : @thumbnail-caption-bg;
+            color       : @thumbnail-caption-color;
+            padding     : 0 5px;
+            position    : absolute;
+            top         : auto;
+            left        : 0;
+            right       : 0;
+            bottom      : -50px;
+            font-weight : 500;
+            .transition();
+        }
+
+        &:hover{
+
+            .payway-img{
+                .opacity(0.6);
+            }
+
+            .payway-name{
+                bottom : 0;
+            }
+
+        }
+    }
+}
+
+#registration-frame{
+    iframe{
+        border : none;
+    }
+}

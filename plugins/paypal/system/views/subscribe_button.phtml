@@ -1,0 +1,53 @@
+<?php
+$this->headLink()->appendStylesheet($this->websiteUrl . "plugins/paypal/web/css/paypal_button.css");
+
+?>
+<form action="<?php echo $this->endPoint; ?>" target="_blank" method="post">
+    <fieldset class="payment-button paypal-subscribe">
+        <legend><?php echo $this->translator->translate('Pay with PayPal'); ?></legend>
+        <input type="hidden" name="cmd" value="_xclick-subscriptions"/>
+        <input type="hidden" name="upload" value="1"/>
+        <input type="hidden" name="business" value="<?php echo $this->email; ?>">
+        <input type="hidden" name="lc" value="US"/>
+        <input type="hidden" class="cartId" name="custom" value="<?php echo $this->cartId; ?>"/>
+
+        <?php $itemsNames = ''; ?>
+        <?php if (isset ($this->productList)) : ?>
+            <?php $counter = 0;
+            foreach ($this->productList as $key => $product): ?>
+                <?php $counter++; ?>
+                <?php $itemsNames .= $product['name'] . ', '; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+        <input type="hidden" name="item_name" value="<?php echo rtrim($itemsNames, ', '); ?>"/>
+        <input type="hidden" name="currency_code" value="<?php echo $this->currency; ?>">
+        <input type="hidden" name="notify_url" value="<?php echo $this->websiteUrl; ?>plugin/paypal/run/subscribeIpn"/>
+        <input type="hidden" name="return" value="<?php echo $this->websiteUrl . 'plugin/paypal/run/success/'; ?>"/>
+        <input type="hidden" name="rm" value="2">
+
+        <input type="hidden" class="subscribe-amount" name="a3" value="<?php echo round($this->totalAmount / $this->quantityPayments, 2); ?>">
+        <input type="hidden" class="subscribe-payment-subscribe-cycle" name="p3" value="<?php echo $this->subscribeCycle; ?>"/>
+        <input type="hidden" class="subscribe-payment-period" name="t3" value="<?php echo $this->period; ?>"/>
+        <input type="hidden" name="src" value="1"/>
+        <input type="hidden" class="subscribe-payment-qty" name="srt" value="<?php echo $this->quantityPayments; ?>"/>
+        <input type="hidden" class="websiteUrl" name="websiteUrl" value="<?php echo $this->websiteUrl; ?>"/>
+        <input type="hidden" name="cancel_return" value="<?php echo $this->websiteUrl; ?>"/>
+        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_subscribe_LG.gif:NonHostedGuest"/>
+        <input type="image" class="paypal-submit"
+               src="<?php echo $this->websiteUrl; ?>plugins/paypal/web/images/btn_subscribe_LG.gif" border="0"
+               name="submit" alt="PayPal"/>
+        <div class="seo-tip"><?php echo $this->translate(
+                'Pay with your bank account, credit card or PayPal balance without sharing your financial information'
+            ); ?>.
+        </div>
+    </fieldset>
+</form>
+
+<script type="text/javascript">
+    if (!window.paypalSubscribeButton) {
+        $.getScript('<?php echo $this->websiteUrl;?>plugins/paypal/web/js/paypal-subscribe-button.js', function (data, textStatus) {
+        });
+        window.paypalSubscribeButton = 1;
+    }
+</script>

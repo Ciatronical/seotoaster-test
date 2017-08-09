@@ -1,0 +1,64 @@
+<form id="invoiceContainer" class="pluginform grid_12" name="invoice" method="" action="">
+    <?php if (!empty($this->invoiceTemplates)): ?>
+        <label><?php echo $this->translator->translate('Choose invoice template'); ?></label>
+        <select name="invoiceTemplate" class="invoiceTemplate">
+            <option value="select"><?php echo $this->translator->translate('select'); ?></option>
+            <?php foreach ($this->invoiceTemplates as $template): ?>
+                <option value="<?php echo $template->getName() ?>"><?php echo $template->getName() ?></option>
+            <?php endforeach; ?>
+        </select>
+
+        <label class="mt10px"><?php echo $this->translator->translate('Choose packing slip template'); ?></label>
+        <select name="packingTemplate" class="packingTemplate">
+            <option value="select"><?php echo $this->translator->translate('select'); ?></option>
+            <?php foreach ($this->invoiceTemplates as $template): ?>
+                <option value="<?php echo $template->getName() ?>"><?php echo $template->getName() ?></option>
+            <?php endforeach; ?>
+        </select>
+        <button type="submit" class="btn saveInvoiceConfig ticon-save"
+                name="saveInvoiceConfig"><?php echo $this->translator->translate('Save'); ?></button>
+    <?php else: ?>
+        <div class="message info"><?php echo $this->translator->translate(
+                'Please create at least one Invoice template'
+            ); ?></div>
+    <?php endif; ?>
+    <input class="invoice-secure-token" type="hidden" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php  echo $this->secureToken;?>" />
+</form>
+
+<script type="text/javascript">
+    $(function () {
+
+        <?php if(isset($this->settings['invoiceTemplate'])):?>
+        $(".invoiceTemplate option[value='<?php echo $this->settings['invoiceTemplate'] ?>']").prop('selected', 'selected');
+        $(".packingTemplate option[value='<?php echo $this->settings['packingTemplate'] ?>']").prop('selected', 'selected');
+        <?php endif;?>
+
+        $(document).on("click", ".saveInvoiceConfig", function (e) {
+            e.preventDefault();
+            if ($('.invoiceTemplate option:selected').val() == 'select') {
+                smoke.alert('<?php echo $this->translator->translate('Please select Invoice template');?>', {'classname': 'error'});
+                return false;
+            }
+            if ($('.packingTemplate option:selected').val() == 'select') {
+                smoke.alert('<?php echo $this->translator->translate('Choose packing slip template');?>', {'classname': 'error'});
+                return false;
+            }
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->websiteUrl;?>plugin/invoicetopdf/run/config/',
+                dataType: "json",
+                data: {
+                    invoiceTemplate: $('.invoiceTemplate option:selected').val(),
+                    packingTemplate: $('.packingTemplate option:selected').val(),
+                    secureToken: $('.invoice-secure-token').val()
+
+                },
+                success: function (responce) {
+                    smoke.signal('<?php echo $this->translator->translate('Saved');?>');
+                }
+
+            });
+            return false;
+        });
+    });
+</script>

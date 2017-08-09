@@ -1,0 +1,24 @@
+<?php if ($this->pageCount && $this->pageCount > 1): ?>
+    <div class="news-list-pagination paginator">
+        <?php if (isset($this->previous)): ?>
+            <a href="<?php echo $this->url?>?list=<?php echo $this->listName ?>&amp;pg=<?php echo $this->previous?><?php echo (!empty($this->tags)) ? '&tags=' . $this->tags : '' ; ?>"><?php echo $this->translate('Previous'); ?></a>
+        <?php else: ?>
+            <span class="disabled"><?php echo $this->translate('Previous'); ?></span>
+        <?php endif; ?>
+
+        <?php foreach ($this->pagesInRange as $page): ?>
+            <?php if ($page != $this->current): ?>
+                <a href="<?php echo $this->url?>?list=<?php echo $this->listName ?>&amp;pg=<?php echo $page?><?php echo (!empty($this->tags)) ? '&tags=' . $this->tags : '' ; ?>"><?php echo $page; ?></a>
+            <?php else: ?>
+                <span class='current'><?php echo $page; ?></span>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+        <?php if (isset($this->next)): ?>
+            <a href="<?php echo $this->url?>?list=<?php echo $this->listName ?>&amp;pg=<?php echo $this->next?><?php echo (!empty($this->tags)) ? '&tags=' . $this->tags : '' ; ?>"><?php echo $this->translate('Next'); ?></a>
+        <?php else: ?>
+            <span class="disabled"><?php echo $this->translate('Next'); ?></span>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
+

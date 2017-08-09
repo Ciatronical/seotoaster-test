@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{$page:title}</title>
+    <meta name="keywords" content="{$meta:keywords}" />
+    <meta name="description" content="{$meta:description}" />
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"> <!-- open in full-screen, hide URL bar (for IOS)-->
+
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Open+Sans:400,600,700" rel="stylesheet" type="text/css">
+
+    <!-- Favicons -->
+    <link rel="icon" href="images/favicon.ico">
+    <!--[if IE]><link rel="shortcut icon" href="images/favicon.ico"><![endif]-->
+    <link rel="apple-touch-icon" href="images/apple-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+
+    <link href="{$website:url}plugins/dashboard/web/themes/dashboardtheme/css/reset-dashboard.css" rel="stylesheet" media="screen">
+    <link href="{$website:url}plugins/dashboard/web/themes/dashboardtheme/css/content.css" rel="stylesheet" media="screen">
+    <link href="{$website:url}plugins/dashboard/web/themes/dashboardtheme/css/nav-dashboard.css" rel="stylesheet" media="screen">
+    <link href="{$website:url}plugins/dashboard/web/themes/dashboardtheme/css/style-dashboard.css" rel="stylesheet" media="screen">
+    <!-- Additional css -->
+    <link href="{$website:url}plugins/dashboard/web/themes/dashboardtheme/css/skeleton-ui.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5shiv and selectivizr.js IE support of HTML5 elements and CSS3 pseudo-classes, attribute selectors -->
+    <!--[if lt IE 9]><script src="js/system/ie-pack.js"></script><![endif]-->
+
+</head>
+
+<body class="seotoaster-dash">
+
+<!-- HEADER -->
+<header>
+    {dashboardmenu}
+    index
+    quotes
+    sales
+    clients
+    orders
+    products
+    {/dashboardmenu}
+</header>
+
+<!-- LEFT -->
+<aside id="left" class="scroll">
+    <!-- DATE RANGE -->
+    <h3 class="m0px p5px blue-bg"><i class="icon-calendar icon16 icon-stats-up icon16 fl-right mt5px"></i> Date range</h3>
+    {$plugin:toasterstats:salescontrol}
+</aside>
+
+<!-- CONTENT -->
+<main id="content">
+    <div class="grid_8 sd-grid_12 pattern">
+        <h3><i class="icon-stats-up"></i> Sales and quotes count</h3>
+        <div class="scroll-x">{$plugin:toasterstats:Graph:linechart:count:sales|quotes:days:20:450:450}</div>
+    </div>
+    <div class="grid_4 sd-grid_12 pattern">
+        <h3><i class="icon-pie"></i> Sales amount breakdown by Type</h3>
+        <div class="scroll-x">{$plugin:toasterstats:Graph:piechart:amount:type:days:20:400:450}</div>
+    </div>
+    <div class="grid_8 sd-grid_12 pattern">
+        <h3><i class="icon-stats-up"></i> Sales and quotes average amount</h3>
+        <div class="scroll-x">{$plugin:toasterstats:Graph:linechart:averageamount:sales|quotes:days:20:450:450}</div>
+    </div>
+    <div class="grid_4 sd-grid_12 pattern">
+        <h3><i class="icon-pie"></i> Sales amount breakdown by Customer</h3>
+        <div class="scroll-x">{$plugin:toasterstats:Graph:piechart:amount:customer:days:20:400:450}</div>
+    </div>
+    <div class="grid_6 sd-grid_12 pattern">
+        <h3><i class="icon-pie"></i> Sales amount breakdown by Product</h3>
+        <div>{$plugin:toasterstats:Graph:piechart:amount:product:days:20:400:400:table}</div>
+    </div>
+    <div class="grid_6 sd-grid_12 pattern">
+        <h3><i class="icon-pie"></i> Sales amount breakdown by Brand</h3>
+        <div class="scroll-x">{$plugin:toasterstats:Graph:piechart:amount:brand:days:20:410:445}</div>
+    </div>
+    <div class="grid_6 sd-grid_12 pattern">
+        <h3><i class="icon-pie"></i> Sales count by Coupon</h3>
+        <div class="scroll-x">{$plugin:toasterstats:Graph:columnchart:count:coupon:days:20:390:370}</div>
+    </div>
+    <div class="grid_6 sd-grid_12 pattern">
+        <h3><i class="icon-pie"></i> Sales by Tag</h3>
+        <div>{$plugin:toasterstats:Graph:columnchart:count:tag:days:20:400:345:table}</div>
+    </div>
+    <div class="grid_6 sd-grid_12 pattern">
+        <h3><i class="icon-pie"></i> Remarketing: email count by trigger</h3>
+        <div class="scroll-x">{$plugin:toasterstats:Graph:columnchart:count:remarketing:days:20:400:400:all}</div>
+    </div>
+    <div class="grid_6 sd-grid_12 pattern">
+        <h3><i class="icon-pie"></i> Abandoned carts remarketing:  email count & cart amount</h3>
+        <div class="scroll-x">{$plugin:toasterstats:Graph:piechart:amount:remarketing:days:20:400:400:abandonment}</div>
+    </div>
+    <div class="grid_12 pattern">
+        <h3><i class="icon-compass"></i> Sales location</h3>
+        <div class="scroll-x">{$plugin:toasterstats:Graph:geo:map:days:20:400:400}</div>
+    </div>
+
+</main>
+
+<!-- SCRIPTS ZONE -->
+<script type="text/javascript">
+    $(function(e) {
+        $('.numberProduct').attr('href','{$website:url}'+'dashboard/products/');
+        $('.numberProduct').removeClass('tpopup');
+        $('.quotesScreen').attr('href', '{$website:url}'+'dashboard/quotes/');
+        $('.quotesScreen').removeClass('tpopup');
+    });
+</script>
+<script src="{$website:url}plugins/dashboard/web/themes/dashboardtheme/js/scripts.min.js"></script>
+<script src="{$website:url}plugins/dashboard/web/themes/dashboardtheme/js/system/skeleton.min.js"></script>
+
+</body>
+</html>

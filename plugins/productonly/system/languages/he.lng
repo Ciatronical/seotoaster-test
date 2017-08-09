@@ -1,0 +1,16 @@
+<?php return array('Save and Close' => 'שמור וסגור', 'Close' => 'לסגור', 'Saved' => 'נצול',
+                   'Choose product' => 'בחר מוצר', 
+                   'Product only' => 'מוצר בלבד',
+                   'Create an automated product listing' => 'יצירת רשימה המוצר אוטומטיות',
+                   'Warning! You don\'t have any product listing template. You should create one.' => 'אזהרה! אתה לא צריך שום תבנית לרישום המוצר. אתה צריך ליצור אחת.',
+                   'Filter by categories...' => 'סנן לפי קטגוריות....',
+                   'Filter by brands...' => 'סנן לפי מותגים...',
+                   'Sort by...' => 'לפי...', 
+                   'Name' => 'שם',
+                   'Price' => 'מחיר',
+                   'Brand' => 'מותג',
+                   'Select a product listing template' => 'בחר תבנית לרישום המוצר ...',
+                   'Product template is missing' => 'תבנית מוצר חסר'
+                   
+    ); 
+        ?>

@@ -1,0 +1,124 @@
+<div id="toasterstats" class="accordion">
+	<h3 class="category"><i class="icon-cube icon16"></i> <?php echo $this->translator->translate('Products');?></h3>
+	<ul>
+		<li class="subcategory">
+			<span class="count"><?php echo $this->quantityProducts;?></span>
+			<a href="javascript:;" data-url="<?php echo $this->websiteUrl;?>plugin/shopping/run/product/" data-pheight="550" class="tpopup numberProduct"><?php echo $this->translator->translate('Number of products');?></a>
+		</li>
+		<li class="subcategory">
+			<span class="count"><?php echo $this->quantityBrands;?></span>
+			<span><?php echo $this->translator->translate('Number of brands');?></span>
+		</li>
+		<li class="subcategory">
+			<span class="count"><?php echo $this->quantityQuotes;?></span>
+			<a href="<?php echo $this->websiteUrl;?>dashboard/orders/"><?php echo $this->translator->translate('Manage quotes');?></a>
+		</li>
+	</ul>
+	<h3 class="category"><i class="icon-basket icon16"></i> <?php echo $this->translator->translate('Sales');?></h3>
+	<ul>
+		<li class="subcategory">
+			<span class="count"><?php echo (isset($this->quantitySales) && isset($this->quantitySales[Models_Model_CartSession::CART_STATUS_COMPLETED]['StatusCount']))? $this->quantitySales[Models_Model_CartSession::CART_STATUS_COMPLETED]['StatusCount']: 0; ?></span>
+            <a href="<?php echo $this->websiteUrl;?>dashboard/orders/"><span><?php echo $this->translator->translate('Payment received');?></span></a>
+		</li>
+		<li class="subcategory">
+			<span class="count"><?php echo (isset($this->quantitySales) && isset($this->quantitySales[Models_Model_CartSession::CART_STATUS_NEW]['StatusCount']))? $this->quantitySales[Models_Model_CartSession::CART_STATUS_NEW]['StatusCount']: 0; ?></span>
+            <a href="<?php echo $this->websiteUrl;?>dashboard/orders/"><span><?php echo $this->translator->translate('Abandoned carts');?></span></a>
+		</li>
+        <li class="subcategory">
+            <span class="count"><?php echo (isset($this->quantitySalesMerchantActionRequired) && isset($this->quantitySalesMerchantActionRequired[Models_Model_CartSession::CART_STATUS_PENDING]['StatusCount']))? $this->quantitySalesMerchantActionRequired[Models_Model_CartSession::CART_STATUS_PENDING]['StatusCount']: 0; ?></span>
+            <a href="<?php echo $this->websiteUrl;?>dashboard/orders/"><span><?php echo $this->translator->translate('Merchant action required -  Customer charged');?></span></a>
+        </li>
+        <li class="subcategory">
+            <span class="count"><?php echo (isset($this->quantitySales) && isset($this->quantitySales[Models_Model_CartSession::CART_STATUS_SHIPPED]['StatusCount']))? $this->quantitySales[Models_Model_CartSession::CART_STATUS_SHIPPED]['StatusCount']: 0; ?></span>
+            <a href="<?php echo $this->websiteUrl;?>dashboard/orders/"><span><?php echo $this->translator->translate('Items shipped');?></span></a>
+        </li>
+        <li class="subcategory">
+            <span class="count"><?php echo (isset($this->quantitySales) && isset($this->quantitySales[Models_Model_CartSession::CART_STATUS_DELIVERED]['StatusCount']))? $this->quantitySales[Models_Model_CartSession::CART_STATUS_DELIVERED]['StatusCount']: 0; ?></span>
+            <a href="<?php echo $this->websiteUrl;?>dashboard/orders/"><span><?php echo $this->translator->translate('Items delivered');?></span></a>
+        </li>
+        <li class="subcategory">
+            <span class="count"><?php echo (isset($this->quantitySalesTechnicalProcessing) && isset($this->quantitySalesTechnicalProcessing[Models_Model_CartSession::CART_STATUS_PROCESSING]['StatusCount']))? $this->quantitySalesTechnicalProcessing[Models_Model_CartSession::CART_STATUS_PROCESSING]['StatusCount']: 0; ?></span>
+            <a href="<?php echo $this->websiteUrl;?>dashboard/orders/"><span><?php echo $this->translator->translate('Technical processing  - Customer not charged');?></span></a>
+        </li>
+        <li class="subcategory">
+            <span class="count"><?php echo (isset($this->quantitySales) && isset($this->quantitySales[Models_Model_CartSession::CART_STATUS_REFUNDED]['StatusCount']))? $this->quantitySales[Models_Model_CartSession::CART_STATUS_REFUNDED]['StatusCount']: 0; ?></span>
+            <a href="<?php echo $this->websiteUrl;?>dashboard/orders/"><span><?php echo $this->translator->translate('Refunded purchase');?></span></a>
+        </li>
+        <li class="subcategory">
+            <span class="count"><?php echo (isset($this->quantityCanceled) && isset($this->quantityCanceled[Models_Model_CartSession::CART_STATUS_CANCELED]['StatusCount']))? $this->quantityCanceled[Models_Model_CartSession::CART_STATUS_CANCELED]['StatusCount']: 0; ?></span>
+            <a href="<?php echo $this->websiteUrl;?>dashboard/orders/"><span><?php echo $this->translator->translate('Canceled');?></span></a>
+        </li>
+        <li class="subcategory">
+            <span class="count"><?php echo (isset($this->quantitySalesLostOportunity) && isset($this->quantitySalesLostOportunity[Models_Model_CartSession::CART_STATUS_CANCELED]['StatusCount']))? $this->quantitySalesLostOportunity[Models_Model_CartSession::CART_STATUS_CANCELED]['StatusCount']: 0; ?></span>
+            <a href="<?php echo $this->websiteUrl;?>dashboard/orders/"><span><?php echo $this->translator->translate('Lost opportunity');?></span></a>
+        </li>
+        <li class="subcategory">
+            <span class="count"><?php echo (isset($this->quantitySalesNewQuote) && isset($this->quantitySalesNewQuote[Models_Model_CartSession::CART_STATUS_PENDING]['StatusCount']))? $this->quantitySalesNewQuote[Models_Model_CartSession::CART_STATUS_PENDING]['StatusCount']: 0; ?></span>
+            <a href="<?php echo $this->websiteUrl;?>dashboard/orders/"><span><?php echo $this->translator->translate('New quote');?></span></a>
+        </li>
+        <li class="subcategory">
+            <span class="count"><?php echo (isset($this->quantitySalesQuoteSent) && isset($this->quantitySalesQuoteSent[Models_Model_CartSession::CART_STATUS_PROCESSING]['StatusCount']))? $this->quantitySalesQuoteSent[Models_Model_CartSession::CART_STATUS_PROCESSING]['StatusCount']: 0; ?></span>
+            <a href="<?php echo $this->websiteUrl;?>dashboard/orders/"><span><?php echo $this->translator->translate('Quote Sent');?></span></a>
+        </li>
+	</ul>
+	<h3 class="category"><i class="icon-file icon16"></i> <?php echo $this->translator->translate('Pages');?></h3>
+	<ul>
+		<li class="subcategory">
+            <span class="count"><?php echo $this->quantityPages;?></span>
+            <?php if(Tools_Security_Acl::isAllowed(Tools_Security_Acl::RESOURCE_PLUGINS)):?>
+                <a class="tpopup organize" href="javascript:;" data-pwidth="960" data-pheight="560" data-url="<?php echo $this->websiteUrl;?>backend/backend_page/organize/" title="Organize pages"><?php echo $this->translator->translate('Pages');?></a>
+            <?php else:?>
+                <span><?php echo $this->translator->translate('Pages');?></span>
+            <?php endif;?>
+		</li>
+		<li class="subcategory">
+            <span class="count"><?php echo $this->quantityDraftPages;?></span>
+            <?php if(Tools_Security_Acl::isAllowed(Tools_Security_Acl::RESOURCE_PLUGINS)):?>
+                <a class="tpopup draft" href="javascript:;" data-pwidth="480" data-pheight="560" data-url="<?php echo $this->websiteUrl;?>backend/backend_page/draft/" title="Draft pages"><?php echo $this->translator->translate('Draft pages');?></a>
+            <?php else:?>
+                <span><?php echo $this->translator->translate('Draft pages');?></span>
+            <?php endif;?>
+		</li>
+	</ul>
+	<h3 class="category"><i class="icon-cube2 icon16"></i> <?php echo $this->translator->translate('Plugins');?></h3>
+	<ul>
+		<li class="subcategory">
+            <span class="count"><?php echo $this->quantityPlugins;?></span>
+			<?php if(Tools_Security_Acl::isAllowed(Tools_Security_Acl::RESOURCE_PLUGINS)):?>
+                <a class="tpopup plugin" href="javascript:;" data-pwidth="960" data-pheight="560" data-url="<?php echo $this->websiteUrl;?>backend/backend_plugin/plugin/" title="Installed plugins"><?php echo $this->translator->translate('Installed plugins');?></a>
+            <?php else:?>
+                <span><?php echo $this->translator->translate('Installed plugins');?></span>
+            <?php endif;?>
+		</li>
+	</ul>
+	<h3 class="category"><i class="icon-user icon16"></i> <?php echo $this->translator->translate('Users');?></h3>
+	<ul>
+		<li class="subcategory">
+            <span class="count"><?php echo $this->quantityUsers;?></span>
+            <?php if(Tools_Security_Acl::isAllowed(Tools_Security_Acl::RESOURCE_PLUGINS)):?>
+                <a class="tpopup manage" href="javascript:;" data-pwidth="960" data-pheight="560" data-url="<?php echo $this->websiteUrl;?>backend/backend_user/manage/" title="Manage users"><?php echo $this->translator->translate('Users');?></a>
+            <?php else:?>
+                <span><?php echo $this->translator->translate('Users');?></span>
+            <?php endif;?>
+		</li>
+		<li class="subcategory">
+            <span class="count"><?php echo $this->quantityAdmins;?></span>
+            <?php if(Tools_Security_Acl::isAllowed(Tools_Security_Acl::RESOURCE_PLUGINS)):?>
+                <a class="tpopup manage" href="javascript:;" data-pwidth="960" data-pheight="560" data-url="<?php echo $this->websiteUrl;?>backend/backend_user/manage/" title="Manage users"><?php echo $this->translator->translate('Admins');?></a>
+            <?php else:?>
+                <span><?php echo $this->translator->translate('Admins');?></span>
+            <?php endif;?>
+		</li>
+	</ul>
+	<h3 class="category"><i class="icon-copy icon16"></i> <?php echo $this->translator->translate('Templates');?></h3>
+	<ul>
+		<li class="subcategory">
+            <span class="count"><?php echo $this->quantityTemplates;?></span>
+            <?php if(Tools_Security_Acl::isAllowed(Tools_Security_Acl::RESOURCE_PLUGINS)):?>
+                <a class="tpopup template" href="javascript:;" data-pwidth="960" data-pheight="560" data-url="<?php echo $this->websiteUrl;?>backend/backend_theme/template/id/index/" title="Template"><?php echo $this->translator->translate('Templates');?></a>
+            <?php else:?>
+                <span><?php echo $this->translator->translate('Templates');?></span>
+            <?php endif;?>
+		</li>
+	</ul>
+</div>

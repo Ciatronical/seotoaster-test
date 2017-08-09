@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>{$page:title}</title>
+        <meta name="keywords" content="{$meta:keywords}" />
+        <meta name="description" content="{$meta:description}" />
+
+        <!-- Mobile Specific Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes"> <!-- open in full-screen, hide URL bar (for IOS)-->
+
+        <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Open+Sans:400,600,700" rel="stylesheet" type="text/css">
+
+        <!-- Favicons -->
+        <link rel="icon" href="images/favicon.ico">
+        <!--[if IE]><link rel="shortcut icon" href="images/favicon.ico"><![endif]-->
+        <link rel="apple-touch-icon" href="images/apple-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+
+        <link href="{website:url}plugins/dashboard/web/themes/{theme:name}/css/reset-dashboard.css" rel="stylesheet" media="screen">
+        <link href="{website:url}plugins/dashboard/web/themes/{theme:name}/css/content.css" rel="stylesheet" media="screen">
+        <link href="{website:url}plugins/dashboard/web/themes/{theme:name}/css/nav-dashboard.css" rel="stylesheet" media="screen">
+        <link href="{website:url}plugins/dashboard/web/themes/{theme:name}/css/style-dashboard.css" rel="stylesheet" media="screen">
+        <!-- Additional css -->
+        <link href="{website:url}plugins/dashboard/web/themes/{theme:name}/css/skeleton-ui.css" rel="stylesheet" media="screen">
+
+        <!-- HTML5shiv and selectivizr.js IE support of HTML5 elements and CSS3 pseudo-classes, attribute selectors -->
+        <!--[if lt IE 9]><script src="js/system/ie-pack.js"></script><![endif]-->
+
+    </head>
+
+    <body class="seotoaster-dash">
+
+        <!-- HEADER -->
+        <header>
+            {dashboardmenu}
+                index
+                quotes
+                sales
+                clients
+                orders
+                products
+            {/dashboardmenu}
+        </header>
+
+        <!-- LEFT -->
+        <aside id="left" class="scroll">
+            <h3 class="m0px p5px blue-bg"><i class="icon-stats-up icon16 fl-right mt5px"></i> Website stats</h3>
+            {$plugin:toasterstats:Sitestatistic}
+            <span class="hidden">{$plugin:dashboard:clean}</span>
+        </aside>
+
+        <!-- CONTENT -->
+        <main id="content">
+            <div class="grid_5 sd-grid_12 text-center mb30px">
+                <!-- Sales TODAY -->
+                <div class="grid_6 t-grid_3 m-grid_2 mb20px">
+                    {$plugin:toasterstats:sales:today}
+                    <h3 class="m0px">Sales Today</h3>
+                </div>
+                <!-- TODAY'S TOP SELLERS -->
+                <div class="grid_6 t-grid_3 m-grid_2 mb20px">
+                    {$plugin:toasterstats:quotes:today}
+                    <h3 class="m0px">Quotes Requests Today</h3>
+                </div>
+                <!-- TODAY'S TOP SELLERS -->
+                <div class="grid_12">
+                    {$plugin:toasterstats:money:today}
+                    <h3 class="m0px">Earned Today</h3>
+                    {$plugin:toasterstats:orders:today}
+                </div>
+            </div>
+            <div class="grid_3 sd-grid_6 t-grid_2 mb30px">
+                <!-- TODAY'S TOP SELLERS -->
+                <h3 class="bordered"><i class="icon-star3 icon16 orange"></i> Today's top sellers</h3>
+                {$plugin:toasterstats:products:topsellers:today:10}
+            </div>
+            <div class="grid_4 sd-grid_6 t-grid_4 mb30px">
+                <!-- LATEST CUSTOMERS -->
+                <h3 class="bordered"><i class="icon-user icon16"></i> Latest orders</h3>
+                {$plugin:toasterstats:customer:orders:10}
+            </div>
+            <div class="grid_9 sd-grid_8">
+                <!-- SALES AND QUOTES AMOUNT -->
+                <div class="pattern">
+                    <h3><i class="icon-bars icon16"></i> Sales and quotes count</h3>
+                    <div class="scroll-x">{$plugin:toasterstats:graph:columnchart:count:quotes|sales:days:7:400:400}</div>
+                </div>
+                <!-- SALES AND QUOTES AMOUNT -->
+                <div class="pattern">
+                    <h3><i class="icon-bars icon16"></i> Sales and quotes amount</h3>
+                    <div class="scroll-x">{$plugin:toasterstats:graph:columnchart:amount:sales|quotes:days:7:400:400}</div>
+                </div>
+            </div>
+            <div class="grid_3 sd-grid_4">
+                <!-- DATE RANGE -->
+                <h3 class="bordered"><i class="icon-calendar icon16"></i> Date range</h3>
+                {$plugin:toasterstats:control}
+                <!-- PAST DAYS -->
+                <h3 class="bordered"><i class="icon-clock icon16"></i> {$plugin:toasterstats:label:days:7}</h3>
+                {$plugin:toasterstats:money:days:7}
+                {$plugin:toasterstats:orders:days:7}
+                <!-- BESTSELLERS -->
+                <h3 class="bordered"><i class="icon-thumbs-up icon16"></i> Bestsellers</h3>
+                {$plugin:toasterstats:products:topsellers:days:7:10}
+            </div>
+        </main>
+
+        <!-- SCRIPTS ZONE -->
+        <script type="text/javascript">
+            $(function(e) {
+            });
+        </script>
+        <script src="{website:url}plugins/dashboard/web/themes/{theme:name}/js/scripts.min.js"></script>
+        <script src="{website:url}plugins/dashboard/web/themes/{theme:name}/js/system/skeleton.min.js"></script>
+
+    </body>
+</html>

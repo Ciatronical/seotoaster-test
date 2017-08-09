@@ -1,0 +1,153 @@
+<?php
+$this->headScript()
+    ->appendFile($this->websiteUrl.'plugins/shopping/web/js/libs/jquery/jquery.select-chain.js');
+
+$this->headLink()
+    ->appendStylesheet($this->websiteUrl . 'plugins/shopping/web/css/store.css');
+?>
+
+<div id="config" class="seotoaster container">
+<?php
+    echo $this->partial(
+        'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+        array(
+            'helpSection' => $this->helpSection,
+            'hashMap'     => Tools_Misc::$_helpHashMap
+        )
+    );
+?>
+    <div class="tabs-nav-wrap">
+    <span class="arrow w5 omega left ticon-arrow-left3"></span>
+    <span class="arrow w5 right ticon-arrow-right3"></span>
+    <ul class="header">
+	    <?php $subForms = $this->form->getSubForms(); ?>
+        <?php foreach ($subForms as $subform): ?>
+            <li><a href="#<?php echo $subform->getId(); ?>-tab"><?php echo $subform->getLegend(); ?></a></li>
+        <?php endforeach; ?>
+        <?php if(isset($this->configTabs) && is_array($this->configTabs) && !empty($this->configTabs)): ?>
+            <?php foreach($this->configTabs as $configTab): ?>
+                <li><a class="no-save-btn" href="<?php echo $configTab['contentUrl']; ?>"><?php echo $configTab['title']; ?></a></li>
+            <?php endforeach; ?>
+        <?php endif; ?>
+	</ul>
+    </div>
+	<form class="content-medium-footer" action="<?php echo $this->form->getAction();?>" id="<?php echo $this->form->getId();?>">
+	<?php foreach ($subForms as $subform) :?>
+		<fieldset id="<?php echo $subform->getId();?>-tab">
+			<?php foreach ($subform->getElements() as $elem):?>
+			<div>
+                <?php $labelText = $this->translate($elem->getLabel());?>
+                <?php $elem->setLabel($labelText);?>
+				<?php echo $elem->renderLabel();?>
+                <?php echo $elem->renderViewHelper();?>
+			</div>
+			<?php endforeach; ?>
+            <?php if ($subform->getId() === 'display'): ?>
+                <?php $links = Tools_Misc::getPostPurchaseAndLandingPageLinks(); ?>
+                <?php if (!empty($links)): ?>
+                    <?php $pagesArray = array(
+                        Tools_Misc::OPTION_THANKYOU => $this->translate('Your post purchase page'),
+                        Tools_Misc::OPTION_STORE_CLIENT_LOGIN => $this->translate('Your client area page')
+                    )
+                    ?>
+                    <?php foreach ($links as $linkOptionName => $link): ?>
+                        <?php if (array_key_exists($linkOptionName, $pagesArray)): ?>
+                            <div class="grid_12"><a href="<?php echo $this->websiteUrl . $link['url']; ?>"
+                                                    target="_blank"><?php echo $pagesArray[$linkOptionName]; ?></a>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <div class="grid_12">
+                    <a href="<?php echo $this->websiteUrl; ?>sitemapproducts.xml" target="_blank">
+                        <?php echo $this->translate('Your Google products XML feed'); ?>
+                    </a>
+                </div>
+            <?php endif; ?>
+		</fieldset>
+	<?php endforeach; ?>
+        <input type="hidden" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo $this->secureToken;?>">
+    </form>
+
+	<?php //echo $this->form; ?>
+    <div class="footer grid_12">
+	    <button id="save-btn" class="btn ticon-save mr-grid"><?php echo $this->translate('Save');?></button>
+    </div>
+</div>
+
+<script>
+<?php $this->jQuery()->onLoadCaptureStart();?>
+    //	$('div.seotoaster > div.ui-widget-header:first').remove();
+
+    var shopping = {};
+    shopping.saveconfig = function(){
+        var url = '<?php echo $this->form->getAction(); ?>';
+        var data = $('form[user-changed="true"]').serialize();
+        if(!data){
+            window.console && console.log('nothing to save');
+            return false;
+        }else{
+            window.console && console.log(data);
+        }
+
+        $.ajax({
+            url      : url,
+            data     : data,
+            type     : 'POST',
+            dataType : 'html',
+            success  : function(response){
+                $('form[user-changed="true"]').removeAttr('user-changed');
+                $('#config > ul > li > a.user-changed').removeClass('user-changed');
+                showMessage('<?php echo $this->translate('Saved'); ?>');
+            }
+        });
+    }
+
+    $('#save-btn').on('click', shopping.saveconfig);
+
+    $('#config').tabs({
+        select : function(event, ui){
+            $form = $(ui.panel).children('form');
+            if($form.attr('user-changed')===true && $form.find(':submit').size()==0){
+                $form.append('<input type=submit />');
+            }
+        },
+        beforeLoad    : function(event, ui){
+            showSpinner('#config');
+        }
+    });
+
+    $(document).ajaxStop(function(){
+        hideSpinner();
+        checkboxRadioStyle();
+    });
+
+    $('select[name$="country"]').each(function(){
+        var $stateField = $(this).closest('form').find('select[name$="state"]');
+        $(this).selectChain({
+            data   : {
+                country : $(this).val(),
+                pairs   : true
+            },
+            target : $stateField,
+            url    : '<?php echo $this->websiteUrl; ?>api/store/geo/type/state/'
+        })
+    });
+
+    $('form :input').on('change', function(){
+        var $form = $(this).closest('form');
+        if(!$form.attr('user-changed')){
+            $form.attr('user-changed', true);
+            var currentTab = $('#config').tabs('option', 'selected');
+            $('#config > ul > li:eq('+currentTab+') > a').addClass('user-changed');
+        }
+    });
+
+    $('.no-save-btn').on('click', function(){
+        $('#save-btn').hide();
+    });
+    $('a').not('.no-save-btn').on('click', function(){
+        $('#save-btn').show();
+    });
+<?php $this->jQuery()->onLoadCaptureEnd();?>
+</script>

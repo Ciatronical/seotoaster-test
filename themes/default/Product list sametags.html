@@ -1,0 +1,15 @@
+<div class="product-item grid sametags">
+    <a href="{$product:url}" class="product-image">
+        <img src="{$product:photourl:medium}" alt="{$product:name}" />
+        {$product:freeshipping:Free Shipping}
+    </a>
+    <a class="product-title" href="{$product:url}">{$product:name}</a>
+    <div class="b-prices text-center">
+        <p class="product-description">{$product:description:short}</p>
+        {onsale:{$product:id}}
+            <p class="product-old-price">{$product:price:original}</p>
+        {/onsale}
+        <p class="product-price" itemprop="price">{$product:price}</p>
+        {$store:addtocart:{$product:id}}
+    </div>
+</div>

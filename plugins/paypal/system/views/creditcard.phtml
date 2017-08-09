@@ -1,0 +1,334 @@
+<?php if(!empty($this->cartStatusError)) : ?>
+    <div class="warning-bg text-center"><?php echo $this->translator->translate('We can\'t confirm this order at the moment due to a technical difficulty. If you do not receive an email in the coming hours confirming your purchase, please contact us'); ?></div>
+<?php else: ?>
+    <form class="paymentForm" action="javascript:;" name="paypal-creditcard" id="paypal-creditcard">
+        <h4><?php echo $this->translator->translate('Pay with your credit card');?></h4>
+        <fieldset>
+            <legend><?php echo $this->translator->translate('Your Payment Information');?></legend>
+            <?php if($this->allowShipping):?>
+            <p class="pluginRow">
+                <label class="shipping-to-billing-label" for="copyShippingToBilling"><?php echo $this->translator->translate('Use the shipping address as billing address');?>:</label>
+                <input class="shipping-to-billing" type="checkbox" id="copyShippingToBilling" name="copyShippingToBilling">
+            </p>
+            <?php endif;?>
+            <p class="pluginRow">
+                <label for="credit-card-firstname"><?php echo $this->translator->translate('First Name');?>:</label>
+                <input type="text" name="credit-card-firstname" id="credit-card-firstname" value="<?php echo $this->firstName;?>">
+            </p>
+            <p class="pluginRow">
+                <label for="credit-card-lastname"><?php echo $this->translator->translate('Last Name');?>:</label>
+                <input type="text" name="credit-card-lastname" id="credit-card-lastname" value="<?php echo $this->lastName;?>">
+            </p>
+            <p class="pluginRow">
+                <label for="credit-card-type"><?php echo $this->translator->translate('Payment Type');?>:</label>
+                <select name="credit-card-type" id="credit-card-type">
+                    <option value="Visa" selected="selected">Visa</option>
+                    <option value="MasterCard">MasterCard</option>
+                    <option value="Discover">Discover</option>
+                    <option value="Amex">American Express</option>
+                </select>
+            </p>
+            <p class="pluginRow">
+                <label class="card-number-label" for="credit-card-cardnumber"><?php echo $this->translator->translate('Card Number');?>:</label>
+                <input class="card-number-payment" type="text" name="credit-card-cardnumber" id="credit-card-cardnumber">
+            </p>
+            <p class="pluginRow FR">
+                <label class="expiration-date-label" for="expiration-date" id="expiration-date"><?php echo $this->translator->translate('Expiration Date');?>:</label>
+                <select class="card-expiration" name="credit-card-expiration-date-month" id="credit-card-expiration-date-month">
+                    <?php for ($m=1; $m<=12; $m++) : ?>
+                        <option value="<?php echo $m; ?>"><?php echo $m; ?></option>
+                    <?php endfor; ?>
+                </select>
+                <select class="card-expiration-year" name="credit-card-expiration-date-year" id="credit-card-expiration-date-year">
+                    <?php $currentYear = date('Y'); ?>
+                    <?php for ($y=$currentYear; $y<=$currentYear+10; $y++): ?>
+                        <option value="<?php echo $y; ?>"><?php echo $y; ?></option>
+                    <?php endfor; ?>
+                </select>
+            </p>
+            <p class="pluginRow">
+                <label class="card-verification-label" for="credit-card-verification-number"><?php echo $this->translator->translate('Card Verification Number');?>:</label>
+                <input class="card-verification-payment" type="text" name="credit-card-verification-number" id="credit-card-verification-number">
+            </p>
+            <p class="pluginRow">
+                <label for="credit-card-email"><?php echo $this->translator->translate('E-mail');?>:</label>
+                <input type="text" name="credit-card-email" id="credit-card-email" value="<?php echo $this->billingEmail;?>">
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend><?php echo $this->translator->translate('Your billing Information');?></legend>
+            <p class="pluginRow">
+                <label for="credit-card-billing-address1"><?php echo $this->translator->translate('Billing Address');?> 1:</label>
+                <input type="text" name="credit-card-billing-address1" id="credit-card-billing-address1" value="<?php echo $this->address1;?>">
+            </p>
+            <p class="pluginRow">
+                <label for="credit-card-billing-address2"><?php echo $this->translator->translate('Billing Address');?> 2:</label>
+                <input type="text" name="credit-card-billing-address2" id="credit-card-billing-address2" value="<?php echo $this->address2;?>">
+            </p>
+            <p class="pluginRow">
+                <label for="credit-card-city"><?php echo $this->translator->translate('City');?>:</label>
+                <input type="text" name="credit-card-city" id="credit-card-city" value="<?php echo $this->city;?>">
+            </p>
+            <p class="pluginRow">
+                <label class="zip-label" for="credit-card-zip"><?php echo $this->translator->translate('ZIP Code');?>:</label>
+                <input class="zip-payment" type="text" name="credit-card-zip" id="credit-card-zip" value="<?php echo $this->zip;?>">
+            </p>
+            <p class="pluginRow">
+                <label for="credit-card-country"><?php echo $this->translator->translate('Country');?>:</label>
+                <select id="credit-card-country" name="credit-card-country">
+                <?php foreach($this->countryList as $key=>$country): ?>
+                <option value="<?php echo $key; ?>"><?php echo $country; ?></option>
+                <?php endforeach; ?>
+                </select>
+            </p>
+            <p class="pluginRow paypalState">
+                <label for="credit-card-state"><?php echo $this->translator->translate('State');?>:</label>
+                <select id="credit-card-state" name="credit-card-state">
+                    <option value=""></option>
+                </select>
+            </p>
+            <p class="pluginRow FR">
+                <label class="credit-card-phone phone-label" for="credit-card-phone"><?php echo $this->translator->translate('Phone');?>:</label>
+                <input class="phone-payment" type="text" name="credit-card-phone" id="credit-card-phone" value="<?php echo $this->phone;?>">
+            </p>
+        </fieldset>
+        <img src="<?php echo $this->websiteUrl; ?>plugins/paypal/web/images/paypal.png" alt="PayPal Logo"/>
+        <input type="submit" class="paypalSubmit" name="credit-card-paynow" id="credit-card-paynow" value="<?php echo $this->translator->translate('Pay Now');?>" />
+
+        <input type="hidden" name="credit-card-amt" id="credit-card-amt" class="payment-gateway-total" value="<?php echo $this->totalAmount; ?>" />
+        <input type="hidden" name="credit-card-shipping" id="credit-card-shipping" class="payment-gateway-shipping" value="<?php echo $this->shippingPaypal; ?>" />
+        <input type="hidden" name="credit-card-desc" id="credit-card-desc" value="" />
+        <input type="hidden" name="credit-card-currency-code" id="credit-card-currency-code" value="<?php echo $this->currency; ?>" />
+        <input type="hidden" name="credit-card-tax" id="credit-card-tax" class="payment-gateway-total-tax" value="<?php echo ($this->totalTax) ?  $this->totalTax : '0'; ?>" />
+    </form>
+<?php endif; ?>
+
+<script type="text/javascript">
+$(function(){
+    $("#credit-card-country [value='<?php echo $this->predefinedCountry?>']").prop("selected", "selected");
+<?php if(isset($this->listOfState)): ?>
+    $("#credit-card-state").html('');
+    $("#credit-card-state").append('<?php echo $this->listOfState;?>');
+    $('.paypalState').removeClass("statesBlock");
+    $('.paypalState label').show();
+    $('#credit-card-state').show();
+<?php endif;?>
+<?php if(!isset($this->listOfState)): ?>
+    $('.paypalState').addClass("statesBlock");
+    $('.paypalState label').hide();
+    $('#credit-card-state').hide();
+<?php endif;?>
+<?php if(isset($this->state)): ?>
+    $("#credit-card-state [value='<?php echo $this->state?>']").prop("selected", "selected");
+<?php endif;?>
+    $('#copyShippingToBilling').prop('checked', 'checked');
+    copyShippingToBillingPaypal();
+
+    $("#credit-card-country").on("change", function(){
+        var countryCode = $('#credit-card-country option:selected').val();
+        $.ajax({
+            type     : "GET",
+            url      : '<?php echo $this->websiteUrl;?>/api/store/geo/type/state',
+            dataType : "json",
+            data     : {
+                country : countryCode
+            },
+            success  : function(response){
+
+                if(response.length){
+                    var html = '';
+                    $.each(response, function(key, item){
+                        //handling if states returned as key-value pairs or as set of objects
+                        if(typeof item === 'string'){
+                            html += '<option value="' + key + '" label="' + item + '" data-country="' + countryCode + '">' + item + '</option>';
+                        }else if(typeof item === 'object'){
+                            html += '<option value="' + this.id + '" label="' + this.name + '" data-country="' + this.country + '">' + this.name + '</option>';
+                        }else{
+                            $.error('Wrong response data format from server');
+                        }
+                    });
+                    $("#credit-card-state").html('');
+                    $("#credit-card-state").append(html);
+                    $('.paypalState').removeClass("statesBlock");
+                    $('.paypalState label').show();
+                    $('#credit-card-state').show();
+                }else{
+                    $('.paypalState label').hide();
+                    $('.paypalState').addClass('statesBlock');
+                    $('#credit-card-state').hide();
+                }
+                $("#credit-card-country [value=" + countryCode + "]").prop("selected", "selected");
+            }
+        });
+        return false;
+    });
+
+    function copyShippingToBillingPaypal(){
+        var shippingToBilling = 0;
+
+        if($("input[name=copyShippingToBilling]").prop("checked")){
+            shippingToBilling = 1;
+        }
+
+        $.ajax({
+            url      : '<?php echo $this->websiteUrl; ?>plugin/paypal/run/shippingAsBilling',
+            type     : 'post',
+            dataType : 'json',
+            data     : {
+                shippingToBilling : shippingToBilling
+            },
+            success  : function(responce){
+                if(responce.error == '0'){
+                    $('#credit-card-firstname').val(responce.shipping.firstname);
+                    $('#credit-card-lastname').val(responce.shipping.lastname);
+                    $('#credit-card-email').val(responce.shipping.email);
+                    $('#credit-card-billing-address1').val(responce.shipping.address1);
+                    $('#credit-card-billing-address2').val(responce.shipping.address2);
+                    $('#credit-card-city').val(responce.shipping.city);
+                    $("#credit-card-country [value=" + responce.shipping.country + "]").prop("selected", "selected");
+                    $("#credit-card-state [value=" + responce.shipping.state + "]").prop("selected", "selected");
+
+                    if(responce.shipping.state != ''){
+                        var countryCode = responce.shipping.country;
+                        $.ajax({
+                            type     : "GET",
+                            url      : '<?php echo $this->websiteUrl;?>/api/store/geo/type/state',
+                            dataType : "json",
+                            data     : {
+                                country : responce.shipping.country
+                            },
+                            success  : function(response){
+                                if(response){
+
+                                    var html = '';
+
+                                    $.each(response, function(key, item){
+                                        //handling if states returned as key-value pairs or as set of objects
+                                        if(typeof item === 'string'){
+                                            html += '<option value="' + key + '" label="' + item + '" data-country="' + countryCode + '">' + item + '</option>';
+                                        }else if(typeof item === 'object'){
+                                            html += '<option value="' + this.id + '" label="' + this.name + '" data-country="' + this.country + '">' + this.name + '</option>';
+                                        }else{
+                                            $.error('Wrong response data format from server');
+                                        }
+                                    });
+                                    $("#credit-card-state").html('');
+                                    $("#credit-card-state").append(html);
+                                    $('.paypalState').removeClass("statesBlock");
+                                    $('.paypalState label').show();
+                                    $('#credit-card-state').show();
+
+                                }
+                                $("#credit-card-state option[value=" + responce.shipping.state + "]").prop('selected', 'selected');
+                            }
+                        });
+                        return false;
+                    }else{
+                        $("#credit-card-state").html('');
+                        $('.paypalState').addClass('statesBlock');
+                        $('.paypalState label').hide();
+                        $('#credit-card-state').hide();
+                    }
+
+                    $('#credit-card-zip').val(responce.shipping.zip);
+                    $('#credit-card-phone').val(responce.shipping.phone);
+                }
+                if(responce.error == '1'){
+                    $('#credit-card-firstname').val('');
+                    $('#credit-card-lastname').val('');
+                    $('#credit-card-email').val('');
+                    $('#credit-card-billing-address1').val('');
+                    $('#credit-card-billing-address2').val('');
+                    $('#credit-card-city').val('');
+                    $('#credit-card-zip').val('');
+                    $('#credit-card-phone').val('');
+                }
+            }
+        });
+    }
+
+    $("#copyShippingToBilling").on("click", function(){
+        copyShippingToBillingPaypal();
+    });
+
+    $("#credit-card-paynow").on("click", function(){
+        var truth = 0;
+        var fields = 3;
+        var mailReg = /^([a-z0-9_\-]+\.)*[a-z0-9_\-]+@([a-z0-9]-?)*([a-z0-9]*[a-z0-9]\.)+[a-z]{2,4}$/i;
+        var vccReg = /^[0-9]{3,4}$/i;
+        var cardNumReg = /^[0-9]{16}$/i;
+        var payButton = $("#credit-card-paynow");
+        if($("#credit-card-cardnumber").val() == ''){
+            $("#credit-card-cardnumber").focus();
+            smoke.alert('<?php echo $this->translator->translate('Please enter right credit number format');?>', {'classname' : 'errors'});
+            return false;
+        }
+
+        if(!vccReg.test($("#credit-card-verification-number").val())){
+            $("#credit-card-verification-number").focus();
+            smoke.alert('<?php echo $this->translator->translate('Please enter right verification-number');?>', {'classname' : 'errors'});
+            return false;
+        }
+
+        if(!mailReg.test($("#credit-card-email").val())){
+            $("#credit-card-email").focus();
+            smoke.alert('<?php echo $this->translator->translate('Please enter right email');?>', {'classname' : 'errors'});
+            return false;
+        }
+
+        var billState = '';
+        if($('#credit-card-state').val() == null){
+            billState = '';
+        }else{
+            billState = $('#credit-card-state').val();
+        }
+        payButton.attr("disabled", true);
+        $.ajax({
+            url        : '<?php echo $this->websiteUrl; ?>plugin/paypal/run/payCreditC',
+            type       : 'post',
+            dataType   : 'json',
+            data       : {
+                firstname             : $('#credit-card-firstname').val(),
+                lastname              : $('#credit-card-lastname').val(),
+                type                  : $('#credit-card-type').val(),
+                cardnumber            : $('#credit-card-cardnumber').val(),
+                verification_number   : $('#credit-card-verification-number').val(),
+                expiration_date_year  : $('#credit-card-expiration-date-year').val(),
+                expiration_date_month : $('#credit-card-expiration-date-month').val(),
+                email                 : $('#credit-card-email').val(),
+                billing_address1      : $('#credit-card-billing-address1').val(),
+                billing_address2      : $('#credit-card-billing-address2').val(),
+                city                  : $('#credit-card-city').val(),
+                country               : $('#credit-card-country').val(),
+                state                 : billState,
+                zip                   : $('#credit-card-zip').val(),
+                phone                 : $('#credit-card-phone').val(),
+                amt                   : $('#credit-card-amt').val(),
+                desc                  : $('#credit-card-desc').val(),
+                currency_code         : $('#credit-card-currency-code').val(),
+                tax                   : $('#credit-card-tax').val(),
+                shipping              : $('#credit-card-shipping').val()
+            },
+            beforeSend : function(){
+                smoke.signal('<?php echo $this->translate('Please wait while your payment is being processed.');?>', false, 2000);
+            },
+            success    : function(result){
+                if(result.done){
+                    smoke.signal('<?php echo $this->translate('Thank you for your purchase.');?>');
+                    window.location.href = 'plugin/shopping/run/thankyou/';
+                }else{
+                    if (typeof result.responseText != 'undefined') {
+                        smoke.alert('<?php echo $this->translate('Your cart content was changed');?>', {'classname' : 'errors'});
+                            window.setTimeout(function(){
+                                window.location = result.responseText.redirect;
+                            }, 2000);
+                    } else {
+                        smoke.alert(result.errorText, {'classname': 'errors'});
+                        payButton.attr("disabled", false);
+                    }
+                }
+            }
+        });
+    });
+});
+</script>

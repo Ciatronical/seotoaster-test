@@ -1,0 +1,72 @@
+<?php $uniqId = substr(md5(time()), 5, 15); ?>
+<?php if (isset($this->data)): ?>
+	<form id="form-<?php echo $uniqId; ?>" class="binded-plugin clearfix prefix_3 suffix_3 grid_6 mt50px"
+	      action="<?php echo trim($this->websiteUrl, '/') . $this->url(isset($this->data) ? array('productId' => $this->data['product_id']) : null); ?>"
+	      method="POST">
+		<fieldset class="background">
+			<legend class="large background"><?php echo $this->translate('Set this product on sale');?>:</legend>
+			<p>
+				<label class="mt5px grid_5 alpha" for="promo-price"><?php echo $this->translate('Sale price'); ?> (<span id="promo-price-unit"></span>):</label>
+				<?php echo $this->formText('promo-price', isset($this->data) ? $this->data['promo_price'] : null, array('class' => 'grid_4 omega')); ?>
+                <label class="mt5px labeled grid_3 text-center omega">
+                    <span><?php echo $this->translate('Time');?></span><i class="tooltip info ticon-question-sign icon16 mb5px ml3"
+                    title="<?php echo $this->translate('Sales time depends on your local server time settings');?>"></i>
+                </label>
+			</p>
+			<p>
+				<label class="mt5px grid_5 alpha" for="promo-from"><?php echo $this->translate('Starting date'); ?>:</label>
+				<label class="labeled icon right grid_4 omega">
+				    <?php echo $this->formText('promo-from', isset($this->data['promo_from']) ? date('d-M-Y', strtotime($this->data['promo_from'])) : null); ?>
+                    <i class="ticon-calendar icon16"></i>
+                </label>
+                <label class="mt5px labeled text-center grid_3">
+                    <span>00.00</span>
+                </label>
+			</p>
+			<p>
+				<label class="mt5px grid_5 alpha" for="promo-due"><?php echo $this->translate('Expiry date'); ?>:</label>
+				<label class="labeled icon right grid_4 omega">
+                    <?php echo $this->formText('promo-due', isset($this->data['promo_due']) ? date('d-M-Y', strtotime($this->data['promo_due'])) : null); ?>
+                    <i class="ticon-calendar icon16"></i>
+                </label>
+                <label class="mt5px labeled text-center grid_3">
+                    <span>23.59</span>
+                </label>
+			</p>
+            <?php echo $this->formSubmit('promo-save', $this->translate('Apply'), array('class' => 'btn icon-checkmark-3'))?>
+		</fieldset>
+        <input type="hidden" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo $this->secureToken;?>" />
+    </form>
+	<script type="text/javascript">
+		if (window.jQuery && jQuery.ui) {
+			$(function () {
+				$('#promo-price-unit').text($('#currency-unit').text());
+				$('#promo-from').datepicker({
+					dateFormat: 'dd-M-yy',
+					changeMonth: true,
+					changeYear: true,
+					yearRange: "c:c+10",
+					onSelect: function (selectedDate) {
+						$('#promo-due').datepicker("option", "minDate", selectedDate);
+					}
+				});
+				$('#promo-due').datepicker({
+					dateFormat: 'dd-M-yy',
+					defaultDate: "+1w",
+					changeMonth: true,
+					changeYear: true,
+					yearRange: "c:c+10",
+					onSelect: function (selectedDate) {
+						$('#promo-from').datepicker("option", "maxDate", selectedDate);
+					}
+				});
+			});
+		}
+	</script>
+
+<?php else: ?>
+    <div class="message error mt2em">
+        <h1 class="error"><?php echo $this->translate('Product is not saved!');?></h1>
+        <p><?php echo $this->translate('Click on SAVE button and then reopen this tab');?></p>
+    </div>
+<?php endif; ?>

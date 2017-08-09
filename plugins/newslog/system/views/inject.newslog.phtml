@@ -1,0 +1,23 @@
+<script type='text/javascript'>
+    $(function() {
+        // replace first item in toaster cpanel menu to be the news menu section
+        $('ul#cpanelul li:not(.plugin-blog):first').replaceWith($('ul#cpanelul li.plugin-blog'));
+        //insert "edit this news post" into newslog plugin menu
+        $('ul#cpanelul li.plugin-blog').find('ul').prepend('<?php echo str_replace(array("\r","\n"), '', $this->render('extmenu.newslog.phtml'));?>');
+        // bind "delete this news post" handler
+        $(document).on('click', '#newslog-delete-post', function(e) {
+            var nid = $(e.currentTarget).data('nid');
+            showConfirm("<?php echo $this->translate('You are about to remove a news item! Are you sure?'); ?>", function() {
+                $.ajax({
+                    url        : '<?php echo $this->websiteUrl;?>api/newslog/news/id/' + nid,
+                    type       : 'delete',
+                    beforeSend : showSpinner()
+                }).done(function(response) {
+                    top.location.href = '<?php echo $this->websiteUrl . $this->newsFolder; ?>';
+                })
+            })
+        })
+
+    });
+</script>
+<?php if($this->isPR) { $this->headMeta()->appendName('Googlebot-News', 'noindex, nofollow'); } ?>

@@ -1,0 +1,16 @@
+<?php return array('Save and Close' => 'Speichern und schließen', 'Close' => 'Schließen', 'Saved' => 'Sauvé',
+                   'Choose product' => 'Wählen Sie ein Produkt', 
+                   'Product only' => 'Produkt nur',
+                   'Create an automated product listing' => 'Erstellen Sie eine automatisierte Produktliste',
+                   'Warning! You don\'t have any product listing template. You should create one.' => 'Warnung! Sie haben noch keine Produkte Vorlage. Sie sollten eine erstellen.',
+                   'Filter by categories...' => 'Filtern nach Kategorien...',
+                   'Filter by brands...' => 'Filter nach Marken...',
+                   'Sort by...' => 'Sortieren nach...', 
+                   'Name' => 'Name',
+                   'Price' => 'Preis',
+                   'Brand' => 'Marke',
+                   'Select a product listing template' => 'Wählen Sie ein Produkt Angebotsvorlage ...',
+                   'Product template is missing' => 'Produkt-Vorlage fehlt'
+                   
+    ); 
+        ?>

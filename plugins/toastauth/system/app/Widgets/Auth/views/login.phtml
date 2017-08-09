@@ -1,0 +1,9 @@
+<a class="auth" href="<?php echo $this->providerUrl ?>"><?php echo $this->providerName; ?> login</a>
+<?php $this->jQuery()->onLoadCaptureStart(); ?>
+<?php if (!empty($this->message)): ?>
+    showMessage("<?php echo $this->translate($this->message) ?>", 0, 50000);
+<?php endif; ?>
+$('body').on('click', 'a.auth', function () {
+showMessage("<?php echo $this->translate('Login. Please wait.') ?>", 0, 50000);
+});
+<?php $this->jQuery()->onLoadCaptureEnd(); ?>

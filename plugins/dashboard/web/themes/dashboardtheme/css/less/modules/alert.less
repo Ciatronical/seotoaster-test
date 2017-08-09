@@ -1,0 +1,115 @@
+// Alert and Message styles
+// -------------------------
+.message,
+.smoke-base .dialog{
+    padding : @padding-base-vertical @padding-base-horizontal;
+    border  : 1px solid;
+    .border-radius(@state-border-radius);
+    .alert-color(@text-color, #fff, @gray-light, true, true);
+
+    p, ul, ol{
+        margin : 0;
+
+        &+p, &+ul, &+ol{
+            margin-top : 5px;
+        }
+    }
+
+    li{
+        margin     : 0;
+        list-style : none;
+
+        &+li{
+            margin-top : 0.5em;
+        }
+    }
+
+    input{
+        color        : @input-color;
+        border-color : @input-border-color;
+        background   : @input-bg;
+    }
+
+    // Alternate styles
+    // -------------------------
+    &.green{
+        .alert-color(@state-green-color, @state-green-bg, @state-green-border, @color-green);
+    }
+    &.orange{
+        .alert-color(@state-orange-color, @state-orange-bg, @state-orange-border, @color-orange);
+    }
+    &.red, &.error{
+        .alert-color(@state-red-color, @state-red-bg, @state-red-border, @color-red);
+    }
+    &.blue{
+        .alert-color(@state-blue-color, @state-blue-bg, @state-blue-border, @color-blue);
+    }
+
+    // Block alerts
+    // -------------------------
+    .block{
+        padding-top    : 15px;
+        padding-bottom : 15px;
+    }
+}
+
+.ui-state-error{
+    .alert-color(@state-red-color, @state-red-bg, @state-red-border);
+}
+.ui-state-highlight{
+    .alert-color(@state-blue-color, @state-blue-bg, @state-blue-border);
+}
+
+.smoke-base{
+
+    .smokebg{
+        position : fixed;
+        left     : 0;
+        right    : 0;
+        top      : 0;
+        bottom   : 0;
+        z-index  : 100;
+        .rgba(#fff, 0.5);
+    }
+
+    .dialog{
+        overflow    : auto;
+        position    : fixed;
+        z-index     : 101;
+        width       : 100%;
+        max-width   : @grid-container-width * 0.75;
+        max-height  : 100%;
+        top         : 25%;
+        left        : 0;
+        right       : 0;
+        margin      : 0 auto;
+        font-family : @font-family-headings;
+        font-size   : @font-size-large;
+        line-height : 1.5;
+        text-align  : center;
+        padding     : 0;
+    }
+
+    .dialog-inner{
+        font-size : @font-size-large;
+        padding   : @padding-larger-vertical @padding-larger-horizontal;
+    }
+
+    .dialog-buttons{
+        margin-top : 1em;
+
+        button{
+            .border-radius(@button-border-radius);
+            .button-color(@button-green-color, @button-green-bg, @button-green-border);
+
+            &.cancel{
+                .button-color(@button-red-color, @button-red-bg, @button-red-border);
+            }
+        }
+    }
+}
+
+.message{
+    display     : block;
+    border-left : 3px solid;
+}

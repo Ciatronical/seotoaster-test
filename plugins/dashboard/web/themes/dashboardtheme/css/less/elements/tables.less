@@ -1,0 +1,240 @@
+// BASELINE STYLES
+//==================================================
+table{
+    width            : 100%;
+    background-color : @table-bg;
+    border: 1px solid @table-border-color;
+
+    th, td{
+        padding        : @padding-base-vertical @padding-base-horizontal;
+        border-top     : 1px solid @table-border-color;
+        vertical-align : middle;
+    }
+
+    th{
+        border-top       : 0;
+        vertical-align   : bottom;
+        text-align       : left;
+        background-image : url("../images/bg/heading.png");
+
+        &.sortable{
+            &:after{
+                font-family    : 'toaster-icons';
+                content        : '\e0cd';
+                font-size      : 18px;
+                line-height    : 1;
+                vertical-align : middle;
+            }
+
+            &.sortUp{
+                &:after{
+                    content : '\e0cb';
+                }
+            }
+
+            &.sortDown{
+                &:after{
+                    content : '\e0cc';
+                }
+            }
+        }
+    }
+
+    td{
+        &:first-child{
+//            vertical-align : top;
+        }
+    }
+
+    // Account for multiple tbody instances
+    tbody + tbody{
+        border-top : 2px solid @table-border-color;
+    }
+
+    tfoot td{
+        .rgba(#000, 0.05) !important;
+    }
+
+    // Nesting
+    table{
+        background-color : #fff;
+    }
+
+    &.small{
+        th, td{
+            padding : 5px;
+        }
+    }
+
+    &.large{
+        th, td{
+            padding : @padding-large-vertical;
+        }
+    }
+
+    // BORDERED VERSION
+    //==================================================
+    .activate-table-bordered() when (@table-bordered = true) and ( @alternate-style = true){
+        &.table-bordered{
+            border          : 1px solid @table-border-color;
+            border-collapse : separate; // Done so we can round those corners!
+            border-left     : 0;
+
+            tr > th,
+            tr > td{
+                border-left : 1px solid @table-border-color;
+            }
+        }
+    }
+    .activate-table-bordered();
+
+    // ZEBRA-STRIPING
+    //==================================================
+    // Default zebra-stripe styles (alternating gray and transparent backgrounds)
+    .activate-table-striped() when (@table-striped = true) and (@alternate-style = true){
+        &.table-striped{
+            zoom : 1;
+
+            tr > td{
+                border-top : 0;
+            }
+            &>tr:nth-child(even) > td{
+                background-color : @table-row-bg;
+            }
+            tbody tr:nth-child(odd) > td{
+                background-color : @table-row-bg;
+            }
+        }
+    }
+    .activate-table-striped();
+
+    // HOVER EFFECT
+    //==================================================
+    // Placed here since it has to come after the potential zebra striping
+    .activate-table-hover() when (@table-hover = true) and (@alternate-style = true){
+        &.table-hover{
+            zoom : 1;
+
+            tr{
+                &:hover > td{
+                    background-color : @table-row-bg-hover;
+                }
+
+                .activate() when ( @colors = true) and ( @alternate-style = true){
+                    > .green:hover,
+                    &.green:hover > td{
+                        background-color : darken(@state-green-bg, 5%);
+                        border-color     : darken(@state-green-border, 5%);
+                    }
+                    > .red:hover,
+                    &.red:hover > td{
+                        background-color : darken(@state-red-bg, 5%);
+                        border-color     : darken(@state-red-border, 5%);
+                    }
+                    > .orange:hover,
+                    &.orange:hover > td{
+                        background-color : darken(@state-orange-bg, 5%);
+                        border-color     : darken(@state-orange-border, 5%);
+                    }
+                    > .blue:hover,
+                    &.blue:hover > td{
+                        background-color : darken(@state-blue-bg, 5%);
+                        border-color     : darken(@state-blue-border, 5%);
+                    }
+                }
+                .activate();
+            }
+        }
+    }
+    .activate-table-hover();
+
+    &.small{
+        zoom : 1;
+
+        th, td{
+            padding : 5px;
+        }
+    }
+
+    &.large{
+        zoom : 1;
+
+        th, td{
+            padding : @padding-large-vertical;
+        }
+    }
+
+    &.larger{
+        zoom : 1;
+
+        th, td{
+            padding : @padding-large-vertical;
+        }
+    }
+}
+
+// TABLE BACKGROUNDS
+// -----------------
+// Exact selectors below required to override .table-striped
+.activate-style-color() when ( @colors = true) and ( @alternate-style = true){
+    tr, td{
+        &.primary{
+            color            : @text-color;
+            background-color : @state-primary-bg;
+            border-color     : @state-primary-border;
+            border-bottom    : 1px solid @state-primary-border;
+        }
+        &.green{
+            color            : @text-color;
+            background-color : @state-green-bg;
+            border-color     : @state-green-border;
+            border-bottom    : 1px solid @state-green-border;
+        }
+        &.red{
+            color            : @text-color;
+            background-color : @state-red-bg;
+            border-color     : @state-red-border;
+            border-bottom    : 1px solid @state-red-border;
+        }
+        &.orange{
+            color            : @text-color;
+            background-color : @state-orange-bg;
+            border-color     : @state-orange-border;
+            border-bottom    : 1px solid @state-orange-border;
+        }
+        &.blue{
+            color            : @text-color;
+            background-color : @state-blue-bg;
+            border-color     : @state-blue-border;
+            border-bottom    : 1px solid @state-blue-border;
+        }
+    }
+}
+.activate-style-color();
+
+//  Table responsive
+//==================================================
+.activate-table-responsive() when ( @responsive = true){
+    table.responsive{
+        zoom : 1;
+        .table-head{
+            display : none;
+        }
+
+        @media only screen and (max-width : @responsive-size-tablet){
+            thead, th{
+                display : none;
+            }
+            td{
+                display : block;
+            }
+            .table-head{
+                display       : block;
+                color         : @brand-primary;
+                border-bottom : 1px dashed @gray-light;
+                margin-bottom : 0.5em;
+            }
+        }
+    }
+}
+.activate-table-responsive();

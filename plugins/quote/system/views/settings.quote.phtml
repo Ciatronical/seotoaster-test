@@ -1,0 +1,42 @@
+<?php
+    $this->placeholder('headerContent')->set($this->translate('Quote system settings'));
+?>
+<div id="quote-settings" class="ui-widget clearfix">
+    <?php echo $this->form; ?>
+    <input type="hidden" class="quote-secure-token" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo $this->secureToken;?>" />
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+    checkboxRadioStyle();
+
+    $(document).on("click", "#applySettings", function(e){
+          e.preventDefault();
+          var autoQuote = 0;
+
+          if($('#auto-quote').prop("checked")){
+              var autoQuote = 1;
+          }
+
+          $.ajax({
+            type: "POST",
+            url: '<?php echo $this->websiteUrl;?>plugin/quote/run/settings/',
+            dataType: "json",
+            data: {
+                autoQuote: autoQuote,
+                quoteTemplate: $('#quote-template option:selected').val(),
+                expirationDelay: $('#expiration-delay').val(),
+                secureToken: $('.quote-secure-token').val()
+            },
+            success: function(responce){
+                smoke.signal('<?php echo $this->translate('Saved');?>');
+            }
+
+          });
+          return false;
+
+
+     });
+
+
+});
+</script>

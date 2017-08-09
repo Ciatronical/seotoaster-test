@@ -1,0 +1,3 @@
+a:1:{i:0;a:2:{s:5:"title";s:9:"p2p-check";s:4:"code";s:145:"
+<label>p2p</label> <input type="checkbox" data-url="http://localhost/plugin/netcontent/run/saveNetContent" id="p2p-content" name="p2p" />&nbsp;
+";}}

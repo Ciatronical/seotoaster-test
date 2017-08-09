@@ -1,0 +1,5 @@
+<?php if(count($this->tagsCloud) > 0): ?>
+    <?php foreach($this->tagsCloud as $tag): ?>
+        <a href="<?php echo $this->baseFilterUrl; ?><?php echo $this->escape(urlencode($tag['name'])); ?>" class="newslog-tag-filter"><?php echo $tag['name']; ?></a>
+    <?php endforeach; ?>
+<?php endif; ?>

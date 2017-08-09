@@ -1,0 +1,6 @@
+<?php if(is_array($this->tags)): ?>
+    <a href="<?php echo $this->websiteUrl . $this->newsFolder;?>" class="newslog-tag-filter"><?php echo $this->translate('All');?></a>,
+    <?php foreach($this->tags as $key => $tag): ?>
+        <a href="<?php echo $this->websiteUrl . $this->newsFolder; ?>?list=<?php echo $this->listName;?>&amp;tags=<?php echo $this->escape(urlencode($tag['name'])); ?>" class="newslog-tag-filter"><?php echo $tag['name']; ?></a><?php if($key != $this->tagsLength-1): ?>,<?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>

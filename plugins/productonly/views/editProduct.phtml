@@ -1,0 +1,349 @@
+<?php
+    $this->headLink()
+        ->prependStylesheet($this->websiteUrl.'system/js/external/chosen/chosen.css');
+
+    $this->headScript()
+        ->appendFile($this->websiteUrl.'system/js/external/jquery/plugins/lazyload/jquery.lazyload.min.js')
+        ->appendFile($this->websiteUrl.'system/js/external/chosen/chosen.jquery.min.js')
+        ->appendFile($this->websiteUrl.'system/js/external/waypoints/waypoints.min.js');
+?>
+<div id="choose-products" class="seotoaster container">
+    <?php echo $this->partial(
+        'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+        array(
+            'headerText' => $this->translate('Choose product'),
+        )
+    ); ?>
+    <div class="content-footer">
+        <div class="grid_4">
+            <textarea class="h450px" name="content"><?php echo $this->content; ?></textarea>
+        </div>
+        <div class="grid_8 alpha form background">
+            <!-- Product listing selector -->
+            <?php if(!isset($this->productTemplates) || empty($this->productTemplates)): ?>
+                <h4 class="message warning text-normal mb0px"><strong><?php echo $this->translate('Warning! '); ?></strong><?php echo $this->translate('You don\'t have any product listing template. You should create one.'); ?></h4>
+            <?php else: ?>
+                <div class="grid_12 alpha omega">
+                    <div id="template-selector" class="grid_6 alpha">
+                        <select id="templates" class="templates" data-placeholder="<?php echo $this->translate('Select a product listing template...');?>">
+                            <option value=""><?php echo $this->translate('Select a product listing template'); ?></option>
+                            <?php foreach($this->productTemplates as $template): ?>
+                                <option value="<?php echo $template->getName(); ?>"><?php echo $template->getName(); ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="grid_6 omega">
+                        <?php echo $this->formText('search', '', array('placeholder' => $this->translate('search by name, sku or tags'))); ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div id="filters" class="grid_4 alpha omega">
+                <select id="tags" class="grid_11 pselect chosen-select" name="product-tags" multiple data-placeholder="<?php echo $this->translate('Filter by tags...');?>"></select>
+            </div>
+            <label id="conditional" class="tooltip grid_1 alpha" title="<?php echo $this->translate('AND conditional');?>">
+                <input type="checkbox" id="strict-tags">
+            </label>
+            <div class="grid_4">
+                <select name="product-brands" id="brands" multiple class="pselect ui-corner-all" data-placeholder="<?php echo $this->translate('Filter by brands...');?>"></select>
+            </div>
+            <div id="order" class="grid_3 omega">
+                <select name="ordering" id="ordering" multiple class="pselect ui-corner-all" data-placeholder="<?php echo $this->translate('Sort by...');?>">
+                    <?php foreach ($this->sortBy as $key => $val): ?>
+                    <option value="<?php echo $key; ?>"><?php echo $this->translate($val); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div id="product-products" class="grid_12 alpha omega column_6 full-width">
+                <!-- product list here -->
+            </div>
+            <a href="javascript:;" id="btn-create" class="grid_12 alpha omega mt20px btn success">
+                <?php echo $this->translate('Create an automated product listing'); ?>
+            </a>
+        </div>
+    </div>
+    <input type="hidden" class="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN;?>" value="<?php echo $this->secureToken;?>">
+    <div class="footer grid_12">
+        <input type="hidden" name="pageId" value="<?php echo $this->pageId;?>" />
+        <input type="hidden" name="containerName" value="<?php echo $this->containerName;?>" />
+        <input type="hidden" name="containerType" value="<?php echo $this->containerType;?>" />
+        <input type="hidden" id="website_url" name="website_url" value="<?php echo $this->websiteUrl; ?>"/>
+        <button type="submit" class="btn ticon-save" name="submit" id="submit"><?php echo $this->translate('Save and Close'); ?></button>
+    </div>
+</div>
+<script type="text/javascript" charset="utf-8">
+$(function() {
+    showTooltip('.tooltip', 'info', 'right');
+    // uiTab object
+    var uiTab = {
+        step: parseInt('<?php echo Shopping::PRODUCT_DEFAULT_LIMIT; ?>'),
+        offset: 0,
+        searchTerm: null,
+        init: function() {
+            //Launch get data
+            uiTab.launch();
+
+            //init chosen plugin
+            $('.pselect').chosen();
+
+            //init jqueryui button
+            $('#btn-create').button();
+            $('#submit').click(this.saveList);
+
+            $(document)
+                .on('click', '.currproduct', this.insertSingleProduct)
+                .on('click', '#btn-create', this.insertList)
+                .on('click', '#strict-tags', function() {
+                    if($('#tags').val() !== null) {
+                        uiTab.offset    = 0;
+                        self.searchTerm = null;
+                        $('#search').val('');
+                        uiTab.loadStoreData('products', true);
+                    }
+                });
+
+            $('.pselect').chosen().change(function() {
+                uiTab.offset    = 0;
+
+                //cleaning the search params before filtering
+                self.searchTerm = null;
+                $('#search').val('');
+
+                uiTab.loadStoreData('products', true);
+            });
+
+            var self = this;
+            $.getJSON($('#website_url').val() + 'plugin/shopping/run/searchindex', function(response){
+                $('#search').autocomplete({
+                    minLength: 2,
+                    source: response,
+                    select: function(event, ui){
+                        self.searchTerm = null;
+                        self.loadStoreData('products', {
+                            key: ui.item.value
+                        }, true);
+                    }
+                });
+            });
+
+            $(document).on('keypress', '#search', function(e) {
+                if(e.keyCode == 13) {
+                    $('.ui-autocomplete').hide();
+                    self.searchTerm = null;
+                    self.loadStoreData('products', {key: $(e.currentTarget).val()}, true);
+                }
+            })
+
+        },
+        saveList: function() {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo $this->websiteUrl; ?>plugin/productonly/run/saveContent/',
+                dataType: 'json',
+                data: {
+                    pageId: $('input[name=pageId]').val(),
+                    containerName: $('input[name=containerName]').val(),
+                    containerType: $('input[name=containerType]').val(),
+                    content: $('textarea').val(),
+                    secureToken: $('.secureToken').val()
+                },
+                success: function(response) {
+                    showMessage(response.responseText);
+                    top.location.reload();
+                }
+            });
+        },
+        launch: function() {
+            //loading store data
+            uiTab.loadStoreData('tags');
+            uiTab.loadStoreData('brands');
+            uiTab.loadStoreData('products')
+        },
+        insertSingleProduct: function() {
+            var template = $('#templates').val();
+            if(template == 0) {
+                showMessage('Product template is missing. Please select a product listing template', true);
+                return false;
+            }
+            $('textarea').val($('textarea').val()+'{$product:' + $(this).attr('id') + ((template) ? ':' + template : '') + '}');
+        },
+        insertList: function() {
+            var shortCode = '{$productlist:';
+            if(!$('#templates').size() || !$('#templates').val()) {
+                showMessage('Product template is missing. Please select a product listing template', true);
+                return false;
+            }
+            //listing template
+            shortCode += $('#templates').val();
+
+            if($('#search').size() && $('#search').val()) {
+                var ids             = [];
+                var visibleProducts = $('a.currproduct');
+                if(visibleProducts.length < uiTab.step) {
+                    $.each(visibleProducts, function(key, productContainer) {
+                        ids.push($(productContainer).attr('id'));
+                    });
+                    shortCode += ':' + ids.join(',') + '}';
+                    $('textarea').val($('textarea').val()+shortCode);
+                } else {
+                    showSpinner();
+                    $.when($.getJSON($('#website_url').val() + 'api/store/products/offset/0/limit/1000000/', {key: $('#search').val()}, function(response) {
+                            //console.log(response);
+                            hideSpinner();
+                            if(!response.length) {
+                                showMessage('There is nothing to put in the list. Search different criteria and try again', true);
+                                return false;
+                            }
+                            $.each(response, function(key, product) {
+                                ids.push(product.id);
+                            });
+                        })).done(function() {
+                            shortCode += ':' + ids.join(',') + '}';
+                            $('textarea').val($('textarea').val()+shortCode);
+                        });
+                }
+            } else {
+                //tags filter
+                if ($('#tags').val()){
+                    shortCode += ':tagnames-';
+                    var tagnames = [];
+                    $('#tags option:selected').each(function(){
+                        tagnames.push($(this).text());
+                    });
+                    shortCode += tagnames.join(',');
+
+                    // and logic checkbox checked
+                    if($('#strict-tags').prop('checked')) {
+                        shortCode += ':and';
+                    }
+
+//                        shortCode += (($('#tags').val() != null) ? ':tagnames-' + $('#tags').val() : '');
+                }
+                //brands filter
+                shortCode += (($('#brands').val() != null) ? ':brands-' + $('#brands').val() : '');
+                //ordering
+                shortCode += (($('#ordering').val() != null) ? ':order-' + $('#ordering').val() : '') + '}';
+                $('textarea').val($('textarea').val()+shortCode);
+            }
+
+        },
+        loadStoreData : function(dataType, filter, force) {
+            showSpinner();
+            //if data type already loaded - return
+            if($('#' + dataType + ' option').length) {
+                return false;
+            }
+
+            var utab = this;
+            if((!force || typeof(force) == 'undefined') && !utab.searchTerm) {
+                params = uiTab.getParams(filter);
+            } else {
+                if(!utab.searchTerm) {
+                    utab.searchTerm = filter;
+                    params          = filter;
+                } else {
+                    params = utab.searchTerm;
+                }
+                params.offset = utab.offset;
+                params.limit  = utab.limit;
+            }
+
+            $.getJSON('<?php echo $this->websiteUrl; ?>api/store/' + dataType,
+                params,
+                function(response) {
+                    if(response.length) {
+                        switch(dataType) {
+                            case 'tags':
+                            case 'brands':
+                                uiTab.parseTagsAndBrands(response, dataType);
+                                break;
+                            case 'products':
+                                uiTab.parseProducts(response, filter);
+                                if(response.length >= uiTab.step) {
+                                    $('.productlisting:last-child').waypoint(function() {
+                                            $(this).waypoint('remove');
+                                            uiTab.offset += 30;
+                                            uiTab.loadStoreData('products', filter)
+                                        },
+                                        {
+                                            context: '#product-products',
+                                            offset : '95%'
+                                        });
+                                }
+                                break;
+                        }
+                        $('.pselect').trigger('chosen:updated');
+                    } else if(typeof filter != 'undefined' && filter) {
+                        $('#product-products').empty();
+                    }
+                    hideSpinner();
+                });
+
+        },
+        getParams: function(filter) {
+            var data = {};
+            if(typeof this.offset != 'undefined') {
+                data.offset = this.offset;
+            }
+            if(typeof this.limit != 'undefined') {
+                data.limit = this.limit;
+            }
+            if(typeof filter != 'undefined' && filter) {
+                if ($('#tags').val()) {
+                    data.ftag = $('#tags').val();
+                }
+                if ($('#brands').val()) {
+                    data.fbrand = $('#brands').val();
+                }
+            }
+            data['stc'] = ($('#strict-tags').prop('checked') == false) ? 0 : 1;
+            return data;
+        },
+        parseTagsAndBrands: function(tagsBrandResponse, dataType) {
+            $.each(tagsBrandResponse, function() {
+                $('#' + dataType).append(
+                    $('<option></option>').val((dataType == 'tags') ? this.id : this.name).text(this.name)
+                );
+            });
+        },
+        parseProducts: function(productsResponse, filter) {
+            var productsContainer = $('#product-products');
+            //			    if((typeof filter != 'undefined' && filter) || !productsResponse.length) {
+//				    productsContainer.empty();
+//			    }
+            //media servers
+            var mediaServers = <?php echo Tools_Content_Tools::getMediaServers(true); ?>;
+            var srcPart      = '<?php echo $this->websiteUrl;?>';
+            var productItemsHtml = '';
+            $.each(productsResponse, function() {
+                var photoUrl = this.photo;
+                if (!/^https?:\/\/.*/.test(photoUrl)){
+                    var srcPart = '<?php echo $this->websiteUrl;?>';
+                    <?php if($this->mediaServersAllowed): ?>
+                    srcPart = srcPart.replace('<?php echo $this->websiteData['url']; ?>', mediaServers[Math.floor(Math.random()*mediaServers.length)]  + '.<?php echo $this->domain; ?>');
+                    <?php endif; ?>
+                    photoUrl = srcPart + 'media/' + photoUrl.replace('/', '/product/');
+                }
+                productItemsHtml += '<div class="productlisting">' +
+                    '<a href="javascript:;" class="currproduct" id="' + this.id + '"  title="' + this.name + '">' +
+                        '<span class="brand">' + this.brand + '</span>' +
+                        '<span class="image"><img class="lazy" src="" data-original="' + photoUrl + '" alt="' + this.name + '"></span>' +
+                        '<span class="name">' + this.name + '</span>' +
+                        '<span class="sku">' + this.sku + '</span>' +
+                    '</a></div>';
+            });
+            if (this.offset === 0) {
+                productsContainer.html(productItemsHtml).scrollTop(0);
+            } else {
+                productsContainer.append(productItemsHtml);
+            }
+            $('img.lazy').lazyload({
+                container: productsContainer,
+                effect: 'fadeIn'
+            });
+            hideSpinner();
+        }
+    };
+    // end uiTab
+    uiTab.init();
+});
+</script>

@@ -1,0 +1,9 @@
+<!--Plugin product only block Start -->
+<?php echo $this->productsList;?>
+<span class="clearfix"></span>
+<?php if ($this->AdminLogged):?>
+    <a href="javascript:;" class="tpopup generator-links plugin" data-pwidth="960" data-pheight="560" data-url="<?php echo $this->websiteUrl;?>plugin/productonly/run/editProductList/?pageId=<?php echo $this->pageId;?>&containerName=<?php echo $this->containerName;?>&containerType=<?php echo $this->containerType;?>" title="<?php echo $this->translate('Add products on page');?>">
+        <?php echo $this->translate('Product only');?>
+    </a>
+<?php endif;?>
+<!--Plugin product only block End -->

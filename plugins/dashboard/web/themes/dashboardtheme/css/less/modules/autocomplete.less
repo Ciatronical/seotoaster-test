@@ -1,0 +1,27 @@
+.ui-autocomplete{
+    position     : absolute;
+    z-index      : 999;
+    overflow     : auto;
+    max-height   : 200px;
+    border-width : @input-border-width;
+    border-style : solid;
+    border-color : @input-border-color;
+    background   : @autocomplete-bg;
+    color        : @autocomplete-color;
+    list-style   : none;
+
+    .ui-menu-item{
+        margin : 0;
+
+        a{
+            display : block;
+            color   : inherit;
+            padding : @padding-mini-vertical;
+
+            &:hover, &.ui-state-focus{
+                color      : @autocomplete-item-color-hover;
+                background : @autocomplete-item-bg-hover;
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+<?php
+$this->headScript()->appendFile("http://www.google.com/jsapi" );
+echo $this->headScript();
+?>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart, table"]});
+    google.setOnLoadCallback(drawColumnRemarketing);
+    function drawColumnRemarketing(type) {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Tags');
+        data.addColumn('number', 'Count');
+        data.addRows([
+            <?php foreach($this->data as $key => $value):?>
+            ["<?php echo $key;?>",<?php echo $value;?>],
+            <?php endforeach;?>
+        ]);
+        var options = {
+            title: 'Sales count by Tag',
+            hAxis: {title: 'Period'},
+            legend:{position:'right'},
+            height:'<?php echo $this->height;?>',
+            titleTextStyle: {fontSize:"14"}
+
+        };
+
+        var columnchart = new google.visualization.ColumnChart(document.getElementById('visualizationcolumnCountRemarketingTable'));
+        columnchart.draw(data, options);
+
+        if(type === 'table') {
+            var table = new google.visualization.Table(document.getElementById('visualizationcolumnCountRemarketingTable'));
+            table.draw(data, {page: 'enable', pageSize: 15, showRowNumber: true, width: '100%', height: '<?php echo $this->height;?>px'}, options);
+        }
+        if(type === 'columnchart') {
+            var columnchart = new google.visualization.ColumnChart(document.getElementById('visualizationcolumnCountRemarketingTable'));
+            columnchart.draw(data, options);
+        }
+    }
+
+</script>
+<div id="visualizationcolumnCountRemarketingTable" style="width:100%;height:<?php echo $this->height;?>px;"></div>
+<input type="hidden" class="typeOfGraficRemarketing" value="<?php echo $this->typeSalesAmount;?>" />
+
+<div id="viewRemarketing" class="btn success fl-left mt5px">Change view</div>
+<script>
+    $('#viewRemarketing').on('click', function() {
+        if ($.cookie('r') == 'table') {
+            $.cookie('r', 'columnchart');
+        } else {
+            $.cookie('r', 'table');
+        }
+        drawColumnRemarketing($.cookie('r'));
+    });
+</script>
+<div class="exportRemarketing">
+    <a class="btn ticon-box-add success fl-left mt5px ml-grid" id="exportRemarketing" title="" href="<?php echo $this->websiteUrl?>plugin/toasterstats/run/period/paramsRemarketing/<?php echo $this->period;?>/trigger/<?php $this->trigger;?>/">
+        <?php echo $this->translate('Export CSV'); ?>
+    </a>
+</div>

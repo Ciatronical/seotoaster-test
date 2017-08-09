@@ -1,0 +1,120 @@
+<div class="seotoaster container" id="webbuilder-gallery-only">
+    <?php echo $this->partial(
+        'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+        array(
+            'innerHeaderHtml' => $this->translate('Image gallery')
+        )
+    ); ?>
+    <form id="gallery-form" name="galleryForm" class="pluginform grid_12" action="" method="post">
+        <fieldset class="wrap" style="height: 216px">
+            <select id="selectfolder" class="grid_12 mt10px" name="selectfolder">
+                <option value="select"><?php echo $this->translate('select gallery');?></option>
+                <?php if(isset($this->listofFolders) && is_array($this->listofFolders)):?>
+                    <?php foreach($this->listofFolders as $folderName): ?>
+                        <option value="<?php echo $folderName; ?>" <?php echo (isset($this->galleryName) && $this->galleryName == $folderName) ? 'selected="selected"' : '';  ?> ><?php echo $folderName; ?></option>
+                    <?php endforeach; ?>
+                <?php endif;?>
+            </select>
+
+            <div class="grid_12">
+                <label class="grid_5 alpha mt5px"><?php echo $this->translate('Thumbnails size');?>:</label>
+                <input class="grid_7 alpha omega" id="thumbnails" type="text" name="thumbnails" value="<?php echo isset($this->thumbs)?$this->thumbs:'' ?>"/>
+            </div>
+            <div class="grid_12">
+                <label class="grid_5 alpha"><?php echo $this->translate('Crop image');?></label>
+                <input id="crop" type="checkbox" name="cropImg" <?php if((isset($this->crop) && $this->crop) === true) echo "checked" ?>/>
+            </div>
+            <div class="grid_12 crop-size clearfix <?php if((isset($this->crop) && $this->crop) === false) echo 'hide'; ?>">
+                <label class="mt5px grid_5 alpha"><?php echo $this->translate('Size'); ?></label>
+                <?php echo $this->formText('width', $this->width, array('class' => 'width grid_3 omega alpha', 'placeholder' => $this->translate('Width'))); ?>
+                <span class="mt5px grid_1 alpha omega text-center">X</span>
+                <?php echo $this->formText('height', $this->height, array('class' => 'height grid_3 omega alpha', 'placeholder' => $this->translate('Height'))); ?>
+            </div>
+            <div class="grid_12">
+                <label class="grid_5 alpha"><?php echo $this->translate('Caption');?></label>
+                <input id="caption" type="checkbox" name="captionImg" <?php if(isset($this->caption) && ($this->caption) == 1) echo "checked" ?>/>
+            </div>
+            <div class="grid_12">
+                <label class="grid_5 alpha"><?php echo $this->translate('Nolink');?></label>
+                <input id="block" type="checkbox" name="blockImg" <?php if(isset($this->block) && ($this->block == 1)) echo "checked" ?>/>
+            </div>
+        </fieldset>
+
+        <input id="container" type="hidden" name="container" value="<?php echo $this->containerName; ?>"/>
+        <input id="pageId" type="hidden" name="pageId" value="<?php echo $this->pageId?>" />
+        <div class="footer grid_12">
+            <a class="error ml-grid" id="delete-gall" href="javascript:;">[ Delete ]</a>
+            <button id="saveGallery" class="btn mr-grid ticon-save" name="saveGallery" type="submit"><?php echo $this->translate('Save');?></button>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript" >
+    $(function() {
+        $(document).on('click', '[name="cropImg"]', function() {
+            var cropSize = $(this).closest('form').find('.crop-size');
+            cropSize.fadeToggle(function() {
+                if (!cropSize.is(':visible')) {
+                    cropSize.find('[type="text"]').val('');
+                }
+            });
+        });
+
+        $(document).on("submit", "#gallery-form", function(){
+            var galleryName = $("#selectfolder option:selected").val();
+
+            if(galleryName == 'select'){
+                showMessage('<?php echo $this->translate('Please select gallery name');?>', true);
+                return false;
+            }
+
+            $.ajax({
+                type     : 'post',
+                url      : '<?php echo $this->websiteUrl; ?>api/webbuilder/go/',
+                dataType : 'json',
+                data     : {
+                    pageId        : $('#pageId').val(),
+                    thumbnails    : $('#thumbnails').val(),
+                    containerName : $('#container').val(),
+                    caption       : $('#caption').is(':checked') ? 1 : 0,
+                    crop          : $('#crop').is(':checked') ? 1 : 0,
+                    width         : $('#width').val(),
+                    height        : $('#height').val(),
+                    folder        : galleryName,
+                    block         : $('#block').is(':checked') ? 1 : 0,
+                    secureToken   : '<?php echo Tools_System_Tools::initSecureToken(Webbuilder::WB_GALLERY_SECURE_TOKEN);?>'
+                },
+                beforeSend: showSpinner()
+            }).done(function() {
+                top.location.reload();
+            });
+            return false;
+        });
+
+        $(document).on("click", "#delete-gall", function(){
+            var galleryName = $("#selectfolder option:selected").val();
+
+            if(galleryName == 'select'){
+                showMessage('<?php echo $this->translate('Please select gallery name');?>');
+                return false;
+            }
+
+            $.ajax({
+                type     : 'delete',
+                url      : '<?php echo $this->websiteUrl; ?>api/webbuilder/go/',
+                dataType : 'json',
+                data     : {
+                    pageId        : $('#pageId').val(),
+                    containerName : $('#container').val(),
+                    folder        : galleryName
+                },
+                beforeSend: showSpinner()
+            }).done(function() {
+                    top.location.reload();
+                });
+            return false;
+        });
+
+    });
+</script>
+

@@ -1,0 +1,109 @@
+.news-list when (@widget-news-list = true){
+    #content &{
+        .inline-block-wrap(top);
+    }
+    footer &{
+        margin-top    : 0;
+        margin-bottom : 0;
+    }
+
+    .news-list-item, .news-item{
+        margin-bottom : 2%;
+        float         : left;
+
+        #content &{
+            background-color : @content-bg;
+            .grid-elements(2, 2%, true);
+        }
+    }
+    .page-teaser-image{
+        width         : 100% !important;
+        display       : block;
+        position      : relative;
+        height        : 140px;
+        overflow      : hidden;
+        margin-bottom : @padding-base-horizontal;
+
+        img{
+            width    : 100%;
+            position : absolute;
+            left     : 0;
+            top      : -25%;
+        }
+    }
+    .news-description{
+        margin   : 0 @padding-base-horizontal @padding-small-horizontal;
+        height   : 83px;
+        overflow : hidden;
+
+        footer &{
+            overflow : hidden;
+            height   : 34px;
+        }
+    }
+    .page-title, .news-title{
+        margin  : 0 @padding-base-horizontal;
+        .text-overflow();
+        display : block;
+
+        footer &{
+            .inline-block(top);
+            font-size : @font-size-large;
+            margin    : -2px 0 5px;
+
+            &:hover{
+                color : @brand-primary;
+            }
+        }
+    }
+    .news-date, .news-item-date{
+        font-size : @font-size-small;
+        margin    : 0 @padding-base-horizontal;
+        color     : @gray;
+
+        &:before{
+            top       : 2px;
+            font-size : 16px;
+            color     : @primary-bg;
+        }
+        footer &{
+            background-color : @gray-lighter;
+            float            : left;
+            padding          : @padding-small-horizontal @padding-base-horizontal;
+            font-size        : @font-size-large;
+            text-align       : center;
+            width            : 12%;
+            margin-right     : 3%;
+            margin-left      : 0;
+        }
+    }
+    .news-item-tags, .news-tags{
+
+        a{
+            .link-color(@gray);
+
+            & + a{
+                margin-left : 0.5em;
+            }
+
+            &:before{
+                color        : @gray;
+                margin-right : 0.5em;
+            }
+        }
+    }
+    .newslog-admin-actions{
+        text-align : right;
+        a{ }
+    }
+    .news-list-pagination{
+        width : 100%;
+        a, span{
+            .button();
+            //.button-size(small);
+        }
+    }
+
+}
+
+

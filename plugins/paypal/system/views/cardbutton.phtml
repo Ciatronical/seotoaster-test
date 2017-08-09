@@ -1,0 +1,27 @@
+<input type="radio" name="checkPaypal" id="checkPaypalCreditcard" />
+<input type="radio" name="checkPaypal" id="checkPaypalButton"/>
+<div id="credit-card-paypal-block" style="display:none">
+    {$plugin:paypal:creditcard}
+</div>
+<div id="button-paypal-block" style="display:none">
+    {$plugin:paypal:button}
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+      $("#checkPaypalCreditcard").on("click", function(){
+            if($('#checkPaypalCreditcard').prop('checked')){
+                $('#credit-card-paypal-block').show();
+                $('#button-paypal-block').hide();
+            }
+            
+      });
+      $("#checkPaypalButton").on("click", function(){
+            if($('#checkPaypalButton').prop('checked')){
+                $('#button-paypal-block').show();
+                $('#credit-card-paypal-block').hide();
+            }
+      });
+       
+    });
+
+</script>

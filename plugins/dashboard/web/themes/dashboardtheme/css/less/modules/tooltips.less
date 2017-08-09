@@ -1,0 +1,118 @@
+.ui-tooltip{
+    position   : absolute;
+    z-index    : 9999;
+    padding    : @padding-small-vertical @padding-small-horizontal;
+    max-width  : @tooltip-width;
+    background : @tooltip-bg;
+    color      : @tooltip-color;
+    font-size  : 12px;
+    .tooltip-border() when (@tooltip-border-width > 0){
+        border : @tooltip-border-width solid @tooltip-border-color;
+    }
+    .tooltip-border();
+
+    .ui-tooltip-content{ }
+
+    .arrow{
+        position     : absolute;
+        width        : 0;
+        height       : 0;
+        border-width : @tooltip-arrow-width;
+        border-style : solid;
+        border-color : transparent;
+        margin       : auto;
+
+        &.top{
+            left                : 0;
+            right               : 0;
+            bottom              : 100%;
+            border-top-width    : 0px;
+            border-bottom-color : @tooltip-border-color;
+        }
+
+        &.bottom{
+            left                : 0;
+            right               : 0;
+            top                 : 100%;
+            border-bottom-width : 0px;
+            border-top-color    : @tooltip-bg;
+        }
+
+        &.left{
+            top                : 0;
+            bottom             : 0;
+            right              : 100%;
+            border-left-width  : 0px;
+            border-right-color : @tooltip-bg;
+        }
+
+        &.right{
+            top                : 0;
+            bottom             : 0;
+            left               : 100%;
+            border-right-width : 0px;
+            border-left-color  : @tooltip-bg;
+        }
+    }
+
+    .activate-color-green(@activate) when (@activate = true){
+        &.green{
+            background   : @state-green-bg;
+            color        : @state-green-color;
+            border-color : @state-green-border;
+
+            .arrow{
+                &.left{ border-right-color : @state-green-bg; }
+                &.right{ border-left-color : @state-green-bg; }
+                &.top{ border-bottom-color : @state-green-bg; }
+                &.bottom{ border-top-color : @state-green-bg; }
+            }
+        }
+    }
+    .activate-color-orange(@activate) when (@activate = true){
+        &.orange{
+            background   : @state-orange-bg;
+            color        : @state-orange-color;
+            border-color : @state-orange-border;
+
+            .arrow{
+                &.left{ border-right-color : @state-orange-bg; }
+                &.right{ border-left-color : @state-orange-bg; }
+                &.top{ border-bottom-color : @state-orange-bg; }
+                &.bottom{ border-top-color : @state-orange-bg; }
+            }
+        }
+    }
+    .activate-color-red(@activate) when (@activate = true){
+        &.red{
+            background   : @state-red-bg;
+            color        : @state-red-color;
+            border-color : @state-red-border;
+
+            .arrow{
+                &.left{ border-right-color : @state-red-bg; }
+                &.right{ border-left-color : @state-red-bg; }
+                &.top{ border-bottom-color : @state-red-bg; }
+                &.bottom{ border-top-color : @state-red-bg; }
+            }
+        }
+    }
+    .activate-color-blue(@activate) when (@activate = true){
+        &.blue{
+            background   : @state-blue-bg;
+            color        : @state-blue-color;
+            border-color : @state-blue-border;
+
+            .arrow{
+                &.left{ border-right-color : @state-blue-bg; }
+                &.right{ border-left-color : @state-blue-bg; }
+                &.top{ border-bottom-color : @state-blue-bg; }
+                &.bottom{ border-top-color : @state-blue-bg; }
+            }
+        }
+    }
+    .activate-color-green(@color-green);
+    .activate-color-orange(@color-orange);
+    .activate-color-red(@color-red);
+    .activate-color-blue(@color-blue);
+}

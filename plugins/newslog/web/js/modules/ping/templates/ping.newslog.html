@@ -1,0 +1,14 @@
+<td class="ping-service-row-url grid_7 alpha omega"><%= url %></td>
+<td class="grid_4 alpha omega p0px">
+    <select class="status" data-sid="<%= id %>">
+        <option <% if (status == 'disabled') { %> selected="selected" <% } %> >disabled</option>
+        <option <% if (status == 'enabled') { %> selected="selected" <% } %> >enabled</option>
+    </select>
+</td>
+<td class="ping-service-row-action grid_1 alpha omega p5px text-center">
+    <% if(!isDefault) { %>
+        <a href="javascript:;" data-sid="<%= id %>" class="remove btn link error"><span class="ticon-remove icon16"></span></a>
+    <% } else { %>
+        &nbsp;
+    <% } %>
+</td>

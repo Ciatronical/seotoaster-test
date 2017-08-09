@@ -1,0 +1,67 @@
+a:2:{s:4:"tags";a:2:{i:0;s:17:"widgets_menu_menu";i:1;s:9:"main menu";}s:4:"data";a:2:{s:48:"widgets_menu_menu_main_main menu-role-superadmin";s:3024:"<ul class="main_menu" ><li class="category cat-1">
+
+<a href="http://localhost/index.html" title="Home">Home</a>
+
+</li><li class="category cat-2">
+
+<a href="http://localhost/gallery.html" title="Gallery">Gallery</a>
+
+</li><li class="category cat-3">
+    <label class="sub-menu-btn btn large icon icon-list2 fl-right {$mobile:device:desktop=d-hide}"></label>
+
+
+<a href="http://localhost/bike-store-in-san-francisco-california.html" title="Bikes in San Francisco, California">Bikes</a>
+
+<ul><li class="page">
+    <a class="page-title" href="http://localhost/downhill-bikes-store-san-francisco-california.html" title="Downhill Bikes in San Francisco">Downhill Bikes</a>
+</li><li class="page">
+    <a class="page-title" href="http://localhost/road-bikes-store-san-francisco-california.html" title="Road Bikes in San Francisco">Road Bikes</a>
+</li><li class="page">
+    <a class="page-title" href="http://localhost/triathlon-bikes-store-san-francisco-california.html" title="Triathlon Bikes in San Francisco">Triathlon Bikes</a>
+</li><li class="page">
+    <a class="page-title" href="http://localhost/mountain-bikes-store-san-francisco-california.html" title="Mountain Bikes in San Francisco">Mountain Bikes</a>
+</li></ul></li><li class="category cat-4">
+
+<a href="http://localhost/about-us.html" title="About Us">About Us</a>
+
+</li><li class="category cat-5">
+    <label class="sub-menu-btn btn large icon icon-list2 fl-right {$mobile:device:desktop=d-hide}"></label>
+
+
+<a href="http://localhost/e-mails.html" title="E-mails">E-mails</a>
+
+<ul><li class="page">
+    <a class="page-title" href="http://localhost/store-tracking-code.html" title="Store - tracking code">Store - tracking code</a>
+</li><li class="page">
+    <a class="page-title" href="http://localhost/toaster-new-user-info.html" title="Toaster - new user info">Toaster - new user info</a>
+</li><li class="page">
+    <a class="page-title" href="http://localhost/store-quote-created.html" title="Store - quote created">Store - quote created</a>
+</li><li class="page">
+    <a class="page-title" href="http://localhost/store-quote-updated.html" title="Store - quote updated">Store - quote updated</a>
+</li><li class="page">
+    <a class="page-title" href="http://localhost/store-purchace-receipt.html" title="Store - purchace receipt">Store - purchace receipt</a>
+</li><li class="page">
+    <a class="page-title" href="http://localhost/store-new-sale-notification.html" title="Store - new sale notification">Store - new sale notification</a>
+</li><li class="page">
+    <a class="page-title" href="http://localhost/store-new-customer.html" title="Store - new customer">Store - new customer</a>
+</li><li class="page">
+    <a class="page-title" href="http://localhost/toaster-form-reply.html" title="Toaster - form reply">Toaster - form reply</a>
+</li></ul></li><li class="category cat-6">
+
+<a href="http://localhost/news.html" title="News">News</a>
+
+</li><li class="category cat-7">
+
+<a href="http://localhost/contact-us.html" title="Contact Us">Contact Us</a>
+
+</li></ul>";s:38:"widgets_menu_menu_flat-role-superadmin";s:571:"<ul class="static_menu">
+	                                <li><a href="http://localhost/site-map.html"  title="Site Map"><span>Site map</span></a></li>
+
+	                                <li><a href="http://localhost/privacy-policy.html"  title="Privacy Policy"><span>Privacy Policy</span></a></li>
+
+	                                <li><a href="http://localhost/sign-in.html"  title="Sign In"><span>Sign In</span></a></li>
+
+	                                <li><a href="http://localhost/registration.html"  title="Registration"><span>Registration</span></a></li>
+
+	</ul>
+";}}

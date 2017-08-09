@@ -1,0 +1,25 @@
+<div id="manage-product-options" class="seotoaster container refreshOnClose">
+    <?php echo $this->partial(
+        'admin' . DIRECTORY_SEPARATOR . '_header.phtml',
+        array(
+            'headerText' => $this->translate('Manage options')
+        )
+    ); ?>
+    <div id="manage-product-options-main" class="grid_12 content-footer scroll"></div>
+    <footer class="grid_12">
+        <a id="save-options" class="fl-right" data-qid="<?php echo $this->quoteId; ?>" href="javascript:;"><?php echo $this->translate('Save options'); ?></a>
+    </footer>
+    <input type="hidden" id="weight-sign" value="<?php echo $this->weightSign; ?>" />
+</div>
+<?php $this->jQuery()->addJavascriptFile($this->websiteUrl . 'plugins/quote/web/js/libs/accounting/accounting.min.js'); ?>
+<script type="text/javascript">
+    $(function() {
+        accounting.settings.currency = <?php echo Zend_Json::encode(Tools_Misc::getCurrencyFormat()); ?>;
+        window.currOptions           = <?php echo Zend_Json::encode($this->currOptions); ?>;
+    });
+</script>
+<?php
+    $this->headScript()->setAllowArbitraryAttributes(true)
+        ->appendFile($this->websiteUrl . 'plugins/shopping/web/js/libs/require.min.js', null, array('data-main' => $this->websiteUrl . 'plugins/quote/web/js/options.js'));
+    echo $this->headScript();
+?>

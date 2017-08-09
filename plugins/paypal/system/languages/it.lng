@@ -1,0 +1,6 @@
+<?php return array('Close' => 'Chiudere',
+                   'Save' => 'Salvare'
+    
+                   
+    ); 
+        ?>

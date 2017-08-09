@@ -1,0 +1,108 @@
+<?php $this->headLink()->appendStylesheet($this->websiteUrl . 'plugins/webbuilder/web/css/videolink.css'); ?>
+<!--Plugin Videolink block Start-->
+<?php if ($this->wrongUrl): ?>
+    <?php if ($this->sVideo == Widgets_Videolink_Videolink::VIDEOLINK_YOUTUBE_LINK): ?>
+        <?php if (isset($this->meta)): ?>
+            <h4 class="title"><?php echo $this->meta['title']; ?></h4>
+            <iframe title="YouTube video player" class="youtube-player" width="<?php echo $this->width; ?>"
+                    height="<?php echo $this->height; ?>" src="https://www.youtube.com/embed/<?php echo $this->url; ?>"
+                    style="border-width:0"></iframe>
+            <div class="description">
+                <?php echo $this->translate('Views') . ':' . $this->meta['views']; ?>
+            </div>
+        <?php endif; ?>
+    <?php elseif ($this->sVideo == Widgets_Videolink_Videolink::VIDEOLINK_VIMEO_LINK): ?>
+        <iframe src="http://player.vimeo.com/video/<?php echo $this->vimeoUrl; ?>" width="<?php echo $this->width; ?>"
+                height="<?php echo $this->height; ?>" style="border-width:0">
+        </iframe>
+    <?php elseif ($this->sVideo == Widgets_Videolink_Videolink::VIDEOLINK_GOOGLE_LINK): ?>
+        <embed id=VideoPlayback
+               src="http://video.google.com/googleplayer.swf?docid=<?php echo $this->googleUrl; ?>&amp;hl=en&amp;fs=true"
+               style="width:<?php echo $this->width; ?>px; height:<?php echo $this->height; ?>px" allowFullScreen="true"
+               allowScriptAccess="always" type="application/x-shockwave-flash" wmode="transparent">
+        </embed>
+    <?php elseif ($this->sVideo == Widgets_Videolink_Videolink::VIDEOLINK_DAILYMOTION_LINK): ?>
+        <iframe style="border-width:0" width="<?php echo $this->width; ?>" height="<?php echo $this->height; ?>"
+                src="http://www.dailymotion.com/embed/video/<?php echo $this->dialyMotionUrl; ?>" allowfullscreen>
+        </iframe>
+    <?php elseif ($this->sVideo == Widgets_Videolink_Videolink::VIDEOLINK_MOTO_MOTO_LINK): ?>
+        <iframe src="http://video.motoetmotards.com/embed<?php echo $this->motoAndMotoUrl; ?>" scrolling="NO"
+                style="border-width:0" width="<?php echo $this->width; ?>" height="<?php echo $this->height; ?>"
+                allowfullscreen mozallowfullscreen webkitallowfullscreen>
+        </iframe>
+    <?php endif; ?>
+<?php endif; ?>
+
+<?php if (Tools_Security_Acl::isAllowed(Tools_Security_Acl::RESOURCE_PLUGINS) || Tools_Security_Acl::isAllowed(Widgets_Videolink_Videolink::VIDEOLINK_RESOURCE)) : ?>
+    <?php if ($this->inline): ?>
+        <div class="webbuilder-video-link-inline">
+            <form name="form-video-link-inline-<?php echo $this->containerName; ?>" method="POST">
+                <label class="video-link-info"><?php echo $this->translate('Paste your '); ?><span
+                        class="appear-videolink"><?php echo $this->translate('video'); ?></span>
+                    <?php echo $this->translate('link here'); ?></label>
+
+                <p class="tooltip-videolink">
+                    <a title="youtube" class="youtube"><img alt="youtube"
+                                                            src="<?php echo $this->websiteUrl . 'plugins/webbuilder/web/images/youtube.png'; ?>"
+                                                            title="youtube"/></a>
+                    <a title="vimeo" class="vimeo2"><img alt="vimeo"
+                                                         src="<?php echo $this->websiteUrl . 'plugins/webbuilder/web/images/vimeo.gif'; ?>"
+                                                         title="vimeo"/></a>
+                    <a title="daily-motion" class="movie"><img alt="dailymotion"
+                                                               src="<?php echo $this->websiteUrl . 'plugins/webbuilder/web/images/dailymotion.png'; ?>"
+                                                               title="dailymotion"/></a>
+                </p>
+                <input class="videolink-link-<?php echo $this->containerName; ?> videolink-link" type="text" name="link"
+                       value="<?php echo $this->link; ?>"/>
+                <?php if (Tools_Security_Acl::isAllowed(Tools_Security_Acl::RESOURCE_PLUGINS)): ?>
+                    <div>
+                        <label><?php echo $this->translate('Video dimensions'); ?></label>
+                        <input class="videolink-width" type="text" name="width" maxlength="3"
+                               value="<?php echo $this->width; ?>"/>x
+                        <input class="videolink-height" type="text" name="height" maxlength="3"
+                               value="<?php echo $this->height; ?>"/>px
+                    </div>
+                <?php endif; ?>
+                <input type="hidden" name="container" value="<?php echo $this->containerName; ?>"/>
+                <input type="hidden" name="pageId" value="<?php echo $this->pageId; ?>"/>
+                <input type="hidden" name="<?php echo Tools_System_Tools::CSRF_SECURE_TOKEN; ?>"
+                       value="<?php echo Tools_System_Tools::initSecureToken(Webbuilder::WB_VIDEOLINK_SECURE_TOKEN); ?>"/>
+                <button class="btn ticon-save saveVideolink" type="submit"
+                        name="saveVideolink"><?php echo $this->translate('Save link'); ?></button>
+            </form>
+        </div>
+        <?php $this->jQuery()->onLoadCaptureStart(); ?>
+        $(function() {
+        $('.webbuilder-video-link-inline').on('click', '.saveVideolink', function() {
+        $.ajax({
+        type: 'POST',
+        url: '<?php echo $this->websiteUrl; ?>api/webbuilder/vi/',
+        dataType: 'json',
+        data: $(this).closest('form').serialize()
+        }).done(function() {
+        top.location.reload();
+        });
+
+        return false;
+        });
+        });
+        <?php $this->jQuery()->onLoadCaptureEnd(); ?>
+        <style>
+            .videolink-link-<?php echo $this->containerName;?> {
+                width: <?php echo $this->width;?>px;
+            }
+        </style>
+    <?php else: ?>
+        <?php if (!$this->readonly): ?>
+            <a href='javascript:;'
+               class='tpopup'
+               data-pwidth="480"
+               data-pheight="218"
+               data-url='<?php echo $this->websiteUrl ?>plugin/webbuilder/run/videolink/pageId/<?php echo $this->pageId; ?>/container/<?php echo $this->containerName; ?>/'>
+                <img alt="<?php echo $this->translate('Video link'); ?>"
+                     src="<?php echo $this->websiteUrl; ?>plugins/webbuilder/web/images/videolink.png"/>
+            </a>
+        <?php endif; ?>
+    <?php endif; ?>
+<?php endif; ?>
+<!--Plugin Videolink block End-->

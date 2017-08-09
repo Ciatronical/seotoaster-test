@@ -1,0 +1,166 @@
+<script type="text/javascript">
+$(document).ready(function(){
+        $("ul.allPeriod li a").click(function(){
+           var countGrafic = 0;
+           var amountGrafic = 0;
+           var productTable = 0;
+           var limitForBestsselers = 5;
+           if ($('#visualizationcolumnAmount').length > 0){
+                amountGrafic = 1;
+           }
+           if ($('#visualizationcolumnCount').length > 0){
+                countGrafic = 1;
+           }
+           if ($('#products-table-period').length > 0){
+                productTable = 1;
+                limitForBestsselers = $('.limitForBestsselers').val();
+           }
+
+             $.ajax({
+                type: "POST",
+                url: '<?php echo $this->websiteUrl; ?>plugin/toasterstats/run/changeDashboardData/',
+                dataType: "json",
+                data : {
+                    timePeriod : $(this).attr('class'),
+                    amountGrafic:amountGrafic,
+                    countGrafic:countGrafic,
+                    typeOfGraficCount:$('.typeOfGraficCount').val(),
+                    typeOfGraficAmount:$('.typeOfGraficAmount').val(),
+                    periodLabel:$(this).html(),
+                    productTable:productTable,
+                    limitForBestsselers:limitForBestsselers
+                 
+                },
+                success: function(responce){
+                    $('.salesFromPeriod').html(responce.salesFromPeriod);
+                    $('.moneyFromPeriod').html(responce.moneyFromPeriod);
+                    $('.orderFromPeriod').html('<?php echo $this->translate('Avg');?>: '+responce.orderFromPeriod+' /<?php echo $this->translate('order');?>');
+                    $('#periodlabel').html(responce.periodLabel);
+                    if(responce.productTable ==1){
+                        $('#products-table-period').remove();
+                        $('#products-top-dynamic').append(responce.productTableData);
+                    }
+                    if(responce.grafData.countGraficExcist == 1){
+                         var data = new google.visualization.DataTable();
+                         var typeOfGraficCount = responce.typeOfGraficCount;
+                         
+                         if(typeOfGraficCount.match("\\u007c")){
+                            data.addColumn('string', 'Date');
+                            data.addColumn('number', '<?php echo $this->translate('Sales');?>');
+                            data.addColumn('number', '<?php echo $this->translate('Quotes');?>');
+                            $.each(responce.grafData.countGraficData, function (date, values) {
+                                if(date.length>7){
+                                        date = date.substr(5, 8);
+                                } 
+                                data.addRows([
+                                    [date, values.sales, values.quotes]
+                                ]);
+                            });
+                            var options = {
+                                chartArea:{width:"75%",height:"80%"}
+                            }; 
+                        }
+                        else{
+                            data.addColumn('string', 'Date');
+                            data.addColumn('number', typeOfGraficCount);
+                            if(typeOfGraficCount == 'Quotes'){
+                                $.each(responce.grafData.countGraficData, function (date, values) {
+                                    if(date.length>7){
+                                        date = date.substr(5, 8);
+                                    } 
+                                    data.addRows([
+                                        [date, values.quotes]
+                                    ]);
+                                });
+                            }else{
+                                $.each(responce.grafData.countGraficData, function (date, values) {
+                                    if(date.length>7){
+                                        date = date.substr(5, 8);
+                                    } 
+                                    data.addRows([
+                                        [date, values.sales]
+                                    ]);
+                                });
+                            }
+                            var options = {
+                                chartArea:{width:"75%",height:"80%"}
+                            }; 
+                            
+                        }
+                         
+                        var chart = new google.visualization.ColumnChart(document.getElementById('visualizationcolumnCount'));
+                        chart.draw(data, options);
+                   }
+                   if(responce.grafData.amountGraficExcist == 1){
+                       var data = new google.visualization.DataTable();
+                       var typeOfGraficAmount = responce.typeOfGraficAmount;
+                       
+                       if(typeOfGraficAmount.match("\\u007c")){
+                         data.addColumn('string', 'Date');
+                         data.addColumn('number', '<?php echo $this->translate('Sales');?>');
+                         data.addColumn('number', '<?php echo $this->translate('Quotes');?>');
+                         $.each(responce.grafData.amountGraficData, function (date, values) {
+                            if(date.length>7){
+                                date = date.substr(5, 8);
+                            } 
+                            data.addRows([
+                                [date, values.sales*1, values.quotes*1]
+                            ]);
+                         });
+                         var formatter = new google.visualization.NumberFormat(
+                            {prefix: '<?php echo $this->currencySymbol;?>', negativeColor: 'red', negativeParens: true});
+                            formatter.format(data, 0);
+                            formatter.format(data, 1);
+                            formatter.format(data, 2);
+                         var options = {
+                            chartArea:{width:"75%",height:"80%"}
+                          };
+                       }else{
+                            data.addColumn('string', 'Date');
+                            data.addColumn('number', typeOfGraficAmount);
+                            if(typeOfGraficAmount == 'Quotes'){
+                                $.each(responce.grafData.amountGraficData, function (date, values) {
+                                    if(date.length>7){
+                                        date = date.substr(5, 8);
+                                    } 
+                                    data.addRows([
+                                        [date, values.quotes*1]
+                                    ]);
+                                });
+                            }else{
+                                $.each(responce.grafData.amountGraficData, function (date, values) {
+                                    if(date.length>7){
+                                        date = date.substr(5, 8);
+                                    } 
+                                    data.addRows([
+                                        [date, values.sales*1]
+                                    ]);
+                                });
+                            }
+                            var formatter = new google.visualization.NumberFormat(
+                            {prefix: '<?php echo $this->currencySymbol;?>', negativeColor: 'red', negativeParens: true});
+                            formatter.format(data, 0);
+                            formatter.format(data, 1);
+                            var options = {
+                                chartArea:{width:"75%",height:"80%"}
+                            }; 
+                                                     
+                       }
+                       var chart = new google.visualization.ColumnChart(document.getElementById('visualizationcolumnAmount'));
+                       chart.draw(data, options);
+                   }
+                }
+            });
+            drawChart();
+        });
+       });
+    </script>
+
+
+<ul class="allPeriod fs16 grid_12 list-unstyled">
+	<li><i class="icon-history icon16"></i> <a class="7days" href="javascript:;" title="Past 7 days"><?php echo $this->translate('Past');?> 7 <?php echo $this->translate('days');?></a></li>
+	<li><i class="icon-history icon16"></i> <a class="30days" href="javascript:;" title="Past 30 days"><?php echo $this->translate('Past');?> 30 <?php echo $this->translate('days');?></a></li>
+	<li><i class="icon-history icon16"></i> <a class="1week" href="javascript:;" title="This week"><?php echo $this->translate('This week');?></a></li>
+	<li><i class="icon-history icon16"></i> <a class="1month" href="javascript:;" title="This month"><?php echo $this->translate('This month');?></a></li>
+	<li><i class="icon-history icon16"></i> <a class="totalPeriod" href="javascript:;" title="All time"><?php echo $this->translate('All time');?></a></li>
+</ul>
