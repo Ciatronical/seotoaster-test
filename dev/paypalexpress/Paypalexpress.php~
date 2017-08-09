@@ -1,0 +1,17 @@
+<?php
+
+class Paypalexpress extends Tools_Plugins_Abstract{
+
+	 protected function _init() {
+     
+        $this->_view->setScriptPath(__DIR__ . '/system/views/');
+    }
+
+	protected function _makeOptionHello() {
+        return 'PaypalExpress plugin says hello!';
+    }
+    
+  
+
+
+}

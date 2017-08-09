@@ -1,7 +1,7 @@
 #!/bin/bash                                                                                          
 echo 'backup seotoaster database'
 cd `dirname "$0"`
-mysqldump -uroot -p`windossa5one` seotoaster  > db_backup/seotoaster.sql
+mysqldump -uroot -pwindossa5one seotoaster  > db_backup/seotoaster.sql
 
 readcmd() {
     for var in $*
