@@ -4,37 +4,47 @@
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 
-<script>
-    paypal.Button.render({
+<div id="paypal-button-container"></div>
 
-        env: 'production', // Or 'sandbox'
+    <script>
+        paypal.Button.render({
 
-        client: {
-            sandbox:    'xxxxxxxxx',
-            production: 'xxxxxxxxx'
-        },
+            env: 'sandbox', // sandbox | production
 
-        commit: true, // Show a 'Pay Now' button
+            // PayPal Client IDs - replace with your own
+            // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+            client: {
+                sandbox:    'AVWwnmz32wlzFqogw9E93H82FlVYWvMUXohxKnITuIlMJDwQCGge8_nqRI-iMxNmPktOG1DRgmHTfpUK',
+                production: '<insert production client id>'
+            },
 
-        payment: function(data, actions) {
-            return actions.payment.create({
-                payment: {
-                    transactions: [
-                        {
-                            amount: { total: '1.00', currency: 'USD' }
-                        }
-                    ]
-                }
-            });
-        },
+            // Show the buyer a 'Pay Now' button in the checkout flow
+            commit: true,
 
-        onAuthorize: function(data, actions) {
-            return actions.payment.execute().then(function(payment) {
+            // payment() is called when the button is clicked
+            payment: function(data, actions) {
 
-                // The payment is complete!
-                // You can now show a confirmation message to the customer
-            });
-        }
+                // Make a call to the REST api to create the payment
+                return actions.payment.create({
+                    payment: {
+                        transactions: [
+                            {
+                                amount: { total: '0.01', currency: 'USD' }
+                            }
+                        ]
+                    }
+                });
+            },
 
-    }, '#paypal-button');
-</script>
+            // onAuthorize() is called when the buyer approves the payment
+            onAuthorize: function(data, actions) {
+
+                // Make a call to the REST api to execute the payment
+                return actions.payment.execute().then(function() {
+                    window.alert('Payment Complete!');
+                });
+            }
+
+        }, '#paypal-button-container');
+
+    </script>

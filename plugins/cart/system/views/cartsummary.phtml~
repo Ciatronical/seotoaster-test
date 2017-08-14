@@ -62,11 +62,11 @@
     <script>
     
     
-       <?php
+            <?php
          $price=$this->summary['total'];
         
-			echo"var price='$price';";
-		?>
+echo"var price='$price';";
+?>
     
         paypal.Button.render({
         	

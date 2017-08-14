@@ -2,3 +2,62 @@
 [14-Aug-2017 12:23:38 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/widcard/Widcard.php on line 749
 [14-Aug-2017 12:23:38 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/widcard/Widcard.php on line 750
 [14-Aug-2017 12:23:38 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/widcard/Widcard.php on line 750
+[14-Aug-2017 12:53:28 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 12:53:46 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 12:54:02 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 12:54:10 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 12:54:38 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 12:54:44 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 12:55:21 Europe/Berlin] PHP Notice:  Undefined variable: i in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 32
+[14-Aug-2017 12:55:42 Europe/Berlin] PHP Notice:  Undefined variable: i in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 12:55:58 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 12:58:10 Europe/Berlin] PHP Catchable fatal error:  Object of class Zend_View_Helper_Currency could not be converted to string in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 32
+[14-Aug-2017 12:59:26 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 12:59:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function currency() on null in /var/www/html/plugins/cart/system/views/buyersummary.phtml:31
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/cart/Cart.php(548): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Cart->_makeOptionBuyersummary()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#5 /var/www/html/plugins/cart/Cart.php(132): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/plugins/shopping/system/app/Widgets/Store/Store.php(42): Cart->run()
+#7 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Store_Store->_load()
+#8 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#9 /var/www/htm in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 12:59:28 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 12:59:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function currency() on null in /var/www/html/plugins/cart/system/views/buyersummary.phtml:31
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/cart/Cart.php(548): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Cart->_makeOptionBuyersummary()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#5 /var/www/html/plugins/cart/Cart.php(132): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/plugins/shopping/system/app/Widgets/Store/Store.php(42): Cart->run()
+#7 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Store_Store->_load()
+#8 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#9 /var/www/htm in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 13:03:06 Europe/Berlin] PHP Catchable fatal error:  Object of class Zend_View_Helper_Currency could not be converted to string in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 13:03:07 Europe/Berlin] PHP Catchable fatal error:  Object of class Zend_View_Helper_Currency could not be converted to string in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 31
+[14-Aug-2017 13:03:19 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 32
+[14-Aug-2017 13:05:14 Europe/Berlin] PHP Catchable fatal error:  Object of class Zend_View_Helper_Currency could not be converted to string in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 18
+[14-Aug-2017 13:05:16 Europe/Berlin] PHP Catchable fatal error:  Object of class Zend_View_Helper_Currency could not be converted to string in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 18
+[14-Aug-2017 13:05:17 Europe/Berlin] PHP Catchable fatal error:  Object of class Zend_View_Helper_Currency could not be converted to string in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 18
+[14-Aug-2017 13:05:17 Europe/Berlin] PHP Catchable fatal error:  Object of class Zend_View_Helper_Currency could not be converted to string in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 18
+[14-Aug-2017 13:05:17 Europe/Berlin] PHP Catchable fatal error:  Object of class Zend_View_Helper_Currency could not be converted to string in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 18
+[14-Aug-2017 13:35:33 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 32
+[14-Aug-2017 13:35:54 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/buyersummary.phtml on line 32
+[14-Aug-2017 13:36:48 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 64
+[14-Aug-2017 13:36:49 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 64
+[14-Aug-2017 13:38:33 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 64
+[14-Aug-2017 13:38:35 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 64
+[14-Aug-2017 13:39:38 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 64
+[14-Aug-2017 13:39:39 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 64
+[14-Aug-2017 13:40:06 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 61
+[14-Aug-2017 13:40:09 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 61
+[14-Aug-2017 13:41:35 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 67
+[14-Aug-2017 13:41:37 Europe/Berlin] PHP Notice:  Undefined variable: price in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 67
+[14-Aug-2017 13:44:19 Europe/Berlin] PHP Parse error:  syntax error, unexpected ')' in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 66
+[14-Aug-2017 13:45:47 Europe/Berlin] PHP Notice:  Use of undefined constant total - assumed 'total' in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 66
+[14-Aug-2017 13:45:48 Europe/Berlin] PHP Notice:  Use of undefined constant total - assumed 'total' in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 66
