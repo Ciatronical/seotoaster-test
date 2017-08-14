@@ -51,61 +51,6 @@
 	</div>
 	<?php endif; ?>
 
-                    
-               
-                 
-  
-<div id="paypal-button"></div>
-
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
-
-<script>
-
-	<?php
-									echo"var i='$i';";
-									?>
-
-    paypal.Button.render({
-
-        env: 'sandbox', // Or 'sandbox'
-
-        client: {
-            sandbox:    'AVWwnmz32wlzFqogw9E93H82FlVYWvMUXohxKnITuIlMJDwQCGge8_nqRI-iMxNmPktOG1DRgmHTfpUK',
-            production: 'xxxxxxxxx'
-        },
-
-        commit: true, // Show a 'Pay Now' button
-
-        payment: function(data, actions) {
-            return actions.payment.create({
-                payment: {
-                    transactions: [
-                        {
-                        	
-                        	
-										                      
-                            amount: { total: "0.01", currency: 'EUR' }
-                        }
-                    ]
-                }
-            });
-        },
-
-        onAuthorize: function(data, actions) {
-            return actions.payment.execute().then(function(payment) {
-
-                // The payment is complete!
-                // You can now show a confirmation message to the customer
-            });
-        }
-
-    }, '#paypal-button');
-</script>
-                    
-   
-                  
-                    
-
 	<?php if ($this->shippingData) : ?>
 	<div id="checkout-shipping-selected">
 	    <h3 class="checkout-widget-title <?php if (empty($this->shippingData)): ?>disabled<?php endif; ?>">

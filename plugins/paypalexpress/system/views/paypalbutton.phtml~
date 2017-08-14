@@ -3,13 +3,14 @@
 
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
+
 <script>
     paypal.Button.render({
 
-        env: 'sandbox', // Or 'sandbox'
+        env: 'production', // Or 'sandbox'
 
         client: {
-            sandbox:    'AVWwnmz32wlzFqogw9E93H82FlVYWvMUXohxKnITuIlMJDwQCGge8_nqRI-iMxNmPktOG1DRgmHTfpUK',
+            sandbox:    'xxxxxxxxx',
             production: 'xxxxxxxxx'
         },
 
@@ -20,8 +21,7 @@
                 payment: {
                     transactions: [
                         {
-										var pricetotal = $this->currency($this->summary['total']) ;                       
-                            amount: { total: '0.01', currency: 'EUR' }
+                            amount: { total: '1.00', currency: 'USD' }
                         }
                     ]
                 }
