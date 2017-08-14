@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Include head template -->
+        {$template:_head}
+    </head>
+    <body>
+    <!-- Include header template -->
+    {$template:_header}
+        <!-- Container -->
+        <div id="page" class="">
+
+
+
+            <!-- Content box -->
+            <section class="container page404" role="main">
+                <h1 class="hidden-el" role="heading">{$page:h1}</h1>
+
+                <article class="grid_12 omega  text-center mb30px">
+                    <p class="first">
+                        404
+                    </p>
+                    {$content:404:static}<br>
+                    <a class="btn inverse large" href="{$website:url}" title="{$header:button:readonly}">{$header:button:static}</a>
+                </article>
+
+
+                <article class="grid_6 alpha d-hide page404-prefooter">
+                    <!--404-->
+
+                    {$imageonly:404-footer:original:static}
+                </article>
+            </section>
+
+            <!--<section>-->
+                <!--<div class="container text-center page404-prefooter">-->
+
+                <!--</div>-->
+
+                <!--<div class="container">-->
+                    <!--<article class="grid_6 alpha first">-->
+
+                        <!---->
+                    <!--</article>-->
+                    <!--<article class="grid_6 omega">-->
+                        <!--{$content:404:static}<br>-->
+                        <!--<a class="btn inverse large" href="{$website:url}" title="{$header:button:readonly}">{$header:button:static}</a>-->
+                    <!--</article>-->
+                <!--</div>-->
+
+            <!--</section>-->
+        </div>
+
+
+
+    <!-- Footer -->
+    <!-- Include Footer template -->
+    {$template:_footer}
+        <!-- Include mobile elements template -->
+        {$template:_mobile elements}
+
+        <!-- Include scripts template -->
+        {$template:_scripts}
+    </body>
+</html>

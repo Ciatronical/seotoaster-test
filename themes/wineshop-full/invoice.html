@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{$page:title}</title>
+</head>
+<body>
+<div id="main">
+    <h1><img src="{$plugin:widcard:bizLogo:url}" alt="{$plugin:widcard:BizOrgName:notag}" class="logo"></h1>
+    <div id="address">
+        <h3>{$plugin:widcard:BizOrgName:notag}</h3>
+        <p>{$plugin:widcard:BizAddress1:notag} {$plugin:widcard:BizAddress2:notag}</p>
+        <p>{$plugin:widcard:BizCity:notag}, {$plugin:widcard:BizState:notag} {$plugin:widcard:BizZip:notag}</p>
+        <p><strong>Phone:</strong> {$plugin:widcard:BizTelephone:notag}</p>
+        <p><strong>Email:</strong> {$plugin:widcard:BizEmail:notag}</p>
+    </div>
+
+        <!--h2>Proforma Invoice #{$plugin:invoicetopdf:InvoiceNumber}</h2-->
+        {$store:postpurchasereport::sku:SKU}
+
+
+    <div class="footer">
+        {$plugin:widcard:BizOrgName:notag} / <strong>phone:</strong> {$plugin:widcard:BizTelephone:notag} / <strong>email:</strong> {$plugin:widcard:BizEmail:notag}
+    </div>
+</div>
+<style>
+    *{
+        margin  : 0;
+        padding : 0;
+    }
+    body{
+        background  : #ffffff;
+        font : 14px Arial, sans-serif;
+        color: #000000;
+    }
+    a {text-decoration: none;}
+
+    h1{
+        float : left;
+        width : 60%;
+    }
+    img.logo {
+        max-width:100%;
+        max-height: 100px;
+        border:none;
+    }
+    img.pickup-location-map {
+        max-width:100%;
+        max-height: none;
+        border:none;
+    }
+    #address{
+        float : left;
+        width : 40%;
+        text-align : right;
+        color: #333333;
+    }
+    #address h3 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    #address p{
+        margin : 0;
+        font-size : 12px;
+    }
+
+    .post-purchase {
+        overflow  : hidden;
+        clear: both;
+
+    }
+    .post-purchase h3.post-purchase-report-customer-order-id{
+        color         : #222;
+        font-size     : 18px;
+        font-weight   : bold;
+        margin        : 0;
+        padding       : 0;
+    }
+    .post-purchase .createdOrderDate {
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
+    }
+
+
+    .post-purchase .post-purchase-report-shipping,
+    .post-purchase .post-purchase-report-billing {
+        float: left;
+        width: 50%;
+        margin: 0 0 20px;
+        overflow: hidden;
+    }
+    .post-purchase .post-purchase-report-shipping h4,
+    .post-purchase .post-purchase-report-billing h4 {
+        margin-top: 20px;
+        font-size: 15px;;
+        margin-bottom: 5px;
+    }
+
+        /*===== Table checkout cart =====*/
+    table.cart-content{
+        border        : none;
+        margin-bottom : 10px;
+        width         : 100%;
+        border-collapse: collapse;
+    }
+    table.cart-content td, table.cart-content th {
+        text-align: center;
+        padding: 5px 10px;
+    }
+    table.cart-content th {
+        background : #eee;
+    }
+    table.cart-content td{
+        border-bottom : 1px solid #ddd;
+    }
+    table.cart-content th.product-info, table.cart-content td.product-info {
+        text-align: left;
+    }
+    img {
+        max-width: 95px;
+        max-height: 95px;
+        vertical-align: middle;
+    }
+    table.cart-content td span.post-purchase-report-product-name {
+        font-size   : 16px;
+        font-weight : bold;
+    }
+    table.cart-content td.product-info span{ display : block; }
+
+    /*summary  */
+
+    .post-purchase-report-summary {
+        float: right;
+        width: 25%;
+    }
+    .post-purchase-report-summary .summary-title {
+        padding: 5px 7px;
+        font-size: 14px;
+        margin-bottom: 5px;
+        background: #eee;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .post-purchase .post-purchase-report-summary div.post-purchase-row {
+        padding: 2px 7px;
+    }
+    .post-purchase .post-purchase-report-summary div.cart-total {
+        padding-top: 5px;
+        font-weight: bold;
+        border: none;
+    }
+
+    .footer {
+        border-top: 1px solid #000;
+        margin-top: 20px;
+        padding: 10px 0;
+        text-align: center;
+        font-size:12px;
+    }
+
+</style>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include head template -->
+    {$template:_head}
+</head>
+<body>
+
+<!-- Container -->
+<div id="container" class="container">
+
+    <!-- Include header template -->
+    {$template:_header}
+
+    <h1 class="grid_12" role="heading">{$page:h1}</h1>
+
+    <!-- Content box -->
+    <main id="content" class="grid_12" role="main">
+        {customeronly}<h2>{$header:content_1} {$user:name}</h2>
+        <!--{/customeronly}
+            <h2>{$header:content_1}</h2>
+            <div class="grid_6 t-grid_6 m-grid_4 mb10px alpha">
+                {$member:login}
+            </div>
+            <div class="clearfix"></div>
+        {customeronly}-->
+        <div class="user-info-box mb30px">
+            <p><strong>Your e-mail:</strong> {$user:email}</p>
+            <p><strong>Registration date:</strong> {$user:registration}</p>
+            <p><strong>Last seen:</strong> {$user:lastlogin}</p>
+        </div>
+        {/customeronly}
+
+        {$user:tabs:Orders, Edit Account}
+
+
+        {$content:1}
+    </main>
+</div>
+
+<!-- Footer -->
+<!-- Include Footer template -->
+{$template:_footer}
+</body>
+</html>

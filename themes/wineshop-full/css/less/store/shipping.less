@@ -1,0 +1,143 @@
+//checkout shipping form
+#checkout-user-address{
+    .inline-block-wrap(top);
+
+    & > fieldset{
+        .grid-elements(2; 2*@grid-margin-width; true; 1; 1);
+    }
+}
+
+//////////shipping methods
+#shipper-select{
+    @selected-shipping-color: @brand-success;
+
+    .shipping-methods{
+        overflow : hidden;
+        margin   : 0;
+        padding  : 0;
+
+        li{
+            position      : relative;
+            .inline-block(top);
+            list-style    : none;
+            .grid-elements(3; @grid-margin-width; true; 2; 1);
+            background    : darken(@gray-lighter, 10%);
+            overflow      : hidden;
+            margin-bottom : 10px;
+
+            &:hover{
+                background : @gray-lighter;
+            }
+
+            label{
+                padding    : 5%;
+                min-height : 60px;
+                margin     : 0;
+                width      : 100%;
+            }
+
+            input{
+                margin : 5px 5px 0 0;
+                width  : auto;
+
+                &:checked{
+                    & ~ .checkbox_radio{
+                        border-color : @selected-shipping-color;
+
+                        &:before{
+                            background : @selected-shipping-color;
+                        }
+                    }
+
+                    & ~ .shipping-price{
+                        &:after{
+                            border-color : @selected-shipping-color;
+                        }
+                    }
+                }
+
+            }
+
+            .checkbox_radio{
+                margin : -5px 5px 0 0;
+            }
+
+            .shipping-price{
+                font-size   : @font-size-large;
+                font-weight : bold;
+
+                &:after{
+                    content  : '';
+                    border   : 2px solid darken(@gray-lighter, 10%);
+                    position : absolute;
+                    left     : 0;
+                    right    : 0;
+                    top      : 0;
+                    bottom   : 0;
+                }
+            }
+
+            .shipping-method-title{
+                display : block;
+            }
+
+            p{
+                border-top  : 1px dotted @gray-lighter;
+                clear       : both;
+                color       : #000;
+                font-size   : @font-size-mini;
+                padding     : 3% 5%;
+                white-space : nowrap;
+                margin      : 0;
+            }
+
+            //it will work only with activated _checkboxRadio() script on ajax loading
+            & when (@shipping-checkmark-style){
+                border : none;
+
+                .checkbox_radio{
+                    display : none;
+                }
+
+                input{
+                    &:checked{
+                        & + .checkbox_radio{
+                            display       : block;
+                            border-color  : transparent  @selected-shipping-color  @selected-shipping-color transparent;
+                            height        : 0;
+                            width         : 0;
+                            border-width  : 15px;
+                            border-radius : 0;
+                            position      : absolute;
+                            bottom        : 0;
+                            right         : 0;
+                            background    : none;
+                            margin-right  : 0;
+
+                            &:before{
+                                position    : relative;
+                                content     : "\e0a3";
+                                font-family : @font-family-icons;
+                                color       : #fff;
+                                font-size   : @font-size-small;
+                                left        : -2px;
+                                top         : 3px;
+                                display     : block;
+                                background  : transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#shippingNotes{ //// WHAT IS IT ?????
+    margin-top  : -14px;
+    margin-left : 2px;
+
+    &.notvalid{
+        .box-shadow(0 0 1px 1px #f00);
+    }
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Include head template -->
+        {$template:_head}
+    </head>
+    <body>
+    <!-- Include header template -->
+    {$template:_header}
+        <!-- Container  NO SEARCH, NO SOCIAL LINKS -->
+        <div id="container" class="container padding-tb">
+
+
+
+            <!-- Content box -->
+            <main id="content" class="grid_12" role="main">
+
+                <h1 class="hidden-el">{$page:h1}</h1>
+                <!-- Table products to order -->
+                <table class="checkout-cart-table cart-content">
+                    <thead class="t-hide m-hide">
+                        <tr>
+                            <th class="product-info">Product</th>
+                            <th></th>
+                            <th class="product-unit-price">Price</th>
+                            <th class="product-qty">Qty</th>
+                            <th class="product-total">Total</th>
+                            <th class="product-remove">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {toastercart}
+                        <tr>
+                            <td class="product-img"> {$cartitem:photo} </td>
+                            <td class="product-info">{$cartitem:name}
+                                <p class="itemID"><span>Item ID:</span> {$cartitem:sku}</p>
+                                {$cartitem:options}
+                            </td>
+                            <td class="product-unit-price">{$cartitem:price:unit}</td>
+                            <td class="product-qty">{$cartitem:qty}</td>
+                            <td class="product-total">{$cartitem:price}</td>
+                            <td class="product-remove">{$cartitem:remove}</td>
+                        </tr>
+                    {/toastercart}
+                    </tbody>
+                </table>
+                <!-- end table products to order -->
+
+                <!-- Checkout widget -->
+                <div class="grid_9 alpha">
+                    {$store:checkout}
+
+                    <div class="security">
+                      We do not store your bank details. Your banking details never pass through our server - all information is processed through the payment gateway through a secure and encrypted connection.
+                    </div>
+
+
+                    <!-- Select the required payment gateways-->
+                    {paymentgateways}
+                    <!--{$ quote:form}-->
+               <!--{adminonly}-->
+               <!--  {$plugin:paybox:checkout}-->
+               <!-- {/adminonly}-->
+                    {$plugin:authorize:button}
+                    {$plugin:paypal:button}
+                    {$plugin:authorize:creditcard}
+                    {$plugin:paypal:creditcard}
+                    {$plugin:eway:creditcard}
+                    {$plugin:elavon:creditcard}
+                    {$plugin:securepay:creditcard}
+                    {$plugin:cmcic:creditcardbutton}
+                    {/paymentgateways}
+                </div>
+
+                <div id="checkoutsummary" class="grid_3 omega t-grid_3 t-omega t-push_3">
+                    <!--<h3 class="checkout-widget-title">{$header:promo-title:static}</h3>-->
+                    {$store:cartsummary}
+                    {$store:coupon}
+                    {$store:buyersummary}
+                    <!--<h3 class="checkout-widget-title">-->
+                        <!--{$ header:contactinf}-->
+                        <!--{$ content:checkout-widget-content}-->
+                    <!--</h3>-->
+                    <div class="preview-content">
+                        {$content:contact_inf}
+                    </div>
+                </div>
+                <!-- end checkout widget -->
+            </main>
+
+        </div>
+
+
+    <!-- Include mobile elements template -->
+    {$template:_mobile elements}
+    <!-- Footer -->
+    <!-- Include Footer template -->
+    {$template:_footer}
+        <!-- SCRIPTS ZONE -->
+    <!-- Include scripts template -->
+    {$template:_scripts}
+
+    <script>
+        document.querySelector('#cart-coupon-form .checkout-widget-title').innerHTML = 'ENTER YOUR REDUCTION COUPON';
+    </script>
+
+    <!--<script>-->
+        <!--$('label[for="address1"], label[for="city"], label[for="country"], label[for="phone"]').addClass('required');-->
+        <!--$('input[id="address1"], input[id="city"], input[id="zip"], input[id="phone"]').attr('required','required');-->
+        <!-- -->
+        <!--$('input[id="zip"]').attr('value','');-->
+        <!-- -->
+        <!--$('#pickup-action').text('Retrait au Domaine');-->
+        <!--$('#shipping-action').text('Livraison à l’adresse de votre choix');-->
+        <!--$(".checkout-button #keepshopping-action").attr("href", "http://www.vins-maurette.fr/vins-cotes-de-provence.html");-->
+
+        <!--$("<p>Votre identifiant et mot de passe sont en bas à droite sur votre dernière facture dachat sur www.vins-maurette.fr</p>").appendTo($("#login-form")).addClass('add-text');-->
+        <!--$("<p>Retrait à notre cave sur présentation de votre récépissé de facture. La cave du Domaine de la Maurette est ouverte de XX à XX, du YY au YY.</p>").appendTo($('.checkout-pickup-default div')).addClass('text-additional');-->
+    <!--</script>-->
+
+
+
+        <!--&lt;!&ndash;Add Google Conversion tracking code&ndash;&gt;-->
+        <!--{postpurchasecode}-->
+        <!--<script type="text/javascript">-->
+            <!--var _gaq = _gaq || [];-->
+            <!--_gaq.push(['_setAccount', 'UA-XXXXXXX-X']);-->
+            <!--_gaq.push(['_trackPageview']);-->
+            <!--_gaq.push(['_addTrans',-->
+                <!--'{$postpurchase:id}', // transaction ID - required-->
+                <!--'{$postpurchase:config:company}', // affiliation or store name-->
+                <!--'{$postpurchase:subtotal:clean:withouttax}', // total - required-->
+                <!--'{$postpurchase:totalTax:clean}', // tax-->
+                <!--'{$postpurchase:shippingPrice:clean}', // shipping-->
+                <!--'{$postpurchase:shipping:city}', // city-->
+                <!--'{$postpurchase:shipping:state}', // state or province-->
+                <!--'{$postpurchase:shipping:country:clean}' // country-->
+            <!--]);-->
+
+            <!--// add item might be called for every item in the shopping cart-->
+            <!--// where your ecommerce engine loops through each item in the cart and-->
+            <!--// prints out _addItem for each-->
+            <!--{postpurchasecartcontent:analytics}-->
+            <!--_gaq.push(['_addItem',-->
+                <!--'{$postpurchase:cartitem:cartId}', // transaction ID - required-->
+                <!--'{$postpurchase:cartitem:sku}', // SKU/code - required-->
+                <!--'{$postpurchase:cartitem:name}', // product name-->
+                <!--'', // category or variation-->
+                <!--'{$postpurchase:cartitem:price:clean}', // unit price - required-->
+                <!--'{$postpurchase:cartitem:qty}' // quantity - required-->
+            <!--]);-->
+
+            <!--{/postpurchasecartcontent}-->
+
+            <!--_gaq.push(['_trackTrans']); //submits transaction to the Analytics servers-->
+
+            <!--(function() {-->
+                <!--var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;-->
+                <!--ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';-->
+                <!--var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);-->
+            <!--})();-->
+
+        <!--</script>-->
+        <!--{/postpurchasecode}-->
+
+
+        <!--{postpurchasecode}-->
+        <!--<script type="text/javascript">-->
+            <!--var google_conversion_id = XXXXXXXXX;-->
+            <!--var google_conversion_language = "en";-->
+            <!--var google_conversion_format = "3";-->
+            <!--var google_conversion_color = "ffffff";-->
+            <!--var google_conversion_label = "ZLNvCO6eoVYQgJuU1QM";-->
+            <!--var google_conversion_value = {$postpurchase:subtotal:clean:withouttax};-->
+            <!--var google_conversion_currency = "EUR";-->
+            <!--var google_remarketing_only = false;-->
+        <!--</script>-->
+        <!--<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">-->
+        <!--</script>-->
+        <!--<noscript>-->
+            <!--<div style="display:inline;">-->
+                <!--<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/983895424/?value={$postpurchase:subtotal:clean:withouttax}&currency_code=EUR&label=ZLNvCO6eoVYQgJuU1QM&guid=ON&script=0"/>-->
+            <!--</div>-->
+        <!--</noscript>-->
+        <!--{/postpurchasecode}-->
+
+
+
+    </body>
+</html>

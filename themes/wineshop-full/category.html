@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Include head template -->
+        {$template:_head}
+    </head>
+    <body>
+
+    <!-- Include header template -->
+    {$template:_header}
+
+
+
+        <!-- Container -->
+        <div id="page" class="container">
+            
+            <h1 class="hidden-el" role="heading">{$page:h1}</h1>
+
+            <section class="grid_12 alpha omega padding-tb"  role="main">
+
+                <!-- -->
+                <article class="grid_12 alpha omega">
+                    <h2 class="text-left ">
+                        <span class="sublined">{$header:title-cat1}</span>
+                    </h2>
+
+                    <div class="grid_12">
+                        {$content:category-content2}
+
+                    </div>
+                </article>
+
+
+
+                <!-- -->
+                <article class="grid_12 alpha omega hide">
+                    <h2 class="text-left ">
+                        <span class="sublined">{$header:title-cat2}</span>
+                    </h2>
+
+                    <div  class="carousel "
+                        data-elscroll=".product-item"
+                        data-visible="4"
+                        data-visibletablet="3"
+                        data-visiblemobile="1"
+                        data-size="1"
+                        data-margin="20"
+                        data-speed="800"
+                        data-scrolling="false"
+                        data-scrolltime="6000"
+                        data-prev="true"
+                        data-next="true"
+                            >
+
+                        {$productlist:_product list on main:tagnames-Best-seller}
+                    </div>
+
+                </article>
+            </section>
+
+
+
+            <!-- Content box -->
+            <!--<section class="grid_6 push_3">-->
+                <!--{repeat:Section box:key:1}-->
+                <!--<article>-->
+                    <!--<h2>{$ header:content_key}</h2>-->
+                    <!--{$ content:content_key1}-->
+                    <!--{content:content_key2}-->
+                <!--</article>-->
+                <!--{/repeat}-->
+            <!--</section>-->
+
+            <!-- Left box -->
+            <!--<aside class="grid_3 pull_6" role="complementary">-->
+                <!--{repeat:Aside left box:key:1}-->
+                <!--<section class="aside-box">-->
+                    <!--<h3>{header:left_key}</h3>-->
+                    <!--{content:left_key}-->
+                <!--</section>-->
+                <!--{/repeat}-->
+            <!--</aside>-->
+
+            <!-- Right box -->
+            <!--<aside class="grid_3" role="complementary">-->
+                <!--{repeat:Aside right box:key:1}-->
+                <!--<section class="aside-box">-->
+                    <!--<h3>{header:right_key}</h3>-->
+                    <!--{content:right_key}-->
+                <!--</section>-->
+                <!--{/repeat}-->
+            <!--</aside>-->
+
+
+        </div>
+    <!-- Footer -->
+    <!-- Include Footer template -->
+    {$template:_footer}
+        <!-- Include mobile elements template -->
+        {$template:_mobile elements}
+
+        <!-- Include scripts template -->
+        {$template:_scripts}
+
+    <script>
+        $(function() {
+//            $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+//            $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+//            $( "#tabs-2" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+//            $( "#tabs-2 li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+
+
+            var $tab=$(".tab"),
+
+                    $tab_li=$(".tab_nav li");
+
+            $tab.hide();
+
+            $tab_li.first().addClass("active").show();
+
+            $tab.first().show();
+
+            $tab_li.click( function() {
+
+                $tab_li.removeClass("active");
+
+                $(this).addClass("active");
+
+                $tab.hide();
+
+                var a = $tab_li.index(this);
+
+                $tab.eq(a).show()
+
+            });
+
+
+
+
+
+        });
+    </script>
+    </body>
+</html>

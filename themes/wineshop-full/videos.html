@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Include head template -->
+        {$template:_head}
+    </head>
+    <body>
+    <!-- Include header template -->
+    {$template:_header}
+        <!-- Container -->
+        <div id="page" class="container padding-tb">
+
+
+
+
+            <h1 class="text-left">
+                <span class="sublined">{$page:h1}</span>
+            </h1>
+            <!-- Content box -->
+            <section class="grid_12 alpha omega" role="main">
+
+                {repeat:Section box:key:1}
+                <article class="clearfix">
+                  <div class="grid_6">
+
+                      {$content:content_key1}
+                      {$content:content_key2}
+                  </div>
+                    <div class="grid_6">
+                        {$textonly:content_key}
+                    </div>
+                </article>
+                {/repeat}
+            </section>
+
+
+
+        </div>
+    <!-- Footer -->
+    <!-- Include Footer template -->
+    {$template:_footer}
+        <!-- Include mobile elements template -->
+        {$template:_mobile elements}
+
+        <!-- Include scripts template -->
+        {$template:_scripts}
+    </body>
+</html>

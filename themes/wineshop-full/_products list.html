@@ -1,0 +1,12 @@
+<div class="product-item grid_4 text-center">
+
+	<a href="{$product:url}" class="product-image">
+		<img src="{$product:photourl:small}" alt="{$product:name}" />
+	</a>
+    <br/>
+
+	<a class="product-title" href="{$product:url}">{$product:name}</a>
+	<!--<span class="product-price">{$ product:price}</span>-->
+	<!--<p class="product-description">{$ product:description}</p>-->
+	{$store:addtocart:{$product:id}}
+</div>

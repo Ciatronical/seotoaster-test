@@ -1,0 +1,9 @@
+{ifpages}
+    <label class="sub-menu-btn icon-list2 d-hide fl-right"></label>
+{/ifpages}
+
+<a href="{$page:url}" title="{$page:h1}" class="{$mobile:device:mobile,tablet=block wrap text-left:desktop=menu-link}">{$page:navName}</a>
+
+{submenu}
+    <a class="page-title primary-light block" href="{$page:url}" title="{$page:h1}">{$page:navName}</a>
+{/submenu}

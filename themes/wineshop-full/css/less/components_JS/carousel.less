@@ -1,0 +1,199 @@
+.carousel when (@componentsJS-carousel){
+    position  : relative;
+    max-width : 100%;
+    .user-select();
+
+    .carousel-clip{
+        overflow : hidden;
+        height   : 100%;
+    }
+
+    .carousel-wrap{
+        .inline-block-wrap(top; ~'.carousel-item');
+        min-width : 100%;
+    }
+
+    &:hover{
+        .carousel-btn{
+            display : block;
+        }
+    }
+
+    .carousel-btn{
+       // .rgba(#fff; 0.75);
+        border: 1px solid @theme-color-black;
+        .transition(all,0.5,ease,0s);
+        .border-radius(50%);
+        position  : absolute;
+        top: 0;
+        bottom: 0;
+        z-index   : 15;
+        margin    : auto;
+        height: 30px;
+        width: 30px;
+        //display   : none;
+        font-size : @font-size-base;
+
+        &:before{
+            font-family : @font-family-icons;
+            font-size   : 1em;
+            line-height : 1;
+            height      : 1em;
+            position    : absolute;
+            left        : 0;
+            top         : 0;
+            bottom      : 0;
+            margin      : auto;
+            color: @theme-color-black;
+
+        }
+
+        &:after{
+            content: '';
+        }
+
+        &.prev{
+            left : 0;
+
+            &:before{
+                content : "\e0c5";
+                margin-left: 6px;
+            }
+        }
+        &.next{
+            right : 0;
+
+            &:before{
+                content : "\e0c6";
+                margin-left: 7px;
+            }
+        }
+
+        &:hover{
+            border: 1px solid @brand-primary;
+        }
+    }
+
+
+    &.vert{
+        margin:0px;
+        padding:0px;
+
+        .product-list{
+            padding-top: 50px;
+
+            .product-item{
+                .product-title{
+                    font-size: 1.25em;
+                    margin-bottom: 0.3em;
+                }
+                 .product-image{
+                     img{
+
+                     }
+                 }
+            }
+
+        }
+
+        .carousel-btn{
+
+            bottom: inherit;
+
+
+
+            &.prev{
+                right: 32px;
+                left: inherit;
+            }
+            &.next{
+                right : 0;
+            }
+
+            &:hover{
+                border: 1px solid @brand-primary;
+            }
+        }
+    }
+
+    &.le-domain-carousel{
+        margin-top: 100px;
+
+    }
+}
+
+.products-on-main{
+    .carousel{
+
+    }
+}
+
+.full-width-image{
+    .cycle-slideshow{
+        > .tpopup{
+            position: absolute;
+            top: 0;
+            left:0;
+            z-index: 999;
+
+        }
+    }
+}
+.rounds{
+
+    .carousel{
+        .carousel-item{
+            text-align: center;
+
+
+            .product-image{
+                .inline-block(middle);
+                margin: 2%;
+                line-height:300px;
+                width: 300px;
+                overflow: hidden;
+                .box-shadow(0px 0px 22px -7px @theme-color-black);
+                .border-radius(50%);
+                background: @primary-color;
+
+                @media only screen and (max-width : 1060px) and (min-width : @responsive-size-tablet){
+                    line-height:235px;
+                    width: 235px;
+                }
+
+                img{
+                    max-height: 300px;
+                    margin-bottom: -70px;
+                    @media only screen and (max-width : 1060px) and (min-width : @responsive-size-tablet){
+                        max-height: 235px;
+                    }
+                }
+
+            }
+
+//            &.middle-slide{
+//                .transform(1.2);
+//                border: 1px solid #f00;
+//            }
+        }
+    }
+}
+
+#filmroll{
+    li{
+        float: left;
+    }
+}
+
+.le-domain-wrap{
+    .carousel{
+        overflow: hidden;
+        margin-bottom: -235px;
+        margin-top: 100px;
+
+        @media only screen and (max-width : @responsive-size-mobile) {
+
+            margin-top: 0;
+        }
+    }
+}

@@ -1,0 +1,299 @@
+// Table of Content
+//==================================================
+//	Custom style
+//	Search form
+//==================================================
+
+// [type="text"], [type="password"], [type="email"], [type="search"], [type="tel"], [type="url"], [type="date"], [type="datetime"], [type="datetime-local"], [type="time"], [type="month"], [type="week"], [type="number"]
+
+//	Custom style
+//==================================================
+form{
+    .clearfix-mixin();
+
+
+    &[name="contactform"]{
+        background: @theme-nav-gray;
+        border-top: 5px solid @brand-primary ;
+        padding: 2em;
+
+        >div{
+            margin-bottom: 1em;
+            overflow: hidden;
+        }
+    }
+
+    fieldset{
+
+        &.unstyled{
+            padding : 0;
+            border  : 0;
+
+            legend{
+                width         : 100%;
+                padding       : 0;
+                margin-bottom : 1em;
+                font-weight   : @heading-weight;
+            }
+        }
+
+        legend{
+            font-size : @font-size-large;
+        }
+    }
+
+    p{
+        .clearfix-mixin();
+    }
+
+    // -- Recaptcha & Captcha style
+    .captcha{
+
+        .captcha_image{
+            width         : 65% !important;
+            height        : auto !important;
+            float         : left;
+            text-align    : center;
+            padding-right : 10px;
+
+            aside &{
+                width : 100% !important;
+            }
+        }
+
+        label, input{
+            float       : left;
+            width       : 35%;
+            font-weight : normal;
+            font-size   : @font-size-small;
+
+
+            aside &{
+                width : 100%;
+            }
+        }
+
+        .recaptcha_links{
+            clear       : both;
+            font-size   : @font-size-small;
+            padding-top : 1em;
+
+            a + a{
+                border-left  : 1px solid @gray;
+                padding-left : 1em;
+                margin-left  : 1em;
+            }
+        }
+    }
+
+    // -- Buttons
+    [type="submit"]{
+        float : right;
+        padding: 0.5em 5%;
+        font-size: 1.25em;
+        text-transform: uppercase;
+
+        &:hover{
+        }
+    }
+}
+
+
+
+
+label, .label{
+    display       : block;
+    margin-bottom : 0.25em;
+    text-transform: capitalize;
+
+    &[for]{
+        cursor : pointer;
+    }
+
+    &[class*="grid_"]{
+        margin-bottom : 0;
+        font-size: 1.15em;
+    }
+
+    .label-inline &{
+        margin-bottom : 0;
+        line-height   : unit(@button-line-height * 2, em);
+    }
+
+    &.required:after{
+        color   : @brand-error;
+        content : ' *';
+    }
+}
+
+.notvalid{
+    color : @brand-error !important;
+}
+
+.filtering-form{
+    ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    >ul{
+        >li{
+            margin-bottom: 20px;
+
+           ul{
+               background: @theme-nav-gray;
+               padding: 10px;
+           }
+
+        }
+    }
+
+    .filter-header{
+        text-transform: uppercase;
+        font-size: 2em;
+        margin-bottom: 0.25em;
+    }
+}
+
+
+
+
+
+select, textarea, input{
+    font-family      : @font-family-text;
+    border-width     : @input-border-width;
+    border-style     : solid;
+    border-color     : @input-border-color;
+    background-color : @input-bg;
+    color            : @input-color;
+    .border-radius(@input-border-radius);
+    .box-shadow(1px 1px 3px @gray-light inset, @input-inner-shadow);
+    & when (@button-transition){
+        .transition(all; 0.3s);
+    }
+    margin-bottom: 1em;
+
+    //&:focus:not([type="submit"]):not([type="button"]){
+    &:focus{
+        & when not(@input-bg-focus = @input-bg){
+            background : @input-bg-focus;
+        }
+        & when not(@input-border-color-focus = @input-border-color){
+            border-color : @input-border-color-focus;
+        }
+        .box-shadow(0 0 @input-shadow-size @input-border-color-focus; @input-shadow-focus);
+    }
+
+    &.success, &.warning, &.error, &.info{
+        & when (@form-colors){
+            color : @input-color;
+        }
+    }
+    &.success when (@form-color-success) and (@form-colors){
+        border-color : @brand-success;
+        &:focus{
+            .box-shadow(0 0 @input-shadow-size @brand-success; @input-shadow-focus);
+        }
+    }
+    &.warning when (@form-color-warning) and (@form-colors){
+        border-color : @brand-warning;
+        &:focus{
+            .box-shadow(0 0 @input-shadow-size @brand-warning; @input-shadow-focus);
+        }
+    }
+    &.error, &.notvalid{
+        & when (@form-color-error) and (@form-colors){
+            border-color : @brand-error;
+            &:focus{
+                .box-shadow(0 0 @input-shadow-size @brand-error; @input-shadow-focus);
+            }
+        }
+    }
+    &.info when (@form-color-info) and (@form-colors){
+        border-color : @brand-info;
+        &:focus{
+            .box-shadow(0 0 @input-shadow-size @brand-info; @input-shadow-focus);
+        }
+    }
+
+    &[disabled], [disabled] &, &[disabled]:focus, &.noedit, &.noedit:focus{
+        border-color : darken(@input-bg-disabled, 10%) !important;
+        background   : @input-bg-disabled !important;
+        color        : darken(@input-bg-disabled, 30%) !important;
+        .box-shadow(none) !important;
+    }
+}
+
+input, select{
+    padding     : 0 .5em;
+    height      : unit(@input-line-height * 3, em);
+    line-height : unit(@input-line-height * 3, em) - 1;
+}
+
+select{
+    option{
+//        color : @text-color;
+    }
+}
+
+textarea{
+    padding    : .5em;
+    min-height : 5em;
+
+    &.resize{
+        .resize(vertical);
+    }
+}
+
+.forgot-password, .retrieveFormBlock > form + a{
+    float      : left;
+    margin-top : -(@button-height-base - @padding-base-vertical);
+}
+
+
+.review-form{
+    display: none;
+    margin-bottom: 50px;
+}
+
+#productquantity{
+    height: 2.55em;
+}
+
+.store-coupon {
+    .btn {
+        padding: 0 5%;
+        font-size: 1em;
+        border: 1px solid @brand-primary;
+        color: @gray-dark;
+        background-color: transparent;
+
+        &:hover {
+            background: @brand-primary;
+            color: @primary-color;
+        }
+
+    }
+}
+
+
+
+// -- Checkbox & Radio field style
+.checkboxRadioStyle();
+
+// Search Form Styles
+//==================================================
+@import "../widgets/search_form";
+
+// Form builder elements Styles
+//==================================================
+@import "../widgets/form_builder";
+
+// Form labeled elements Styles
+//==================================================
+@import "../feature/form/labeled";
+
+// Form labeled elements Styles
+//==================================================
+@import "../feature/form/input-label";

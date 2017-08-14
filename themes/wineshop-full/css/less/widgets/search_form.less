@@ -1,0 +1,65 @@
+//	Search form
+//==================================================
+#search-form when (@widget-search){
+
+    margin-top: 2.1em;
+
+    @media only screen and (max-width : 1060px) and (min-width : @responsive-size-tablet){
+       margin-top: 1.35em;
+
+    }
+
+    p{
+        float  : left;
+        width  : 40%;
+        margin : 0;
+
+        &:first-child{
+            width : 60%;
+        }
+    }
+
+    .icon{
+        &:before{
+            display: none;
+            position: absolute;
+            font-size: 1.75em;
+            width: 1.35em;
+            line-height: 1.35em;
+        }
+    }
+
+
+    input{
+    }
+
+    [type="text"]{
+        border-width: 0 0 1px 0;
+        border-style: solid;
+        border-color: @theme-color-black;
+        background: @theme-nav-gray;
+
+
+        &:focus{
+            border-color: @brand-primary;
+            .box-shadow(0px 0px 0px 0px transparent);
+        }
+    }
+
+    [type="submit"]{
+        width         : 100%;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+
+        font-family: @font-family-open-sans;
+        text-transform: uppercase;
+        font-size: 1.35em;
+        font-weight: lighter;
+        color: @theme-color-black;
+
+        &:focus{
+            .box-shadow(0px 0px 0px 0px transparent);
+        }
+    }
+}

@@ -1,0 +1,33 @@
+// Basic Styles
+//==================================================
+@import "../_work_space/basic";
+
+// Form Styles
+//==================================================
+@import "../components/form";
+
+// Gallery Styles
+//==================================================
+@import "../widgets/gallery";
+
+// Image Rotator
+//==================================================
+@import "../widgets/rotator";
+
+// Directupload
+//==================================================
+@import "../widgets/directupload";
+
+//Style for responsive
+//==================================================
+& when (@responsive){
+    @import "../mediaqueries/responsive";
+}
+
+//Style for responsive
+//==================================================
+& when (@print){
+    @media only print{
+        @import "../mediaqueries/print";
+    }
+}

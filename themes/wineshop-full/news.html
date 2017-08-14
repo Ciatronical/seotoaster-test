@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Include head template -->
+        {$template:_head}
+    </head>
+    <body>
+    <!-- Include header template -->
+    {$template:_header}
+        <!-- Container -->
+        <div id="page" class="container padding-tb">
+
+            <h1 class="text-left" role="heading">
+                <span class="sublined">{$page:h1}</span>
+            </h1>
+
+            <!-- Content box -->
+            <section class="grid_9" role="main">
+                <!-- news content -->
+                {newscontent}
+                {repeat:Article blocks:key}
+                <article>
+                    <h2>{$header:content_key}</h2>
+                    {$content:content_key1}
+                    {$content:content_key2}
+                </article>
+                {/repeat}
+                {/newscontent}
+            </section>
+
+            <!-- Right box -->
+            <aside class="grid_3" role="complementary">
+                {repeat:Aside right box:key:1}
+                <section class="aside-box">
+                    <h3>{$header:right_key}</h3>
+                    {$content:right_key}
+                </section>
+                {/repeat}
+            </aside>
+
+
+        </div>
+    <!-- Footer -->
+    <!-- Include Footer template -->
+    {$template:_footer}
+        <!-- Include mobile elements template -->
+        {$template:_mobile elements}
+
+        <!-- Include scripts template -->
+        {$template:_scripts}
+    </body>
+</html>

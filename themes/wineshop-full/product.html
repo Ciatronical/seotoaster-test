@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include head template -->
+    {$template:_head}
+</head>
+<body>
+
+<!-- Include header template -->
+{$template:_header}
+<!-- Container -->
+<main class="container">
+
+
+    <article class="clearfix product padding-tb" itemscope="" itemtype="http://schema.org/Product">
+
+
+
+        <section class="grid_12">
+            <h1 class="grid_12 product-name text-left " role="heading" itemprop="name">
+                <span class="sublined">{$product:name}</span>
+            </h1>
+            <section class="grid_4 t-grid_3">
+
+
+
+                {$product:editproduct}
+                <a class="_lbox product-image" href="{$product:photourl:original}">
+                    <img itemprop="image" src="{$product:photourl:medium}" alt="{$product:name}"/>
+                </a>
+                <p class="h3">{$header:product-gallery:static}</p>
+                {$content:product-gallery}
+
+
+
+
+
+                {$plugin:pagerating:review:modereted:nocaptcha}
+
+                <a href="#" class="btn comment">{$header:write-comment:static}</a>
+
+                <script>
+                    $('.comment').on("click", function(){
+
+                        event.preventDefault();
+
+                        $('.review-form').slideToggle();
+
+                        $('html, body').animate({
+                            scrollTop: $(".review-form").offset().top
+                        }, 2000);
+                    });
+                </script>
+                <br/><br/>
+
+                {$content:content-product:static}
+
+
+            </section>
+
+
+
+
+
+            <section class="grid_8 t-grid_3" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <div class="mb15px clearfix">
+                    <span itemprop="price" content="{$product:price:nocurrency}" class="product-price grid_12 alpha h2">{$product:price}</span>
+                    <span itemprop="priceCurrency" content="{$plugin:shopping:currency}"></span>
+
+
+                    <input id="productquantity" class="grid_2 t-grid_2 m-grid_1 t-alpha m-alpha " type="text" name="productquantity-{$product:id}" value="1"/>
+                    <div class="grid_10 t-grid_4 m-grid_3 t-omega m-omega omega text-left">{$store:addtocart:{$product:id}}</div>
+                </div>
+                <div class="product-options">
+                    {$product:options}
+                </div>
+                <p class="product-description-short" itemprop="description">{$product:description}</p>
+
+                <div class="product-description-full" itemprop="description">
+                    <h3>{$header:desc1:static}</h3>
+                    {$content:desc-content1}
+                    <h3>{$header:desc2:static}</h3>
+                    {$content:desc-content2}
+                    <h3>{$header:desc3:static}</h3>
+                    {$content:desc-content3}
+                    <h3>{$header:desc4:static}</h3>
+                    {$content:desc-content4}
+                </div>
+
+
+            </section>
+
+        </section>
+
+
+
+
+        <!--<section class="grid_3 product-sidebar t-hide m-hide hide">-->
+
+        <!--    <h2 class="text-right">-->
+        <!--        <span class="sublined  ">{$header:prod-pack:static}</span>-->
+        <!--    </h2>-->
+
+        <!--    <div  class="carousel vert"-->
+        <!--        data-elscroll=".product-item"-->
+        <!--        data-vertical="false"-->
+        <!--        data-visible="1"-->
+        <!--        data-visibletablet="3"-->
+        <!--        data-visiblemobile="1"-->
+        <!--        data-size="1"-->
+        <!--        data-margin="20"-->
+        <!--        data-speed="800"-->
+        <!--        data-scrolling="true"-->
+        <!--        data-scrolltime="6000"-->
+        <!--        data-prev="true"-->
+        <!--        data-next="true"-->
+        <!--            >-->
+
+        <!--        {$productlist:_product list pack:tagnames-Pack}-->
+        <!--    </div>-->
+
+        <!--    {$product:options}-->
+        <!--</section>-->
+
+        <section class="grid_12">
+
+
+
+
+             {$filter:builder}
+        </section>
+    </article>
+
+
+</main>
+<!-- Footer -->
+<!-- Include Footer template -->
+{$template:_footer}
+<!-- Include mobile elements template -->
+{$template:_mobile elements}
+
+<!-- Include scripts template -->
+{$template:_scripts}
+</body>
+</html>

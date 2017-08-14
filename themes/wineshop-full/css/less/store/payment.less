@@ -1,0 +1,101 @@
+#payment-zone{
+
+    h4 {
+        text-transform: uppercase;
+    }
+
+
+    form.paymentForm{
+        margin-bottom : 2 * @font-size-base;
+        .inline-block-wrap(top);
+
+        h4{
+            font-size     : 1.3 * @font-size-base;
+            color         : @heading-color;
+            font-weight   : @heading-weight;
+            border-bottom : 1px solid @gray-light;
+            padding       : 0 0 0.25em;
+            margin        : 0 0 0.5em;
+            display       : block;
+
+
+            & + fieldset{
+                margin-right : 2*@grid-margin-width;
+                margin-left  : 0;
+            }
+        }
+
+        & > fieldset{
+            .grid-elements(2; 2*@grid-margin-width; true; 1; 1);
+        }
+
+        legend{
+            font-size     : 1.1em;
+            font-weight   : bold;
+            color         : lighten(@heading-color, 10%);
+            padding       : 0;
+            margin-bottom : 0.5em;
+            display       : block;
+        }
+
+        .shipping-to-billing-label{
+            width        : auto;
+            min-height   : unit(@button-line-height * 2, em)-0.25em;
+            margin-right : 5px;
+        }
+
+        .card-verification-label{
+            width : 60%;
+        }
+
+        .card-verification-payment{
+            width : 40%;
+        }
+
+        .card-expiration{
+            margin-right : 3%;
+            width        : 22%;
+        }
+
+        .card-expiration-year{
+            width : 40%;
+        }
+
+    }
+
+    form.payment-button{
+        margin-bottom : 2em;
+
+        legend{
+            font-size     : 1.25 * @font-size-base;
+            color         : @heading-color;
+            font-weight   : @heading-weight;
+            border-bottom : 1px solid @gray-light;
+            padding       : 0 0 0.25em;
+            margin        : 0 0 0.5em;
+            display       : block;
+            width         : 100%;
+        }
+
+        input[type='image']{
+            padding : 0;
+            border  : none;
+            float   : none;
+            width   : auto;
+            height  : auto;
+        }
+
+        input[type='submit']{
+            float : none;
+        }
+
+        img{
+            vertical-align : top;
+        }
+
+        .seo-tip{
+            clear      : both;
+            margin-top : 0.5em;
+        }
+    }
+}

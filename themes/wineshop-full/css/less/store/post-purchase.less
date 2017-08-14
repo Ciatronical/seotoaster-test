@@ -1,0 +1,51 @@
+.post-purchase{
+    overflow : hidden;
+
+    h3.post-purchase-report-customer-order-id{
+        margin-bottom : 0.25em;
+    }
+
+    p.createdOrderDate{
+        border-bottom : 1px solid @gray-light;
+    }
+
+    .post-purchase-report-billing, .post-purchase-report-shipping{
+        margin-bottom : 2em;
+
+        h4{ }
+    }
+
+    & when (@responsive){
+        @media only screen and (min-width : (@responsive-size-tablet + 1)){
+            .post-purchase-report-billing,
+            .post-purchase-report-shipping{
+                float : left;
+                width : 48%;
+            }
+
+            .post-purchase-report-billing{
+                margin-right : 4%;
+            }
+        }
+    }
+
+}
+
+//  summary block
+.post-purchase-report-summary{
+    & when (@responsive){
+        @media only screen and (min-width : (@responsive-size-tablet + 1)){
+            &{
+                float : right;
+                width : 24%;
+            }
+        }
+
+        @media only screen and (min-width : (@responsive-size-mobile + 1)) and (max-width : @responsive-size-tablet){
+            &{
+                float : right;
+                width : 49%;
+            }
+        }
+    }
+}

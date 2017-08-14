@@ -1,0 +1,152 @@
+.main_menu when (@menu-main){
+    position : relative;
+    z-index  : 11;
+    margin-left: 80px;
+
+    @media only screen and (max-width : 1060px) and (min-width : @responsive-size-tablet){
+       margin-left: 50px;
+
+    }
+
+
+    & when not(@nav-bg = transparent){
+        background : @nav-bg;
+    }
+    & when not(@nav-color = @link-color){
+        color : @nav-color;
+    }
+
+    & > li{
+        float    : left;
+        position : relative;
+        .transition(all,0.5s,ease,0s);
+
+        &:hover{
+            > a{
+                color : @nav-color-li-current;
+            }
+
+            & when not(@nav-bg = @nav-bg-li-hover){
+                background : @nav-bg-li-hover;
+            }
+            & when not(@nav-color = @nav-color-li-hover){
+                color : @nav-color-li-hover;
+            }
+
+            ul{
+                display : block;
+            }
+        }
+        // TODO Why we had this property for the tag 'a'?
+        //& > a when (@responsive){
+        //    float : left;
+        //}
+    }
+
+    a{
+        .inline-block(middle);
+        padding: 2.1em 25px;
+        font-family: @font-family-open-sans;
+        text-transform: uppercase;
+        font-size: 1.35em;
+        font-weight: lighter;
+        .transition(all,0.5s,ease,0s);
+
+
+        @media only screen and (max-width : 1060px) and (min-width : @responsive-size-tablet){
+            padding: 2.1em 15px;
+            font-size: 1.15em;
+
+        }
+
+
+        & when not(@nav-color = @link-color){
+            color : @theme-color-black;
+        }
+
+        &.current{
+            & when (@nav-bg-li-hover = @nav-bg-li-current){
+                &:extend(.main_menu > li:hover);
+                color : @nav-color-li-current;
+            }
+
+            & when not(@nav-bg-li-hover = @nav-bg-li-current){
+                background : @nav-bg-li-current;
+            }
+            & when not(@nav-color-li-hover = @nav-color-li-current){
+                color : @nav-color-li-current;
+            }
+        }
+    }
+
+    ul{
+        position   : absolute;
+        left       : 0;
+        top        : 100%;
+        z-index    : 0;
+        display    : none;
+        width      : 300px;
+        background : @nav-drop-down-list-bg;
+        & when not(@nav-drop-down-list-color = @nav-color){
+            color : @nav-drop-down-list-color;
+        }
+        .box-shadow(0 3px 5px @gray-dark);
+
+        &.open:extend(.mobile-menu ul.open){}
+
+        li{
+            float : none;
+
+            &:hover{
+                & when not(@nav-drop-down-list-bg-hover = @nav-bg-li-hover)
+                   and not(@nav-drop-down-list-bg-hover = @nav-drop-down-list-bg){
+                    background : @nav-drop-down-list-bg-hover;
+                }
+                & when not(@nav-drop-down-list-color-hover = @nav-drop-down-list-color)
+                   and not(@nav-drop-down-list-color-hover = @nav-color-li-hover){
+                    color : @nav-drop-down-list-color-hover;
+                }
+            }
+
+            a{
+                &.current{
+                    & when (@nav-drop-down-list-color-hover = @nav-drop-down-list-color-current){
+                        &:extend(.main_menu ul li:hover);
+                    }
+
+                    & when not(@nav-drop-down-list-bg-current = @nav-drop-down-list-bg)
+                       and not(@nav-drop-down-list-bg-current = @nav-drop-down-list-bg-hover){
+                        background : @nav-drop-down-list-bg-current;
+                    }
+                    & when not(@nav-drop-down-list-color-current = @nav-drop-down-list-color)
+                       and not(@nav-drop-down-list-color-current = @nav-drop-down-list-color-hover){
+                        color : @nav-drop-down-list-color-current;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.go-home{
+    width:80px;
+    .inline-block(middle);
+    float: left;
+
+    padding: 1.225em 0;
+    font-size: 30px;
+    line-height: 1;
+    text-align: center;
+    .transition(all,0.5s,ease,0s);
+
+
+    @media only screen and (max-width : 1060px) and (min-width : @responsive-size-tablet){
+        width: 50px;
+
+    }
+
+    &:hover{
+        background: @brand-primary;
+        color: @primary-color;
+    }
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+        <title>{$page:title}</title>
+        <meta name="keywords" content="{$meta:keywords}">
+        <meta name="description" content="{$meta:description}">
+
+        <!-- Mobile Specific Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+        <!-- Add to homescreen for Chrome on Android -->
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <!-- Add to homescreen for Safari on iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="{$page:title}">
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144.png">
+        <meta name="msapplication-TileColor" content="#3372DF">
+
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" href="images/apple-icon.png">
+
+        <!-- Generic Icon -->
+        <link rel="icon" href="images/favicon.ico">
+        <!--[if IE]>
+        <link rel="shortcut icon" href="images/favicon.ico"><![endif]-->
+
+        <!-- CSS -->
+        {concatcss}
+        <link href="css/reset.css" rel="stylesheet" media="screen">
+        <link href="css/content.css" rel="stylesheet" media="screen">
+        <link href="css/nav.css" rel="stylesheet" media="screen">
+        <link href="css/style.css" rel="stylesheet" media="screen">
+        <!-- Shopping css -->
+        <link href="css/store.css" rel="stylesheet" media="screen">
+        <!-- Additional css -->
+        <link href="css/skeleton-ui.css" rel="stylesheet" media="screen">
+        {/concatcss}
+        <link href='//fonts.googleapis.com/css?family=Asap%7CArchivo+Narrow:400,700' rel='stylesheet' type='text/css'  media="screen">
+
+        <!-- HTML5shiv and selectivizr.js IE support of HTML5 elements and CSS3 pseudo-classes, attribute selectors -->
+        <!--[if lt IE 9]>
+        <script src="js/system/ie-pack.js"></script><![endif]-->
+
+    </head>
+    <body class="{$mobile:device}">
+        <!-- Top bar for mobile, with button show/hide menu -->
+        <div class="top-block clearfix d-hide">
+            <label data-menu=".main_menu" data-menu-position="left" class="menu-btn fl-left icon-list2 btn large"></label>
+            <a class="h2 logo d-hide current" href="{$website:url}" title="{$page:h1}">
+                {$plugin:widcard:BizOrgName:notag}
+            </a>
+            <label data-menu=".toaster-cart" data-menu-position="right" class="menu-btn fl-right icon-cart2 btn large"></label>
+        </div>
+
+        <!-- Container -->
+        <div id="container" class="container">
+            <!-- Header -->
+            <header class="grid_12" role="banner">
+                <div class="logo h1 grid_5 alpha t-hide m-hide">
+                    <a href="{$website:url}" title="{$page:h1}">
+                        <img src="{$plugin:widcard:bizLogo:url}" alt="{$plugin:widcard:BizOrgName:notag}">{$plugin:widcard:BizOrgName:notag}
+                    </a>
+                </div>
+                <div class="grid_7 omega mt30px">{$store:cartblock}</div>
+            </header>           
+
+            <!-- Main Menu -->
+            <nav id="main-menu" class="grid_12 mb20px">
+                <div class="grid_9 alpha" role="navigation">{$menu:main:main menu}</div>
+                <div class="grid_3">{$search:form}</div>
+            </nav>
+            
+            <h1 class="grid_12 h2 page-header">{$page:h1}</h1>
+
+            <!-- Content box -->
+            <div id="content" class="grid_6 productchangebox">
+                {$search:results}
+                {$content:content11}
+                {$content:content12}
+                <h2>{$header:content2}</h2>
+                {$content:content21}
+                {$content:content22}
+                <h2>{$header:content3}</h2>
+                {$content:content31}
+                {$content:content32}
+            </div>
+
+            <!-- Right box -->
+            <aside id="right" class="grid_6" role="complementary">
+                <ul class="list-unstyled toaster-cart-box">
+                    {toastercart}
+                    <li class="item">
+                        <div class="grid_3 alpha product-image">{$cartitem:photo:crop}</div>
+                        <div class="grid_8 h4 omega product-name">{$cartitem:name}</div>
+                        <div class="grid_1 omega text-right  product-remove">{$cartitem:remove}</div>
+                        <div class="grid_9 omega product-price">{$cartitem:price}</div>
+                    </li>
+                    {/toastercart}
+                </ul>
+                <div class="toaster-cart-header">{$header:toastercart:static}</div>
+                <div class="right-box">
+                    <h3>{$header:right2:static}</h3>
+                    {$content:right2:static}
+                </div>
+                <div class="right-box">
+                    <h3>{$header:right3:static}</h3>
+                    {$content:right3:static}
+                </div>
+            </aside>
+
+            <!-- Footer -->
+            <footer class="grid_12 mt30px">
+                <div class="grid_5 mb10px alpha">{$menu:flat}</div>
+                {device:desktop}
+                <ul class="grid_7 t-hide m-hide omega news-list list-unstyled cycle-slideshow"
+                        data-cycle-slides=".news-item"
+                        data-cycle-fx="scrollHorz"
+                        data-cycle-max-z="10"
+                        data-cycle-pause-on-hover="true">
+                {newslist:footer}
+                    <li class="news-item slide">
+                        <div class="news-date">{$news:date: d M}</div>
+                        <a class="h3 news-title" href="{$news:url}">{$news:title}</a>
+                        <p class="news-description">{$news:teaser}</p>
+                    </li>
+                {/newslist}
+                </ul>
+                {/device}
+                <!-- Footer info -->
+                <div class="grid_12 mt10px text-center">{$content:footer-info:static}</div>
+            </footer>
+        </div>
+
+        <!-- SCRIPTS ZONE -->
+        <script>
+            $(function () {
+            });
+        </script>
+        <script src="js/plugin/jquery.cycle2.min.js"></script>
+        <script src="js/scripts.min.js"></script>
+        <script src="js/system/skeleton.min.js"></script>
+    </body>
+</html>

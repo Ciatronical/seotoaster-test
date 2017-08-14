@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Include head template -->
+        {$template:_head}
+    </head>
+    <body>
+    <!-- Include header template -->
+    {$template:_header}
+        <!-- Container -->
+        <div id="page" class="container">
+
+
+
+            <h1 class="hidden-el" role="heading">{$page:h1}</h1>
+
+            <!-- Content box -->
+            <section class="grid_12 contact padding-tb" role="main">
+                <h2 class="text-left">
+                    <span class="sublined">{$header:contact-title}</span>
+                </h2>
+                {$content:contact1}
+                <div class="grid_8 alpha mt30px">
+
+
+                    <div class="grid_10 prefix_1 suffix_1">
+                        {$form:contact-form:recaptcha:custom}
+                    </div>
+
+
+                </div>
+                <div class="grid_4 omega mt30px map">
+                    {$plugin:gmaps:bizlocation:1200:300:15}
+                    <h3>{$header:contact2}</h3>
+                    <p class="">
+                        <strong>Address: </strong>{$plugin:widcard:BizAddress1}{$plugin:widcard:BizAddress2}, {$plugin:widcard:BizCity}, {$plugin:widcard:BizState} {$plugin:widcard:BizZip}<br />
+                        <strong>Phone: </strong>{$plugin:widcard:BizTelephone}<br />
+                        <strong>Email: </strong><a href="mailto:{$plugin:widcard:BizEmail:notag}">{$plugin:widcard:BizEmail}</a>
+                    </p>
+                    <h3>{$header:contact3}</h3>
+                    {$content:contact2}
+                </div>
+            </section>
+
+
+        </div>
+        <!-- Footer -->
+        <!-- Include Footer template -->
+        {$template:_footer}
+        <!-- Include mobile elements template -->
+        {$template:_mobile elements}
+
+        <!-- Include scripts template -->
+        {$template:_scripts}
+    </body>
+</html>

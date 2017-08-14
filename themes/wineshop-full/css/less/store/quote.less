@@ -1,0 +1,171 @@
+// quote form on the checkout page
+form.toaster-quote{
+    #checkout-widget &, .product & {
+        margin-bottom : 2em;
+
+        // usual widget {$ quote : form}
+        & > fieldset{
+            .grid-elements(2; 2*@grid-margin-width; true; 1; 1);
+            float : left;
+        }
+
+        .captcha{
+            clear : both;
+        }
+
+        //specific widget like  { $ quote:form:firstname*:lastname:city:zip:email*:phone:address1}
+        @media only screen and (min-width : (@responsive-size-tablet + 1)){
+            & > p when (@responsive){
+                float : left;
+                width : 48%;
+
+                &:nth-child(odd){
+                    margin-right : 4%;
+                }
+            }
+        }
+    }
+    .product & {
+        fieldset {
+            border: none;
+            padding: 0;
+        }
+    }
+
+}
+
+
+
+
+// Quote
+//==================================================
+#quote-search{
+    padding : 7px;
+    width   : 700px;
+    display : block;
+    margin  : 0 auto;
+}
+
+.ui-menu{
+    z-index : 55 !important;
+}
+
+#storeinfo{
+    text-align : right;
+
+    h1{
+        font-size   : 2em;
+        font-weight : bold;
+        margin      : 0;
+    }
+
+    p{
+        margin : 0;
+    }
+}
+
+// quote-info
+//==================================================
+.quote-info{
+    margin-bottom : 2em;
+
+    @media only screen and (min-width : (@responsive-size-tablet + 1)){
+        & when (@responsive){
+            float : left;
+            width : 48%;
+        }
+
+        &:first-child when (@responsive){
+            margin-right : 4%;
+        }
+    }
+
+    & > p{
+        margin : 0;
+    }
+
+    p.title{
+        font-size      : 1.5em;
+        color          : @heading-color;
+        border-bottom  : 1px solid @gray-light;
+        padding-bottom : 0.25em;
+        margin-bottom  : 0.5em;
+    }
+
+    fieldset{
+        margin  : 0;
+        padding : 0;
+        border  : none;
+
+        & > p{
+            margin-bottom : 0.5em;
+            .clearfix-mixin();
+        }
+    }
+
+    label{
+        margin : 0.25em 0 0;
+        float  : left;
+        width  : 35%;
+
+        &[for='same-for-shipping']{
+            width        : auto;
+            margin-right : 5px;
+        }
+    }
+
+    input,
+    select,
+    textarea{
+        float : left;
+        width : 65%;
+    }
+}
+
+//===============quote-details=================
+#quote-details{
+    clear : both;
+
+    h2{
+        margin-bottom : 5px;
+    }
+
+    input{
+        width   : auto;
+        height  : auto;
+        padding : 5px;
+    }
+
+    span{
+        color : #000;
+    }
+}
+
+// Quote admin-panel
+//==================================================
+#quoteControlls{
+    height : 70px;
+
+    .quote-controlls{
+        .rgba(rgb(170, 170, 170), 0.8);
+        border-top : 5px solid #888;
+        bottom     : 0;
+        left       : 0;
+        padding    : 10px 0;
+        position   : fixed;
+        width      : 100%;
+        z-index    : 10;
+        text-align : center;
+    }
+
+    .quote-search{
+        width     : 500px;
+        padding   : 5px;
+        font-size : 18px;
+        color     : #666;
+        border    : 1px solid #ddd;
+    }
+}
+
+
+

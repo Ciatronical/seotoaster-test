@@ -1,0 +1,10 @@
+<div class="product-item text-center pack">
+	<a href="{$product:url}" class="product-image">
+		<img src="{$product:photourl:small}" alt="{$product:name}" />
+	</a>
+    <br/>
+	<a class="product-title" href="{$product:url}">{$product:name}</a>
+    {$textonly:pack-text-{$product:id}}
+
+	{$store:addtocart:{$product:id}}
+</div>

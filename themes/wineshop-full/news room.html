@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Include head template -->
+        {$template:_head}
+    </head>
+    <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Include header template -->
+    {$template:_header}
+        <!-- Container -->
+        <div id="page" class="container padding-tb">
+
+
+            <h1 class="text-left">
+                <span class="sublined">{$page:h1}</span>
+            </h1>
+            <!-- Content box -->
+            <section class="grid_9 t-grid_4" role="main">
+                <!-- news list -->
+           {$newslist:_news list:asc}
+            </section>
+
+            <!-- Right box -->
+            <aside class="grid_3 t-grid_2" role="complementary">
+
+                <div class="fb-page m-hide" data-href="https://www.facebook.com/seosamba.software/timeline/" data-width="300" data-height="375" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
+
+
+
+
+                {repeat:Aside right box:key:1}
+                <section class="aside-box">
+                    <h3>{$header:right_key}</h3>
+                    {$content:right_key}
+                </section>
+                {/repeat}
+
+                <!--{$ imageonly:newsroom-img:original:static}-->
+            </aside>
+
+
+        </div>
+        <!-- Footer -->
+        <!-- Include Footer template -->
+        {$template:_footer}
+        <!-- Include mobile elements template -->
+        {$template:_mobile elements}
+
+        <!-- Include scripts template -->
+        {$template:_scripts}
+    </body>
+</html>

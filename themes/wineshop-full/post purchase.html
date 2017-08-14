@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Include head template -->
+        {$template:_head}
+    </head>
+    <body>
+    <!-- Include header template -->
+    {$template:_header}
+        <!-- Container -->
+        <div id="container" class="container padding-tb">
+
+
+
+            <h1 class="text-left" role="heading">
+                <span class="sublined">
+                    {$page:h1}
+                </span>
+            </h1>
+
+            <!-- Content box -->
+            <main id="content" class="grid_12" role="main">
+                <!--{$ store:postpurchasereport::mpn,sku:MPN,SKU}-->
+                {postpurchasecode}
+                <div class="post-purchase">
+                    <h3 class="post-purchase-report-customer-order-id">Order number # {$postpurchase:id}</h3>
+
+                    <p class="createdOrderDate">{$postpurchase:createdAt}</p>
+
+                    <div class="post-purchase-report-billing">
+                        <h4 class="title">Billing Address:</h4>
+
+                        <div class="post-purchase-report-billing-address">
+                            <span>{$postpurchase:billing:firstname}</span>
+                            <span>{$postpurchase:billing:lastname}</span>
+                            <br>
+                            <span class="street-address">{$postpurchase:billing:address1}</span>
+                            <br>
+                            <span class="locality">{$postpurchase:billing:city},</span>
+                            <span class="region">{$postpurchase:billing:state},</span>
+                            <span class="postal-code">{$postpurchase:billing:zip}</span>
+                            <br>
+                            <span>{$postpurchase:billing:country}</span>
+                            <br>
+                            <span>Phone: {$postpurchase:billing:phone}</span>
+                            <br>
+                            <span>Email: {$postpurchase:billing:email}</span>
+                            <!--br>
+                            <span>Payment Method					: Authorize</span-->
+                        </div>
+                    </div>
+
+                    <div class="post-purchase-report-shipping">
+                        <h4 class="title">Shipping Address			:</h4>
+
+                        <div class="post-purchase-report-shipping-address">
+                            <span>{$postpurchase:shipping:firstname}</span>
+                            <span>{$postpurchase:shipping:lastname}</span>
+                            <br>
+                            <span class="street-address">{$postpurchase:shipping:address1} </span>
+                            <br>
+                            <span class="locality">{$postpurchase:shipping:city},</span>
+                            <span class="region">{$postpurchase:shipping:state},</span>
+                            <span class="postal-code">{$postpurchase:shipping:zip}</span>
+                            <br>
+                            <span>{$postpurchase:shipping:country}</span>
+                            <br>
+                            <span>Phone: {$postpurchase:shipping:phone}</span>
+                            <br>
+                            <span>Mobile: {$postpurchase:shipping:mobile}</span>
+                            <br>
+                        </div>
+                    </div>
+                    <div style="clear:both"></div>
+                    <table class="post-purchase-report cart-content">
+                        <thead>
+                            <tr>
+                                <th  class="product-info" colspan="2">Product</th>
+                                
+                                <th style="padding:5px;">Code</th>
+                                <th class="product-unit-price">Price</th>
+                                <th class="product-qty">Qty</th>
+                                <th class="product-total">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {postpurchasecartcontent:name}
+                            <tr>
+                                <td class="product-img">
+                                    {$postpurchase:cartitem:photo:product}
+                                </td>
+                                 <td class="product-info">
+                                    <span class="post-purchase-report-product-name">{$postpurchase:cartitem:name}</span>
+                                    <br>
+                                    <span class="post-purchase-report-product-options">
+                                        {$postpurchase:cartitem:options:cleanOptionPrice}
+                                    </span>
+                                </td>
+                                <td class="product-sku">
+                                    {$postpurchase:cartitem:sku}
+                                </td>
+                               
+                                <td class="product-unit-price">
+                                    {$postpurchase:cartitem:price} </td>
+                                <td class="product-qty">{$postpurchase:cartitem:qty}</td>
+                                <td class="product-total">
+                                    {$postpurchase:cartitem:total} </td>
+                            </tr>
+                        {/postpurchasecartcontent}
+                        </tbody>
+                    </table>
+
+                    <div class="post-purchase-report-summary">
+                        <h3 class="summary-title">Summary</h3>
+
+                        <div class="post-purchase-row cart-subtotal">
+                            <span>Sub-Total:</span>
+                            <span id="subtotal-val">{$postpurchase:subTotal}</span>
+                        </div>
+                        <div class="post-purchase-row cart-shipping">
+                            <span>Shipping:</span>
+                            <span>{$postpurchase:shippingPrice}</span>
+                        </div>
+                        <div class="post-purchase-row cart-total-tax">
+                            <span>Inc. GST:</span>
+                            <span>{$postpurchase:totalTax}</span>
+                        </div>
+                        <div class="post-purchase-row cart-total">
+                            <span>Total:</span>
+                            <span>{$postpurchase:total}</span>
+                        </div>
+                    </div>
+                </div>
+                {/postpurchasecode}
+            </main>
+
+
+        </div>
+        
+        <!-- Include scripts template -->
+        {$template:_scripts}
+
+        <!-- Footer -->
+        <!-- Include Footer template -->
+        {$template:_footer}
+        {postpurchasecode}
+        <script type="text/javascript">
+        var gaq = _gaq || [];
+        _gaq.push(['setAccount', '{$plugin:widcard:AnalyticsCode}']);
+        gaq.push(['trackPageview']);
+        gaq.push(['addTrans',
+            '{$postpurchase:id}', // transaction ID - required
+            '{$postpurchase:config:company}', // affiliation or store name
+            '{$postpurchase:subtotal:clean:withouttax}', // total - required
+            '{$postpurchase:totalTax:clean}', // tax
+            '{$postpurchase:shippingPrice:clean}', // shipping
+            '{$postpurchase:shipping:city}', // city
+            '{$postpurchase:shipping:state}', // state or province
+            '{$postpurchase:shipping:country:clean}' // country
+        ]);
+
+            // add item might be called for every item in the shopping cart
+            // where your ecommerce engine loops through each item in the cart and
+            // prints out _addItem for each
+            {postpurchasecartcontent:analytics}
+            _gaq.push(['_addItem',
+                '{$postpurchase:cartitem:cartId}', // transaction ID - required
+                '{$postpurchase:cartitem:sku}', // SKU/code - required
+                '{$postpurchase:cartitem:name}', // product name
+                '', // category or variation optional
+                '{$postpurchase:cartitem:price:clean}', // unit price - required
+                '{$postpurchase:cartitem:qty}' // quantity - required
+            ]);
+
+            {/postpurchasecartcontent}
+
+        _gaq.push(['_trackTrans']); //submits transaction to the Analytics servers
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+        </script>
+        {/postpurchasecode}
+    </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Include head template -->
+        {$template:_head}
+    </head>
+    <body>
+
+    <!-- Include header template -->
+    {$template:_header}
+
+        <!-- Container -->
+
+
+
+
+        <div id="page" class="le-domain-wrap ">
+            <div class="container">
+
+
+            <h1 class="hidden-el" role="heading">{$page:h1}</h1>
+
+            <section class="grid_12 alpha omega padding-tb"  role="main">
+
+                <!-- -->
+                <article class="grid_12 alpha omega">
+                    <h2 class="text-left white-text">
+                        <span class="sublined">{$header:title-cat1}</span>
+                    </h2>
+
+                    <div class="grid_8 alpha suffix_4">
+                        {$content:domaine-content}
+                    </div>
+
+                </article>
+
+                <!-- gallery -->
+
+                <article class="grid_12 alpha omega m-hide">
+                    <div  class="carousel "
+                        data-elscroll="li"
+                        data-visible="4"
+                        data-visibletablet="3"
+                        data-visiblemobile="1"
+                        data-size="1"
+                        data-margin="0"
+                        data-speed="800"
+                        data-scrolling="true"
+                        data-scrolltime="6000"
+                        data-prev="true"
+                        data-next="true"
+                            >
+
+                        {$gal:gallery:250:250x250:0:0}
+
+                    </div>
+
+                </article>
+            </section>
+
+
+
+
+            </div>
+        </div>
+    <!-- Footer -->
+    <!-- Include Footer template -->
+    {$template:_footer}
+        <!-- Include mobile elements template -->
+        {$template:_mobile elements}
+
+        <!-- Include scripts template -->
+        {$template:_scripts}
+
+    <script src="js/plugin/jquery.cycle2.min.js"></script>
+    </body>
+</html>
