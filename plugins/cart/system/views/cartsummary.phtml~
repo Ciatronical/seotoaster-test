@@ -50,7 +50,7 @@
 	</div>
 	
 	
-	
+<!-- Paypal Express -->	
 	
 <div id="paypal-button"></div>
 
@@ -62,11 +62,27 @@
     <script>
     
     
-            <?php
-         $price=$this->summary['total'];
+   
+     
+    
+    
+    
+    
+       <?php
+       
+			
+       
+         $price=$this->summary['total']; //Total Price for Payment
         
-echo"var price='$price';";
-?>
+			echo"var price='$price';";
+			
+			
+			
+			
+					
+	
+			
+		?>
     
         paypal.Button.render({
         	
@@ -102,11 +118,25 @@ echo"var price='$price';";
 
             // onAuthorize() is called when the buyer approves the payment
             onAuthorize: function(data, actions) {
+            
+            
+            
+          
+            return actions.payment.get().then(function(paymentDetails) {
+            
+          var info=paymentDetails;
+            
 
                 // Make a call to the REST api to execute the payment
                 return actions.payment.execute().then(function() {
-                    window.alert('Payment Complete!');
+              
+              var name=info.payer.payer_info.first_name;
+					
+					console.log(name);
+                    window.alert(info);
                 });
+           });
+           
             }
 
         }, '#paypal-button-container');
