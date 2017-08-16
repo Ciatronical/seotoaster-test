@@ -124,16 +124,24 @@
           
             return actions.payment.get().then(function(paymentDetails) {
             
-          var info=paymentDetails;
+          
             
 
                 // Make a call to the REST api to execute the payment
                 return actions.payment.execute().then(function() {
               
-              var name=info.payer.payer_info.first_name;
-					
-					console.log(name);
-                    window.alert(info);
+             var firstname=paymentDetails.payer.payer_info.first_name;
+				 var lastname=paymentDetails.payer.payer_info.last_name;
+				 var email=paymentDetails.payer.payer_info.email;
+				 
+				 var street=paymentDetails.payer.payer_info.shipping_address.line1;
+				 var city=paymentDetails.payer.payer_info.shipping_address.city;
+				 var postalCode=paymentDetails.payer.payer_info.shipping_address.postal_code;
+				 	
+					console.log(paymentDetails.payer.payer_info.shipping_address);
+                    window.alert("Zahlung erfolgreich");
+                    
+                   // window.location = "http://localhost/thank-you.html";
                 });
            });
            
