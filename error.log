@@ -273,3 +273,93 @@ Stack trace:
 #22 {main}
 [16-Aug-2017 09:45:12 Europe/Berlin] Unsupported recipient sales person given
 [16-Aug-2017 09:45:12 Europe/Berlin] Unsupported recipient customer given
+[16-Aug-2017 16:45:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getAttrib() on null in /var/www/html/plugins/cart/system/views/cartsummary.phtml:161
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/cart/Cart.php(523): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Cart->_makeOptionCartsummary()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#5 /var/www/html/plugins/cart/Cart.php(132): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/plugins/shopping/system/app/Widgets/Store/Store.php(42): Cart->run()
+#7 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Store_Store->_load()
+#8 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#9 /var/www/htm in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 161
+[17-Aug-2017 08:14:22 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 172
+[17-Aug-2017 08:14:24 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 172
+[17-Aug-2017 08:15:15 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 172
+[17-Aug-2017 08:15:18 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 172
+[17-Aug-2017 08:18:38 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 164
+[17-Aug-2017 08:18:43 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 164
+[17-Aug-2017 08:53:38 Europe/Berlin] PHP Notice:  Array to string conversion in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 159
+[17-Aug-2017 08:53:38 Europe/Berlin] PHP Notice:  Array to string conversion in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 159
+[17-Aug-2017 08:53:44 Europe/Berlin] PHP Notice:  Array to string conversion in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 159
+[17-Aug-2017 08:53:44 Europe/Berlin] PHP Notice:  Array to string conversion in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 159
+[17-Aug-2017 08:55:01 Europe/Berlin] PHP Notice:  Array to string conversion in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 159
+[17-Aug-2017 08:55:01 Europe/Berlin] PHP Notice:  Array to string conversion in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 159
+[17-Aug-2017 08:55:07 Europe/Berlin] PHP Notice:  Array to string conversion in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 159
+[17-Aug-2017 08:55:07 Europe/Berlin] PHP Notice:  Array to string conversion in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 159
+[17-Aug-2017 09:08:11 Europe/Berlin] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 157
+[17-Aug-2017 09:08:18 Europe/Berlin] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 157
+[17-Aug-2017 10:48:56 Europe/Berlin] PHP Notice:  Undefined index: full_name in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 56
+[17-Aug-2017 10:48:56 Europe/Berlin] PHP Notice:  Undefined variable: pdo in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 85
+[17-Aug-2017 10:48:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /var/www/html/plugins/cart/system/views/cartsummary.phtml:85
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/cart/Cart.php(523): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Cart->_makeOptionCartsummary()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#5 /var/www/html/plugins/cart/Cart.php(132): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/plugins/shopping/system/app/Widgets/Store/Store.php(42): Cart->run()
+#7 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Store_Store->_load()
+#8 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#9 /var/www/html/seo in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 85
+[17-Aug-2017 10:49:16 Europe/Berlin] PHP Notice:  Undefined index: full_name in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 56
+[17-Aug-2017 10:49:16 Europe/Berlin] PHP Notice:  Undefined variable: pdo in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 85
+[17-Aug-2017 10:49:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /var/www/html/plugins/cart/system/views/cartsummary.phtml:85
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/cart/Cart.php(523): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Cart->_makeOptionCartsummary()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#5 /var/www/html/plugins/cart/Cart.php(132): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/plugins/shopping/system/app/Widgets/Store/Store.php(42): Cart->run()
+#7 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Store_Store->_load()
+#8 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#9 /var/www/html/seo in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 85
+[17-Aug-2017 10:50:37 Europe/Berlin] PHP Notice:  Undefined index: full_name in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 56
+[17-Aug-2017 10:50:37 Europe/Berlin] PHP Notice:  Undefined variable: pdo in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 80
+[17-Aug-2017 10:50:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /var/www/html/plugins/cart/system/views/cartsummary.phtml:80
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/cart/Cart.php(523): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Cart->_makeOptionCartsummary()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#5 /var/www/html/plugins/cart/Cart.php(132): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/plugins/shopping/system/app/Widgets/Store/Store.php(42): Cart->run()
+#7 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Store_Store->_load()
+#8 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#9 /var/www/html/seo in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 80
+[17-Aug-2017 10:51:20 Europe/Berlin] PHP Notice:  Undefined index: full_name in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 56
+[17-Aug-2017 10:51:20 Europe/Berlin] PHP Notice:  Undefined variable: pdo in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 69
+[17-Aug-2017 10:51:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /var/www/html/plugins/cart/system/views/cartsummary.phtml:69
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/cart/Cart.php(523): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Cart->_makeOptionCartsummary()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#5 /var/www/html/plugins/cart/Cart.php(132): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/plugins/shopping/system/app/Widgets/Store/Store.php(42): Cart->run()
+#7 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Store_Store->_load()
+#8 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#9 /var/www/html/seo in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 69
+[17-Aug-2017 10:54:14 Europe/Berlin] PHP Notice:  Undefined offset: 0 in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 56
+[17-Aug-2017 10:55:29 Europe/Berlin] PHP Notice:  Undefined index: full_name in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 56
+[17-Aug-2017 10:56:59 Europe/Berlin] PHP Notice:  Undefined index: full_name in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 56
+[17-Aug-2017 11:01:06 Europe/Berlin] PHP Notice:  Undefined index: full_name in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 56
+[17-Aug-2017 11:22:44 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$fullname' (T_VARIABLE) in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 68
+[17-Aug-2017 11:22:55 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$fullname' (T_VARIABLE) in /var/www/html/plugins/cart/system/views/cartsummary.phtml on line 68

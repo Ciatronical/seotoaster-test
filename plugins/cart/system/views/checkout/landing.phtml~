@@ -1,0 +1,40 @@
+<p class="checkout-button" <?php echo $this->isError ? 'style="display:none;"' : ''; ?>>
+    <a href="" data-targetid="#checkout-landing-forms" data-role="button" title="<?php echo $this->translate('Checkout'); ?>" id="checkout-action"><?php echo $this->translate('Checkout'); ?></a>
+    <span class="disc"><?php echo $this->translate('OR');?></span>
+    <a href="<?php echo $this->websiteUrl; ?>" title="<?php echo $this->translate('Keep shopping'); ?>" id="keepshopping-action"> <?php echo $this->translate('Keep shopping'); ?></a>
+</p>
+
+<div id="checkout-landing-forms" class="checkout-forms" <?php echo $this->isError ? '' : 'style="display:none;"'; ?>>
+    <div>
+        <h3 class="checkout-forms-header"><?php echo $this->translate('I\'m a new customer'); ?></h3>
+        <form style="display: none" id="<?php echo $this->signupForm->getAttrib('id');?>"
+              class="<?php echo $this->signupForm->getAttrib('class');?>"
+              method="<?php echo $this->signupForm->getAttrib('method');?>"
+              action="<?php echo $this->signupForm->getAttrib('action');?>"
+              enctype="<?php echo Zend_Form::ENCTYPE_URLENCODED;?>">
+            <?php echo $this->signupForm->firstname;?>
+            <?php echo $this->signupForm->lastname;?>
+            <?php echo $this->signupForm->email;?>
+            <p  class="checkTooltip" title="<?php echo $this->translate("You will receive important order information via email and SMS"); ?>">
+                <label for="<?php echo $this->signupForm->mobile->getName() ;?>"><?php echo $this->translate('Mobile');?></label>
+                <span class="block wrap">
+                    <?php echo $this->signupForm->mobilecountrycode;?>
+                    <?php echo $this->signupForm->mobile;?>
+                </span>
+            </p>
+            <?php echo $this->signupForm->step;?>
+            <?php echo $this->signupForm->signup;?>
+        </form>
+    </div>
+	<?php if (!$this->hideLoginForm): ?>
+    <div>
+        <h3 class="checkout-forms-header"><?php echo $this->translate('I am returning customer'); ?></h3>
+        {$member:login:<?php echo str_replace($this->websiteUrl, '', $this->actionUrl); ?>}
+    </div>
+    <?php endif; ?>
+</div>
+<script type="text/javascript">
+    $(function(){
+       showTooltip('.checkTooltip', 'info', 'top');
+    });
+</script>

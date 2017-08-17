@@ -1326,7 +1326,7 @@ CREATE TABLE `shopping_cart_session` (
   KEY `shipping_address_id` (`shipping_address_id`),
   KEY `billing_address_id` (`billing_address_id`),
   CONSTRAINT `shopping_cart_session_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1335,7 +1335,7 @@ CREATE TABLE `shopping_cart_session` (
 
 LOCK TABLES `shopping_cart_session` WRITE;
 /*!40000 ALTER TABLE `shopping_cart_session` DISABLE KEYS */;
-INSERT INTO `shopping_cart_session` VALUES (1,'127.0.0.1',NULL,'2017-08-14 10:24:55','2017-08-14 12:40:01',1,NULL,NULL,NULL,NULL,NULL,NULL,'new',NULL,'0',3150.75,0.00,0.00,0.00,0.00,3150.75,NULL,0.00,'0',0.00,''),(2,'127.0.0.1',NULL,'2017-08-16 07:35:09','2017-08-16 07:44:10',1,'d1cafc9e6f354465b88dfb66d6a77d24',NULL,0.00,'','freeshipping',NULL,'processing','Paypal','0',2.00,0.00,0.00,0.00,0.00,2.00,NULL,0.00,'0',0.00,''),(3,'127.0.0.1',NULL,'2017-08-16 07:50:48','2017-08-16 08:02:49',1,NULL,NULL,NULL,NULL,NULL,NULL,'new',NULL,'0',2.00,0.00,0.00,0.00,0.00,2.00,NULL,0.00,'0',0.00,'');
+INSERT INTO `shopping_cart_session` VALUES (1,'127.0.0.1',NULL,'2017-08-14 10:24:55','2017-08-14 12:40:01',1,NULL,NULL,NULL,NULL,NULL,NULL,'new',NULL,'0',3150.75,0.00,0.00,0.00,0.00,3150.75,NULL,0.00,'0',0.00,''),(2,'127.0.0.1',NULL,'2017-08-16 07:35:09','2017-08-16 07:44:10',1,'d1cafc9e6f354465b88dfb66d6a77d24',NULL,0.00,'','freeshipping',NULL,'processing','Paypal','0',2.00,0.00,0.00,0.00,0.00,2.00,NULL,0.00,'0',0.00,''),(3,'127.0.0.1',NULL,'2017-08-16 07:50:48','2017-08-16 08:02:49',1,NULL,NULL,NULL,NULL,NULL,NULL,'new',NULL,'0',2.00,0.00,0.00,0.00,0.00,2.00,NULL,0.00,'0',0.00,''),(4,'127.0.0.1',NULL,'2017-08-16 09:12:48','2017-08-16 10:12:08',1,NULL,NULL,NULL,NULL,NULL,NULL,'new',NULL,'0',1.00,0.00,0.00,0.00,0.00,1.00,NULL,0.00,'0',0.00,''),(5,'127.0.0.1',NULL,'2017-08-16 14:06:42','0000-00-00 00:00:00',1,NULL,NULL,NULL,NULL,NULL,NULL,'new',NULL,'0',1.00,0.00,0.00,0.00,0.00,1.00,NULL,0.00,'0',0.00,''),(6,'127.0.0.1',NULL,'2017-08-17 06:14:22','2017-08-17 07:53:35',1,NULL,NULL,NULL,NULL,NULL,NULL,'new',NULL,'0',2.00,0.00,0.00,0.00,0.00,2.00,NULL,0.00,'0',0.00,''),(7,'127.0.0.1',NULL,'2017-08-17 11:55:59','2017-08-17 11:57:06',NULL,'9a0fd95bb173793a0760f0a5ae1d9586',NULL,0.00,'','freeshipping',NULL,'new',NULL,'0',1.00,0.00,0.00,0.00,0.00,1.00,NULL,0.00,'0',0.00,''),(8,'::1',NULL,'2017-08-17 11:58:45','2017-08-17 11:59:23',1,NULL,NULL,NULL,NULL,NULL,NULL,'new',NULL,'0',1.00,0.00,0.00,0.00,0.00,1.00,NULL,0.00,'0',0.00,''),(9,'127.0.0.1',NULL,'2017-08-17 13:04:02','2017-08-17 13:19:08',1,NULL,NULL,NULL,NULL,NULL,NULL,'new',NULL,'0',1.00,0.00,0.00,0.00,0.00,1.00,NULL,0.00,'0',0.00,'');
 /*!40000 ALTER TABLE `shopping_cart_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1359,7 +1359,7 @@ CREATE TABLE `shopping_cart_session_content` (
   PRIMARY KEY (`id`),
   KEY `cart_id` (`cart_id`,`product_id`),
   CONSTRAINT `shopping_cart_session_content_ibfk_2` FOREIGN KEY (`cart_id`) REFERENCES `shopping_cart_session` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1368,7 +1368,7 @@ CREATE TABLE `shopping_cart_session_content` (
 
 LOCK TABLES `shopping_cart_session_content` WRITE;
 /*!40000 ALTER TABLE `shopping_cart_session_content` DISABLE KEYS */;
-INSERT INTO `shopping_cart_session_content` VALUES (58,1,2,'6=13',3150.7500,1,0.0000,3150.7500,'0'),(70,2,20,NULL,1.0000,2,0.0000,1.0000,'0'),(77,3,20,NULL,1.0000,2,0.0000,1.0000,'0');
+INSERT INTO `shopping_cart_session_content` VALUES (58,1,2,'6=13',3150.7500,1,0.0000,3150.7500,'0'),(70,2,20,NULL,1.0000,2,0.0000,1.0000,'0'),(77,3,20,NULL,1.0000,2,0.0000,1.0000,'0'),(81,4,20,NULL,1.0000,1,0.0000,1.0000,'0'),(82,5,20,NULL,1.0000,1,0.0000,1.0000,'0'),(106,6,20,NULL,1.0000,2,0.0000,1.0000,'0'),(111,7,20,NULL,1.0000,1,0.0000,1.0000,'0'),(113,8,20,NULL,1.0000,1,0.0000,1.0000,'0'),(118,9,20,NULL,1.0000,1,0.0000,1.0000,'0');
 /*!40000 ALTER TABLE `shopping_cart_session_content` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1668,7 +1668,6 @@ CREATE TABLE `shopping_customer_info` (
 
 LOCK TABLES `shopping_customer_info` WRITE;
 /*!40000 ALTER TABLE `shopping_customer_info` DISABLE KEYS */;
-INSERT INTO `shopping_customer_info` VALUES (9,NULL,NULL,NULL),(10,NULL,NULL,NULL),(11,NULL,NULL,NULL),(12,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `shopping_customer_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2684,7 +2683,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   KEY `indEmail` (`email`),
   KEY `indPassword` (`password`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2693,7 +2692,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'superadmin','62f4ff77c4966c0b1fd61e833354b353','thomas@inter-data.de','admin','2017-08-16 07:38:19','127.0.0.1','2017-08-08 09:06:13',NULL,NULL,NULL,NULL),(2,'member','098f6bcd4621d373cade4e832627b4f6','test@inter-data.de','test',NULL,'','2017-08-14 12:55:32',NULL,'','','');
+INSERT INTO `user` VALUES (1,'superadmin','62f4ff77c4966c0b1fd61e833354b353','thomas@inter-data.de','admin','2017-08-17 13:03:52','127.0.0.1','2017-08-08 09:06:13',NULL,NULL,NULL,NULL),(2,'member','098f6bcd4621d373cade4e832627b4f6','test@inter-data.de','test',NULL,'','2017-08-14 12:55:32',NULL,'','','');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2719,6 +2718,7 @@ CREATE TABLE `user_attributes` (
 
 LOCK TABLES `user_attributes` WRITE;
 /*!40000 ALTER TABLE `user_attributes` DISABLE KEYS */;
+INSERT INTO `user_attributes` VALUES (1,'mobilecountrycode','DE');
 /*!40000 ALTER TABLE `user_attributes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -2731,4 +2731,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-16 10:03:35
+-- Dump completed on 2017-08-17 16:52:15

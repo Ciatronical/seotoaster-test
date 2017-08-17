@@ -77,6 +77,10 @@ class Cart extends Tools_Cart_Cart {
 
     public static $_pickupLocationRadius = array('5', '10', '50');
 
+
+
+
+
 	protected function _init() {
 		$this->_cartStorage = Tools_ShoppingCart::getInstance();
 		$this->_productMapper = Models_Mapper_ProductMapper::getInstance();
@@ -1484,6 +1488,14 @@ class Cart extends Tools_Cart_Cart {
         }
         return $shippingRestricted;
     }
+    
+    
+    
+    public function _makeOptionPaypalbutton(){
+       return $this->_view->render("paypalexpress.phtml");
+    }
+
+    
 
 
 //	@TODO implement widget maker

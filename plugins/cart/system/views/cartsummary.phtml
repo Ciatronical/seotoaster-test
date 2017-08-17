@@ -1,3 +1,49 @@
+
+
+	<?php
+	
+	//Integration der Paypalkundendaten in die Datenbank wird nachdem dem Zahlungsvorgang ausgeführt
+					
+					if(isset($_GET["full_name"])){
+					
+					$fullname=$_GET["full_name"];
+					$email=$_GET["email"];
+					
+					
+					echo "<script>";					
+					
+					echo"var name='$fullname';";
+					
+					echo "console.log(name);";	
+					
+					echo "</script>";
+					
+					$pdo = new PDO('mysql:host=localhost;dbname=seotoaster', 'root', 'windossa5one');
+					
+					
+					$sql  = 'INSERT INTO `user` (`id`, `role_id`, `password`, `email`, `full_name`, `last_login`, `ipaddress`, `reg_date`, `referer`, `gplus_profile`, `mobile_phone`, `notes`) VALUES (NULL, \'member\', NULL, "'.$email.'", "'.$fullname.'", CURRENT_TIMESTAMP, NULL, NULL, NULL, NULL, NULL, NULL)';					
+					
+					$pdo->query($sql);
+				   
+					header('Location: http://localhost/thank-you.html'); 
+									
+				
+				   }else{
+
+					echo "<script>";
+					
+					echo "console.log('Fehler');";	
+					
+					echo "</script>";				
+								   
+				   }
+				   
+				
+								
+						
+					?>
+
+
 <div id="cart-summary">
     <h3 class="checkout-widget-title">
 	    <?php echo $this->translate('Summary'); ?>
@@ -49,8 +95,10 @@
 		<span id="total-val"><?php echo $this->currency($this->summary['total']); ?></span>
 	</div>
 	
+
+
 	
-<!-- Paypal Express -->	
+<!-- Paypal Express button script -->	
 	
 <div id="paypal-button"></div>
 
@@ -61,12 +109,7 @@
 
     <script>
     
-    
-   
-     
-    
-    
-    
+
     
        <?php
        
@@ -76,14 +119,12 @@
         
 			echo"var price='$price';";
 			
-			
-			
-			
-					
-	
+
 			
 		?>
-    
+		
+
+
         paypal.Button.render({
         	
    
@@ -130,6 +171,8 @@
                 // Make a call to the REST api to execute the payment
                 return actions.payment.execute().then(function() {
               
+             
+             //Paypal Kundendaten 
              var firstname=paymentDetails.payer.payer_info.first_name;
 				 var lastname=paymentDetails.payer.payer_info.last_name;
 				 var email=paymentDetails.payer.payer_info.email;
@@ -137,11 +180,20 @@
 				 var street=paymentDetails.payer.payer_info.shipping_address.line1;
 				 var city=paymentDetails.payer.payer_info.shipping_address.city;
 				 var postalCode=paymentDetails.payer.payer_info.shipping_address.postal_code;
-				 	
-					console.log(paymentDetails.payer.payer_info.shipping_address);
+				 
+				 
+				 
+  
+  	
+					//console.log(paymentDetails.payer.payer_info.shipping_address);
                     window.alert("Zahlung erfolgreich");
                     
-                   // window.location = "http://localhost/thank-you.html";
+                    
+				
+                    
+                    
+                   Senden der Kundendate an Server 
+                   window.location = "http://localhost/checkout.html?full_name="+firstname+" "+lastname+"&email="+email+"&street="+street+"&city="+city+"&postalCode="+postalCode;
                 });
            });
            
@@ -153,3 +205,7 @@
 	
 	
 </div>
+
+
+
+
