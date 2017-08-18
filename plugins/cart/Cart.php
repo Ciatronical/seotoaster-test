@@ -75,7 +75,7 @@ class Cart extends Tools_Cart_Cart {
 
 	public static $_lockCartEdit = false;
 
-    public static $_pickupLocationRadius = array('5', '10', '50');
+   public static $_pickupLocationRadius = array('5', '10', '50');
 
 
 
@@ -92,7 +92,7 @@ class Cart extends Tools_Cart_Cart {
 		$this->_view->setScriptPath(dirname(__FILE__) . '/system/views/');
 
 		$this->_checkoutSession = new Zend_Session_Namespace(self::SESSION_NAMESPACE);
-
+		
 	}
 
     public function beforeController()
@@ -114,6 +114,8 @@ class Cart extends Tools_Cart_Cart {
 		$correctCurrency = isset($this->_shoppingConfig['currency']) ? $this->_shoppingConfig['currency'] : self::DEFAULT_CURRENCY_NAME;
 		$this->_view->currencySymbol = $this->_currency->getSymbol($correctCurrency, self::DEFAULT_LOCALE);
 		$this->_view->currencyShortName = $correctCurrency;
+		
+
 	}
 
 	protected function _getCheckoutPage() {
@@ -1491,11 +1493,44 @@ class Cart extends Tools_Cart_Cart {
     
     
     
-    public function _makeOptionPaypalbutton(){
-       return $this->_view->render("paypalexpress.phtml");
-    }
-
     
+
+     public function _makeOptionPaypalbutton() {
+		$type = $this->_request->getParam('type');
+		if (isset($type) && $type == 'json') {
+			$summary = $this->_cartStorage->calculate();
+			if (Zend_Registry::isRegistered('Zend_Currency')) {
+				$currency = Zend_Registry::get('Zend_Currency');
+				
+				$cartId = Tools_ShoppingCart::getInstance()->getCartId();
+				$paypalTransactionConfig->setCartId($cartId);
+            $paypalTransactionConfig->setEmailSent(1);
+				
+				 $currentUser = $this->_sessionHelper->getCurrentUser();
+            if ($currentUser->getId()) {
+                $customerInfo = Models_Mapper_CustomerMapper::getInstance()->find($currentUser->getId());
+                $customerData = $customerInfo->toArray();
+                $customerData['firstname'] = $currentUser->getFullName();
+                $customerData['lastname']  = '';
+                $customerData['email']     = $currentUser->getEmail();
+                $this->_checkoutSession->initialCustomerInfo = $customerData;
+                if ($customerData['id']) {
+                    $cart->setCustomerId($customerData['id'])->calculate(true);
+                    $cart->save()->saveCartSession($customerInfo);
+                }
+				}
+				
+				return array('subTotal' => $currency->toCurrency($summary['subTotal']), 'totalTax' => $currency->toCurrency($summary['totalTax']),
+				             'shipping' => $summary['shipping'], 'total' => $currency->toCurrency($summary['total']));
+			}
+			return $this->_cartStorage->calculate();
+		}
+		$this->_view->summary = $this->_cartStorage->calculate();
+		$this->_view->taxIncPrice = (bool)$this->_shoppingConfig['showPriceIncTax'];
+		$this->_getCheckoutPage();
+		$this->_view->returnAllowed = $this->_checkoutSession->returnAllowed;
+		return $this->_view->render('paypalbutton.phtml');
+	}
 
 
 //	@TODO implement widget maker

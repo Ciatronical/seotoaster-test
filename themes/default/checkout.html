@@ -130,7 +130,10 @@
                 <!-- end table products to order -->
                 <div class="grid_9 alpha">
                     <!-- Checkout widget -->
+                    
                     {$store:checkout}
+                    {$store:paypalbutton}
+                   
                     <!-- Select the required payment gateways-->
                     {paymentgateways}
                         {$plugin:paypal:button}

@@ -1,9 +1,8 @@
-
-
-	<?php
+<?php
 	
-	//Integration der Paypalkundendaten in die Datenbank wird nachdem dem Zahlungsvorgang ausgeführt
-	/*				
+	//Integration der Paypalkundendaten in die Datenbank 
+	//wird nachdem dem Zahlungsvorgang ausgeführt
+					
 					if(isset($_GET["full_name"])){
 					
 					$fullname=$_GET["full_name"];
@@ -18,22 +17,33 @@
 					
 					echo "</script>";
 					
-					
-					$einlesen = mysql_query("SELECT full_name FROM user WHERE full_name='$fullname'");
-						if(mysql_num_rows($einlesen)==0) {
-						
-						
 					$pdo = new PDO('mysql:host=localhost;dbname=seotoaster', 'root', 'windossa5one');
 					
+						$sql  = 'SELECT * FROM `user` WHERE `full_name`="'.$fullname.'"';
+				
 					
-					$sql  = 'INSERT INTO `user` (`id`, `role_id`, `password`, `email`, `full_name`, `last_login`, `ipaddress`, `reg_date`, `referer`, `gplus_profile`, `mobile_phone`, `notes`) VALUES (NULL, \'member\', NULL, "'.$email.'", "'.$fullname.'", CURRENT_TIMESTAMP, NULL, NULL, NULL, NULL, NULL, NULL)';					
 					
-					$pdo->query($sql);
+				$count=0;
+					foreach ($pdo->query($sql) as $row) 
+					{	$count++;
+						echo "<script>";	
+   					echo "var row='$row[email]';";
+   					echo "console.log(row);";
+   					echo "</script>";	
+   					
+					}
+				if(!$count){
+				
+				$sql  = 'INSERT INTO `user` (`id`, `role_id`, `password`, `email`, `full_name`, `last_login`, `ipaddress`, `reg_date`, `referer`, `gplus_profile`, `mobile_phone`, `notes`) VALUES (NULL, \'member\', NULL, "'.$email.'", "'.$fullname.'", CURRENT_TIMESTAMP, NULL, NULL, NULL, NULL, NULL, NULL)';					
+					
+						$pdo->query($sql);
+				
+				}
+					
+								   
 						
 						
-						
-						}
-						
+											
 					
 					
 				   
@@ -51,67 +61,12 @@
 				   }
 				   
 				
-			*/					
+								
 						
 					?>
-
-
-<div id="cart-summary">
-    <h3 class="checkout-widget-title">
-	    <?php echo $this->translate('Summary'); ?>
-	</h3>
-	<div class="cart-summary-row cart-subtotal">
-		<span><?php echo $this->translate('Subtotal'); ?>:</span>
-		<span id="subtotal-val">
-        <?php if ($this->taxIncPrice) : ?>
-            <?php echo $this->currency($this->summary['subTotal']+$this->summary['subTotalTax']); ?>
-        <?php else : ?>
-            <?php echo $this->currency($this->summary['subTotal']); ?>
-        <?php endif; ?>  
-        </span>
-	</div>
-    <?php if (isset($this->summary['discount']) && !empty($this->summary['discount'])) : ?>
-        <div class="cart-summary-row cart-discount">
-            <span><?php echo $this->translate('Discount'); ?></span>
-            <?php if ($this->taxIncPrice) : ?>
-                <span id="discount-val"><?php echo $this->currency($this->summary['discount']+$this->summary['discountTax']); ?></span>
-            <?php else:?>
-                <span id="discount-val"><?php echo $this->currency($this->summary['discount']); ?></span>
-            <?php endif; ?>
-        </div>
-    <?php endif; ?>
-    <div class="cart-summary-row cart-shipping">
-        <span><?php echo $this->translate('Shipping'); ?>:</span>
-        <?php if ($this->taxIncPrice) : ?>
-            <span id="shipping-val"><?php echo $this->currency($this->summary['shipping']+$this->summary['shippingTax']); ?></span>
-        <?php else:?>
-            <span id="shipping-val"><?php echo $this->currency($this->summary['shipping']); ?></span>
-        <?php endif;?>
-    </div>
-	<div class="cart-summary-row cart-total-tax">
-		<?php if(Tools_Misc::getTaxName() != ''):?>
-            <?php $taxName = Tools_Misc::getTaxName();?>
-        <?php else:?>
-            <?php $taxName = 'Tax';?>
-        <?php endif;?>
-        <?php if ($this->taxIncPrice) : ?>
-		<span><?php echo $this->translate('Inc. '.$taxName); ?>:</span>
-		<?php else : ?>
-		<span><?php echo $this->translate('Total '.$taxName); ?>:</span>
-		<?php endif; ?>
-		<span id="totaltax-val"><?php echo $this->currency($this->summary['totalTax']);?></span>
-	</div>
-
-	<div class="cart-summary-row cart-total">
-		<span><?php echo $this->translate('Total'); ?>:</span>
-		<span id="total-val"><?php echo $this->currency($this->summary['total']); ?></span>
-	</div>
-	
-
-
 	
 <!-- Paypal Express button script -->	
-<!--	
+
 <div id="paypal-button"></div>
 
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
@@ -219,5 +174,5 @@
 </div>
 
 
--->
+
 

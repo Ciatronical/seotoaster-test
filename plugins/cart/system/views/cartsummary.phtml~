@@ -3,7 +3,7 @@
 	<?php
 	
 	//Integration der Paypalkundendaten in die Datenbank wird nachdem dem Zahlungsvorgang ausgeführt
-					
+	/*				
 					if(isset($_GET["full_name"])){
 					
 					$fullname=$_GET["full_name"];
@@ -18,28 +18,40 @@
 					
 					echo "</script>";
 					
+					
+					$einlesen = mysql_query("SELECT full_name FROM user WHERE full_name='$fullname'");
+						if(mysql_num_rows($einlesen)==0) {
+						
+						
 					$pdo = new PDO('mysql:host=localhost;dbname=seotoaster', 'root', 'windossa5one');
 					
 					
 					$sql  = 'INSERT INTO `user` (`id`, `role_id`, `password`, `email`, `full_name`, `last_login`, `ipaddress`, `reg_date`, `referer`, `gplus_profile`, `mobile_phone`, `notes`) VALUES (NULL, \'member\', NULL, "'.$email.'", "'.$fullname.'", CURRENT_TIMESTAMP, NULL, NULL, NULL, NULL, NULL, NULL)';					
 					
 					$pdo->query($sql);
+						
+						
+						
+						}
+						
+					
+					
 				   
-					header('Location: http://localhost/thank-you.html'); 
+					//header('Location: http://localhost/thank-you.html'); 
 									
 				
 				   }else{
 
 					echo "<script>";
 					
-					echo "console.log('Fehler');";	
+					//echo "console.log('Fehler');";	
 					
 					echo "</script>";				
 								   
 				   }
 				   
 				
-								
+			*/					
 						
 					?>
 
@@ -99,7 +111,7 @@
 
 	
 <!-- Paypal Express button script -->	
-	
+<!--	
 <div id="paypal-button"></div>
 
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
@@ -192,7 +204,7 @@
 				
                     
                     
-                   Senden der Kundendate an Server 
+                   //Senden der Kundendaten an Server 
                    window.location = "http://localhost/checkout.html?full_name="+firstname+" "+lastname+"&email="+email+"&street="+street+"&city="+city+"&postalCode="+postalCode;
                 });
            });
@@ -207,5 +219,5 @@
 </div>
 
 
-
+-->
 
