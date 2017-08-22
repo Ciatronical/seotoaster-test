@@ -561,7 +561,7 @@ CREATE TABLE `password_reset_log` (
   UNIQUE KEY `token_hash` (`token_hash`),
   KEY `status` (`status`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -570,7 +570,7 @@ CREATE TABLE `password_reset_log` (
 
 LOCK TABLES `password_reset_log` WRITE;
 /*!40000 ALTER TABLE `password_reset_log` DISABLE KEYS */;
-INSERT INTO `password_reset_log` VALUES (1,'c7a80df281aa3777f13e2c476',2,'new','2017-08-14 12:55:32','2017-08-21 12:55:32');
+INSERT INTO `password_reset_log` VALUES (1,'c7a80df281aa3777f13e2c476',2,'new','2017-08-14 12:55:32','2017-08-21 12:55:32'),(2,'04b03f1d02d170f43da13b079',38,'new','2017-08-22 13:02:13','2017-08-29 13:02:13'),(3,'eac6b3a6967c694afca22b176',39,'new','2017-08-22 13:11:49','2017-08-29 13:11:49'),(4,'580021de95543604a4f091477',40,'new','2017-08-22 13:43:45','2017-08-29 13:43:45'),(5,'add70a4abd430af5efb0e3827',41,'new','2017-08-22 13:56:14','2017-08-29 13:56:14');
 /*!40000 ALTER TABLE `password_reset_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1326,7 +1326,7 @@ CREATE TABLE `shopping_cart_session` (
   KEY `shipping_address_id` (`shipping_address_id`),
   KEY `billing_address_id` (`billing_address_id`),
   CONSTRAINT `shopping_cart_session_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1359,7 +1359,7 @@ CREATE TABLE `shopping_cart_session_content` (
   PRIMARY KEY (`id`),
   KEY `cart_id` (`cart_id`,`product_id`),
   CONSTRAINT `shopping_cart_session_content_ibfk_2` FOREIGN KEY (`cart_id`) REFERENCES `shopping_cart_session` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=163 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1668,7 +1668,6 @@ CREATE TABLE `shopping_customer_info` (
 
 LOCK TABLES `shopping_customer_info` WRITE;
 /*!40000 ALTER TABLE `shopping_customer_info` DISABLE KEYS */;
-INSERT INTO `shopping_customer_info` VALUES (25,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `shopping_customer_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2684,7 +2683,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   KEY `indEmail` (`email`),
   KEY `indPassword` (`password`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2693,7 +2692,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'superadmin','62f4ff77c4966c0b1fd61e833354b353','thomas@inter-data.de','admin','2017-08-22 10:40:38','127.0.0.1','2017-08-08 09:06:13',NULL,NULL,NULL,NULL),(2,'member','098f6bcd4621d373cade4e832627b4f6','test@inter-data.de','test',NULL,'','2017-08-14 12:55:32',NULL,'','',''),(25,'customer','f64a906a50d77c62fe91db6ca50854be','thori88-buyer2@web.de','Hans Meier',NULL,'::1','2017-08-22 10:03:29',NULL,'','','');
+INSERT INTO `user` VALUES (1,'superadmin','62f4ff77c4966c0b1fd61e833354b353','thomas@inter-data.de','admin','2017-08-22 11:36:32','127.0.0.1','2017-08-08 09:06:13',NULL,NULL,NULL,NULL),(2,'member','098f6bcd4621d373cade4e832627b4f6','test@inter-data.de','test',NULL,'','2017-08-14 12:55:32',NULL,'','','');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2719,7 +2718,7 @@ CREATE TABLE `user_attributes` (
 
 LOCK TABLES `user_attributes` WRITE;
 /*!40000 ALTER TABLE `user_attributes` DISABLE KEYS */;
-INSERT INTO `user_attributes` VALUES (1,'mobilecountrycode','DE'),(25,'mobilecountrycode','DE');
+INSERT INTO `user_attributes` VALUES (1,'mobilecountrycode','DE');
 /*!40000 ALTER TABLE `user_attributes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -2732,4 +2731,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-22 12:40:57
+-- Dump completed on 2017-08-22 16:03:32
