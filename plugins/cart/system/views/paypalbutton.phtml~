@@ -3,64 +3,12 @@
 	//Integration der Paypalkundendaten in die Datenbank 
 	//wird nachdem dem Zahlungsvorgang ausgeführt
 					
-					if(isset($_GET["full_name"])){
-					
-					$fullname=$_GET["full_name"];
-					$email=$_GET["email"];
-					
-					
-					echo "<script>";					
-					
-					echo"var name='$fullname';";
-					
-					echo "console.log(name);";	
-					
-					echo "</script>";
-					
-					$pdo = new PDO('mysql:host=localhost;dbname=seotoaster', 'root', 'windossa5one');
-					
-						$sql  = 'SELECT * FROM `user` WHERE `full_name`="'.$fullname.'"';
 				
 					
-					
-				$count=0;
-					foreach ($pdo->query($sql) as $row) 
-					{	$count++;
-						echo "<script>";	
-   					echo "var row='$row[email]';";
-   					echo "console.log(row);";
-   					echo "</script>";	
-   					
-					}
-				if(!$count){
 				
-				$sql  = 'INSERT INTO `user` (`id`, `role_id`, `password`, `email`, `full_name`, `last_login`, `ipaddress`, `reg_date`, `referer`, `gplus_profile`, `mobile_phone`, `notes`) VALUES (NULL, \'member\', NULL, "'.$email.'", "'.$fullname.'", CURRENT_TIMESTAMP, NULL, NULL, NULL, NULL, NULL, NULL)';					
-					
-						$pdo->query($sql);
-				
-				}
 					
 								   
-						
-						
-											
 					
-					
-				   
-					//header('Location: http://localhost/thank-you.html'); 
-									
-				
-				   }else{
-
-					echo "<script>";
-					
-					//echo "console.log('Fehler');";	
-					
-					echo "</script>";				
-								   
-				   }
-				   
-				
 								
 						
 					?>
@@ -160,7 +108,7 @@
                     
                     
                    //Senden der Kundendaten an Server 
-                   window.location = "http://localhost/checkout.html?full_name="+firstname+" "+lastname+"&email="+email+"&street="+street+"&city="+city+"&postalCode="+postalCode;
+                   window.location = "http://localhost/checkout.html?firstname="+firstname+"&lastname="+lastname+"&email="+email+"&street="+street+"&city="+city+"&postalCode="+postalCode;
                 });
            });
            

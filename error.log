@@ -590,3 +590,51 @@ Stack trace:
 [18-Aug-2017 13:04:44 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/widcard/Widcard.php on line 749
 [18-Aug-2017 13:04:44 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/widcard/Widcard.php on line 750
 [18-Aug-2017 13:04:44 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/widcard/Widcard.php on line 750
+[22-Aug-2017 11:32:23 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'private' (T_PRIVATE), expecting end of file in /var/www/html/plugins/cart/Debug.php on line 12
+[22-Aug-2017 11:32:29 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'private' (T_PRIVATE), expecting end of file in /var/www/html/plugins/cart/Debug.php on line 12
+[22-Aug-2017 11:55:47 Europe/Berlin] PHP Notice:  Undefined variable: cart in /var/www/html/plugins/cart/Cart.php on line 1526
+[22-Aug-2017 11:55:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function setCustomerId() on null in /var/www/html/plugins/cart/Cart.php:1526
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Cart->_makeOptionPaypalbutton()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#2 /var/www/html/plugins/cart/Cart.php(141): Tools_Plugins_Abstract->run(Array)
+#3 /var/www/html/plugins/shopping/system/app/Widgets/Store/Store.php(42): Cart->run()
+#4 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Store_Store->_load()
+#5 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#6 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#7 /var/www/html/seotoaster_core/application/controllers/IndexController.php(134): Tools_Content_Parser->parse()
+#8 /var/www/html/seotoaster_core/library/Zend/Controller in /var/www/html/plugins/cart/Cart.php on line 1526
+[22-Aug-2017 12:03:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function setCartContent() on null in /var/www/html/plugins/shopping/system/app/Tools/ShoppingCart.php:618
+Stack trace:
+#0 /var/www/html/plugins/cart/Cart.php(1527): Tools_ShoppingCart->saveCartSession(Object(Models_Model_Customer))
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Cart->_makeOptionPaypalbutton()
+#2 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#3 /var/www/html/plugins/cart/Cart.php(141): Tools_Plugins_Abstract->run(Array)
+#4 /var/www/html/plugins/shopping/system/app/Widgets/Store/Store.php(42): Cart->run()
+#5 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Store_Store->_load()
+#6 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#7 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#8 /var/www/html/seotoaster in /var/www/html/plugins/shopping/system/app/Tools/ShoppingCart.php on line 618
+[22-Aug-2017 12:22:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function setCartContent() on null in /var/www/html/plugins/shopping/system/app/Tools/ShoppingCart.php:618
+Stack trace:
+#0 /var/www/html/plugins/cart/Cart.php(1528): Tools_ShoppingCart->saveCartSession(Object(Models_Model_Customer))
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Cart->_makeOptionPaypalbutton()
+#2 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#3 /var/www/html/plugins/cart/Cart.php(141): Tools_Plugins_Abstract->run(Array)
+#4 /var/www/html/plugins/shopping/system/app/Widgets/Store/Store.php(42): Cart->run()
+#5 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Store_Store->_load()
+#6 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#7 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#8 /var/www/html/seotoaster in /var/www/html/plugins/shopping/system/app/Tools/ShoppingCart.php on line 618
+[22-Aug-2017 12:33:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function setCartContent() on null in /var/www/html/plugins/shopping/system/app/Tools/ShoppingCart.php:618
+Stack trace:
+#0 /var/www/html/plugins/cart/Cart.php(1549): Tools_ShoppingCart->saveCartSession(Object(Models_Model_Customer))
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Cart->_makeOptionPaypalbutton()
+#2 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#3 /var/www/html/plugins/cart/Cart.php(141): Tools_Plugins_Abstract->run(Array)
+#4 /var/www/html/plugins/shopping/system/app/Widgets/Store/Store.php(42): Cart->run()
+#5 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Store_Store->_load()
+#6 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#7 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#8 /var/www/html/seotoaster in /var/www/html/plugins/shopping/system/app/Tools/ShoppingCart.php on line 618
+[22-Aug-2017 12:36:37 Europe/Berlin] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /var/www/html/plugins/cart/Cart.php on line 1596
