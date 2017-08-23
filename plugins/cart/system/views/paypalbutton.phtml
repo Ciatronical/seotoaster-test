@@ -1,17 +1,4 @@
-<?php
-	
-	//Integration der Paypalkundendaten in die Datenbank 
-	//wird nachdem dem Zahlungsvorgang ausgeführt
-					
-				
-					
-				
-					
-								   
-					
-								
-						
-					?>
+
 	
 <!-- Paypal Express button script -->	
 
@@ -30,7 +17,7 @@
        
 			
        
-         $price=$this->summary['total']; //Total Price for Payment
+         $price=$this->summary['total']; //Gesammtpreis für die Zahlung
         
 			echo"var price='$price';";
 			
@@ -107,7 +94,7 @@
 				
                     
                     
-                   //Senden der Kundendaten an Server 
+                   //Senden der Kundendaten an den Server(siehe Cart.php ab Zeile 1504)
                    window.location = "http://localhost/checkout.html?firstname="+firstname+"&lastname="+lastname+"&email="+email+"&street="+street+"&city="+city+"&postalCode="+postalCode;
                 });
            });
