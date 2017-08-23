@@ -1501,7 +1501,7 @@ class Cart extends Tools_Cart_Cart {
     
     
 
-     public function _makeOptionPaypalbutton() {
+public function _makeOptionPaypalbutton() {
      	
      	//Integration der Paypalkundendaten in die Datenbank 
 	//wird nachdem dem Zahlungsvorgang ausgeführt
@@ -1548,11 +1548,21 @@ class Cart extends Tools_Cart_Cart {
 				$addressId = Models_Mapper_CustomerMapper::getInstance()->addAddress($customer, $address, $addressType);
 				$cart->setShippingAddressKey($addressId);
 				$cart->setBillingAddressKey($addressId);
-					$cart->setCustomerId($customer->getId())->calculate(true);
-					$cart->save()->saveCartSession($customer);
+				
+				$cart->setCustomerId($customer->getId())->calculate(true);
+				$cart->save()->saveCartSession($customer);
+				
+				$orderId=$cart->getCartId();	
+				
+				$orderModel = Models_Mapper_CartSessionMapper::getInstance()->find($orderId);
+				
+				$orderModel->setStatus(Models_Model_CartSession::CART_STATUS_COMPLETED);
+				$result = Models_Mapper_CartSessionMapper::getInstance()->save($orderModel);				
+				
 					
 					
-					 $this->_redirector->gotoUrl($this->_websiteUrl.'plugin/shopping/run/thankyou/');
+					
+				$this->_redirector->gotoUrl($this->_websiteUrl.'plugin/shopping/run/thankyou/');
             
 
 				}

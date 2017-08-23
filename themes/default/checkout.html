@@ -130,12 +130,13 @@
                 <!-- end table products to order -->
                 <div class="grid_9 alpha">
                     <!-- Checkout widget -->
-                    
+                   
                     {$store:checkout}
+                     
                     {$store:paypalbutton}
                    
                     <!-- Select the required payment gateways-->
-                    {paymentgateways}
+                 {paymentgateways}
                         {$plugin:paypal:button}
                         <h2>Request a free quote, pay with EFT or by check:</h2>
                         {$quote:form:firstname:lastname:company:email*:address1:address2:country:city:zip:phone:disclaimer}
