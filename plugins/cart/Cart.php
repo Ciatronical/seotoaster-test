@@ -1500,7 +1500,7 @@ class Cart extends Tools_Cart_Cart {
     
     
  //Paypal Express   
-//Einbinden des Buttons in das Template mit {$shopping:paypalbutton}
+//Einbinden des Buttons in das Template mit {$store:paypalbutton}
 public function _makeOptionPaypalbutton() {
      	
      	//Integration der Paypalkundendaten in die Datenbank 
@@ -1539,7 +1539,7 @@ public function _makeOptionPaypalbutton() {
 				$this->_checkoutSession->initialCustomerInfo = $customerData;// die aktuelle Session
 				$customer = Shopping::processCustomer($customerData);	//übertragen des Kundenarrays in die Datenbank
 				
-				//printArray($customer);				
+								
 					
 				if ($customer->getId()) {
                     $customer->setAttribute('mobilecountrycode', $customerData['mobilecountrycode']);
@@ -1600,7 +1600,7 @@ public function _makeOptionPaypalbutton() {
 		$this->_getCheckoutPage();
 		$this->_view->returnAllowed = $this->_checkoutSession->returnAllowed;
 		return $this->_view->render('paypalbutton.phtml'); //Zeigt den Button an
-	}
+	} 
 
 //	@TODO implement widget maker
 //	public static function getWidgetMakerContent(){

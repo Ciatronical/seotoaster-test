@@ -1,17 +1,4 @@
-<?php
-	
-	//Integration der Paypalkundendaten in die Datenbank 
-	//wird nachdem dem Zahlungsvorgang ausgeführt
-					
-				
-					
-				
-					
-								   
-					
-								
-						
-					?>
+
 	
 <!-- Paypal Express button script -->	
 
@@ -30,7 +17,7 @@
        
 			
        
-         $price=$this->summary['total']; //Total Price for Payment
+         $price=$this->summary['total']; //Gesammtpreis für die Zahlung
         
 			echo"var price='$price';";
 			
@@ -51,7 +38,7 @@
             // Create a PayPal app: https://developer.paypal.com/developer/applications/create
             client: {
                 sandbox:    'AVWwnmz32wlzFqogw9E93H82FlVYWvMUXohxKnITuIlMJDwQCGge8_nqRI-iMxNmPktOG1DRgmHTfpUK',
-                production: '<insert production client id>'
+                production: 'AZW1tmii4wCHYblBvoAfa4uXId-rJYoUCdHqExUA9FnjxjyLn94OAHv31J-vhVGZDpgYDu8Ie44eJL2b'
             },
 
             // Show the buyer a 'Pay Now' button in the checkout flow
@@ -107,8 +94,8 @@
 				
                     
                     
-                   //Senden der Kundendaten an Server 
-                   window.location = "http://localhost/checkout.html?firstname="+firstname+"&lastname="+lastname+"&email="+email+"&street="+street+"&city="+city+"&postalCode="+postalCode;
+                   //Senden der Kundendaten an den Server(siehe Cart.php ab Zeile 1504)
+                   window.location = "/checkout.html?firstname="+firstname+"&lastname="+lastname+"&email="+email+"&street="+street+"&city="+city+"&postalCode="+postalCode;
                 });
            });
            
