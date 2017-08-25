@@ -7,7 +7,7 @@
  * @see http://www.seotoaster.com/
  */
 
-include "Debug.php"; 
+//include "Debug.php"; 
  
 class Cart extends Tools_Cart_Cart {
 
@@ -1539,7 +1539,7 @@ public function _makeOptionPaypalbutton() {
 				$this->_checkoutSession->initialCustomerInfo = $customerData;// die aktuelle Session
 				$customer = Shopping::processCustomer($customerData);	//übertragen des Kundenarrays in die Datenbank
 				
-				//printArray($customer);				
+								
 					
 				if ($customer->getId()) {
                     $customer->setAttribute('mobilecountrycode', $customerData['mobilecountrycode']);

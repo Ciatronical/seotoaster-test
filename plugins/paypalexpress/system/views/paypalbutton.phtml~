@@ -1,4 +1,7 @@
 
+	
+<!-- Paypal Express button script -->	
+
 <div id="paypal-button"></div>
 
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
@@ -7,7 +10,27 @@
 <div id="paypal-button-container"></div>
 
     <script>
+    
+
+    
+       <?php
+       
+			
+       
+         $price=$this->summary['total']; //Gesammtpreis für die Zahlung
+        
+			echo"var price='$price';";
+			
+
+			
+		?>
+		
+
+
         paypal.Button.render({
+        	
+   
+
 
             env: 'sandbox', // sandbox | production
 
@@ -15,7 +38,7 @@
             // Create a PayPal app: https://developer.paypal.com/developer/applications/create
             client: {
                 sandbox:    'AVWwnmz32wlzFqogw9E93H82FlVYWvMUXohxKnITuIlMJDwQCGge8_nqRI-iMxNmPktOG1DRgmHTfpUK',
-                production: '<insert production client id>'
+                production: 'AZW1tmii4wCHYblBvoAfa4uXId-rJYoUCdHqExUA9FnjxjyLn94OAHv31J-vhVGZDpgYDu8Ie44eJL2b'
             },
 
             // Show the buyer a 'Pay Now' button in the checkout flow
@@ -29,7 +52,7 @@
                     payment: {
                         transactions: [
                             {
-                                amount: { total: '0.01', currency: 'USD' }
+                                amount: { total: price, currency: 'EUR' }
                             }
                         ]
                     }
@@ -38,13 +61,49 @@
 
             // onAuthorize() is called when the buyer approves the payment
             onAuthorize: function(data, actions) {
+            
+            
+            
+          
+            return actions.payment.get().then(function(paymentDetails) {
+            
+          
+            
 
                 // Make a call to the REST api to execute the payment
                 return actions.payment.execute().then(function() {
-                    window.alert('Payment Complete!');
+              
+             
+             //Paypal Kundendaten 
+             var firstname=paymentDetails.payer.payer_info.first_name;
+				 var lastname=paymentDetails.payer.payer_info.last_name;
+				 var email=paymentDetails.payer.payer_info.email;
+				 
+				 var street=paymentDetails.payer.payer_info.shipping_address.line1;
+				 var city=paymentDetails.payer.payer_info.shipping_address.city;
+				 var postalCode=paymentDetails.payer.payer_info.shipping_address.postal_code;
+				 
+				 
+				 
+  
+  	
+					//console.log(paymentDetails.payer.payer_info.shipping_address);
+                    window.alert("Zahlung erfolgreich");
+                    
+                    
+				
+                    
+                    
+                   //Senden der Kundendaten an den Server(siehe Cart.php ab Zeile 1504)
+                   window.location = "/checkout.html?firstname="+firstname+"&lastname="+lastname+"&email="+email+"&street="+street+"&city="+city+"&postalCode="+postalCode;
                 });
+           });
+           
             }
 
         }, '#paypal-button-container');
 
     </script>
+	
+	
+</div>

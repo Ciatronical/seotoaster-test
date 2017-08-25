@@ -1,0 +1,12 @@
+<?php return array('Page rating' => 'Рейтинг страницы', 'Total votes' => 'Общее количество голосов',
+                   'Name' => 'Имя', 
+                   'Email' => 'Email',
+                   'Comment' => 'Комментарий',
+                   'Post Review' => 'Опубликовать',
+                   'Enter right email address' => 'Введите правильный email',
+                   'User name can not be empty' => 'Поле пользователя не может быть пустым',
+                   'Review name can not be empty' => 'Обзор не может быть пустым',
+                   'You alreade rated' => 'Вы уже голосовали'
+                   
+    ); 
+        ?>

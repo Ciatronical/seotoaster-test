@@ -2663,3 +2663,774 @@ Stack trace:
 #20 /var/www/html/seotoaster_core/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
 #21 /var/www/html/index.php(65): Zend_Application->run()
 #22 {main}
+[24-Aug-2017 14:11:55 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_cartStorage in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 99
+[24-Aug-2017 14:11:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function calculate() on null in /var/www/html/plugins/paypalexpress/Paypalexpress.php:99
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Paypalexpress->_makeOptionPaypalbutton()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#2 /var/www/html/seotoaster_core/application/app/Widgets/Plugin/Plugin.php(19): Tools_Plugins_Abstract->run()
+#3 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Plugin_Plugin->_load()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#5 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#6 /var/www/html/seotoaster_core/application/controllers/IndexController.php(134): Tools_Content_Parser->parse()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): IndexController in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 99
+[24-Aug-2017 14:20:23 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:20:23 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:20:23 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_cartStorage in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 101
+[24-Aug-2017 14:20:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function calculate() on null in /var/www/html/plugins/paypalexpress/Paypalexpress.php:101
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Paypalexpress->_makeOptionPaypalbutton()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#2 /var/www/html/seotoaster_core/application/app/Widgets/Plugin/Plugin.php(19): Tools_Plugins_Abstract->run()
+#3 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Plugin_Plugin->_load()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#5 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#6 /var/www/html/seotoaster_core/application/controllers/IndexController.php(134): Tools_Content_Parser->parse()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): IndexControlle in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 101
+[24-Aug-2017 14:20:27 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:20:27 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:20:28 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:20:28 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:20:30 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:20:30 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:20:30 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_cartStorage in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 101
+[24-Aug-2017 14:20:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function calculate() on null in /var/www/html/plugins/paypalexpress/Paypalexpress.php:101
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Paypalexpress->_makeOptionPaypalbutton()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#2 /var/www/html/seotoaster_core/application/app/Widgets/Plugin/Plugin.php(19): Tools_Plugins_Abstract->run()
+#3 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Plugin_Plugin->_load()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#5 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#6 /var/www/html/seotoaster_core/application/controllers/IndexController.php(134): Tools_Content_Parser->parse()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): IndexControlle in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 101
+[24-Aug-2017 14:21:35 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:21:35 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:21:36 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:21:36 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:21:36 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:21:36 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:21:36 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:21:36 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:26:39 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:26:39 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:26:40 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:26:40 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:26:40 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:26:40 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:26:40 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:26:40 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:35:23 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:35:23 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:35:25 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:35:25 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:35:26 Europe/Berlin] PHP Warning:  include(/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:35:26 Europe/Berlin] PHP Warning:  include(): Failed opening '/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/ in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:36:16 Europe/Berlin] PHP Warning:  include(/var/www/html/plugins/paypalexpress/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:36:16 Europe/Berlin] PHP Warning:  include(): Failed opening '/var/www/html/plugins/paypalexpress/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoa in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:36:18 Europe/Berlin] PHP Warning:  include(/var/www/html/plugins/paypalexpress/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:36:18 Europe/Berlin] PHP Warning:  include(): Failed opening '/var/www/html/plugins/paypalexpress/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoa in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:36:18 Europe/Berlin] PHP Warning:  include(/var/www/html/plugins/paypalexpress/plugins/cart/Cart.php): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:36:18 Europe/Berlin] PHP Warning:  include(): Failed opening '/var/www/html/plugins/paypalexpress/plugins/cart/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoa in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 3
+[24-Aug-2017 14:39:37 Europe/Berlin] PHP Fatal error:  Cannot declare class Cart, because the name is already in use in /var/www/html/plugins/cart/Cart.php on line 0
+[24-Aug-2017 14:41:58 Europe/Berlin] PHP Fatal error:  Cannot declare class Cart, because the name is already in use in /var/www/html/plugins/cart/Cart.php on line 0
+[24-Aug-2017 14:42:00 Europe/Berlin] PHP Fatal error:  Cannot declare class Cart, because the name is already in use in /var/www/html/plugins/cart/Cart.php on line 0
+[24-Aug-2017 14:42:18 Europe/Berlin] PHP Fatal error:  Cannot declare class Cart, because the name is already in use in /var/www/html/plugins/cart/Cart.php on line 0
+[24-Aug-2017 14:57:53 Europe/Berlin] PHP Fatal error:  Cannot redeclare writeLog() (previously declared in /var/www/html/plugins/cart/Debug.php:10) in /var/www/html/plugins/cart/Debug.php on line 10
+[24-Aug-2017 15:05:29 Europe/Berlin] PHP Warning:  include_once(Tools/Cart.php): failed to open stream: No such file or directory in /var/www/html/seotoaster_core/library/Zend/Loader.php on line 134
+[24-Aug-2017 15:05:29 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'Tools/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/htm in /var/www/html/seotoaster_core/library/Zend/Loader.php on line 134
+[24-Aug-2017 15:05:29 Europe/Berlin] PHP Fatal error:  Class 'Tools_Cart' not found in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 5
+[24-Aug-2017 15:05:57 Europe/Berlin] PHP Warning:  include_once(Plugins/Cart.php): failed to open stream: No such file or directory in /var/www/html/seotoaster_core/library/Zend/Loader.php on line 134
+[24-Aug-2017 15:05:57 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'Plugins/Cart.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/seotoaster_core/application/app:/var/www/h in /var/www/html/seotoaster_core/library/Zend/Loader.php on line 134
+[24-Aug-2017 15:05:57 Europe/Berlin] PHP Fatal error:  Class 'Plugins_Cart' not found in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 5
+[24-Aug-2017 15:23:43 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_cartStorage in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 23
+[24-Aug-2017 15:23:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function calculate() on null in /var/www/html/plugins/paypalexpress/Paypalexpress.php:23
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(166): Paypalexpress->_init()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Factory/PluginFactory.php(13): Tools_Plugins_Abstract->__construct(Array, Array)
+#2 /var/www/html/seotoaster_core/application/app/Widgets/Plugin/Plugin.php(18): Tools_Factory_PluginFactory::createPlugin('paypalexpress', Array, Array)
+#3 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Plugin_Plugin->_load()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#5 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#6 /var/www/html/seotoaster_core/application/controllers/IndexController.php(134): Tools_Content_Parser->parse()
+#7 /var/www/html/seotoaster_core/library/Zend/Control in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 23
+[24-Aug-2017 15:25:44 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'class' (T_CLASS) in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 5
+[24-Aug-2017 15:25:46 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'class' (T_CLASS) in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 5
+[24-Aug-2017 15:26:15 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_cartStorage in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 23
+[24-Aug-2017 15:26:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function calculate() on null in /var/www/html/plugins/paypalexpress/Paypalexpress.php:23
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(166): Paypalexpress->_init()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Factory/PluginFactory.php(13): Tools_Plugins_Abstract->__construct(Array, Array)
+#2 /var/www/html/seotoaster_core/application/app/Widgets/Plugin/Plugin.php(18): Tools_Factory_PluginFactory::createPlugin('paypalexpress', Array, Array)
+#3 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Plugin_Plugin->_load()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#5 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#6 /var/www/html/seotoaster_core/application/controllers/IndexController.php(134): Tools_Content_Parser->parse()
+#7 /var/www/html/seotoaster_core/library/Zend/Control in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 23
+[24-Aug-2017 15:26:39 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_cartStorage in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 23
+[24-Aug-2017 15:26:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function calculate() on null in /var/www/html/plugins/paypalexpress/Paypalexpress.php:23
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(166): Paypalexpress->_init()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Factory/PluginFactory.php(13): Tools_Plugins_Abstract->__construct(Array, Array)
+#2 /var/www/html/seotoaster_core/application/app/Widgets/Plugin/Plugin.php(18): Tools_Factory_PluginFactory::createPlugin('paypalexpress', Array, Array)
+#3 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Plugin_Plugin->_load()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#5 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#6 /var/www/html/seotoaster_core/application/controllers/IndexController.php(134): Tools_Content_Parser->parse()
+#7 /var/www/html/seotoaster_core/library/Zend/Control in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 23
+[24-Aug-2017 15:27:38 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_cartStorage in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 23
+[24-Aug-2017 15:27:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function calculate() on null in /var/www/html/plugins/paypalexpress/Paypalexpress.php:23
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(166): Paypalexpress->_init()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Factory/PluginFactory.php(13): Tools_Plugins_Abstract->__construct(Array, Array)
+#2 /var/www/html/seotoaster_core/application/app/Widgets/Plugin/Plugin.php(18): Tools_Factory_PluginFactory::createPlugin('paypalexpress', Array, Array)
+#3 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Plugin_Plugin->_load()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#5 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#6 /var/www/html/seotoaster_core/application/controllers/IndexController.php(134): Tools_Content_Parser->parse()
+#7 /var/www/html/seotoaster_core/library/Zend/Control in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 23
+[24-Aug-2017 15:28:00 Europe/Berlin] PHP Fatal error:  Cannot declare class Cart, because the name is already in use in /var/www/html/plugins/cart/Cart.php on line 0
+[24-Aug-2017 15:30:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Paypalexpress::_initCurrency() in /var/www/html/plugins/paypalexpress/Paypalexpress.php:17
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(166): Paypalexpress->_init()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Factory/PluginFactory.php(13): Tools_Plugins_Abstract->__construct(Array, Array)
+#2 /var/www/html/seotoaster_core/application/app/Widgets/Plugin/Plugin.php(18): Tools_Factory_PluginFactory::createPlugin('paypalexpress', Array, Array)
+#3 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Plugin_Plugin->_load()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#5 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#6 /var/www/html/seotoaster_core/application/controllers/IndexController.php(134): Tools_Content_Parser->parse()
+#7 /var/www/html/seotoaster_core/library/Ze in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 17
+[24-Aug-2017 15:34:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined class constant 'SESSION_NAMESPACE' in /var/www/html/plugins/paypalexpress/Paypalexpress.php:20
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(166): Paypalexpress->_init()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Factory/PluginFactory.php(13): Tools_Plugins_Abstract->__construct(Array, Array)
+#2 /var/www/html/seotoaster_core/application/app/Widgets/Plugin/Plugin.php(18): Tools_Factory_PluginFactory::createPlugin('paypalexpress', Array, Array)
+#3 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Plugin_Plugin->_load()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#5 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#6 /var/www/html/seotoaster_core/application/controllers/IndexController.php(134): Tools_Content_Parser->parse()
+#7 /var/www/html/seotoaster_core/library/Zend/Controll in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 20
+[24-Aug-2017 15:35:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Paypalexpress::_getCheckoutPage() in /var/www/html/plugins/paypalexpress/Paypalexpress.php:37
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(166): Paypalexpress->_init()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Factory/PluginFactory.php(13): Tools_Plugins_Abstract->__construct(Array, Array)
+#2 /var/www/html/seotoaster_core/application/app/Widgets/Plugin/Plugin.php(18): Tools_Factory_PluginFactory::createPlugin('paypalexpress', Array, Array)
+#3 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Plugin_Plugin->_load()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#5 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#6 /var/www/html/seotoaster_core/application/controllers/IndexController.php(134): Tools_Content_Parser->parse()
+#7 /var/www/html/seotoaster_core/library in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 37
+[24-Aug-2017 15:35:28 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 15:35:28 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 15:37:48 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN), expecting function (T_FUNCTION) in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 41
+[24-Aug-2017 15:39:15 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 15:39:15 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 15:40:56 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 15:40:56 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 15:40:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined class constant 'STEP_LANDING' in /var/www/html/plugins/paypalexpress/Paypalexpress.php:66
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(237): Paypalexpress->_makeOptionPaypalbutton()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(225): Tools_Plugins_Abstract->_dispatchOptions()
+#2 /var/www/html/seotoaster_core/application/app/Widgets/Plugin/Plugin.php(19): Tools_Plugins_Abstract->run()
+#3 /var/www/html/seotoaster_core/application/app/Widgets/Abstract.php(128): Widgets_Plugin_Plugin->_load()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(128): Widgets_Abstract->render()
+#5 /var/www/html/seotoaster_core/application/app/Tools/Content/Parser.php(43): Tools_Content_Parser->_runWidgets()
+#6 /var/www/html/seotoaster_core/application/controllers/IndexController.php(134): Tools_Content_Parser->parse()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): IndexController->inde in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 66
+[24-Aug-2017 15:43:11 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 15:43:11 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 15:43:43 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 15:43:43 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 15:43:43 Europe/Berlin] PHP Warning:  Creating default object from empty value in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 78
+[24-Aug-2017 15:43:44 Europe/Berlin] Unable to send mail. 
+[24-Aug-2017 15:43:44 Europe/Berlin] #0 /var/www/html/seotoaster_core/library/Zend/Mail/Transport/Abstract.php(348): Zend_Mail_Transport_Sendmail->_sendMail()
+#1 /var/www/html/seotoaster_core/library/Zend/Mail.php(1194): Zend_Mail_Transport_Abstract->send(Object(Zend_Mail))
+#2 /var/www/html/seotoaster_core/application/app/Tools/Mail/Mailer.php(126): Zend_Mail->send()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Mail/Mailer.php(75): Tools_Mail_Mailer->_send()
+#4 /var/www/html/plugins/shopping/system/app/Tools/StoreMailWatchdog.php(134): Tools_Mail_Mailer->send()
+#5 /var/www/html/plugins/shopping/system/app/Tools/StoreMailWatchdog.php(297): Tools_StoreMailWatchdog->_send()
+#6 /var/www/html/plugins/shopping/system/app/Tools/StoreMailWatchdog.php(121): Tools_StoreMailWatchdog->_sendNeworderMail()
+#7 /var/www/html/seotoaster_core/application/app/Tools/Mail/Watchdog.php(40): Tools_StoreMailWatchdog->notify(Object(Models_Model_CartSession))
+#8 [internal function]: Tools_Mail_Watchdog->{closure}(Array, 0, Array)
+#9 /var/www/html/seotoaster_core/application/app/Tools/Mail/Watchdog.php(41): array_walk(Array, Object(Closure), Array)
+#10 /var/www/html/seotoaster_core/application/app/Tools/System/Observable.php(25): Tools_Mail_Watchdog->notify(Object(Models_Model_CartSession))
+#11 /var/www/html/plugins/shopping/Shopping.php(924): Tools_System_Observable->notifyObservers()
+#12 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Shopping->thankyouAction()
+#13 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#14 /var/www/html/plugins/shopping/Shopping.php(247): Tools_Plugins_Abstract->run(Array)
+#15 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Shopping->run(Array)
+#16 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#17 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#18 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#19 /var/www/html/seotoaster_core/library/Zend/Application/Bootstrap/Bootstrap.php(101): Zend_Controller_Front->dispatch()
+#20 /var/www/html/seotoaster_core/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#21 /var/www/html/index.php(65): Zend_Application->run()
+#22 {main}
+[24-Aug-2017 15:43:44 Europe/Berlin] Unable to send mail. 
+[24-Aug-2017 15:43:44 Europe/Berlin] #0 /var/www/html/seotoaster_core/library/Zend/Mail/Transport/Abstract.php(348): Zend_Mail_Transport_Sendmail->_sendMail()
+#1 /var/www/html/seotoaster_core/library/Zend/Mail.php(1194): Zend_Mail_Transport_Abstract->send(Object(Zend_Mail))
+#2 /var/www/html/seotoaster_core/application/app/Tools/Mail/Mailer.php(126): Zend_Mail->send()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Mail/Mailer.php(75): Tools_Mail_Mailer->_send()
+#4 /var/www/html/plugins/shopping/system/app/Tools/StoreMailWatchdog.php(134): Tools_Mail_Mailer->send()
+#5 /var/www/html/plugins/shopping/system/app/Tools/StoreMailWatchdog.php(297): Tools_StoreMailWatchdog->_send()
+#6 /var/www/html/plugins/shopping/system/app/Tools/StoreMailWatchdog.php(121): Tools_StoreMailWatchdog->_sendNeworderMail()
+#7 /var/www/html/seotoaster_core/application/app/Tools/Mail/Watchdog.php(40): Tools_StoreMailWatchdog->notify(Object(Models_Model_CartSession))
+#8 [internal function]: Tools_Mail_Watchdog->{closure}(Array, 1, Array)
+#9 /var/www/html/seotoaster_core/application/app/Tools/Mail/Watchdog.php(41): array_walk(Array, Object(Closure), Array)
+#10 /var/www/html/seotoaster_core/application/app/Tools/System/Observable.php(25): Tools_Mail_Watchdog->notify(Object(Models_Model_CartSession))
+#11 /var/www/html/plugins/shopping/Shopping.php(924): Tools_System_Observable->notifyObservers()
+#12 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Shopping->thankyouAction()
+#13 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#14 /var/www/html/plugins/shopping/Shopping.php(247): Tools_Plugins_Abstract->run(Array)
+#15 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Shopping->run(Array)
+#16 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#17 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#18 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#19 /var/www/html/seotoaster_core/library/Zend/Application/Bootstrap/Bootstrap.php(101): Zend_Controller_Front->dispatch()
+#20 /var/www/html/seotoaster_core/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#21 /var/www/html/index.php(65): Zend_Application->run()
+#22 {main}
+[24-Aug-2017 15:43:44 Europe/Berlin] Unsupported recipient superadmin given
+[24-Aug-2017 15:43:44 Europe/Berlin] Unable to send mail. 
+[24-Aug-2017 15:43:44 Europe/Berlin] #0 /var/www/html/seotoaster_core/library/Zend/Mail/Transport/Abstract.php(348): Zend_Mail_Transport_Sendmail->_sendMail()
+#1 /var/www/html/seotoaster_core/library/Zend/Mail.php(1194): Zend_Mail_Transport_Abstract->send(Object(Zend_Mail))
+#2 /var/www/html/seotoaster_core/application/app/Tools/Mail/Mailer.php(126): Zend_Mail->send()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Mail/Mailer.php(75): Tools_Mail_Mailer->_send()
+#4 /var/www/html/plugins/shopping/system/app/Tools/StoreMailWatchdog.php(134): Tools_Mail_Mailer->send()
+#5 /var/www/html/plugins/shopping/system/app/Tools/StoreMailWatchdog.php(297): Tools_StoreMailWatchdog->_send()
+#6 /var/www/html/plugins/shopping/system/app/Tools/StoreMailWatchdog.php(121): Tools_StoreMailWatchdog->_sendNeworderMail()
+#7 /var/www/html/seotoaster_core/application/app/Tools/Mail/Watchdog.php(40): Tools_StoreMailWatchdog->notify(Object(Models_Model_CartSession))
+#8 [internal function]: Tools_Mail_Watchdog->{closure}(Array, 3, Array)
+#9 /var/www/html/seotoaster_core/application/app/Tools/Mail/Watchdog.php(41): array_walk(Array, Object(Closure), Array)
+#10 /var/www/html/seotoaster_core/application/app/Tools/System/Observable.php(25): Tools_Mail_Watchdog->notify(Object(Models_Model_CartSession))
+#11 /var/www/html/plugins/shopping/Shopping.php(924): Tools_System_Observable->notifyObservers()
+#12 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Shopping->thankyouAction()
+#13 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#14 /var/www/html/plugins/shopping/Shopping.php(247): Tools_Plugins_Abstract->run(Array)
+#15 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Shopping->run(Array)
+#16 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#17 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#18 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#19 /var/www/html/seotoaster_core/library/Zend/Application/Bootstrap/Bootstrap.php(101): Zend_Controller_Front->dispatch()
+#20 /var/www/html/seotoaster_core/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#21 /var/www/html/index.php(65): Zend_Application->run()
+#22 {main}
+[24-Aug-2017 15:52:16 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 15:52:16 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 15:53:46 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 15:53:46 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 16:58:37 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/pagerating/config/config.ini
+[24-Aug-2017 16:58:48 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[24-Aug-2017 16:58:48 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:35:44 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:35:44 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:44:40 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:44:40 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:45:48 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:45:48 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:45:48 Europe/Berlin] PHP Warning:  Creating default object from empty value in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 47
+[25-Aug-2017 08:45:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method stdClass::render() in /var/www/html/plugins/paypalexpress/Paypalexpress.php:48
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->paypalexpresssettingsAction()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#2 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#3 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#4 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#5 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#6 /var/www/html/seotoaster_core/library/Zend/Application in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 48
+[25-Aug-2017 08:46:50 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:46:50 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:46:50 Europe/Berlin] PHP Warning:  Creating default object from empty value in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 47
+[25-Aug-2017 08:46:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method stdClass::render() in /var/www/html/plugins/paypalexpress/Paypalexpress.php:48
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->paypalexpresssettingsAction()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#2 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#3 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#4 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#5 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#6 /var/www/html/seotoaster_core/library/Zend/Application in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 48
+[25-Aug-2017 08:50:30 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:50:30 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:50:30 Europe/Berlin] PHP Warning:  Creating default object from empty value in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 47
+[25-Aug-2017 08:50:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method stdClass::render() in /var/www/html/plugins/paypalexpress/Paypalexpress.php:48
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#2 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#3 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#4 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#5 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#6 /var/www/html/seotoaster_core/library/Zend/Application/Bootstrap/Bo in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 48
+[25-Aug-2017 08:55:53 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 08:55:56 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 08:55:56 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:55:56 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:55:56 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:55:56 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:56:34 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:56:34 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 38
+[25-Aug-2017 08:56:34 Europe/Berlin] PHP Warning:  Creating default object from empty value in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 47
+[25-Aug-2017 08:56:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method stdClass::render() in /var/www/html/plugins/paypalexpress/Paypalexpress.php:48
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#2 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#3 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#4 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#5 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#6 /var/www/html/seotoaster_core/library/Zend/Application/Bootstrap/Bo in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 48
+[25-Aug-2017 09:04:23 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:04:23 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:06:55 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:06:55 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:07:34 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:07:34 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:16:56 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:16:56 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:20:27 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:20:27 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:20:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function translate() on null in /var/www/html/plugins/paypalexpress/system/views/settings.phtml:11
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/paypalexpress/Paypalexpress.php(48): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#5 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('firea in /var/www/html/plugins/paypalexpress/system/views/settings.phtml on line 11
+[25-Aug-2017 09:20:33 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:20:33 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:20:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function translate() on null in /var/www/html/plugins/paypalexpress/system/views/settings.phtml:11
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/paypalexpress/Paypalexpress.php(48): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#5 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('firea in /var/www/html/plugins/paypalexpress/system/views/settings.phtml on line 11
+[25-Aug-2017 09:23:40 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:23:40 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:23:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function translate() on null in /var/www/html/plugins/paypalexpress/system/views/settings.phtml:4
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/paypalexpress/Paypalexpress.php(48): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#5 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireac in /var/www/html/plugins/paypalexpress/system/views/settings.phtml on line 4
+[25-Aug-2017 09:24:15 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:24:15 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:24:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function translate() on null in /var/www/html/plugins/paypalexpress/system/views/settings.phtml:4
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/paypalexpress/Paypalexpress.php(48): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#5 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireac in /var/www/html/plugins/paypalexpress/system/views/settings.phtml on line 4
+[25-Aug-2017 09:25:11 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:25:11 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:25:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function translate() on null in /var/www/html/plugins/paypalexpress/system/views/settings.phtml:11
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/paypalexpress/Paypalexpress.php(48): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#5 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('firea in /var/www/html/plugins/paypalexpress/system/views/settings.phtml on line 11
+[25-Aug-2017 09:26:01 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:26:01 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:26:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function translate() on null in /var/www/html/plugins/paypalexpress/system/views/settings.phtml:28
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/paypalexpress/Paypalexpress.php(48): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#5 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('firea in /var/www/html/plugins/paypalexpress/system/views/settings.phtml on line 28
+[25-Aug-2017 09:27:44 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:27:44 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:27:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function translate() on null in /var/www/html/plugins/paypalexpress/system/views/settings.phtml:28
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/paypalexpress/Paypalexpress.php(48): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#5 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('firea in /var/www/html/plugins/paypalexpress/system/views/settings.phtml on line 28
+[25-Aug-2017 09:27:48 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:27:48 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:27:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function translate() on null in /var/www/html/plugins/paypalexpress/system/views/settings.phtml:28
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/paypalexpress/Paypalexpress.php(48): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#5 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('firea in /var/www/html/plugins/paypalexpress/system/views/settings.phtml on line 28
+[25-Aug-2017 09:30:06 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:30:06 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:30:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function translate() on null in /var/www/html/plugins/paypalexpress/system/views/settings.phtml:25
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/paypalexpress/Paypalexpress.php(48): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#5 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('firea in /var/www/html/plugins/paypalexpress/system/views/settings.phtml on line 25
+[25-Aug-2017 09:30:47 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:30:47 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:30:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function translate() on null in /var/www/html/plugins/paypalexpress/system/views/settings.phtml:25
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/paypalexpress/Paypalexpress.php(48): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#5 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('firea in /var/www/html/plugins/paypalexpress/system/views/settings.phtml on line 25
+[25-Aug-2017 09:30:58 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:30:58 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:30:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function translate() on null in /var/www/html/plugins/paypalexpress/system/views/settings.phtml:25
+Stack trace:
+#0 /var/www/html/seotoaster_core/library/Zend/View.php(108): include()
+#1 /var/www/html/seotoaster_core/library/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/p...')
+#2 /var/www/html/plugins/paypalexpress/Paypalexpress.php(48): Zend_View_Abstract->render()
+#3 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#4 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#5 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#7 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('firea in /var/www/html/plugins/paypalexpress/system/views/settings.phtml on line 25
+[25-Aug-2017 09:32:21 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:32:21 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:39:40 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:39:40 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:47:20 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:47:20 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:48:04 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:48:04 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:56:41 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:56:41 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:57:19 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 09:57:19 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 10:05:39 Europe/Berlin] PHP Warning:  include_once(Tools/Plugin/Abstract.php): failed to open stream: No such file or directory in /var/www/html/seotoaster_core/library/Zend/Loader.php on line 134
+[25-Aug-2017 10:05:39 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'Tools/Plugin/Abstract.php' for inclusion (include_path='/var/www/html/plugins/widcard/system/classes/dbtables:/var/www/html/plugins/widcard/system/classes/mappers:/var/www/html/plugins/widcard/system/classes/models:/var/www/html/plugins/newslog/system/app:/var/www/html/plugins/cart/system/app:/var/www/html/plugins/invoicetopdf/system/app:/var/www/html/plugins/shopping/system/app:/var/www/html/plugins/netcontent/system/app:/var/www/html/plugins/promo/system/app:/var/www/html/plugins/quote/system/app:/var/www/html/plugins/socialposter/system/app:/var/www/html/plugins/toasterstats/system/app:/var/www/html/plugins/webbuilder/system/app:/var/www/html/plugins/dashboard/system/app:/var/www/html/plugins/apps/system/app:/var/www/html/plugins/cartstatusemail/system/app:/var/www/html/plugins/flatrateshipping/system/app:/var/www/html/plugins/delivery/system/app:/var/www/html/plugins/toastauth/system/app:/var/www/html/plugins/paypal/system/app:/var/www/html/plugins/pagerating/system/app:/va in /var/www/html/seotoaster_core/library/Zend/Loader.php on line 134
+[25-Aug-2017 10:05:39 Europe/Berlin] PHP Fatal error:  Class 'Tools_Plugin_Abstract' not found in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 5
+[25-Aug-2017 10:06:16 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 10:06:16 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 10:33:51 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 10:33:51 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 10:40:10 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 10:40:10 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 10:41:09 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 10:41:09 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 10:42:08 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 10:42:08 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 10:43:32 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 10:43:32 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 11:54:14 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 77
+[25-Aug-2017 11:55:45 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 11:58:41 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 11:58:41 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 11:58:41 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 11:58:41 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 11:58:41 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 11:59:31 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 11:59:31 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 11:59:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Paypalexpress_Models_Mapper_PaypalExpressSettingsMapper' not found in /var/www/html/plugins/paypalexpress/Paypalexpress.php:48
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#2 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#3 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#4 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#5 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#6 /var/www/html/seotoaster_core/library in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 48
+[25-Aug-2017 12:03:07 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 12:03:07 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 12:04:56 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 12:04:56 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 39
+[25-Aug-2017 12:18:51 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:18:51 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:19:28 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:19:28 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:19:37 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:19:37 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:22:50 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:22:50 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:23:25 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:23:25 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:23:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Paypalexpress_Models_Models_PaypalExpressSettingsModel::setApiSignature() in /var/www/html/plugins/paypalexpress/Paypalexpress.php:58
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#2 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#3 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#4 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#5 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#6 /var/www/htm in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 58
+[25-Aug-2017 12:23:29 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:23:29 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:23:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Paypalexpress_Models_Models_PaypalExpressSettingsModel::setApiSignature() in /var/www/html/plugins/paypalexpress/Paypalexpress.php:58
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#2 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#3 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#4 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#5 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#6 /var/www/htm in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 58
+[25-Aug-2017 12:26:30 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:26:30 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:26:57 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:26:57 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:26:59 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:26:59 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:32:19 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:32:19 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:32:20 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:32:20 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:32:27 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:32:27 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:32:51 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:32:51 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:41:56 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 12:43:17 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 12:43:17 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:43:17 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:43:17 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:43:17 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:43:30 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:43:30 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:43:36 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:43:36 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:46:11 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:46:11 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:46:14 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:46:14 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:50:03 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:50:03 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:56:38 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 12:56:38 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:00:16 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:00:16 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:01:02 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:01:02 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:01:22 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:01:22 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:01:29 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:01:29 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:02:31 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:02:31 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:05:17 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:05:17 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:05:27 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:05:27 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:11:31 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:11:31 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:11:39 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:11:39 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:11:39 Europe/Berlin] PHP Warning:  file_put_contents(/var/www/html/plugins/paypalexpress/../tmp/sqlerror.log): failed to open stream: No such file or directory in /var/www/html/plugins/paypalexpress/Debug.php on line 11
+[25-Aug-2017 13:16:37 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:16:37 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:16:38 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:16:38 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:16:38 Europe/Berlin] PHP Warning:  file_put_contents(/var/www/html/plugins/paypalexpress/log.log): failed to open stream: Permission denied in /var/www/html/plugins/paypalexpress/Debug.php on line 11
+[25-Aug-2017 13:16:45 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:16:45 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:16:45 Europe/Berlin] PHP Warning:  file_put_contents(/var/www/html/plugins/paypalexpress/log.log): failed to open stream: Permission denied in /var/www/html/plugins/paypalexpress/Debug.php on line 11
+[25-Aug-2017 13:19:14 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:19:14 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:19:20 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:19:20 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:20:39 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:20:39 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:20:47 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:20:47 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:22:43 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:22:43 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:22:49 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 13:22:49 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:12:02 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:12:02 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:12:12 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:12:12 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:15:14 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:15:14 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:15:20 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:15:20 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:20:37 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:20:37 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:20:59 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:20:59 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:26:15 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 14:26:18 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 14:26:18 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:26:18 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:26:18 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:26:18 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:26:38 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:26:38 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:26:47 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:26:47 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:27:28 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:27:28 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:28:33 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 14:32:12 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 14:32:12 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:32:12 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:32:12 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:32:12 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:32:22 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:32:22 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:32:33 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:32:33 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:33:47 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:33:47 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:34:50 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'writeLog' (T_STRING) in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 74
+[25-Aug-2017 14:34:56 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'writeLog' (T_STRING) in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 74
+[25-Aug-2017 14:34:59 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'writeLog' (T_STRING) in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 74
+[25-Aug-2017 14:35:20 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'writeLog' (T_STRING) in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 74
+[25-Aug-2017 14:35:44 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:35:44 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:35:50 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:35:50 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:36:08 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:36:08 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:38:39 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:38:39 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:38:52 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:38:52 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:39:07 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:39:07 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:39:20 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:39:20 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:46:03 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:46:03 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:46:10 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:46:10 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:46:17 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:46:17 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:52:55 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:52:55 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:53:00 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:53:00 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:53:14 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 14:53:14 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:02:47 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:02:47 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:02:54 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:02:54 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:02:56 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:02:56 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:07:18 Europe/Berlin] PHP Fatal error:  Cannot redeclare writeLog() (previously declared in /var/www/html/plugins/paypalexpress/Debug.php:10) in /var/www/html/plugins/paypalexpress/Debug.php on line 10
+[25-Aug-2017 15:08:30 Europe/Berlin] PHP Fatal error:  Cannot redeclare writeLog() (previously declared in /var/www/html/plugins/paypalexpress/Debug.php:10) in /var/www/html/plugins/paypalexpress/Debug.php on line 10
+[25-Aug-2017 15:09:28 Europe/Berlin] PHP Fatal error:  Cannot redeclare writeLog() (previously declared in /var/www/html/plugins/paypalexpress/Debug.php:10) in /var/www/html/plugins/paypalexpress/Debug.php on line 10
+[25-Aug-2017 15:09:37 Europe/Berlin] PHP Fatal error:  Cannot redeclare writeLog() (previously declared in /var/www/html/plugins/paypalexpress/Debug.php:10) in /var/www/html/plugins/paypalexpress/Debug.php on line 10
+[25-Aug-2017 15:15:45 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 15:16:35 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 15:16:35 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:16:35 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:16:35 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:16:35 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:16:48 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:16:48 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:16:57 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:16:57 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:19:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Paypal_Models_Mapper_PaypalConfigMapper::getEmail() in /var/www/html/plugins/paypal/Paypal.php:1395
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypal->configAction()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#2 /var/www/html/plugins/paypal/Paypal.php(106): Tools_Plugins_Abstract->run(Array)
+#3 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Paypal->run(Array)
+#4 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#5 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Respon in /var/www/html/plugins/paypal/Paypal.php on line 1395
+[25-Aug-2017 15:19:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Paypal_Models_Mapper_PaypalConfigMapper::getEmail() in /var/www/html/plugins/paypal/Paypal.php:1395
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypal->configAction()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#2 /var/www/html/plugins/paypal/Paypal.php(106): Tools_Plugins_Abstract->run(Array)
+#3 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Paypal->run(Array)
+#4 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#5 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Respon in /var/www/html/plugins/paypal/Paypal.php on line 1395
+[25-Aug-2017 15:19:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Paypal_Models_Mapper_PaypalConfigMapper::getEmail() in /var/www/html/plugins/paypal/Paypal.php:1395
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypal->configAction()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#2 /var/www/html/plugins/paypal/Paypal.php(106): Tools_Plugins_Abstract->run(Array)
+#3 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Paypal->run(Array)
+#4 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#5 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#6 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Respon in /var/www/html/plugins/paypal/Paypal.php on line 1395
+[25-Aug-2017 15:27:32 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:27:32 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:27:40 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:27:40 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:27:57 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:27:57 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:30:11 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:30:11 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:30:37 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:30:37 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:35:18 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:35:18 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:35:27 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:35:27 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:37:56 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:37:56 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:38:24 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:38:24 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:39:57 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:39:57 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:41:27 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 15:42:12 Europe/Berlin] Section 'route' cannot be found in /var/www/html/plugins/paypalexpress/config/config.ini
+[25-Aug-2017 15:42:12 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:42:12 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:42:12 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:42:12 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:42:23 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:42:23 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:45:33 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:45:33 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:45:50 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:45:50 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:51:57 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:51:57 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:52:05 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:52:05 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:53:22 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:53:22 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 15:53:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Paypalexpress_Models_Models_PaypalExpressSettingsModel::getInstance() in /var/www/html/plugins/paypalexpress/Paypalexpress.php:51
+Stack trace:
+#0 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(260): Paypalexpress->settingsAction()
+#1 /var/www/html/seotoaster_core/application/app/Tools/Plugins/Abstract.php(229): Tools_Plugins_Abstract->_dispatch(Array)
+#2 /var/www/html/seotoaster_core/application/controllers/Backend/PluginController.php(265): Tools_Plugins_Abstract->run(Array)
+#3 /var/www/html/seotoaster_core/library/Zend/Controller/Action.php(516): Backend_PluginController->fireactionAction()
+#4 /var/www/html/seotoaster_core/library/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('fireactionActio...')
+#5 /var/www/html/seotoaster_core/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#6 /var/www/html/se in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 51
+[25-Aug-2017 16:05:26 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 16:05:26 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 16:05:36 Europe/Berlin] PHP Notice:  Undefined property: Paypalexpress::$_checkoutSession in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40
+[25-Aug-2017 16:05:36 Europe/Berlin] PHP Notice:  Trying to get property of non-object in /var/www/html/plugins/paypalexpress/Paypalexpress.php on line 40

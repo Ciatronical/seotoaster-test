@@ -1,0 +1,52 @@
+<?php $this->jQuery()->addJavascriptFile($this->websiteUrl.'plugins/pagerating/system/layout/js/jquery.raty.min.js'); ?>
+<div class="pagerating-list">
+<?php
+	foreach ($this->reviews as $review) {
+		echo $this->partial('_review.phtml', array('review' => $review));
+	}
+?>
+</div>
+
+<?php
+if (!is_null($this->form)){
+	echo '<h3 class="review-header">'.$this->translate('Reviews').'</h3>';
+	echo $this->partial('starrating.phtml', array(
+		'form' => $this->form->getId(),
+		'rating' => $this->rating,
+        'formRatingClass' => 'formrating'
+    ));
+	echo $this->form;
+} else {
+	echo '<p class="review-done">'.$this->translate('You have already rated this page').'</p>';
+}
+?>
+
+<script>
+	$(function(){
+		$('div[itemprop="review"] div[itemprop="reviewRating"]').each(function(){
+			$(this).raty({
+				path: $('#website_url').val()+'plugins/pagerating/system/layout/images/',
+				readOnly: true,
+				score: parseFloat($(this).find('span[itemprop="ratingValue"]').text())
+			});
+		});
+
+        $('div[itemprop="review"] p.admin-actions').on('click', 'a', function(elem) {
+            elem.preventDefault();
+
+            var reviewId = $(this).parent().data('id');
+            var action   = $(this).attr('class');
+
+            $.post($('#website_url').val()+'plugin/pagerating/run/'+action, {reviewId: reviewId},
+                function(response) {
+                    if (action == 'delete') {
+                        $('#pagerating-review-'+reviewId).remove();
+                    }
+                    if (action == 'publish') {
+                        $('#pagerating-review-'+reviewId+' .publish').remove();
+                    }
+                }
+            );
+        });
+	});
+</script>

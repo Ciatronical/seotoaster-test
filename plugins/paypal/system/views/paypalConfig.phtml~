@@ -42,7 +42,7 @@ $(document).ready(function(){
     
     $('.saveButton').on("click", function() {
     	
-    	
+    	alert("<?php echo $this->websiteUrl; ?>plugin/paypal/run/config/");
         showSpinner();
        
        var useSandBox = 0;

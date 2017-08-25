@@ -1,0 +1,944 @@
+2017-08-25 13:22:49 -> test
+2017-08-25 14:12:12 -> test
+2017-08-25 14:15:20 -> test
+2017-08-25 14:20:59 -> productionID
+2017-08-25 14:20:59 -> sandboxID
+2017-08-25 14:20:59 -> 1
+2017-08-25 14:26:47 -> test
+2017-08-25 14:26:47 -> test
+2017-08-25 14:26:47 -> 1
+2017-08-25 14:27:28 -> test
+2017-08-25 14:27:28 -> test
+2017-08-25 14:27:28 -> 1
+2017-08-25 14:32:33 -> test
+2017-08-25 14:32:33 -> test
+2017-08-25 14:32:33 -> 1
+2017-08-25 14:33:47 -> test2
+2017-08-25 14:33:47 -> test1
+2017-08-25 14:33:47 -> 1
+2017-08-25 14:35:50 -> 0
+2017-08-25 14:36:08 -> 0
+2017-08-25 15:11:08 -> Paypal_Models_Mapper_PaypalConfigMapper Object
+(
+    [_dbTable:protected] => Paypal_Models_Dbtables_PaypalConfigDbtable Object
+        (
+            [_name:protected] => plugin_paypal_settings
+            [_definition:protected] => 
+            [_definitionConfigName:protected] => 
+            [_db:protected] => Zend_Db_Adapter_Pdo_Mysql Object
+                (
+                    [_pdoType:protected] => mysql
+                    [_numericDataTypes:protected] => Array
+                        (
+                            [0] => 0
+                            [1] => 1
+                            [2] => 2
+                            [INT] => 0
+                            [INTEGER] => 0
+                            [MEDIUMINT] => 0
+                            [SMALLINT] => 0
+                            [TINYINT] => 0
+                            [BIGINT] => 1
+                            [SERIAL] => 1
+                            [DEC] => 2
+                            [DECIMAL] => 2
+                            [DOUBLE] => 2
+                            [DOUBLE PRECISION] => 2
+                            [FIXED] => 2
+                            [FLOAT] => 2
+                        )
+
+                    [_defaultStmtClass:protected] => Zend_Db_Statement_Pdo
+                    [_config:protected] => Array
+                        (
+                            [host] => localhost
+                            [username] => root
+                            [password] => windossa5one
+                            [dbname] => seotoaster
+                            [driver_options] => Array
+                                (
+                                    [1002] => SET NAMES UTF8;
+                                    [1000] => 1
+                                )
+
+                            [charset] => 
+                            [persistent] => 
+                            [options] => Array
+                                (
+                                    [caseFolding] => 0
+                                    [autoQuoteIdentifiers] => 1
+                                    [fetchMode] => 2
+                                )
+
+                        )
+
+                    [_fetchMode:protected] => 2
+                    [_profiler:protected] => Zend_Db_Profiler Object
+                        (
+                            [_queryProfiles:protected] => Array
+                                (
+                                )
+
+                            [_enabled:protected] => 
+                            [_filterElapsedSecs:protected] => 
+                            [_filterTypes:protected] => 
+                        )
+
+                    [_defaultProfilerClass:protected] => Zend_Db_Profiler
+                    [_connection:protected] => PDO Object
+                        (
+                        )
+
+                    [_caseFolding:protected] => 0
+                    [_autoQuoteIdentifiers:protected] => 1
+                    [_allowSerialization:protected] => 1
+                    [_autoReconnectOnUnserialize:protected] => 
+                )
+
+            [_schema:protected] => 
+            [_cols:protected] => Array
+                (
+                    [0] => id
+                    [1] => email
+                    [2] => apiSignature
+                    [3] => apiUser
+                    [4] => apiPassword
+                    [5] => useSandbox
+                )
+
+            [_primary:protected] => Array
+                (
+                    [1] => id
+                )
+
+            [_identity:protected] => 1
+            [_sequence:protected] => 1
+            [_metadata:protected] => Array
+                (
+                    [id] => Array
+                        (
+                            [SCHEMA_NAME] => 
+                            [TABLE_NAME] => plugin_paypal_settings
+                            [COLUMN_NAME] => id
+                            [COLUMN_POSITION] => 1
+                            [DATA_TYPE] => int
+                            [DEFAULT] => 
+                            [NULLABLE] => 
+                            [LENGTH] => 
+                            [SCALE] => 
+                            [PRECISION] => 
+                            [UNSIGNED] => 
+                            [PRIMARY] => 1
+                            [PRIMARY_POSITION] => 1
+                            [IDENTITY] => 
+                        )
+
+                    [email] => Array
+                        (
+                            [SCHEMA_NAME] => 
+                            [TABLE_NAME] => plugin_paypal_settings
+                            [COLUMN_NAME] => email
+                            [COLUMN_POSITION] => 2
+                            [DATA_TYPE] => varchar
+                            [DEFAULT] => 
+                            [NULLABLE] => 
+                            [LENGTH] => 255
+                            [SCALE] => 
+                            [PRECISION] => 
+                            [UNSIGNED] => 
+                            [PRIMARY] => 
+                            [PRIMARY_POSITION] => 
+                            [IDENTITY] => 
+                        )
+
+                    [apiSignature] => Array
+                        (
+                            [SCHEMA_NAME] => 
+                            [TABLE_NAME] => plugin_paypal_settings
+                            [COLUMN_NAME] => apiSignature
+                            [COLUMN_POSITION] => 3
+                            [DATA_TYPE] => varchar
+                            [DEFAULT] => 
+                            [NULLABLE] => 
+                            [LENGTH] => 255
+                            [SCALE] => 
+                            [PRECISION] => 
+                            [UNSIGNED] => 
+                            [PRIMARY] => 
+                            [PRIMARY_POSITION] => 
+                            [IDENTITY] => 
+                        )
+
+                    [apiUser] => Array
+                        (
+                            [SCHEMA_NAME] => 
+                            [TABLE_NAME] => plugin_paypal_settings
+                            [COLUMN_NAME] => apiUser
+                            [COLUMN_POSITION] => 4
+                            [DATA_TYPE] => varchar
+                            [DEFAULT] => 
+                            [NULLABLE] => 
+                            [LENGTH] => 255
+                            [SCALE] => 
+                            [PRECISION] => 
+                            [UNSIGNED] => 
+                            [PRIMARY] => 
+                            [PRIMARY_POSITION] => 
+                            [IDENTITY] => 
+                        )
+
+                    [apiPassword] => Array
+                        (
+                            [SCHEMA_NAME] => 
+                            [TABLE_NAME] => plugin_paypal_settings
+                            [COLUMN_NAME] => apiPassword
+                            [COLUMN_POSITION] => 5
+                            [DATA_TYPE] => varchar
+                            [DEFAULT] => 
+                            [NULLABLE] => 
+                            [LENGTH] => 255
+                            [SCALE] => 
+                            [PRECISION] => 
+                            [UNSIGNED] => 
+                            [PRIMARY] => 
+                            [PRIMARY_POSITION] => 
+                            [IDENTITY] => 
+                        )
+
+                    [useSandbox] => Array
+                        (
+                            [SCHEMA_NAME] => 
+                            [TABLE_NAME] => plugin_paypal_settings
+                            [COLUMN_NAME] => useSandbox
+                            [COLUMN_POSITION] => 6
+                            [DATA_TYPE] => tinyint
+                            [DEFAULT] => 
+                            [NULLABLE] => 
+                            [LENGTH] => 
+                            [SCALE] => 
+                            [PRECISION] => 
+                            [UNSIGNED] => 
+                            [PRIMARY] => 
+                            [PRIMARY_POSITION] => 
+                            [IDENTITY] => 
+                        )
+
+                )
+
+            [_metadataCache:protected] => Zend_Cache_Core Object
+                (
+                    [_backend:protected] => Zend_Cache_Backend_File Object
+                        (
+                            [_options:protected] => Array
+                                (
+                                    [cache_dir] => /var/www/html/cache/
+                                    [file_locking] => 1
+                                    [read_control] => 1
+                                    [read_control_type] => crc32
+                                    [hashed_directory_level] => 3
+                                    [hashed_directory_perm] => 448
+                                    [file_name_prefix] => zend_cache
+                                    [cache_file_perm] => 384
+                                    [metadatas_array_max_size] => 100
+                                )
+
+                            [_metadatasArray:protected] => Array
+                                (
+                                    [fd76947394c2f309d643f5261315f5de] => Array
+                                        (
+                                            [hash] => 3813071926
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                    [Zend_Translate_Array_Options] => Array
+                                        (
+                                            [hash] => 2213333658
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Translate
+                                                )
+
+                                        )
+
+                                    [Zend_Translate_3769da8c3a6ef78125254c4663feb4c1_Array] => Array
+                                        (
+                                            [hash] => 4023506991
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Translate
+                                                )
+
+                                        )
+
+                                    [Zend_Translate_fda39ac17d039e27db41aced30ad5c88_Array] => Array
+                                        (
+                                            [hash] => 3594744799
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Translate
+                                                )
+
+                                        )
+
+                                    [Zend_Translate_7b5ff55702e1138b402f1c4181c656e4_Array] => Array
+                                        (
+                                            [hash] => 2946279078
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Translate
+                                                )
+
+                                        )
+
+                                    [Zend_Translate_02c518eaa5533d8ee9ea6bafcadfb016_Array] => Array
+                                        (
+                                            [hash] => 205841361
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Translate
+                                                )
+
+                                        )
+
+                                    [Zend_Translate_28ec94d29d31bd1cf6deff0f6cb5772c_Array] => Array
+                                        (
+                                            [hash] => 747761384
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Translate
+                                                )
+
+                                        )
+
+                                    [Zend_Translate_9fc6358317c5659c9b0bbf2c8d31d762_Array] => Array
+                                        (
+                                            [hash] => 446488664
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Translate
+                                                )
+
+                                        )
+
+                                    [Zend_Translate_507667d0a66cf44d36bce7a1894e2e62_Array] => Array
+                                        (
+                                            [hash] => 877372480
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Translate
+                                                )
+
+                                        )
+
+                                    [Zend_Translate_39b79634a6c9830050fee2ed4ec11ede_Array] => Array
+                                        (
+                                            [hash] => 1034358591
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Translate
+                                                )
+
+                                        )
+
+                                    [Zend_Translate_58f48e71239fda206f62c6b22fa147be_Array] => Array
+                                        (
+                                            [hash] => 4147597713
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Translate
+                                                )
+
+                                        )
+
+                                    [Zend_Translate_e65c6f4b13cb07b571ee491f84a10d7a_Array] => Array
+                                        (
+                                            [hash] => 3725528677
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Translate
+                                                )
+
+                                        )
+
+                                    [d43a1527be2f8b32b85869d804c66670] => Array
+                                        (
+                                            [hash] => 2205232278
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                    [plugins_includePath] => Array
+                                        (
+                                            [hash] => 2377745271
+                                            [mtime] => 1503664332
+                                            [expire] => 1503750732
+                                            [tags] => Array
+                                                (
+                                                    [0] => plugins
+                                                )
+
+                                        )
+
+                                    [plugins_plugin_translation_de] => Array
+                                        (
+                                            [hash] => 1947350696
+                                            [mtime] => 1503664332
+                                            [expire] => 1504528332
+                                            [tags] => Array
+                                                (
+                                                    [0] => plugins
+                                                    [1] => plugin_translation
+                                                )
+
+                                        )
+
+                                    [Zend_Translate_5c61f8851bff9d7f8b9ee9f14861c2e0_Array] => Array
+                                        (
+                                            [hash] => 2361085584
+                                            [mtime] => 1503666668
+                                            [expire] => 1503673868
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Translate
+                                                )
+
+                                        )
+
+                                    [plugins_enabledPlugins] => Array
+                                        (
+                                            [hash] => 1961554084
+                                            [mtime] => 1503664332
+                                            [expire] => 1503750732
+                                            [tags] => Array
+                                                (
+                                                    [0] => plugins
+                                                )
+
+                                        )
+
+                                    [104670eb78d7b5a84491696a266aceff] => Array
+                                        (
+                                            [hash] => 3388835904
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                    [c8b3b02878bc3aff835aa460e866b596] => Array
+                                        (
+                                            [hash] => 861102977
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                    [67c22ff3143b47390989a8cd16ece126] => Array
+                                        (
+                                            [hash] => 1143887114
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                    [ba250722b3a947ca123ed652fed3b8fd] => Array
+                                        (
+                                            [hash] => 1514981013
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                    [Zend_LocaleC_en_US_currencytoregion_US] => Array
+                                        (
+                                            [hash] => 245248331
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Locale
+                                                )
+
+                                        )
+
+                                    [Zend_LocaleC_en_US_nametocurrency_] => Array
+                                        (
+                                            [hash] => 744829587
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Locale
+                                                )
+
+                                        )
+
+                                    [Zend_LocaleC_en_US_nametocurrency_USD] => Array
+                                        (
+                                            [hash] => 2696603084
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Locale
+                                                )
+
+                                        )
+
+                                    [Zend_LocaleC_en_US_currencysymbol_] => Array
+                                        (
+                                            [hash] => 744829587
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Locale
+                                                )
+
+                                        )
+
+                                    [Zend_LocaleC_en_US_currencysymbol_USD] => Array
+                                        (
+                                            [hash] => 1829488957
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Locale
+                                                )
+
+                                        )
+
+                                    [Zend_LocaleC_en_US_currencysymbol_EUR] => Array
+                                        (
+                                            [hash] => 713688049
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Locale
+                                                )
+
+                                        )
+
+                                    [store_cart_checkoutpage] => Array
+                                        (
+                                            [hash] => 2362631259
+                                            [mtime] => 1503666636
+                                            [expire] => 1503666936
+                                            [tags] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                    [Zend_LocaleC_de_DE_currencytoregion_DE] => Array
+                                        (
+                                            [hash] => 1354312890
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Locale
+                                                )
+
+                                        )
+
+                                    [Zend_LocaleC_de_DE_nametocurrency_] => Array
+                                        (
+                                            [hash] => 744829587
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Locale
+                                                )
+
+                                        )
+
+                                    [Zend_LocaleC_de_DE_nametocurrency_EUR] => Array
+                                        (
+                                            [hash] => 36366501
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Locale
+                                                )
+
+                                        )
+
+                                    [Zend_LocaleC_de_DE_currencysymbol_] => Array
+                                        (
+                                            [hash] => 744829587
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Locale
+                                                )
+
+                                        )
+
+                                    [Zend_LocaleC_de_DE_currencysymbol_EUR] => Array
+                                        (
+                                            [hash] => 713688049
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Locale
+                                                )
+
+                                        )
+
+                                    [Zend_LocaleC_de_DE_currencytoname_EUR] => Array
+                                        (
+                                            [hash] => 744829587
+                                            [mtime] => 1503664316
+                                            [expire] => 1503671516
+                                            [tags] => Array
+                                                (
+                                                    [0] => Zend_Locale
+                                                )
+
+                                        )
+
+                                    [plugins_enabledPluginsNames] => Array
+                                        (
+                                            [hash] => 4112405022
+                                            [mtime] => 1503664332
+                                            [expire] => 1503750732
+                                            [tags] => Array
+                                                (
+                                                    [0] => plugins
+                                                )
+
+                                        )
+
+                                    [bec21f23b2ef472a81f91c5a7e5b7ead] => Array
+                                        (
+                                            [hash] => 1518629738
+                                            [mtime] => 1503664315
+                                            [expire] => 1503671515
+                                            [tags] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                    [df35d8b20418e7c621abb1490b153b5c] => Array
+                                        (
+                                            [hash] => 3157029869
+                                            [mtime] => 1503666663
+                                            [expire] => 1503673863
+                                            [tags] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                            [_directives:protected] => Array
+                                (
+                                    [lifetime] => 7200
+                                    [logging] => 
+                                    [logger] => 
+                                )
+
+                        )
+
+                    [_options:protected] => Array
+                        (
+                            [write_control] => 1
+                            [caching] => 1
+                            [cache_id_prefix] => 
+                            [automatic_serialization] => 1
+                            [automatic_cleaning_factor] => 10
+                            [lifetime] => 7200
+                            [logging] => 
+                            [logger] => 
+                            [ignore_user_abort] => 1
+                        )
+
+                    [_specificOptions:protected] => Array
+                        (
+                        )
+
+                    [_lastId:Zend_Cache_Core:private] => df35d8b20418e7c621abb1490b153b5c
+                    [_extendedBackend:protected] => 1
+                    [_backendCapabilities:protected] => Array
+                        (
+                            [automatic_cleaning] => 1
+                            [tags] => 1
+                            [expired_read] => 1
+                            [priority] => 
+                            [infinite_lifetime] => 1
+                            [get_list] => 1
+                        )
+
+                )
+
+            [_metadataCacheInClass:protected] => 1
+            [_rowClass:protected] => Zend_Db_Table_Row
+            [_rowsetClass:protected] => Zend_Db_Table_Rowset
+            [_referenceMap:protected] => Array
+                (
+                )
+
+            [_dependentTables:protected] => Array
+                (
+                )
+
+            [_defaultSource:protected] => defaultNone
+            [_defaultValues:protected] => Array
+                (
+                )
+
+        )
+
+    [_model:protected] => Paypal_Models_Models_PaypalConfigModel
+)
+
+2017-08-25 15:21:11 -> info@flexrohr24.de
+2017-08-25 15:21:51 -> Paypal_Models_Models_PaypalConfigModel Object
+(
+    [_id:protected] => 
+    [_email:protected] => info@flexrohr24.de
+    [_apiSignature:protected] => An5ns1Kso7MWUdW4ErQKJJJ4qi4-A8qABGFW0rWyaajDeGito6S408op 
+    [_apiUser:protected] => info_api1.flexrohr24.de 
+    [_apiPassword:protected] => YW6M7YH9VM83JYPS 
+    [_useSandbox:protected] => 0
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 15:27:32 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 15:27:40 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 15:27:57 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 15:30:11 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 15:30:11 -> test
+2017-08-25 15:30:11 -> test
+2017-08-25 15:30:11 -> 1
+2017-08-25 15:30:37 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 15:30:37 -> 1
+2017-08-25 15:35:18 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 15:35:27 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 15:35:27 -> test
+2017-08-25 15:35:27 -> test
+2017-08-25 15:35:27 -> 1
+2017-08-25 15:35:27 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 15:45:33 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 15:45:50 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 15:45:50 -> test
+2017-08-25 15:45:50 -> test
+2017-08-25 15:45:50 -> 1
+2017-08-25 15:51:57 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 15:52:05 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 15:52:05 -> gg
+2017-08-25 15:52:05 -> dds
+2017-08-25 15:52:05 -> 1
+2017-08-25 16:05:26 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:05:36 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:05:36 -> test
+2017-08-25 16:05:36 -> test
+2017-08-25 16:05:36 -> 1

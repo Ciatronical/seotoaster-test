@@ -1,0 +1,12 @@
+<?php return array('Page rating' => 'Avaliação página', 'Total votes' => 'Total de votos',
+                   'Name' => 'Nome', 
+                   'Email' => 'Email',
+                   'Comment' => 'Comentário',
+                   'Post Review' => 'Análise pós-',
+                   'Enter right email address' => 'Digite o endereço de e-mail direito',
+                   'User name can not be empty' => 'Nome de usuário não pode ser vazio',
+                   'Review name can not be empty' => 'Nome de revisão não pode ser vazio',
+                   'You alreade rated' => 'Você alreade avaliado'
+                   
+    ); 
+        ?>

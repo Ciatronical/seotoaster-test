@@ -1,0 +1,30 @@
+<?php if ($this->voteLink):?>
+    <p class="voteLink mt0px">
+        <a href="<?php echo $this->voteLink; ?>" title="<?php echo $this->translate('Be the first to comment'); ?>"><?php echo $this->translate('Be the first to comment'); ?></a>
+    </p>
+<?php else:?>
+    <?php $uniqId = uniqid('starrating-'); ?>
+    <div id="<?php echo $uniqId;?>" class="starrating<?php echo $this->formRatingClass ? ' ' . $this->formRatingClass : ''; ?>" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+        <p class="rating">
+            <?php echo $this->translate('Rating');?>:
+            <span class="ratingValue" itemprop="ratingValue"><?php echo ($this->rating->getRatingValue()) ? $this->rating->getRatingValue() : '0'; ?></span>
+        </p>
+        <div class="stars-container"
+             data-readonly="<?php echo $this->readOnly; ?>"
+             data-score="<?php echo ($this->rating->getRatingValue()) ? $this->rating->getRatingValue() : '0'; ?>"
+             data-pageid="<?php echo $this->rating->getPageId();?>"
+             <?php if (isset($this->form)) :?>
+             data-formid="<?php echo $this->form; ?>"
+             <?php endif; ?>
+            ></div>
+        <p class="total-review">
+            <?php if (isset($this->form) && !empty($this->form)) : ?>
+            <?php echo $this->translate('Total reviews');?>:
+            <span class="reviewCount" itemprop="reviewCount"><?php echo $this->rating->getRatingCount(); ?></span>
+            <?php else : ?>
+            <?php echo $this->translate('Total votes');?>:
+            <span class="ratingCount" itemprop="ratingCount"><?php echo $this->rating->getRatingCount(); ?></span>
+            <?php endif ; ?>
+        </p>
+    </div>
+<?php endif;?>

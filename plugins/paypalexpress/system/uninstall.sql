@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `plugin_paypal_express_settings`;

@@ -1,11 +1,93 @@
 <?php
 
+include "Debug.php"; 
+
 class Paypalexpress extends Tools_Plugins_Abstract{
 
 	 protected function _init() {
      
-        $this->_view->setScriptPath(__DIR__ . '/system/views/');
+     $this->_layout = new Zend_Layout();
+     $this->_layout->setLayoutPath(__DIR__ . '/system/views/');
+     //$this->_layout->setLayoutPath(Zend_Layout::getMvcInstance()->getLayoutPath());
+     
+     $this->_cartStorage = Tools_ShoppingCart::getInstance();
+		$this->_productMapper = Models_Mapper_ProductMapper::getInstance();
+		$this->_shoppingConfig = Models_Mapper_ShoppingConfig::getInstance()->getConfigParams();
+		$this->_sessionHelper = Zend_Controller_Action_HelperBroker::getStaticHelper('session');
+		$this->_jsonHelper = Zend_Controller_Action_HelperBroker::getStaticHelper('json');
+		$this->_view->weightSign = isset($this->_shoppingConfig['weightUnit']) ? $this->_shoppingConfig['weightUnit'] : 'kg';
+		
+		
+
+		
+    //Überträgt den Preis der Bestellung zum Paypalplugin  	
+	$type = $this->_request->getParam('type');
+		if (isset($type) && $type == 'json') {
+			$summary = $this->_cartStorage->calculate();
+			if (Zend_Registry::isRegistered('Zend_Currency')) {
+				$currency = Zend_Registry::get('Zend_Currency');
+				
+
+				
+				return array('subTotal' => $currency->toCurrency($summary['subTotal']), 'totalTax' => $currency->toCurrency($summary['totalTax']),
+				             'shipping' => $summary['shipping'], 'total' => $currency->toCurrency($summary['total']));
+			}
+			return $this->_cartStorage->calculate();
+		}
+		$this->_view->summary = $this->_cartStorage->calculate();
+		$this->_view->taxIncPrice = (bool)$this->_shoppingConfig['showPriceIncTax'];
+		
+		$this->_view->returnAllowed = $this->_checkoutSession->returnAllowed;
+		$this->_view->setScriptPath(dirname(__FILE__) . '/system/views/');
     }
+
+
+
+public function settingsAction() {
+
+	if (Tools_Security_Acl::isAllowed(Tools_Security_Acl::RESOURCE_PLUGINS)){
+	  	
+	  	$paypalConfigMapper = Paypalexpress_Models_Mapper_PaypalExpressSettingsMapper::getInstance();
+      $paypalModelConfig  = new Paypalexpress_Models_Models_PaypalExpressSettingsModel();
+	  	writeLog($paypalModelConfig);
+	  	if($this->_request->isPost()){ 
+               
+					
+      $prodID = $this->_request->getParam('prodID');
+      $sandID = $this->_request->getParam('sandID');
+      
+      
+      writeLog($prodID);
+      writeLog($sandID);
+      
+      
+      $useSandBox = $this->_request->getParam('useSandBox');
+      
+      writeLog($useSandBox);
+      
+      
+      $model=$paypalModelConfig->setProdID($prodID);
+      writeLog($model);
+	   $paypalModelConfig->setSandID($sandID);
+	   $paypalModelConfig->setUseSandbox($useSandBox);
+	   
+	   
+	   writeLog($paypalModelConfig->testModel());
+	   
+	   $paypalConfigMapper->save($paypalModelConfig);
+	   $this->_responseHelper->success('');
+	   
+       }else {
+	  	
+	  	 $this->_view->translator = $this->_translator;
+	  	 $this->_layout->content = $this->_view->render('settings.phtml');
+       echo $this->_layout->render();
+	  
+	  }
+
+	
+}
+}
 
    
  //Paypal Express   
@@ -30,9 +112,7 @@ public function _makeOptionPaypalbutton() {
 				
 				$cart = Tools_ShoppingCart::getInstance();// die aktuelle Bestellung
 				
-				$this->_checkoutSession->returnAllowed = array(
-					self::STEP_LANDING 
-				);
+				
 				
 				//Vorbereiten des KundenArray
 				$customerData = array(
@@ -96,10 +176,7 @@ public function _makeOptionPaypalbutton() {
 			}
 			return $this->_cartStorage->calculate();
 		}
-		$this->_view->summary = $this->_cartStorage->calculate();
-		$this->_view->taxIncPrice = (bool)$this->_shoppingConfig['showPriceIncTax'];
-		$this->_getCheckoutPage();
-		$this->_view->returnAllowed = $this->_checkoutSession->returnAllowed;
+		
 		return $this->_view->render('paypalbutton.phtml'); //Zeigt den Button an
 	} 
     

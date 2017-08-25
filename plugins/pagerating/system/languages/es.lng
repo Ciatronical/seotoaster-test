@@ -1,0 +1,12 @@
+<?php return array('Page rating' => 'Usted alreade clasificado', 'Total votes' => 'Total de votos',
+                   'Name' => 'Nombre', 
+                   'Email' => 'Email',
+                   'Comment' => 'Comentario',
+                   'Post Review' => 'Revisión Post',
+                   'Enter right email address' => 'Introduzca la dirección de correo electrónico correcta',
+                   'User name can not be empty' => 'Nombre de usuario no puede estar vacío',
+                   'Review name can not be empty' => 'Nombre de revisión no puede estar vacío',
+                   'You alreade rated' => 'Usted alreade clasificado'
+                   
+    ); 
+        ?>

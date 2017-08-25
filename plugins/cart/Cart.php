@@ -7,7 +7,7 @@
  * @see http://www.seotoaster.com/
  */
 
-include "Debug.php"; 
+//include "Debug.php"; 
  
 class Cart extends Tools_Cart_Cart {
 

@@ -1,0 +1,21 @@
+<?php return array(
+    'Rating' => 'Evaluation',
+    'Total votes' => 'Total des votes',
+    'Name' => 'Nom',
+    'Email' => 'Email',
+    'Comment' => 'Commentaire',
+    'Post Review' => 'Publier un commentaire',
+    'Enter right email address' => 'Le format de l\'adresse email est incorrect',
+    'User name can not be empty' => 'Le champ utilisateur doit être renseigné',
+    'Review name can not be empty' => 'Le champ commentaire doit être renseigné',
+    'You voted already' => 'Vous avez déjà voté',
+    'Total reviews' => 'Nombre d\'évaluations',
+    'Topic' => 'Sujet',
+    'Author' => 'Auteur',
+    'Review' => 'Commentaire',
+    'Post review' => 'Publier',
+    'Your message will appear after moderation' => 'Votre message sera traité par nos modérateurs',
+    'Reviews' => 'Сommentaires',
+    'You have already rated this page' => 'Vous avez déjà participé',
+    'Be the first to comment' => 'Soyez le 1er à écrire un avis'
+); ?>

@@ -1,0 +1,12 @@
+<?php return array('Page rating' => 'עמוד דירוג', 'Total votes' => 'סה"כ הצבעות',
+                   'Name' => 'שם', 
+                   'Email' => 'דוא"ל',
+                   'Comment' => 'הערה',
+                   'Post Review' => 'הודעה על סקירה',
+                   'Enter right email address' => 'הזן את כתובת הדוא"ל ימין',
+                   'User name can not be empty' => 'שם משתמש לא ניתן לסכל',
+                   'Review name can not be empty' => 'שם ביקורת לא יכול להיות ריק',
+                   'You alreade rated' => 'אתה alreade מדורגים'
+                   
+    ); 
+        ?>

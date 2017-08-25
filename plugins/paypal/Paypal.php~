@@ -6,7 +6,7 @@
  * Class Paypal
  */
  
-//include "/var/www/html/plugins/paypalexpress/Debug.php";  
+include "/var/www/html/plugins/paypalexpress/Debug.php";  
  
 class Paypal extends Tools_PaymentGateway {
 
@@ -1392,7 +1392,7 @@ class Paypal extends Tools_PaymentGateway {
                 $paypalModelConfig->setUseSandbox($useSandBox);
                 
                 
-                //writeLog($paypalModelConfig);
+                writeLog($paypalModelConfig);
                 
                 $paypalConfigMapper->save($paypalModelConfig);
                 $this->_responseHelper->success('');

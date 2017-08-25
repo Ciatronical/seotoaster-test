@@ -1,0 +1,27 @@
+<?php $isAllowed = Tools_Security_Acl::isAllowed(Tools_Security_Acl::RESOURCE_USERS); ?>
+<?php if ($this->review->getVerified() || $isAllowed) : ?>
+<div id="pagerating-review-<?php echo $this->review->getId();?>" class="pagerating-review" itemprop="review" itemscope itemtype="http://schema.org/Review">
+    <div class="pagerating-info">
+        <span class="name" itemprop="name"><?php echo $this->escape($this->review->getName());?></span>
+        <span>- <?php echo $this->translate('by'); ?></span>
+        <span class="author" itemprop="author"><?php echo $this->escape($this->review->getAuthor());?></span>,
+        <span class="published"><?php echo $this->review->getDatePublished();?></span>
+        <meta itemprop="datePublished" content="<?php echo date('Y-m-d', strtotime($this->review->getDatePublished()));?>" />
+    </div>
+	<p class="rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+		<meta itemprop="worstRating" content="1" />
+		<span itemprop="ratingValue"><?php echo $this->review->getRatingValue();?></span> / <span itemprop="bestRating">5</span> stars
+	</p>
+	<p class="description" itemprop="reviewbody"><?php echo $this->escape($this->review->getDescription());?></p>
+	<?php if ($isAllowed): ?>
+    <p class="admin-actions" data-id="<?php echo $this->review->getId();?>">
+        <?php if (!$this->review->getVerified()) : ?>
+        <a href="#" class="publish">[ <?php echo $this->translate('Publish'); ?> ]</a>
+        <?php endif; ?>
+        <a href="#" class="delete">[ <?php echo $this->translate('Delete'); ?> ]</a>
+    </p>
+	<?php endif;?>
+</div>
+<?php else : ?>
+<div class="mess-moderated"><?php echo $this->translate('Your message will appear after moderation'); ?></div>
+<?php endif; ?>

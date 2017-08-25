@@ -1,0 +1,12 @@
+<?php
+$this->headTitle($this->translate('Preferences'));
+$this->placeholder('headerContent')->set('Preferences');
+?>
+<form id="pagerating-preferences" class="_fajax content-auto grid_12" action="<?php echo $this->escape($this->url()) . '/opt/nocaptcha/'; ?>" method="<?php echo $this->form->getMethod(); ?>">
+<!--    <h2>--><?php //echo $this->translate('Pagerating captcha'); ?><!--</h2>-->
+    <label class="pointer">
+        <?php echo $this->translate('Don\'t use captcha in review form'); ?>
+        <?php echo $this->form->getElement('reviewNoCaptcha'); ?>
+    </label>
+    <?php echo $this->form->getElement('saveConfig'); ?>
+</form>
