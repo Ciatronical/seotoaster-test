@@ -22,6 +22,10 @@ class Paypalexpress_Models_Mapper_PaypalExpressSettingsMapper extends Applicatio
      * @param Paypal_Models_Models_PaypalConfigModel $config
      * @throws Exceptions_SeotoasterException
      */
+     
+     
+     
+     
     public function save($config)
     {
         if (!$config instanceof $this->_model) {

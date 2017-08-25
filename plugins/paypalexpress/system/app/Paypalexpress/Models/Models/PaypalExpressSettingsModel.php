@@ -1,9 +1,10 @@
 <?php
 /**
  * Paypal configuration model
- *
+ *class Paypalexpress_Models_Models_PaypalExpressSettingsModel extends Application_Model_Models_Abstract
  * Class Paypal_Models_Models_PaypalConfigModel
  */
+//class xxx extends Application_Model_Models_Abstract
 class Paypalexpress_Models_Models_PaypalExpressSettingsModel extends Application_Model_Models_Abstract
 {
 
@@ -21,6 +22,7 @@ class Paypalexpress_Models_Models_PaypalExpressSettingsModel extends Application
     public function setId($id)
     {
         $this->_id = $id;
+        //$_id=$id;
         return $this;
     }
 
@@ -33,7 +35,9 @@ class Paypalexpress_Models_Models_PaypalExpressSettingsModel extends Application
 
     public function setProdID($prodID)
     {
-        $this->_prodId = $prodID;
+    	writeLog(__FUNCTION__ ." ". $prodID);
+        $this->_prodID = $prodID;
+        //$_prodID=$prodID;
         return $this;
     }
 
@@ -46,6 +50,7 @@ class Paypalexpress_Models_Models_PaypalExpressSettingsModel extends Application
     public function setSandID($sandID)
     {
         $this->_sandID = $sandID;
+       // $_sandID=$sandID;
         return $this;
     }
 
@@ -59,13 +64,11 @@ class Paypalexpress_Models_Models_PaypalExpressSettingsModel extends Application
     public function setUseSandbox($useSandbox)
     {
         $this->_useSandbox = $useSandbox;
+        //$_useSandBox=$useSandBox;
         return $this;
     }
     
     
-    public function testModel() {
-    	$test="Test";
-    return $test;
-    }
+  
 
 }

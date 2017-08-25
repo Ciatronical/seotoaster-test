@@ -55,30 +55,22 @@ public function settingsAction() {
 					
       $prodID = $this->_request->getParam('prodID');
       $sandID = $this->_request->getParam('sandID');
-      
-      
-      writeLog($prodID);
-      writeLog($sandID);
-      
-      
       $useSandBox = $this->_request->getParam('useSandBox');
       
-      writeLog($useSandBox);
-      
-      
-      $model=$paypalModelConfig->setProdID($prodID);
-      writeLog($model);
+      $paypalModelConfig->setProdID($prodID);
 	   $paypalModelConfig->setSandID($sandID);
 	   $paypalModelConfig->setUseSandbox($useSandBox);
-	   
-	   
-	   writeLog($paypalModelConfig->testModel());
-	   
+	    
 	   $paypalConfigMapper->save($paypalModelConfig);
 	   $this->_responseHelper->success('');
 	   
        }else {
 	  	
+	  	
+	  	$paypalSettings = $paypalConfigMapper->selectSettings();
+       $this->_view->prodID = $paypalSettings[0]->getProdID();
+       $this->_view->sandID = $paypalSettings[0]->getSandID();
+       $this->_view->useSandBox = $paypalSettings[0]->getUseSandbox();
 	  	 $this->_view->translator = $this->_translator;
 	  	 $this->_layout->content = $this->_view->render('settings.phtml');
        echo $this->_layout->render();
@@ -161,6 +153,15 @@ public function _makeOptionPaypalbutton() {
      	
      	}
   
+  
+  $paypalConfigMapper = Paypalexpress_Models_Mapper_PaypalExpressSettingsMapper::getInstance();
+
+
+  $paypalSettings = $paypalConfigMapper->selectSettings();
+  
+  $prodID = $paypalSettings[0]->getProdID();
+  $sandID= $paypalSettings[0]->getSandID();
+  $useSandBox = $paypalSettings[0]->getUseSandbox();
   
  //Überträgt den Preis der Bestellung zum Paypalplugin  	
 	$type = $this->_request->getParam('type');

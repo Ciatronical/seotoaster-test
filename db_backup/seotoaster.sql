@@ -1184,7 +1184,7 @@ CREATE TABLE `plugin_paypal_express_settings` (
 
 LOCK TABLES `plugin_paypal_express_settings` WRITE;
 /*!40000 ALTER TABLE `plugin_paypal_express_settings` DISABLE KEYS */;
-INSERT INTO `plugin_paypal_express_settings` VALUES (1,'','',0);
+INSERT INTO `plugin_paypal_express_settings` VALUES (1,'55555555','33333',1);
 /*!40000 ALTER TABLE `plugin_paypal_express_settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2870,4 +2870,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-25 16:08:11
+-- Dump completed on 2017-08-25 17:17:17

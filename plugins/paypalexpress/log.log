@@ -942,3 +942,503 @@
 2017-08-25 16:05:36 -> test
 2017-08-25 16:05:36 -> test
 2017-08-25 16:05:36 -> 1
+2017-08-25 16:10:04 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:10:15 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:10:15 -> 1
+2017-08-25 16:10:15 -> 2
+2017-08-25 16:10:15 -> 1
+2017-08-25 16:10:42 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:12:57 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:13:05 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:13:05 -> 1
+2017-08-25 16:13:05 -> 2
+2017-08-25 16:13:05 -> 1
+2017-08-25 16:13:06 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:13:06 -> 1
+2017-08-25 16:13:06 -> 2
+2017-08-25 16:13:06 -> 1
+2017-08-25 16:16:20 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:20:23 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:20:30 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:20:30 -> 1
+2017-08-25 16:20:30 -> 2
+2017-08-25 16:20:30 -> 1
+2017-08-25 16:20:31 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:20:31 -> 1
+2017-08-25 16:20:31 -> 2
+2017-08-25 16:20:31 -> 1
+2017-08-25 16:32:29 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:32:44 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:32:44 -> 222222
+2017-08-25 16:32:44 -> 211111111
+2017-08-25 16:32:44 -> 0
+2017-08-25 16:36:20 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:36:31 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:36:31 -> 2222
+2017-08-25 16:36:31 -> 211111111
+2017-08-25 16:36:31 -> 1
+2017-08-25 16:36:31 -> setProdID 2222
+2017-08-25 16:38:42 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:38:56 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:38:56 -> 222222
+2017-08-25 16:38:56 -> 111111
+2017-08-25 16:38:56 -> 1
+2017-08-25 16:38:56 -> setProdID 222222
+2017-08-25 16:38:56 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:38:56 -> Test
+2017-08-25 16:41:02 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:41:14 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:41:14 -> 111111
+2017-08-25 16:41:14 -> 222222
+2017-08-25 16:41:14 -> 0
+2017-08-25 16:41:14 -> setProdID 111111
+2017-08-25 16:41:14 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:44:16 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:44:35 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:44:35 -> 55555555
+2017-08-25 16:44:35 -> 1111111111
+2017-08-25 16:44:35 -> 1
+2017-08-25 16:44:35 -> setProdID 55555555
+2017-08-25 16:44:35 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:45:23 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:45:23 -> 55555555
+2017-08-25 16:45:23 -> 
+2017-08-25 16:45:23 -> 1
+2017-08-25 16:45:23 -> setProdID 55555555
+2017-08-25 16:45:23 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:46:54 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:47:09 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:47:09 -> 55555555
+2017-08-25 16:47:09 -> 211111111
+2017-08-25 16:47:09 -> 1
+2017-08-25 16:47:09 -> setProdID 55555555
+2017-08-25 16:47:09 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:47:52 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:48:08 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:48:08 -> 4444444
+2017-08-25 16:48:08 -> 2222222
+2017-08-25 16:48:08 -> 1
+2017-08-25 16:48:08 -> setProdID 4444444
+2017-08-25 16:48:08 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:48:31 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:48:31 -> 4444444
+2017-08-25 16:48:31 -> 222222
+2017-08-25 16:48:31 -> 1
+2017-08-25 16:48:31 -> setProdID 4444444
+2017-08-25 16:48:31 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:51:19 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:51:28 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 16:51:28 -> 55555555
+2017-08-25 16:51:28 -> 33333
+2017-08-25 16:51:28 -> 1
+2017-08-25 16:51:28 -> setProdID 55555555
+2017-08-25 16:51:28 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 55555555
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 17:02:32 -> Paypalexpress_Models_Models_PaypalExpressSettingsModel Object
+(
+    [_id:protected] => 
+    [_prodID:protected] => 
+    [_sandID:protected] => 
+    [_useSandbox:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-25 17:02:32 -> setProdID 55555555
