@@ -10,35 +10,57 @@
 <div id="paypal-button-container"></div>
 
     <script>
-    
-
-    
+  
        <?php
-       
-			
-       
-         $price=$this->summary['total']; //Gesammtpreis für die Zahlung
+ 
+ 		 $totalPrice=$this->totalPrice; //Gesammtpreis mit Paypalgebühren für die Zahlung 
+ 		 writeLog($totalPrice);
+         //$price=$this->summary['total']; //Gesammtpreis für die Zahlung
         
+         
+         $prodID=$this->prodID;
+         $sandID=$this->sandID;
+         
+         $sandbox='sandbox';
+         $production='production';
+         
+         
+         
+        
+         
+         if ($this->useSandBox) {
+         	
+         	echo "var useSandBox='$sandbox';";
+         	
+         }else {
+         	
+         	echo "var useSandBox='$production';";
+         	
+         }
+         
+       
+         
+        	echo"var prodID='$prodID';";
+        	echo"var sandID='$sandID';";
 			echo"var price='$price';";
-			
 
-			
 		?>
+
+
 		
 
 
         paypal.Button.render({
+        
         	
-   
 
-
-            env: 'sandbox', // sandbox | production
+            env: useSandBox, // sandbox | production
 
             // PayPal Client IDs - replace with your own
             // Create a PayPal app: https://developer.paypal.com/developer/applications/create
             client: {
-                sandbox:    'AVWwnmz32wlzFqogw9E93H82FlVYWvMUXohxKnITuIlMJDwQCGge8_nqRI-iMxNmPktOG1DRgmHTfpUK',
-                production: 'AZW1tmii4wCHYblBvoAfa4uXId-rJYoUCdHqExUA9FnjxjyLn94OAHv31J-vhVGZDpgYDu8Ie44eJL2b'
+                sandbox:    sandID,
+                production: prodID
             },
 
             // Show the buyer a 'Pay Now' button in the checkout flow
@@ -52,7 +74,7 @@
                     payment: {
                         transactions: [
                             {
-                                amount: { total: price, currency: 'EUR' }
+                                amount: { total: totalPrice, currency: 'EUR' }
                             }
                         ]
                     }

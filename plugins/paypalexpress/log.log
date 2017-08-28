@@ -1442,3 +1442,704 @@
 )
 
 2017-08-25 17:02:32 -> setProdID 55555555
+2017-08-28 08:11:57 -> setProdID 55555555
+2017-08-28 08:12:38 -> setProdID 55555555
+2017-08-28 08:17:44 -> setProdID 55555555
+2017-08-28 08:25:17 -> setProdID 55555555
+2017-08-28 08:29:50 -> setProdID 55555555
+2017-08-28 08:29:50 -> 
+2017-08-28 08:33:55 -> setProdID 55555555
+2017-08-28 08:33:55 -> 
+2017-08-28 08:35:20 -> setProdID 55555555
+2017-08-28 08:35:20 -> 
+2017-08-28 08:39:49 -> setProdID 55555555
+2017-08-28 08:40:37 -> setProdID 55555555
+2017-08-28 08:40:59 -> setProdID 55555555
+2017-08-28 08:42:42 -> setProdID 55555555
+2017-08-28 08:43:14 -> setProdID 55555555
+2017-08-28 08:44:38 -> setProdID 55555555
+2017-08-28 08:44:38 -> 
+2017-08-28 08:45:47 -> setProdID 55555555
+2017-08-28 08:45:47 -> test
+2017-08-28 08:45:47 -> 
+2017-08-28 08:48:59 -> setProdID 55555555
+2017-08-28 08:48:59 -> test
+2017-08-28 08:48:59 -> 
+2017-08-28 08:49:42 -> setProdID 55555555
+2017-08-28 08:49:42 -> test
+2017-08-28 08:49:42 -> 
+2017-08-28 08:50:27 -> setProdID 55555555
+2017-08-28 08:50:27 -> test
+2017-08-28 08:50:27 -> 
+2017-08-28 08:54:10 -> setProdID 55555555
+2017-08-28 08:54:10 -> test
+2017-08-28 08:54:10 -> 
+2017-08-28 08:56:51 -> setProdID 55555555
+2017-08-28 08:56:51 -> test
+2017-08-28 08:56:51 -> Zend_View Object
+(
+    [_useViewStream:Zend_View:private] => 1
+    [_useStreamWrapper:Zend_View:private] => 
+    [_path:Zend_View_Abstract:private] => Array
+        (
+            [script] => Array
+                (
+                    [0] => /var/www/html/plugins/paypalexpress/system/views/
+                )
+
+            [helper] => Array
+                (
+                )
+
+            [filter] => Array
+                (
+                )
+
+        )
+
+    [_file:Zend_View_Abstract:private] => /var/www/html/plugins/paypalexpress/system/views/paypalbutton.phtml
+    [_helper:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_helperLoaded:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_helperLoadedDir:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filter:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filterClass:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filterLoaded:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filterLoadedDir:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_escape:Zend_View_Abstract:private] => htmlspecialchars
+    [_encoding:Zend_View_Abstract:private] => UTF-8
+    [_lfiProtectionOn:Zend_View_Abstract:private] => 1
+    [_loaders:Zend_View_Abstract:private] => Array
+        (
+            [filter] => Zend_Loader_PluginLoader Object
+                (
+                    [_loadedPluginPaths:protected] => Array
+                        (
+                        )
+
+                    [_loadedPlugins:protected] => Array
+                        (
+                        )
+
+                    [_prefixToPaths:protected] => Array
+                        (
+                            [Zend_View_Filter_] => Array
+                                (
+                                    [0] => Zend/View/Filter/
+                                )
+
+                        )
+
+                    [_useStaticRegistry:protected] => 
+                )
+
+            [helper] => Zend_Loader_PluginLoader Object
+                (
+                    [_loadedPluginPaths:protected] => Array
+                        (
+                        )
+
+                    [_loadedPlugins:protected] => Array
+                        (
+                        )
+
+                    [_prefixToPaths:protected] => Array
+                        (
+                            [Zend_View_Helper_] => Array
+                                (
+                                    [0] => Zend/View/Helper/
+                                    [1] => /var/www/html/seotoaster_core/application/views/helpers/
+                                )
+
+                            [ZendX_JQuery_View_Helper_] => Array
+                                (
+                                    [0] => ZendX/JQuery/View/Helper/
+                                )
+
+                        )
+
+                    [_useStaticRegistry:protected] => 
+                )
+
+        )
+
+    [_loaderTypes:Zend_View_Abstract:private] => Array
+        (
+            [0] => filter
+            [1] => helper
+        )
+
+    [_strictVars:Zend_View_Abstract:private] => 
+    [websiteUrl] => http://localhost/
+    [pluginName] => tools_plugins_abstract
+    [secureToken] => 641aa2eaf17433909693966e685feff1
+    [weightSign] => kg
+    [summary] => Array
+        (
+            [subTotal] => 0.01
+            [discount] => 0
+            [totalTax] => 0
+            [total] => 0.01
+            [shippingTax] => 0
+            [discountTax] => 0
+            [subTotalTax] => 0
+            [shipping] => 0
+        )
+
+    [taxIncPrice] => 1
+    [returnAllowed] => 
+)
+
+2017-08-28 09:46:52 -> setProdID 55555555
+2017-08-28 09:46:52 -> test
+2017-08-28 09:46:52 -> Zend_View Object
+(
+    [_useViewStream:Zend_View:private] => 1
+    [_useStreamWrapper:Zend_View:private] => 
+    [_path:Zend_View_Abstract:private] => Array
+        (
+            [script] => Array
+                (
+                    [0] => /var/www/html/plugins/paypalexpress/system/views/
+                )
+
+            [helper] => Array
+                (
+                )
+
+            [filter] => Array
+                (
+                )
+
+        )
+
+    [_file:Zend_View_Abstract:private] => /var/www/html/plugins/paypalexpress/system/views/paypalbutton.phtml
+    [_helper:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_helperLoaded:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_helperLoadedDir:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filter:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filterClass:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filterLoaded:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filterLoadedDir:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_escape:Zend_View_Abstract:private] => htmlspecialchars
+    [_encoding:Zend_View_Abstract:private] => UTF-8
+    [_lfiProtectionOn:Zend_View_Abstract:private] => 1
+    [_loaders:Zend_View_Abstract:private] => Array
+        (
+            [filter] => Zend_Loader_PluginLoader Object
+                (
+                    [_loadedPluginPaths:protected] => Array
+                        (
+                        )
+
+                    [_loadedPlugins:protected] => Array
+                        (
+                        )
+
+                    [_prefixToPaths:protected] => Array
+                        (
+                            [Zend_View_Filter_] => Array
+                                (
+                                    [0] => Zend/View/Filter/
+                                )
+
+                        )
+
+                    [_useStaticRegistry:protected] => 
+                )
+
+            [helper] => Zend_Loader_PluginLoader Object
+                (
+                    [_loadedPluginPaths:protected] => Array
+                        (
+                        )
+
+                    [_loadedPlugins:protected] => Array
+                        (
+                        )
+
+                    [_prefixToPaths:protected] => Array
+                        (
+                            [Zend_View_Helper_] => Array
+                                (
+                                    [0] => Zend/View/Helper/
+                                    [1] => /var/www/html/seotoaster_core/application/views/helpers/
+                                )
+
+                            [ZendX_JQuery_View_Helper_] => Array
+                                (
+                                    [0] => ZendX/JQuery/View/Helper/
+                                )
+
+                        )
+
+                    [_useStaticRegistry:protected] => 
+                )
+
+        )
+
+    [_loaderTypes:Zend_View_Abstract:private] => Array
+        (
+            [0] => filter
+            [1] => helper
+        )
+
+    [_strictVars:Zend_View_Abstract:private] => 
+    [websiteUrl] => http://localhost/
+    [pluginName] => tools_plugins_abstract
+    [secureToken] => 258469dc839ddf22b95f74b366c0f7b5
+    [weightSign] => kg
+    [summary] => Array
+        (
+            [subTotal] => 0
+            [discount] => 0
+            [totalTax] => 0
+            [total] => 0
+            [shippingTax] => 0
+            [discountTax] => 0
+            [subTotalTax] => 0
+            [shipping] => 0
+        )
+
+    [taxIncPrice] => 1
+    [returnAllowed] => 
+)
+
+2017-08-28 09:48:30 -> setProdID 55555555
+2017-08-28 09:48:30 -> test
+2017-08-28 09:48:30 -> Zend_View Object
+(
+    [_useViewStream:Zend_View:private] => 1
+    [_useStreamWrapper:Zend_View:private] => 
+    [_path:Zend_View_Abstract:private] => Array
+        (
+            [script] => Array
+                (
+                    [0] => /var/www/html/plugins/paypalexpress/system/views/
+                )
+
+            [helper] => Array
+                (
+                )
+
+            [filter] => Array
+                (
+                )
+
+        )
+
+    [_file:Zend_View_Abstract:private] => /var/www/html/plugins/paypalexpress/system/views/paypalbutton.phtml
+    [_helper:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_helperLoaded:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_helperLoadedDir:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filter:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filterClass:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filterLoaded:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filterLoadedDir:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_escape:Zend_View_Abstract:private] => htmlspecialchars
+    [_encoding:Zend_View_Abstract:private] => UTF-8
+    [_lfiProtectionOn:Zend_View_Abstract:private] => 1
+    [_loaders:Zend_View_Abstract:private] => Array
+        (
+            [filter] => Zend_Loader_PluginLoader Object
+                (
+                    [_loadedPluginPaths:protected] => Array
+                        (
+                        )
+
+                    [_loadedPlugins:protected] => Array
+                        (
+                        )
+
+                    [_prefixToPaths:protected] => Array
+                        (
+                            [Zend_View_Filter_] => Array
+                                (
+                                    [0] => Zend/View/Filter/
+                                )
+
+                        )
+
+                    [_useStaticRegistry:protected] => 
+                )
+
+            [helper] => Zend_Loader_PluginLoader Object
+                (
+                    [_loadedPluginPaths:protected] => Array
+                        (
+                        )
+
+                    [_loadedPlugins:protected] => Array
+                        (
+                        )
+
+                    [_prefixToPaths:protected] => Array
+                        (
+                            [Zend_View_Helper_] => Array
+                                (
+                                    [0] => Zend/View/Helper/
+                                    [1] => /var/www/html/seotoaster_core/application/views/helpers/
+                                )
+
+                            [ZendX_JQuery_View_Helper_] => Array
+                                (
+                                    [0] => ZendX/JQuery/View/Helper/
+                                )
+
+                        )
+
+                    [_useStaticRegistry:protected] => 
+                )
+
+        )
+
+    [_loaderTypes:Zend_View_Abstract:private] => Array
+        (
+            [0] => filter
+            [1] => helper
+        )
+
+    [_strictVars:Zend_View_Abstract:private] => 
+    [websiteUrl] => http://localhost/
+    [pluginName] => tools_plugins_abstract
+    [secureToken] => 258469dc839ddf22b95f74b366c0f7b5
+    [weightSign] => kg
+    [summary] => Array
+        (
+            [subTotal] => 0
+            [discount] => 0
+            [totalTax] => 0
+            [total] => 0
+            [shippingTax] => 0
+            [discountTax] => 0
+            [subTotalTax] => 0
+            [shipping] => 0
+        )
+
+    [taxIncPrice] => 1
+    [returnAllowed] => 
+)
+
+2017-08-28 09:50:52 -> setProdID 55555555
+2017-08-28 09:50:52 -> test
+2017-08-28 09:50:52 -> Zend_View Object
+(
+    [_useViewStream:Zend_View:private] => 1
+    [_useStreamWrapper:Zend_View:private] => 
+    [_path:Zend_View_Abstract:private] => Array
+        (
+            [script] => Array
+                (
+                    [0] => /var/www/html/plugins/paypalexpress/system/views/
+                )
+
+            [helper] => Array
+                (
+                )
+
+            [filter] => Array
+                (
+                )
+
+        )
+
+    [_file:Zend_View_Abstract:private] => /var/www/html/plugins/paypalexpress/system/views/paypalbutton.phtml
+    [_helper:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_helperLoaded:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_helperLoadedDir:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filter:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filterClass:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filterLoaded:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_filterLoadedDir:Zend_View_Abstract:private] => Array
+        (
+        )
+
+    [_escape:Zend_View_Abstract:private] => htmlspecialchars
+    [_encoding:Zend_View_Abstract:private] => UTF-8
+    [_lfiProtectionOn:Zend_View_Abstract:private] => 1
+    [_loaders:Zend_View_Abstract:private] => Array
+        (
+            [filter] => Zend_Loader_PluginLoader Object
+                (
+                    [_loadedPluginPaths:protected] => Array
+                        (
+                        )
+
+                    [_loadedPlugins:protected] => Array
+                        (
+                        )
+
+                    [_prefixToPaths:protected] => Array
+                        (
+                            [Zend_View_Filter_] => Array
+                                (
+                                    [0] => Zend/View/Filter/
+                                )
+
+                        )
+
+                    [_useStaticRegistry:protected] => 
+                )
+
+            [helper] => Zend_Loader_PluginLoader Object
+                (
+                    [_loadedPluginPaths:protected] => Array
+                        (
+                        )
+
+                    [_loadedPlugins:protected] => Array
+                        (
+                        )
+
+                    [_prefixToPaths:protected] => Array
+                        (
+                            [Zend_View_Helper_] => Array
+                                (
+                                    [0] => Zend/View/Helper/
+                                    [1] => /var/www/html/seotoaster_core/application/views/helpers/
+                                )
+
+                            [ZendX_JQuery_View_Helper_] => Array
+                                (
+                                    [0] => ZendX/JQuery/View/Helper/
+                                )
+
+                        )
+
+                    [_useStaticRegistry:protected] => 
+                )
+
+        )
+
+    [_loaderTypes:Zend_View_Abstract:private] => Array
+        (
+            [0] => filter
+            [1] => helper
+        )
+
+    [_strictVars:Zend_View_Abstract:private] => 
+    [websiteUrl] => http://localhost/
+    [pluginName] => tools_plugins_abstract
+    [secureToken] => 258469dc839ddf22b95f74b366c0f7b5
+    [weightSign] => kg
+    [summary] => Array
+        (
+            [subTotal] => 0
+            [discount] => 0
+            [totalTax] => 0
+            [total] => 0
+            [shippingTax] => 0
+            [discountTax] => 0
+            [subTotalTax] => 0
+            [shipping] => 0
+        )
+
+    [taxIncPrice] => 1
+    [returnAllowed] => 
+)
+
+2017-08-28 10:35:05 -> setProdID 55555555
+2017-08-28 10:35:20 -> setProdID 55555555
+2017-08-28 10:38:29 -> setProdID 55555555
+2017-08-28 10:39:24 -> setProdID 55555555
+2017-08-28 10:40:29 -> setProdID 55555555
+2017-08-28 10:41:15 -> setProdID 55555555
+2017-08-28 10:41:44 -> setProdID 55555555
+2017-08-28 10:42:22 -> setProdID 55555555
+2017-08-28 10:43:09 -> setProdID 55555555
+2017-08-28 10:43:39 -> setProdID 55555555
+2017-08-28 10:46:04 -> setProdID 55555555
+2017-08-28 10:47:28 -> setProdID 55555555
+2017-08-28 10:49:11 -> setProdID 55555555
+2017-08-28 10:51:52 -> setProdID 55555555
+2017-08-28 10:52:59 -> setProdID 55555555
+2017-08-28 10:54:02 -> setProdID 55555555
+2017-08-28 11:03:26 -> setProdID 55555555
+2017-08-28 11:04:57 -> setProdID 55555555
+2017-08-28 11:07:03 -> setProdID 55555555
+2017-08-28 11:07:37 -> setProdID 55555555
+2017-08-28 11:08:06 -> setProdID 55555555
+2017-08-28 11:14:18 -> setProdID 55555555
+2017-08-28 11:15:01 -> setProdID 55555555
+2017-08-28 11:18:26 -> setProdID 55555555
+2017-08-28 11:20:10 -> setProdID 55555555
+2017-08-28 11:21:07 -> setProdID 55555555
+2017-08-28 11:21:07 -> Array
+(
+    [hello] => who are you?
+    [hello2] => dare desu ka
+)
+
+2017-08-28 11:23:07 -> setProdID 55555555
+2017-08-28 11:23:07 -> Array
+(
+    [hello] => who are you?
+    [hello2] => dare desu ka
+)
+
+2017-08-28 11:23:10 -> setProdID 55555555
+2017-08-28 11:23:10 -> Array
+(
+    [hello] => hi
+    [hello2] => konnichiwa
+)
+
+2017-08-28 11:23:14 -> setProdID 55555555
+2017-08-28 11:23:14 -> Array
+(
+    [hello] => who are you?
+    [hello2] => dare desu ka
+)
+
+2017-08-28 11:24:11 -> setProdID 55555555
+2017-08-28 11:24:11 -> Array
+(
+    [hello] => who are you?
+    [hello2] => dare desu ka
+)
+
+2017-08-28 11:24:14 -> setProdID 55555555
+2017-08-28 11:24:14 -> Array
+(
+    [hello] => hi
+    [hello2] => konnichiwa
+)
+
+2017-08-28 11:25:52 -> setProdID 55555555
+2017-08-28 11:25:52 -> Array
+(
+    [hello] => who are you?
+    [hello2] => dare desu ka
+)
+
+2017-08-28 11:25:54 -> setProdID 55555555
+2017-08-28 11:25:54 -> Array
+(
+    [hello] => hi
+    [hello2] => konnichiwa
+)
+
+2017-08-28 11:29:08 -> setProdID 55555555
+2017-08-28 11:29:11 -> setProdID 55555555
+2017-08-28 11:49:07 -> 
+2017-08-28 11:50:07 -> 
+2017-08-28 11:57:09 -> 
+2017-08-28 11:58:46 -> 
+2017-08-28 12:00:20 -> 
+2017-08-28 12:03:51 -> 
+2017-08-28 12:06:03 -> 
+2017-08-28 12:07:48 -> 
+2017-08-28 12:08:24 -> 
+2017-08-28 12:10:06 -> 55555555
+2017-08-28 12:13:06 -> 55555555
+2017-08-28 12:14:15 -> 55555555
+2017-08-28 12:14:35 -> 55555555
+2017-08-28 12:16:00 -> 55555555
+2017-08-28 12:17:12 -> 55555555
+2017-08-28 12:18:12 -> 55555555
+2017-08-28 12:19:30 -> 55555555
+2017-08-28 12:20:28 -> 55555555
+2017-08-28 13:02:01 -> 0.01
+2017-08-28 13:05:08 -> 0.01
+2017-08-28 13:05:08 -> 0.36019
+2017-08-28 13:06:41 -> 0.02
+2017-08-28 13:06:41 -> 0.37038
+2017-08-28 13:06:50 -> 100
+2017-08-28 13:06:50 -> 102.25
+2017-08-28 13:34:41 -> 102.25
+2017-08-28 13:34:53 -> 204.15
+2017-08-28 13:35:31 -> 102.25
+2017-08-28 13:40:29 -> 102.25
+2017-08-28 13:40:51 -> 102.25
+2017-08-28 13:44:39 -> 102.25
+2017-08-28 13:45:35 -> 102.25
+2017-08-28 13:47:17 -> 102.25
+2017-08-28 13:48:41 -> 102.25
+2017-08-28 13:48:49 -> 5.445
+2017-08-28 13:49:47 -> 10.54
+2017-08-28 13:50:13 -> 5.445
+2017-08-28 13:50:55 -> 5.445
+2017-08-28 13:54:04 -> 5.4
+2017-08-28 13:54:29 -> 5
+2017-08-28 13:54:59 -> 5.45
+2017-08-28 13:56:27 -> 5.45

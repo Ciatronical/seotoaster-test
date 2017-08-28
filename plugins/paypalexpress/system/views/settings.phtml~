@@ -43,7 +43,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: "POST",
-            url: '<?php echo $this->websiteUrl; ?>plugin/paypalexpress/run/settings',
+            url: '<?php echo $this->websiteUrl; ?>plugin/paypalexpress/run/settings/',
             dataType: "json",
             data: {
                 prodID:$("[name=clientProductionID]").val(),

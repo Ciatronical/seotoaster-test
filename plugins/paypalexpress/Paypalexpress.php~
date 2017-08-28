@@ -2,7 +2,7 @@
 
 include "Debug.php"; 
 
-class Paypalexpress extends Tools_Plugins_Abstract{
+class Paypalexpress extends Tools_Cart_Cart{
 
 	 protected function _init() {
      
@@ -49,7 +49,7 @@ public function settingsAction() {
 	  	
 	  	$paypalConfigMapper = Paypalexpress_Models_Mapper_PaypalExpressSettingsMapper::getInstance();
       $paypalModelConfig  = new Paypalexpress_Models_Models_PaypalExpressSettingsModel();
-	  	writeLog($paypalModelConfig);
+	  	
 	  	if($this->_request->isPost()){ 
                
 					
@@ -81,10 +81,29 @@ public function settingsAction() {
 }
 }
 
+
+
+public function calculatePaypalFee() {
+	
+	$summary = $this->_cartStorage->calculate();
+	$totalPrice = $summary['total'];
+	
+	
+	$totalPrice=($totalPrice*1.019)+0.35;
+	$totalPrice=round($totalPrice,2);
+	//writeLog($totalPrice);
+	
+	return $totalPrice;
+}
+
+
    
  //Paypal Express   
 //Einbinden des Buttons in das Template mit {$store:paypalbutton}
 public function _makeOptionPaypalbutton() {
+     	
+     	
+     	//writeLog($this->calculatePaypalFee());
      	
      	//Integration der Paypalkundendaten in die Datenbank 
 		//wird nachdem Zahlungsvorgang ausgeführt	
@@ -163,10 +182,23 @@ public function _makeOptionPaypalbutton() {
   $sandID= $paypalSettings[0]->getSandID();
   $useSandBox = $paypalSettings[0]->getUseSandbox();
   
+  $paypalSettings=array($prodID,$sandID,$useSandBox);
+  
+
+ 	$paypalSettings = $paypalConfigMapper->selectSettings();
+       $this->_view->prodID = $paypalSettings[0]->getProdID();
+       $this->_view->sandID = $paypalSettings[0]->getSandID();
+       $this->_view->useSandBox = $paypalSettings[0]->getUseSandbox();
+	  	$this->_view->totalPrice = $this->calculatePaypalFee();
+
+  
+
+  
  //Überträgt den Preis der Bestellung zum Paypalplugin  	
 	$type = $this->_request->getParam('type');
 		if (isset($type) && $type == 'json') {
 			$summary = $this->_cartStorage->calculate();
+			
 			if (Zend_Registry::isRegistered('Zend_Currency')) {
 				$currency = Zend_Registry::get('Zend_Currency');
 				
@@ -176,12 +208,15 @@ public function _makeOptionPaypalbutton() {
 				             'shipping' => $summary['shipping'], 'total' => $currency->toCurrency($summary['total']));
 			}
 			return $this->_cartStorage->calculate();
+			
 		}
 		
-		return $this->_view->render('paypalbutton.phtml'); //Zeigt den Button an
+		return $this->_layout->content = $this->_view->render('paypalbutton.phtml');
+       //echo $this->_layout->render();		
+		
+		//return $this->_view->render('paypalbutton.phtml'); //Zeigt den Button an
 	} 
     
-  
 
 
 }

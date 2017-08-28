@@ -35,7 +35,7 @@ class Paypalexpress_Models_Models_PaypalExpressSettingsModel extends Application
 
     public function setProdID($prodID)
     {
-    	writeLog(__FUNCTION__ ." ". $prodID);
+    	
         $this->_prodID = $prodID;
         //$_prodID=$prodID;
         return $this;
