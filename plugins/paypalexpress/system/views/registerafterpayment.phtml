@@ -1,0 +1,60 @@
+<div>
+
+<span>Do you want to register?</span>
+
+
+   	<form name="register" class="pluginform" method="" action="">
+		
+        	<p>
+                <label><?php echo ('email');?>: </label>
+                <input type="text" name="email"  />
+            </p>
+            
+                       
+            <p>
+                <label><?php echo ('Password');?>: </label>
+                <input type="password" name="password"  />
+            </p>
+            
+
+        
+       
+        <button class="btn saveButton ticon-save mr-grid" type="submit" name="savePW"><?php echo ('Register');?></button>
+	</form>
+
+
+</div>
+<script>
+$(document).ready(function(){
+    
+    
+    
+    
+    
+    $('.saveButton').on("click", function() {
+    	
+       
+        $.ajax({
+            type: "POST",
+            url: '<?php echo $this->websiteUrl; ?>plugin/paypalexpress/run/register/',
+            dataType: "json",
+            data: {
+               	email:$("[name=email]").val(),
+               	password:$("[name=password]").val()
+                
+            }
+        }).done(function(response) {
+            
+            if(response.error == 1){
+                smoke.alert(response.responseText,{'classname':'errors'});
+            }else{
+                smoke.signal('<?php echo ('Saved');?>');
+            }
+        }).fail(function() {
+            
+            console.log('error');
+        });
+        return false;
+    });
+});
+</script>

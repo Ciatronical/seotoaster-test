@@ -11,3 +11,8 @@ VALUES ('1', '', '','0')
 ON DUPLICATE KEY UPDATE id=1;
 
 UPDATE `plugin` SET `version`='2.3.0' WHERE `name`='paypal';
+
+
+INSERT INTO `shopping_product`
+VALUES ('999999', 'NULL', '1','0','999999','PaypalFee','','NULL','1','NULL','PaypalExpressFee','','0.0','1','','','NULL','NULL','0')
+ON DUPLICATE KEY UPDATE id=1;

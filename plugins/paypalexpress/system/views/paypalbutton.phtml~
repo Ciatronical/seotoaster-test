@@ -7,13 +7,14 @@
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 
+
 <div id="paypal-button-container"></div>
 
     <script>
   
        <?php
  
- 		 $totalPrice=$this->totalPrice; //Gesammtpreis mit Paypalgebühren für die Zahlung 
+ 		 $totalPrice=$this->summary['total']+$this->paypalfee; //Gesammtpreis mit Paypalgebühren für die Zahlung 
  		 writeLog($totalPrice);
          //$price=$this->summary['total']; //Gesammtpreis für die Zahlung
         
@@ -42,8 +43,8 @@
          
         	echo"var prodID='$prodID';";
         	echo"var sandID='$sandID';";
-			echo"var price='$price';";
-
+			echo"var totalPrice='$totalPrice';";
+			
 		?>
 
 
@@ -97,7 +98,7 @@
               
              
              //Paypal Kundendaten 
-             var firstname=paymentDetails.payer.payer_info.first_name;
+             	 var firstname=paymentDetails.payer.payer_info.first_name;
 				 var lastname=paymentDetails.payer.payer_info.last_name;
 				 var email=paymentDetails.payer.payer_info.email;
 				 
@@ -112,12 +113,9 @@
 					//console.log(paymentDetails.payer.payer_info.shipping_address);
                     window.alert("Zahlung erfolgreich");
                     
-                    
-				
-                    
-                    
+                 
                    //Senden der Kundendaten an den Server(siehe Cart.php ab Zeile 1504)
-                   window.location = "/checkout.html?firstname="+firstname+"&lastname="+lastname+"&email="+email+"&street="+street+"&city="+city+"&postalCode="+postalCode;
+                  window.location = "/checkout.html?firstname="+firstname+"&lastname="+lastname+"&email="+email+"&street="+street+"&city="+city+"&postalCode="+postalCode;
                 });
            });
            
@@ -127,5 +125,7 @@
 
     </script>
 	
-	
+ 
+<label style="font-size: 70%">Es fallen zusätzliche Gebühren an </label>	
 </div>
+

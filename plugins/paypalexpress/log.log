@@ -2143,3 +2143,1768 @@
 2017-08-28 13:54:29 -> 5
 2017-08-28 13:54:59 -> 5.45
 2017-08-28 13:56:27 -> 5.45
+2017-08-28 14:03:52 -> 5.45
+2017-08-28 14:14:47 -> 5.45
+2017-08-28 14:18:00 -> 5.45
+2017-08-28 14:22:26 -> 5.45
+2017-08-28 14:22:39 -> 1.37
+2017-08-28 14:22:54 -> 5.45
+2017-08-28 14:23:00 -> 1.37
+2017-08-28 14:27:04 -> 1.37
+2017-08-28 14:33:49 -> 1.37
+2017-08-28 14:34:59 -> 1.37
+2017-08-28 14:40:50 -> 1.37
+2017-08-28 14:44:16 -> 1.37
+2017-08-28 14:55:21 -> 1.37
+2017-08-28 15:27:08 -> 1.37
+2017-08-28 15:27:42 -> 
+2017-08-28 15:41:17 -> 
+2017-08-28 15:41:28 -> 1.37
+2017-08-28 15:41:52 -> 
+2017-08-28 15:44:10 -> 1.37
+2017-08-28 15:46:06 -> 1.37
+2017-08-28 15:47:20 -> 
+2017-08-28 15:47:20 -> 
+2017-08-28 15:48:27 -> 1.37
+2017-08-28 15:48:55 -> 
+2017-08-28 15:51:19 -> 1.37
+2017-08-28 15:51:43 -> 
+2017-08-28 15:51:43 -> 
+2017-08-28 16:03:27 -> 
+2017-08-28 16:03:27 -> 
+2017-08-28 16:08:38 -> 1.37
+2017-08-28 16:09:22 -> 
+2017-08-28 16:09:22 -> 
+2017-08-28 16:11:04 -> 
+2017-08-28 16:11:04 -> 
+2017-08-28 16:11:13 -> 1.37
+2017-08-28 16:11:40 -> Array
+(
+    [firstname] => Hans
+    [lastname] => Meier
+    [company] => 
+    [email] => thori88-buyer2@web.de
+    [address1] => Musterstraße 55
+    [address2] => 
+    [country] => DE
+    [city] => Strausberg
+    [state] => 
+    [zip] => 15344
+    [phone] => 
+    [notes] => 
+    [mobilecountrycode] => DE
+    [mobile] => 
+)
+
+2017-08-28 16:11:40 -> 
+2017-08-28 16:11:40 -> 
+2017-08-28 16:25:42 -> 1.37
+2017-08-28 16:26:26 -> 1.37
+2017-08-28 16:27:05 -> 1.37
+2017-08-28 16:31:05 -> 1.37
+2017-08-28 16:32:59 -> 1.37
+2017-08-28 16:33:29 -> 1.37
+2017-08-28 16:35:15 -> 1.37
+2017-08-28 16:39:41 -> 1.37
+2017-08-28 16:43:57 -> 1.37
+2017-08-28 16:44:12 -> 1.37
+2017-08-28 16:44:43 -> 1.37
+2017-08-28 16:48:35 -> 1.37
+2017-08-28 16:49:25 -> 1.37
+2017-08-28 16:49:46 -> 1.37
+2017-08-28 16:56:52 -> 1.37
+2017-08-28 17:01:54 -> 1.37
+2017-08-28 17:02:09 -> 1.37
+2017-08-28 17:02:36 -> Array
+(
+    [firstname] => Hans
+    [lastname] => Meier
+    [company] => 
+    [email] => thori88-buyer2@web.de
+    [address1] => Musterstraße 55
+    [address2] => 
+    [country] => DE
+    [city] => Strausberg
+    [state] => 
+    [zip] => 15344
+    [phone] => 
+    [notes] => 
+    [mobilecountrycode] => DE
+    [mobile] => 
+)
+
+2017-08-28 17:02:36 -> 
+2017-08-28 17:03:36 -> 
+2017-08-28 17:03:49 -> 1.37
+2017-08-28 17:04:24 -> 1.37
+2017-08-28 17:05:19 -> 1.37
+2017-08-29 07:57:41 -> 1.37
+2017-08-29 07:58:24 -> Array
+(
+    [firstname] => Hans
+    [lastname] => Meier
+    [company] => 
+    [email] => thori88-buyer2@web.de
+    [address1] => Musterstraße 55
+    [address2] => 
+    [country] => DE
+    [city] => Strausberg
+    [state] => 
+    [zip] => 15344
+    [phone] => 
+    [notes] => 
+    [mobilecountrycode] => DE
+    [mobile] => 
+)
+
+2017-08-29 07:58:24 -> 
+2017-08-29 07:59:23 -> 
+2017-08-29 07:59:59 -> 1.37
+2017-08-29 08:01:37 -> 1.37
+2017-08-29 08:44:55 -> 1.37
+2017-08-29 08:45:27 -> 
+2017-08-29 08:47:51 -> 1.37
+2017-08-29 08:48:06 -> 1.37
+2017-08-29 08:53:05 -> 1.37
+2017-08-29 08:56:09 -> 1.37
+2017-08-29 08:56:25 -> 1.37
+2017-08-29 08:57:02 -> 1.37
+2017-08-29 08:59:36 -> 1.37
+2017-08-29 09:04:07 -> 1.37
+2017-08-29 09:05:40 -> register
+2017-08-29 09:05:40 -> 12345678
+2017-08-29 09:05:46 -> register
+2017-08-29 09:05:46 -> 12345678
+2017-08-29 09:07:32 -> register
+2017-08-29 09:07:32 -> 12345678
+2017-08-29 09:07:32 -> 
+2017-08-29 09:08:15 -> 1.37
+2017-08-29 09:08:49 -> register
+2017-08-29 09:08:49 -> 12345678
+2017-08-29 09:08:49 -> 
+2017-08-29 09:11:51 -> 1.37
+2017-08-29 09:12:25 -> register
+2017-08-29 09:12:25 -> 12345678
+2017-08-29 09:12:25 -> 
+2017-08-29 09:13:27 -> 1.37
+2017-08-29 09:13:50 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 09:19:53 -> register
+2017-08-29 09:19:53 -> 12345678
+2017-08-29 09:19:53 -> 
+2017-08-29 09:20:04 -> 1.37
+2017-08-29 09:20:42 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 09:21:08 -> register
+2017-08-29 09:21:08 -> 12345678
+2017-08-29 09:21:08 -> 
+2017-08-29 09:23:38 -> 1.37
+2017-08-29 09:24:00 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 09:25:27 -> 1.37
+2017-08-29 09:25:48 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 09:25:48 -> register
+2017-08-29 09:26:41 -> 1.37
+2017-08-29 09:27:23 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 09:37:10 -> 1.37
+2017-08-29 09:41:46 -> 1.37
+2017-08-29 09:42:16 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 09:42:22 -> register
+2017-08-29 09:42:22 -> 12345678
+2017-08-29 09:42:22 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => 
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => 
+    [_password:protected] => 
+    [_roleId:protected] => guest
+    [_fullName:protected] => 
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 
+    [_ipaddress:protected] => 
+    [_referer:protected] => http://localhost/registration.html
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => Array
+        (
+        )
+
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 09:49:43 -> 1.37
+2017-08-29 09:50:05 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 09:53:54 -> 1.37
+2017-08-29 09:54:16 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 09:59:02 -> 1.37
+2017-08-29 09:59:34 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 10:01:39 -> 1.37
+2017-08-29 10:02:02 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 10:02:12 -> register
+2017-08-29 10:02:12 -> 12345678
+2017-08-29 10:02:12 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 10:02:14 -> register
+2017-08-29 10:02:14 -> 12345678
+2017-08-29 10:02:14 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 10:02:16 -> register
+2017-08-29 10:02:16 -> 12345678
+2017-08-29 10:02:16 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 10:02:16 -> register
+2017-08-29 10:02:16 -> 12345678
+2017-08-29 10:02:16 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 10:35:53 -> 1.37
+2017-08-29 10:36:35 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 10:36:49 -> register
+2017-08-29 10:36:49 -> 12345678
+2017-08-29 10:36:49 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 10:36:49 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 25d55ad283aa400af464c76d713c07ad
+    [_roleId:protected] => member
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 10:45:22 -> register
+2017-08-29 10:45:22 -> 12345678
+2017-08-29 10:45:22 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 10:45:22 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 25d55ad283aa400af464c76d713c07ad
+    [_roleId:protected] => member
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 10:45:22 -> 0
+2017-08-29 10:54:45 -> 1.37
+2017-08-29 10:55:41 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 10:55:51 -> register
+2017-08-29 10:55:51 -> 12345678
+2017-08-29 10:55:51 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 10:55:51 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 25d55ad283aa400af464c76d713c07ad
+    [_roleId:protected] => member
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:05:27 -> 1.37
+2017-08-29 11:05:51 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:06:03 -> register
+2017-08-29 11:06:03 -> 12345678
+2017-08-29 11:06:03 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:06:03 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 25d55ad283aa400af464c76d713c07ad
+    [_roleId:protected] => member
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:07:16 -> register
+2017-08-29 11:07:16 -> 12345678
+2017-08-29 11:07:16 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:07:16 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 25d55ad283aa400af464c76d713c07ad
+    [_roleId:protected] => member
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:08:55 -> register
+2017-08-29 11:08:55 -> 12345678
+2017-08-29 11:08:55 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:08:55 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 25d55ad283aa400af464c76d713c07ad
+    [_roleId:protected] => member
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:09:14 -> 1.37
+2017-08-29 11:09:36 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:09:45 -> register
+2017-08-29 11:09:45 -> 12345678
+2017-08-29 11:09:45 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:09:45 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 25d55ad283aa400af464c76d713c07ad
+    [_roleId:protected] => member
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:09:47 -> register
+2017-08-29 11:09:47 -> 12345678
+2017-08-29 11:09:47 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:09:47 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 25d55ad283aa400af464c76d713c07ad
+    [_roleId:protected] => member
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:10:13 -> register
+2017-08-29 11:10:13 -> 12345678
+2017-08-29 11:10:13 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 9d127c247dda94c06332903b812a26e4
+    [_roleId:protected] => customer
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:10:13 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 25d55ad283aa400af464c76d713c07ad
+    [_roleId:protected] => member
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:10:13 -> 1
+2017-08-29 11:10:37 -> 1.37
+2017-08-29 11:11:04 -> 1.37
+2017-08-29 11:13:09 -> 1.37
+2017-08-29 11:13:42 -> Models_Model_Customer Object
+(
+    [_addresses:protected] => Array
+        (
+            [0] => Array
+                (
+                    [id] => a7842fd67218aa2a89634f6be8280854
+                    [user_id] => 53
+                    [address_type] => billing
+                    [firstname] => Hans
+                    [lastname] => Meier
+                    [company] => 
+                    [email] => thori88-buyer2@web.de
+                    [address1] => Musterstraße 55
+                    [address2] => 
+                    [country] => DE
+                    [city] => Strausberg
+                    [state] => 
+                    [zip] => 15344
+                    [phone] => 
+                    [mobile] => 
+                    [mobilecountrycode] => DE
+                )
+
+        )
+
+    [_default_billing_address_id:protected] => 
+    [_default_shipping_address_id:protected] => 
+    [_group_id:protected] => 
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 550e1bafe077ff0b0b67f4e32f29d751
+    [_roleId:protected] => member
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:13:49 -> register
+2017-08-29 11:13:49 -> 12345678
+2017-08-29 11:13:49 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 550e1bafe077ff0b0b67f4e32f29d751
+    [_roleId:protected] => member
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:13:49 -> Application_Model_Models_User Object
+(
+    [_email:protected] => thori88-buyer2@web.de
+    [_password:protected] => 12345678
+    [_roleId:protected] => member
+    [_fullName:protected] => Hans Meier
+    [_lastLogin:protected] => 
+    [_regDate:protected] => 2017-08-23 12:23:48
+    [_ipaddress:protected] => ::1
+    [_referer:protected] => 
+    [_gplusProfile:protected] => 
+    [_attributes:protected] => 
+    [_mobilePhone:protected] => 
+    [_notes:protected] => 
+    [_id:protected] => 53
+    [_observers:protected] => Array
+        (
+        )
+
+)
+
+2017-08-29 11:13:49 -> 1
+2017-08-29 11:13:58 -> 1.37
+2017-08-29 11:14:25 -> 1.37
+2017-08-29 11:15:42 -> 1.37
+2017-08-29 11:43:17 -> 1.37
+2017-08-29 11:43:29 -> 1.37
+2017-08-29 11:55:55 -> 2.39
+2017-08-29 11:57:07 -> 2.39
+2017-08-29 11:57:32 -> 1.37
+2017-08-29 11:59:36 -> 1.37
+2017-08-29 12:03:34 -> 1.37
+2017-08-29 12:14:29 -> 1.37
+2017-08-29 12:22:03 -> 1.37
+2017-08-29 12:37:29 -> 1.37
+2017-08-29 12:40:15 -> 1.37
+2017-08-29 12:42:06 -> 1.37
+2017-08-29 12:43:04 -> 1.37
+2017-08-29 12:48:45 -> 1.37
+2017-08-29 12:50:05 -> 1.37
+2017-08-29 12:53:37 -> 1.37
+2017-08-29 12:54:27 -> 1.37
+2017-08-29 13:37:16 -> 3160.27
+2017-08-29 13:38:37 -> 3.41
+2017-08-29 14:59:11 -> 1.37
+2017-08-29 15:19:50 -> 1.37
+2017-08-29 15:38:47 -> 1.37
+2017-08-29 15:38:56 -> 1.37
+2017-08-29 15:39:29 -> 1.37
+2017-08-29 15:41:57 -> 1.37
+2017-08-29 15:59:36 -> 1.37
+2017-08-29 15:59:41 -> 1.37
+2017-08-29 16:09:12 -> 1.37
+2017-08-29 16:12:23 -> 1.37
+2017-08-29 16:12:29 -> 5.45
+2017-08-29 16:18:14 -> 0.35
+2017-08-29 16:20:14 -> 1.37
+2017-08-29 16:28:15 -> 1.37
+2017-08-29 16:28:31 -> 1.37
+2017-08-29 16:34:09 -> 1.37
+2017-08-29 16:56:11 -> 1.37
+2017-08-29 16:56:59 -> 
+2017-08-29 16:57:01 -> 
+2017-08-29 16:57:06 -> 
