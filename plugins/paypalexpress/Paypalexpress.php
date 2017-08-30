@@ -9,11 +9,11 @@ class Paypalexpress extends Tools_Cart_Cart{
 
 	 protected function _init() {
      
-     $this->_layout = new Zend_Layout();
-     $this->_layout->setLayoutPath(__DIR__ . '/system/views/');
-     //$this->_layout->setLayoutPath(Zend_Layout::getMvcInstance()->getLayoutPath());
+	    $this->_layout = new Zend_Layout();
+	    $this->_layout->setLayoutPath(__DIR__ . '/system/views/');
+	     //$this->_layout->setLayoutPath(Zend_Layout::getMvcInstance()->getLayoutPath());
      
-     	$this->_cartStorage = Tools_ShoppingCart::getInstance();
+	 	$this->_cartStorage = Tools_ShoppingCart::getInstance();
 		$this->_productMapper = Models_Mapper_ProductMapper::getInstance();
 		$this->_shoppingConfig = Models_Mapper_ShoppingConfig::getInstance()->getConfigParams();
 		$this->_sessionHelper = Zend_Controller_Action_HelperBroker::getStaticHelper('session');
@@ -56,27 +56,33 @@ public function settingsAction() {
 	  	if($this->_request->isPost()){ 
                
 					
-      $prodID = $this->_request->getParam('prodID');
-      $sandID = $this->_request->getParam('sandID');
-      $useSandBox = $this->_request->getParam('useSandBox');
-      
-       $paypalModelConfig->setProdID($prodID);
-	   $paypalModelConfig->setSandID($sandID);
-	   $paypalModelConfig->setUseSandbox($useSandBox);
-	    
-	   $paypalConfigMapper->save($paypalModelConfig);
-	   $this->_responseHelper->success('');
+			  $prodID = $this->_request->getParam('prodID');
+			  $sandID = $this->_request->getParam('sandID');
+			  $useSandBox = $this->_request->getParam('useSandBox');
+			  $usePaypalfee = $this->_request->getParam('usePaypalfee');
+			  $paypalfee = $this->_request->getParam('paypalfee');
+			  writeLog($paypalfee);
+			  $paypalModelConfig->setProdID($prodID);
+			  $paypalModelConfig->setSandID($sandID);
+			  $paypalModelConfig->setUseSandbox($useSandBox);
+			  $paypalModelConfig->setUsePaypalfee($usePaypalfee);
+			  $paypalModelConfig->setPaypalfee($paypalfee);
+			  $paypalConfigMapper->save($paypalModelConfig);
+			  $this->_responseHelper->success('');
 	   
        }else {
 	  	
 	  	
-	   $paypalSettings = $paypalConfigMapper->selectSettings();
-       $this->_view->prodID = $paypalSettings[0]->getProdID();
-       $this->_view->sandID = $paypalSettings[0]->getSandID();
-       $this->_view->useSandBox = $paypalSettings[0]->getUseSandbox();
-	   $this->_view->translator = $this->_translator;
-	   $this->_layout->content = $this->_view->render('settings.phtml');
-       echo $this->_layout->render();
+			   $paypalSettings = $paypalConfigMapper->selectSettings();
+		       $this->_view->prodID = $paypalSettings[0]->getProdID();
+		       $this->_view->sandID = $paypalSettings[0]->getSandID();
+		       $this->_view->useSandBox = $paypalSettings[0]->getUseSandbox();
+		       $this->_view->usePaypalfee = $paypalSettings[0]->getUsePaypalfee();
+		       $this->_view->paypalfee = $paypalSettings[0]->getPaypalfee();
+			   $this->_view->translator = $this->_translator;
+			   $this->_layout->content = $this->_view->render('settings.phtml');
+
+		       echo $this->_layout->render();
 	  
 	  }
 
@@ -87,7 +93,7 @@ public function settingsAction() {
 
 public function _makeOptionRegister() {
 	
-	
+	$this->_view->translator = $this->_translator;
 	return $this->_view->render('registerafterpayment.phtml');
 }
 
@@ -100,21 +106,21 @@ public function registerAction(){
                
 					
       $password = $this->_request->getParam('password');
-      $email = $this->email;
-     writeLog($email);
+      $email = $this->_request->getParam('email');
+      writeLog($email);
       $user = Application_Model_Mappers_UserMapper::getInstance()->findByEmail($email);
-      
-      
+
       $user->setPassword($password);
-      
-            
-      
+ 
       $user->setRoleId("member");
-      
-      
-            
+
 	  $result=Application_Model_Mappers_UserMapper::getInstance()->save($user);
 	  
+	  $user->registerObserver(new Tools_Mail_Watchdog(array(
+				'trigger' => Tools_Mail_SystemMailWatchdog::TRIGGER_SIGNUP
+	)));
+	  
+	  $user->notifyObservers();
 	  $this->_responseHelper->success('');
 
 }else {
@@ -130,16 +136,17 @@ return $this->_layout->content = $this->_view->render('registerafterpayment.phtm
 
 
 
-public function calculatePaypalFee() {
+public function calculatePaypalFee($fee) {
 	
 	$summary = $this->_cartStorage->calculate();
 	$totalPrice = $summary['total'];
 	
+	eval( '$result = '.$totalPrice.''.$fee. ';' );
+	$totalPrice = $result;
+	writeLog($totalPrice);
+	$totalPrice = round($totalPrice,2);
 	
-	$totalPrice=($totalPrice*1.019)+0.35;
-	$totalPrice=round($totalPrice,2);
-	
-	$paypalfee=$totalPrice-$summary['total'];
+	$paypalfee = $totalPrice-$summary['total'];
 	//writeLog($totalPrice);
 	
 	return $paypalfee;
@@ -176,13 +183,13 @@ public function _makeOptionPaypalbutton() {
 				
 				//Vorbereiten des KundenArray
 				$customerData = array(
-   			 "firstname"    => $firstname,
-   			 "lastname"  => $lastname,
-   			 "email"  => $email,
-   			 "mobilecountrycode" => "DE",
-   			 "mobile" => "",
+	   			 "firstname"    => $firstname,
+	   			 "lastname"  => $lastname,
+	   			 "email"  => $email,
+	   			 "mobilecountrycode" => "DE",
+	   			 "mobile" => "",
 					);				
-				$addressType = Models_Model_Customer::ADDRESS_TYPE_BILLING; //Adresstyp
+				$addressType = Models_Model_Customer::ADDRESS_TYPE_SHIPPING; //Adresstyp
 				
 			
 				$this->_checkoutSession->initialCustomerInfo = $customerData;// die aktuelle Session
@@ -196,16 +203,25 @@ public function _makeOptionPaypalbutton() {
             
             	$address =array("firstname" => $firstname, "lastname" => $lastname,"company"=>"", "email"=>$email, "address1"=>$street,"address2"=>"","country"=>"DE","city"=>$city, "state"=>"", "zip"=>$postalCode, "phone"=>"","notes"=>"","mobilecountrycode"=>"DE", "mobile"=>"");
 				$addressId = Models_Mapper_CustomerMapper::getInstance()->addAddress($customer, $address, $addressType); //Speichern der KundenAdresse in die Datenbank
-				$cart->setShippingAddressKey($addressId); //Setzen der 
+				
 				$cart->setBillingAddressKey($addressId);
+				$cart->setShippingAddressKey($addressId);
 				
+				$paypalConfigMapper = Paypalexpress_Models_Mapper_PaypalExpressSettingsMapper::getInstance();
+			    $paypalSettings = $paypalConfigMapper->selectSettings();
+				$usePaypalfee = $paypalSettings[0]->getUsePaypalfee();
 				
-				$product = $this->_productMapper->find(999999);
+							
 				
-				$product->setPrice($this->calculatePaypalFee());			
+				if($usePaypalfee){
+				$paypalfee = $paypalSettings[0]->getPaypalfee();
+				$product = $this->_productMapper->find(999999);//Sucht den PaypalExpress Atikel für die Darstellung der Gebühr
+				$product->setPrice($this->calculatePaypalFee($paypalfee));//Berechnet die Gebühr			
+								
+				$this->_cartStorage->add($product, null, 1);//fügt den Artikel zur Bestellung hinzu
 				
+				}				
 				
-				$this->_cartStorage->add($product, null, 1);
 				
 				$cart->setCustomerId($customer->getId())->calculate(true);
 				$cart->save()->saveCartSession($customer); //Speichern der Bestellung mit Kundendaten
@@ -234,23 +250,35 @@ public function _makeOptionPaypalbutton() {
      	}
   
   
-  $paypalConfigMapper = Paypalexpress_Models_Mapper_PaypalExpressSettingsMapper::getInstance();
-
-
-  $paypalSettings = $paypalConfigMapper->selectSettings();
+	  $paypalConfigMapper = Paypalexpress_Models_Mapper_PaypalExpressSettingsMapper::getInstance();
+	
+	
+	  $paypalSettings = $paypalConfigMapper->selectSettings();
+	  
+	  $prodID = $paypalSettings[0]->getProdID();
+	  $sandID= $paypalSettings[0]->getSandID();
+	  $useSandBox = $paypalSettings[0]->getUseSandbox();
+	  $usePaypalfee = $paypalSettings[0]->getUsePaypalfee();
+	  $paypalfee = $paypalSettings[0]->getPaypalfee();
+	  $paypalSettings=array($prodID,$sandID,$useSandBox,$usePaypalfee, $paypalfee);
   
-  $prodID = $paypalSettings[0]->getProdID();
-  $sandID= $paypalSettings[0]->getSandID();
-  $useSandBox = $paypalSettings[0]->getUseSandbox();
-  
-  $paypalSettings=array($prodID,$sandID,$useSandBox);
-  
 
- 	$paypalSettings = $paypalConfigMapper->selectSettings();
-    $this->_view->prodID = $paypalSettings[0]->getProdID();
-    $this->_view->sandID = $paypalSettings[0]->getSandID();
-    $this->_view->useSandBox = $paypalSettings[0]->getUseSandbox();
-	$this->_view->paypalfee = $this->calculatePaypalFee();
+	  $paypalSettings = $paypalConfigMapper->selectSettings();
+	  $this->_view->prodID = $paypalSettings[0]->getProdID();
+	  $this->_view->sandID = $paypalSettings[0]->getSandID();
+	  $this->_view->useSandBox = $paypalSettings[0]->getUseSandbox();
+	  
+	  if($usePaypalfee){
+	  
+	  $this->_view->paypalfee = $this->calculatePaypalFee($paypalfee);
+	  
+	  }else {
+	  	
+	  $paypalfee=0;
+	  $this->_view->paypalfee = $paypalfee;
+	  	
+	  }	  
+	  
 
   
 

@@ -1,25 +1,25 @@
 <div>
 
-<span>Do you want to register?</span>
+<span><?php echo $this->translate('Do you want to register?'); ?></span>
 
 
    	<form name="register" class="pluginform" method="" action="">
 		
         	<p>
-                <label><?php echo ('email');?>: </label>
-                <input type="text" name="email"  />
+                
+                <input id="email" type="text" name="email" value=""  style="display: none" />
             </p>
             
                        
             <p>
-                <label><?php echo ('Password');?>: </label>
+                <label><?php echo $this->translate('Password');?>: </label>
                 <input type="password" name="password"  />
             </p>
             
 
         
        
-        <button class="btn saveButton ticon-save mr-grid" type="submit" name="savePW"><?php echo ('Register');?></button>
+        <button class="btn saveButton ticon-save mr-grid" type="submit" name="savePW"><?php echo $this->translate('Register');?></button>
 	</form>
 
 
@@ -27,8 +27,18 @@
 <script>
 $(document).ready(function(){
     
+        
+     var foundin = $('span:contains("Email:")');
+	
+	console.log(foundin.text());    
+	var email=foundin.text().replace("Email: ","");
+	console.log(email);  
+    
     $('.saveButton').on("click", function() {
     	
+       
+       document.getElementById('email').value = email;
+       
        
         $.ajax({
             type: "POST",

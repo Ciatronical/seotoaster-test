@@ -12,7 +12,8 @@ class Paypalexpress_Models_Models_PaypalExpressSettingsModel extends Application
     protected $_prodID = '';
     protected $_sandID = '';
     protected $_useSandbox = '';
-
+	protected $_usePaypalfee= '';
+	protected $_paypalfee= '';
 
     public function getId()
     {
@@ -42,7 +43,7 @@ class Paypalexpress_Models_Models_PaypalExpressSettingsModel extends Application
     }
 
 
-  public function getSandID()
+    public function getSandID()
     {
         return $this->_sandID;
     }
@@ -50,7 +51,7 @@ class Paypalexpress_Models_Models_PaypalExpressSettingsModel extends Application
     public function setSandID($sandID)
     {
         $this->_sandID = $sandID;
-       // $_sandID=$sandID;
+       
         return $this;
     }
 
@@ -64,7 +65,32 @@ class Paypalexpress_Models_Models_PaypalExpressSettingsModel extends Application
     public function setUseSandbox($useSandbox)
     {
         $this->_useSandbox = $useSandbox;
-        //$_useSandBox=$useSandBox;
+       
+        return $this;
+    }
+    
+    
+      public function getUsePaypalfee()
+    {
+        return $this->_usePaypalfee;
+    }
+
+    public function setUsePaypalfee($usePaypalfee)
+    {
+        $this->_usePaypalfee = $usePaypalfee;
+       
+        return $this;
+    }
+    
+    public function getPaypalfee()
+    {
+        return $this->_paypalfee;
+    }
+
+    public function setPaypalfee($paypalfee)
+    {
+        $this->_paypalfee = $paypalfee;
+       
         return $this;
     }
     

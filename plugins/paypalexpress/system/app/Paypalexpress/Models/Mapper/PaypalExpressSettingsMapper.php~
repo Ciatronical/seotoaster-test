@@ -22,6 +22,10 @@ class Paypalexpress_Models_Mapper_PaypalExpressSettingsMapper extends Applicatio
      * @param Paypal_Models_Models_PaypalConfigModel $config
      * @throws Exceptions_SeotoasterException
      */
+     
+     
+     
+     
     public function save($config)
     {
         if (!$config instanceof $this->_model) {
@@ -32,7 +36,9 @@ class Paypalexpress_Models_Mapper_PaypalExpressSettingsMapper extends Applicatio
             
             'prodID' => $config->getProdID(),
             'sandID' => $config->getSandID(),
-            'useSandbox' => $config->getUseSandbox()
+            'useSandbox' => $config->getUseSandbox(),
+            'usePaypalfee' => $config->getUsePaypalfee(),
+             'paypalfee' => $config->getPaypalfee()
 
         );
         $where = "id=1";

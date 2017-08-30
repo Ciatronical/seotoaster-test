@@ -8,23 +8,29 @@ $this->placeholder('headerContent')->set('Paypal Express Settings');
 
    	<form name="paypalsettings" class="pluginform content-auto" method="" action="">
 		<label class="grid_12 text-center text-bold pointer pt5px">
-            <?php echo ('Use SandBox');?>:
+            <?php echo $this->translate('Use SandBox');?>:
             <input type="checkbox" name="sandbox" <?php if($this->useSandBox == 1) echo "checked";?> />
         </label>
+        
+        <label class="grid_12 text-center text-bold pointer pt5px">
+            <?php echo $this->translate('Add PaypalFee');?>:
+            <input type="checkbox" name="usePaypalfee" <?php if($this->usePaypalfee == 1) echo "checked";?> />
+        </label>
+        
         <fieldset class="background grid_12 mt20px">
             <p>
-                <label><?php echo ('Client Production ID');?>: </label>
+                <label><?php echo $this->translate('Client Production ID');?>: </label>
                 <input type="text" name="clientProductionID" value="<?php echo $this->prodID; ?>" />
             </p>
             <p>
-                <label><?php echo ('Client Sandbox ID');?>: </label>
+                <label><?php echo $this->translate('Client Sandbox ID');?>: </label>
                 <input type="text" name="clientSandboxID" value="<?php echo $this->sandID; ?>" />
             </p>
             
 
         </fieldset>
        
-        <button class="btn saveButton ticon-save mr-grid" type="submit" name="savePaypalSettings"><?php echo $this->translator->translate('Save and Close');?></button>
+        <button class="btn saveButton ticon-save mr-grid" type="submit" name="savePaypalSettings"><?php echo $this->translator->translate('Save');?></button>
 	</form>
 
 
@@ -40,6 +46,11 @@ $(document).ready(function(){
        if($("input[name=sandbox]").prop("checked")){
            useSandBox = 1;
        }
+       
+       var usePaypalfee = 0;
+       if($("input[name=usePaypalfee]").prop("checked")){
+           usePaypalfee = 1;
+       }
 
         $.ajax({
             type: "POST",
@@ -48,7 +59,8 @@ $(document).ready(function(){
             data: {
                 prodID:$("[name=clientProductionID]").val(),
                 sandID:$("[name=clientSandboxID]").val(),
-                useSandBox: useSandBox
+                useSandBox: useSandBox,
+                usePaypalfee: usePaypalfee
             }
         }).done(function(response) {
             hideSpinner();

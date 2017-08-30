@@ -36,7 +36,9 @@ class Paypalexpress_Models_Mapper_PaypalExpressSettingsMapper extends Applicatio
             
             'prodID' => $config->getProdID(),
             'sandID' => $config->getSandID(),
-            'useSandbox' => $config->getUseSandbox()
+            'useSandbox' => $config->getUseSandbox(),
+            'usePaypalfee' => $config->getUsePaypalfee(),
+            'paypalfee' => $config->getPaypalfee()
 
         );
         $where = "id=1";

@@ -3,11 +3,13 @@ CREATE TABLE IF NOT EXISTS `plugin_paypal_express_settings` (
 `prodID` varchar(255) NOT NULL,
 `sandID` varchar(255) NOT NULL,
 `useSandbox` tinyint(1) NOT NULL,
+`usePaypalfee` tinyint(1) NOT NULL,
+`paypalfee` varchar(255) NOT NULL,
  Primary key (`id`)
 ) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 INSERT INTO `plugin_paypal_express_settings`
-VALUES ('1', '', '','0')
+VALUES ('1', '', '','0','0','*1.019+0.35')
 ON DUPLICATE KEY UPDATE id=1;
 
 UPDATE `plugin` SET `version`='2.3.0' WHERE `name`='paypal';
